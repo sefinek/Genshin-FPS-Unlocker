@@ -44,22 +44,21 @@ void Settings::Save()
 
 Settings^ Settings::Load()
 {
-    // create a config if there isn't one
+    // Create a config if there isn't one
     if (!File::Exists(ConfigPath))
         return (gcnew Settings())->InitializeDefaults();
 
     auto serialized = File::ReadAllText(ConfigPath, Encoding::UTF8);
     Settings^ instance = JsonSerializer::Deserialize<Settings^>(serialized, nullptr);
 
-    // extra sanitization
+    // Extra sanitization
     if (!instance->DllList)
         instance->DllList = gcnew List<String^>();
 
-    // remove invalid items
+    // Remove invalid items
     for each (auto path in instance->DllList->ToArray())
     {
-        if (!File::Exists(path))
-            instance->DllList->Remove(path);
+        if (!File::Exists(path)) instance->DllList->Remove(path);
     }
 
     return instance;

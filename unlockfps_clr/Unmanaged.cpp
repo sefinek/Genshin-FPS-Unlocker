@@ -47,8 +47,7 @@ bool Unmanaged::StartProcess(LPCSTR ProcessPath, LPSTR CommandLine, int Priority
     StartPriority = PrioityClass[Priority];
     SetPriorityClass(GameHandle, StartPriority);
 
-    if (!EventHook)
-        EventHook = SetWinEventHook(EVENT_SYSTEM_FOREGROUND, EVENT_SYSTEM_FOREGROUND, nullptr, WinEventProc, 0, 0, WINEVENT_OUTOFCONTEXT); // create event hook for window change detection
+    if (!EventHook) EventHook = SetWinEventHook(EVENT_SYSTEM_FOREGROUND, EVENT_SYSTEM_FOREGROUND, nullptr, WinEventProc, 0, 0, WINEVENT_OUTOFCONTEXT); // Create event hook for window change detection
 
     return true;
 }
@@ -281,7 +280,7 @@ void Unmanaged::InjectDLLs(std::vector<std::string> paths)
     BYTE dummyBuffer[0x1000]{};
     auto pLoadLibraryA = GetProcAddress(GetModuleHandleA("kernel32.dll"), "LoadLibraryA");
 
-    // reuse the same buffer for injection
+    // Reuse the same buffer for injection
     for (auto it : paths)
     {
         WriteProcessMemory(GameHandle, mem, it.data(), it.size(), nullptr);

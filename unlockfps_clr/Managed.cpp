@@ -34,8 +34,8 @@ List<String^>^ Managed::TryResolveGamePath()
             return result;
     }
 
-    // cannot find anything through chroma sdk
-    // use uninstall list instead
+    // Cannot find anything through chroma sdk
+    // Use uninstall list instead
 
     auto Uninstall = Registry::LocalMachine->OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall");
     if (Uninstall && Uninstall->SubKeyCount)
@@ -51,7 +51,7 @@ List<String^>^ Managed::TryResolveGamePath()
             if (!SubKey)
                 continue;
 
-            // the install path is the official launcher path
+            // The install path is the official launcher path
             auto InstallPath = static_cast<String^>(SubKey->GetValue("InstallPath"));
             if (String::IsNullOrWhiteSpace(InstallPath))
                 continue;
@@ -63,7 +63,7 @@ List<String^>^ Managed::TryResolveGamePath()
             if (!File::Exists(LauncherConfigPath))
                 continue;
 
-            // read the official launcher config
+            // Read the official launcher config
             // it contains the game install path and exe name
             auto LauncherConfig = File::ReadAllLines(LauncherConfigPath);
             Dictionary<String^, String^>^ ini = gcnew Dictionary<String^, String^>();
@@ -93,8 +93,7 @@ String^ Managed::TryGetGamePath()
 
 void Managed::InjectDLLs(List<String^>^ paths)
 {
-    if (!paths->Count)
-        return;
+    if (!paths->Count) return;
 
     std::vector<std::string> stlPaths;
     
@@ -112,7 +111,7 @@ bool Managed::StartGame(Settings^ settings)
 {
     if (Unmanaged::IsGameRunning() || Unmanaged::GetPID("GenshinImpact.exe") || Unmanaged::GetPID("YuanShen.exe"))
     {
-        MessageBox::Show("An instance of the game is already running", "Info", MessageBoxButtons::OK, MessageBoxIcon::Information);
+        MessageBox::Show("An instance of the game is already running.", "Information", MessageBoxButtons::OK, MessageBoxIcon::Information);
         return false;
     }
 

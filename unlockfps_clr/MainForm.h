@@ -100,6 +100,7 @@ namespace unlockfpsclr {
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MainForm::typeid));
 			this->btnStartGame = (gcnew System::Windows::Forms::Button());
 			this->ckbAutoStart = (gcnew System::Windows::Forms::CheckBox());
 			this->ttAutoStart = (gcnew System::Windows::Forms::ToolTip(this->components));
@@ -123,24 +124,26 @@ namespace unlockfpsclr {
 			// 
 			// btnStartGame
 			// 
-			this->btnStartGame->Location = System::Drawing::Point(197, 80);
+			this->btnStartGame->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+			this->btnStartGame->Location = System::Drawing::Point(197, 84);
 			this->btnStartGame->Name = L"btnStartGame";
 			this->btnStartGame->Size = System::Drawing::Size(75, 23);
 			this->btnStartGame->TabIndex = 0;
 			this->btnStartGame->TabStop = false;
-			this->btnStartGame->Text = L"Start Game";
+			this->btnStartGame->Text = L"Start game";
 			this->btnStartGame->UseVisualStyleBackColor = true;
 			this->btnStartGame->Click += gcnew System::EventHandler(this, &MainForm::btnStartGame_Click);
 			// 
 			// ckbAutoStart
 			// 
+			this->ckbAutoStart->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
 			this->ckbAutoStart->AutoSize = true;
-			this->ckbAutoStart->Location = System::Drawing::Point(15, 84);
+			this->ckbAutoStart->Location = System::Drawing::Point(12, 86);
 			this->ckbAutoStart->Name = L"ckbAutoStart";
-			this->ckbAutoStart->Size = System::Drawing::Size(144, 17);
+			this->ckbAutoStart->Size = System::Drawing::Size(141, 17);
 			this->ckbAutoStart->TabIndex = 1;
 			this->ckbAutoStart->TabStop = false;
-			this->ckbAutoStart->Text = L"Start Game Automatically";
+			this->ckbAutoStart->Text = L"Start game automatically";
 			this->ttAutoStart->SetToolTip(this->ckbAutoStart, L"This will take effect on subsequent launch");
 			this->ckbAutoStart->UseVisualStyleBackColor = true;
 			// 
@@ -154,11 +157,11 @@ namespace unlockfpsclr {
 			// 
 			this->tbFPS->AutoSize = false;
 			this->tbFPS->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->tbFPS->Location = System::Drawing::Point(15, 57);
+			this->tbFPS->Location = System::Drawing::Point(12, 59);
 			this->tbFPS->Maximum = 360;
 			this->tbFPS->Minimum = 1;
 			this->tbFPS->Name = L"tbFPS";
-			this->tbFPS->Size = System::Drawing::Size(257, 21);
+			this->tbFPS->Size = System::Drawing::Size(260, 21);
 			this->tbFPS->TabIndex = 2;
 			this->tbFPS->TabStop = false;
 			this->tbFPS->TickStyle = System::Windows::Forms::TickStyle::None;
@@ -166,23 +169,24 @@ namespace unlockfpsclr {
 			// 
 			// labelFPS
 			// 
+			this->labelFPS->Anchor = System::Windows::Forms::AnchorStyles::Left;
 			this->labelFPS->AutoSize = true;
-			this->labelFPS->Location = System::Drawing::Point(12, 33);
+			this->labelFPS->Location = System::Drawing::Point(9, 35);
 			this->labelFPS->Name = L"labelFPS";
-			this->labelFPS->Size = System::Drawing::Size(33, 13);
+			this->labelFPS->Size = System::Drawing::Size(47, 13);
 			this->labelFPS->TabIndex = 3;
-			this->labelFPS->Text = L"FPS: ";
+			this->labelFPS->Text = L"FPS limit";
 			// 
 			// inputFPS
 			// 
-			this->inputFPS->Location = System::Drawing::Point(48, 31);
+			this->inputFPS->Location = System::Drawing::Point(62, 33);
 			this->inputFPS->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 360, 0, 0, 0 });
 			this->inputFPS->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
 			this->inputFPS->Name = L"inputFPS";
-			this->inputFPS->Size = System::Drawing::Size(224, 20);
+			this->inputFPS->Size = System::Drawing::Size(210, 20);
 			this->inputFPS->TabIndex = 4;
 			this->inputFPS->TabStop = false;
-			this->inputFPS->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 120, 0, 0, 0 });
+			this->inputFPS->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 60, 0, 0, 0 });
 			// 
 			// menuStrip1
 			// 
@@ -206,21 +210,21 @@ namespace unlockfpsclr {
 			// menuItemSettings
 			// 
 			this->menuItemSettings->Name = L"menuItemSettings";
-			this->menuItemSettings->Size = System::Drawing::Size(116, 22);
+			this->menuItemSettings->Size = System::Drawing::Size(180, 22);
 			this->menuItemSettings->Text = L"Settings";
 			this->menuItemSettings->Click += gcnew System::EventHandler(this, &MainForm::settingsMenuItem_Click);
 			// 
 			// menuItemSetup
 			// 
 			this->menuItemSetup->Name = L"menuItemSetup";
-			this->menuItemSetup->Size = System::Drawing::Size(116, 22);
+			this->menuItemSetup->Size = System::Drawing::Size(180, 22);
 			this->menuItemSetup->Text = L"Setup";
 			this->menuItemSetup->Click += gcnew System::EventHandler(this, &MainForm::setupMenuItem_Click);
 			// 
 			// menuItemAbout
 			// 
 			this->menuItemAbout->Name = L"menuItemAbout";
-			this->menuItemAbout->Size = System::Drawing::Size(116, 22);
+			this->menuItemAbout->Size = System::Drawing::Size(180, 22);
 			this->menuItemAbout->Text = L"About";
 			this->menuItemAbout->Click += gcnew System::EventHandler(this, &MainForm::menuItemAbout_Click);
 			// 
@@ -265,6 +269,7 @@ namespace unlockfpsclr {
 			this->Controls->Add(this->btnStartGame);
 			this->Controls->Add(this->menuStrip1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MainMenuStrip = this->menuStrip1;
 			this->MaximizeBox = false;
 			this->Name = L"MainForm";

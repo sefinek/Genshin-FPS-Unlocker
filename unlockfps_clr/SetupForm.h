@@ -74,18 +74,20 @@ namespace unlockfpsclr {
 			// 
 			// labelResult
 			// 
-			this->labelResult->AutoSize = true;
+			this->labelResult->Anchor = System::Windows::Forms::AnchorStyles::Top;
 			this->labelResult->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->labelResult->Location = System::Drawing::Point(13, 13);
+			this->labelResult->ImageAlign = System::Drawing::ContentAlignment::MiddleRight;
+			this->labelResult->Location = System::Drawing::Point(12, 9);
 			this->labelResult->Name = L"labelResult";
-			this->labelResult->Size = System::Drawing::Size(59, 13);
+			this->labelResult->Size = System::Drawing::Size(434, 15);
 			this->labelResult->TabIndex = 0;
 			this->labelResult->Text = L"labelResult";
+			this->labelResult->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			// 
 			// labelSelectInstance
 			// 
 			this->labelSelectInstance->AutoSize = true;
-			this->labelSelectInstance->Location = System::Drawing::Point(13, 35);
+			this->labelSelectInstance->Location = System::Drawing::Point(12, 36);
 			this->labelSelectInstance->Name = L"labelSelectInstance";
 			this->labelSelectInstance->Size = System::Drawing::Size(37, 13);
 			this->labelSelectInstance->TabIndex = 1;
@@ -95,15 +97,15 @@ namespace unlockfpsclr {
 			// 
 			this->comboBoxSelectInst->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboBoxSelectInst->FormattingEnabled = true;
-			this->comboBoxSelectInst->Location = System::Drawing::Point(16, 51);
+			this->comboBoxSelectInst->Location = System::Drawing::Point(12, 54);
 			this->comboBoxSelectInst->Name = L"comboBoxSelectInst";
-			this->comboBoxSelectInst->Size = System::Drawing::Size(430, 21);
+			this->comboBoxSelectInst->Size = System::Drawing::Size(434, 21);
 			this->comboBoxSelectInst->TabIndex = 2;
 			this->comboBoxSelectInst->Visible = false;
 			// 
 			// btnBrowse
 			// 
-			this->btnBrowse->Location = System::Drawing::Point(16, 51);
+			this->btnBrowse->Location = System::Drawing::Point(12, 53);
 			this->btnBrowse->Name = L"btnBrowse";
 			this->btnBrowse->Size = System::Drawing::Size(75, 23);
 			this->btnBrowse->TabIndex = 3;
@@ -116,11 +118,11 @@ namespace unlockfpsclr {
 			// 
 			this->labelHint->AutoSize = true;
 			this->labelHint->BackColor = System::Drawing::Color::Transparent;
-			this->labelHint->Location = System::Drawing::Point(97, 56);
+			this->labelHint->Location = System::Drawing::Point(93, 57);
 			this->labelHint->Name = L"labelHint";
 			this->labelHint->Size = System::Drawing::Size(118, 13);
 			this->labelHint->TabIndex = 4;
-			this->labelHint->Text = L"or open your game now";
+			this->labelHint->Text = L"or open your game now.";
 			this->labelHint->Visible = false;
 			// 
 			// ttPath
@@ -131,7 +133,7 @@ namespace unlockfpsclr {
 			// 
 			// btnConfirm
 			// 
-			this->btnConfirm->Location = System::Drawing::Point(371, 96);
+			this->btnConfirm->Location = System::Drawing::Point(371, 84);
 			this->btnConfirm->Name = L"btnConfirm";
 			this->btnConfirm->Size = System::Drawing::Size(75, 23);
 			this->btnConfirm->TabIndex = 5;
@@ -143,7 +145,7 @@ namespace unlockfpsclr {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(458, 131);
+			this->ClientSize = System::Drawing::Size(458, 119);
 			this->Controls->Add(this->btnConfirm);
 			this->Controls->Add(this->labelHint);
 			this->Controls->Add(this->btnBrowse);
@@ -160,7 +162,7 @@ namespace unlockfpsclr {
 			this->PerformLayout();
 
 		}
-#pragma endregion
+#pragma endregionF
 	private: Void OnFormClosing(Object^ sender, FormClosingEventArgs^ e);
 	private: Void btnBrowse_Click(Object^ sender, EventArgs^ e);
 	private: Void OnProcessFound(String^ processPath);

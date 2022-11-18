@@ -6,11 +6,11 @@ namespace unlockfpsclr
 {
 	Void AboutForm::linkLabelSource_LinkClicked(Object^ sender, LinkLabelLinkClickedEventArgs^ e)
 	{
-		Process::Start("https://github.com/34736384/genshin-fps-unlock");
+		Process::Start("https://github.com/sefinek24/genshin-fps-unlock");
 	}
 
 	Void AboutForm::linkLabelIssues_LinkClicked(Object^ sender, LinkLabelLinkClickedEventArgs^ e)
 	{
-		Process::Start("https://github.com/34736384/genshin-fps-unlock/issues");
+		Process::Start("https://github.com/sefinek24/genshin-fps-unlock/issues");
 	}
 }

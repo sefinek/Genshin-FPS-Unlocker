@@ -39,7 +39,7 @@ void Run()
 Assembly^ OnAssemblyResolve(Object^ sender, ResolveEventArgs^ args)
 {
 	/*
-		resolve dependencies through cpp resource
+		Resolve dependencies through cpp resource
 		the goal is to have a single file application
 		kinda ugly but it works idc
 
@@ -88,10 +88,10 @@ int main(array<String^>^ args)
 
 	AppDomain::CurrentDomain->AssemblyResolve += gcnew ResolveEventHandler(&OnAssemblyResolve);
 
-	// check to see if the unlocker is placed with the game
+	// Check to see if the unlocker is placed with the game
 	if (File::Exists("UnityPlayer.dll") && (File::Exists("GenshinImpact.exe") || File::Exists("YuanShen.exe")))
 	{
-		MessageBox::Show("Do not place unlocker in the same folder as the game", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		MessageBox::Show("Do not place unlocker in the same folder as the game.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 		goto Exit;
 	}
 
@@ -110,14 +110,13 @@ namespace unlockfpsclr
 
 	Void MainForm::btnStartGame_Click(Object^ sender, EventArgs^ e)
 	{
-		// minimize the unlocker if create process was successful
-		if (Managed::StartGame(settings))
-			this->WindowState = System::Windows::Forms::FormWindowState::Minimized;
+		// Minimize the unlocker if create process was successful
+		if (Managed::StartGame(settings)) this->WindowState = System::Windows::Forms::FormWindowState::Minimized;
 	}
 
 	Void MainForm::settingsMenuItem_Click(Object^ sender, EventArgs^ e)
 	{
-		// open settings page
+		// Open settings page
 		settingsForm->ShowDialog();
 	}
 
@@ -126,11 +125,10 @@ namespace unlockfpsclr
 		auto hIcon = (HICON)LoadImageA(GetModuleHandleA(nullptr), MAKEINTRESOURCEA(IDI_ICON1), IMAGE_ICON, 32, 32, 0);
 		this->Icon = System::Drawing::Icon::FromHandle(static_cast<IntPtr>(hIcon));
 		notifyIcon->Icon = this->Icon;
-		//DestroyIcon(hIcon);
+		// DestroyIcon(hIcon);
 
-		// start setup dialog if game path is invalid in config
-		if (String::IsNullOrWhiteSpace(settings->GamePath) || !File::Exists(settings->GamePath))
-			(gcnew SetupForm(settings))->ShowDialog();
+		// Start setup dialog if game path is invalid in config
+		if (String::IsNullOrWhiteSpace(settings->GamePath) || !File::Exists(settings->GamePath)) (gcnew SetupForm(settings))->ShowDialog();
 
 		settings->FPSTarget = std::clamp(settings->FPSTarget, tbFPS->Minimum, tbFPS->Maximum); // sanitize
 
@@ -138,15 +136,12 @@ namespace unlockfpsclr
 		tbFPS->DataBindings->Add("Value", settings, "FPSTarget", false, DataSourceUpdateMode::OnPropertyChanged);
 		inputFPS->DataBindings->Add("Value", settings, "FPSTarget", false, DataSourceUpdateMode::OnPropertyChanged);
 
-		if (settings->StartMinimized)
-			this->WindowState = System::Windows::Forms::FormWindowState::Minimized;
-
-		if (settings->AutoStart)
-			Managed::StartGame(settings);
+		if (settings->StartMinimized) this->WindowState = System::Windows::Forms::FormWindowState::Minimized;
+		if (settings->AutoStart) Managed::StartGame(settings);
 
 		this->Focus();
 
-		// create a thread for applying fps value
+		// Create a thread for applying fps value
 		backgroundWorker = gcnew BackgroundWorker();
 		backgroundWorker->WorkerReportsProgress = true;
 		backgroundWorker->WorkerSupportsCancellation = true;
@@ -170,7 +165,7 @@ namespace unlockfpsclr
 			if (!Unmanaged::IsGameRunning())
 				continue;
 
-			// setup pointer to fps value and vsync value
+			// Setup pointer to fps value and vsync value
 			if (!Unmanaged::SetupData())
 				continue;
 
@@ -194,9 +189,7 @@ namespace unlockfpsclr
 				worker->ReportProgress(100);
 			else
 				worker->ReportProgress(10);
-
 		}
-
 	}
 
 	Void MainForm::OnProgressChanged(Object^ sender, ProgressChangedEventArgs^ e)
@@ -205,18 +198,18 @@ namespace unlockfpsclr
 		if (progress == 100)
 			Application::Exit();
 		if (progress == 10)
-			OnDoubleClick(nullptr, nullptr); // restore window
+			OnDoubleClick(nullptr, nullptr); // Restore window
 	}
 
 	Void MainForm::OnResize(Object^ sender, EventArgs^ e)
 	{
 		if (this->WindowState == FormWindowState::Minimized)
 		{
-			// tray icon visibility and tooltip
+			// Tray icon visibility and tooltip
 			notifyIcon->Visible = true;
 			notifyIcon->Text = String::Format("FPS Unlocker (FPS: {0})", settings->FPSTarget);
 
-			// only show wintoast notification once
+			// Only show wintoast notification once
 			static bool once = false;
 			if (!once)
 			{
@@ -224,18 +217,18 @@ namespace unlockfpsclr
 				once = true;
 			}
 
-			// hide app icon in taskbar
+			// Hide app icon in taskbar
 			this->ShowInTaskbar = false;
 		}
 	}
 
 	Void MainForm::OnDoubleClick(Object^ sender, EventArgs^ e)
 	{
-		// restores window and taskbar icon
+		// Restores window and taskbar icon
 		this->WindowState = FormWindowState::Normal;
 		this->ShowInTaskbar = true;
 		this->Activate();
-		//notifyIcon->Visible = false;
+		// notifyIcon->Visible = false;
 	}
 
 	Void MainForm::toolStripMenuExit_Click(Object^ sender, EventArgs^ e)
@@ -245,7 +238,7 @@ namespace unlockfpsclr
 
 	Void MainForm::OnFormClosing(Object^ sender, FormClosingEventArgs^ e)
 	{
-		// save on exit
+		// Save on exit
 		settings->Save();
 		notifyIcon->Visible = false;
 	}
@@ -255,6 +248,4 @@ namespace unlockfpsclr
 		auto form = gcnew AboutForm();
 		form->ShowDialog();
 	}
-
-
 }

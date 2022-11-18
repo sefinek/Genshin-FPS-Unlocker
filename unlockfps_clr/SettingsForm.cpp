@@ -9,7 +9,7 @@ namespace unlockfpsclr
 
     Void SettingsForm::UpdateSettings(System::Object^ sender, FormClosingEventArgs^ e)
     {
-        // update settings and write to file
+        // Update settings and write to file
         // will be called upon closing 'Settings' dialog
 
         settings->CustomResX = Convert::ToInt32(customResX->Value);
@@ -27,7 +27,7 @@ namespace unlockfpsclr
         auto index = lbDllList->SelectedIndex;
         if (index >= 0)
         {
-            // if nothing goes wrong...
+            // If nothing goes wrong...
             // the size of these two list should be the same
             settings->DllList->RemoveAt(index);
             lbDllList->Items->RemoveAt(index);
@@ -71,7 +71,7 @@ namespace unlockfpsclr
             pin_ptr<Byte> pinned = &rawBytes[0];
             if (!Unmanaged::VerifyDLL((PVOID)pinned))
             {
-                MessageBox::Show("Invalid File\nThe DLL is either corrupted or 32-bit\nOnly 64-bit DLLs are supported", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                MessageBox::Show("Invalid File.\nThe DLL is either corrupted or 32-bit.\nOnly 64-bit DLLs are supported.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
                 return;
             }
 
@@ -83,7 +83,7 @@ namespace unlockfpsclr
 
     Void SettingsForm::OnFormat(Object^ sender, ListControlConvertEventArgs^ e)
     {
-        // formatting for dll list box
+        // Formatting for DLL list box
         e->Value = Path::GetFileName(safe_cast<String^>(e->Value));
     }
 

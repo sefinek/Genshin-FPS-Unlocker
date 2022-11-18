@@ -27,13 +27,13 @@ namespace unlockfpsclr
             
             if (!selectedFile->Contains("GenshinImpact.exe") && !selectedFile->Contains("YuanShen.exe"))
             {
-                MessageBox::Show("Please select the game exe\nGenshinImpact.exe for OS version\nor\nYuanShen.exe for CN version", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                MessageBox::Show("Please select the game exe.\n\nGenshinImpact.exe for OS version.\nYuanShen.exe for CN version.", "Information", MessageBoxButtons::OK, MessageBoxIcon::Information);
                 return;
             }
 
             if (!File::Exists(directory + "\\UnityPlayer.dll"))
             {
-                MessageBox::Show("That's not the right place", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                MessageBox::Show("That's not the right place.", "Warning", MessageBoxButtons::OK, MessageBoxIcon::Warning);
                 return;
             }
 
@@ -87,7 +87,7 @@ namespace unlockfpsclr
             btnConfirm->Visible = true;
             btnBrowse->Visible = false;
             labelHint->Visible = false;
-            labelResult->Text = String::Format("Found {0} installation of the game", result->Count);
+            labelResult->Text = String::Format("Found {0} installation of the game.", result->Count);
             labelResult->ForeColor = Color::Green;
             labelSelectInstance->Text = "Select the instance you want to use:";
             comboBoxSelectInst->Visible = true;
@@ -101,7 +101,7 @@ namespace unlockfpsclr
             btnConfirm->Visible = false;
             btnBrowse->Visible = true;
             labelHint->Visible = true;
-            labelResult->Text = "cannot find your game";
+            labelResult->Text = "Sorry, i can't find your game.";
             labelResult->ForeColor = Color::Red;
             labelSelectInstance->Text = "You can:";
             comboBoxSelectInst->Visible = false;
@@ -121,5 +121,4 @@ namespace unlockfpsclr
         settings->Save();
         this->Close();
     }
-
 }
