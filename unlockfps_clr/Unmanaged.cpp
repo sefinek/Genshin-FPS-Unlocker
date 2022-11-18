@@ -7,9 +7,8 @@
 
 void __stdcall Unmanaged::WinEventProc(HWINEVENTHOOK hWinEventHook, DWORD event, HWND hwnd, LONG idObject, LONG idChild, DWORD idEventThread, DWORD dwmsEventTime)
 {
-    // event handler for monitoring window change
-    if (event != EVENT_SYSTEM_FOREGROUND)
-        return;
+    // Event handler for monitoring window change
+    if (event != EVENT_SYSTEM_FOREGROUND) return;
 
     DWORD pid = 0;
     GetWindowThreadProcessId(hwnd, &pid);
@@ -192,7 +191,7 @@ bool Unmanaged::SetupData()
     */
     uintptr_t address = PatternScan(mem, "7F 0F 8B 05 ? ? ? ?");
     if (!address)
-        return MessageBoxA(nullptr, "outdated fps pattern", "Error", MB_OK | MB_ICONERROR) == -1 && VirtualFreeEx(GameHandle, mem, 0, MEM_RELEASE) == -1; // lazy returns, should always evaluate to false
+        return MessageBoxA(nullptr, "outdated fps pattern", "Error", MB_OK | MB_ICONERROR) == -1 && VirtualFreeEx(GameHandle, mem, 0, MEM_RELEASE) == -1; // Lazy returns, should always evaluate to false
 
     {
         uintptr_t rip = address + 2;
@@ -246,11 +245,8 @@ void Unmanaged::ApplyFPSImpl(int fps)
     int current = 0;
     ReadProcessMemory(GameHandle, (LPCVOID)pFPSValue, &current, sizeof(current), nullptr);
 
-    if (current < 0)
-        return;
-
-    if (current == fps)
-        return;
+    if (current < 0) return;
+    if (current == fps) return;
 
     fps = (std::max)(1, fps);
     WriteProcessMemory(GameHandle, (LPVOID)pFPSValue, &fps, sizeof(fps), nullptr);
@@ -258,8 +254,7 @@ void Unmanaged::ApplyFPSImpl(int fps)
 
 void Unmanaged::ApplyVSync(bool disable)
 {
-    if (!pVSyncValue)
-        return;
+    if (!pVSyncValue) return;
 
     int vsync = !disable;
     WriteProcessMemory(GameHandle, (LPVOID)pVSyncValue, &vsync, sizeof(vsync), nullptr);
@@ -267,8 +262,7 @@ void Unmanaged::ApplyVSync(bool disable)
 
 void Unmanaged::InjectDLLs(std::vector<std::string> paths)
 {
-    if (!paths.size())
-        return;
+    if (!paths.size()) return;
 
     LPVOID mem = VirtualAllocEx(GameHandle, nullptr, 0x1000, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
     if (!mem)

@@ -153,12 +153,11 @@ namespace unlockfpsclr {
 			// 
 			// labelAutoSave
 			// 
-			this->labelAutoSave->AutoSize = true;
 			this->labelAutoSave->Font = (gcnew System::Drawing::Font(L"Arial", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->labelAutoSave->Location = System::Drawing::Point(30, 235);
+			this->labelAutoSave->Location = System::Drawing::Point(15, 234);
 			this->labelAutoSave->Name = L"labelAutoSave";
-			this->labelAutoSave->Size = System::Drawing::Size(223, 14);
+			this->labelAutoSave->Size = System::Drawing::Size(253, 14);
 			this->labelAutoSave->TabIndex = 0;
 			this->labelAutoSave->Text = L"All settings will be automatically saved.";
 			this->labelAutoSave->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
@@ -195,7 +194,7 @@ namespace unlockfpsclr {
 			this->comboPriority->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboPriority->FormattingEnabled = true;
 			this->comboPriority->Items->AddRange(gcnew cli::array< System::Object^  >(6) {
-				L"Realtime", L"High", L"Above Normal", L"Normal",
+				L"Realtime", L"High", L"Above Normal", L"Normal (default)",
 					L"Below Normal", L"Low"
 			});
 			this->comboPriority->Location = System::Drawing::Point(123, 100);
@@ -207,7 +206,7 @@ namespace unlockfpsclr {
 			// labelPriority
 			// 
 			this->labelPriority->AutoSize = true;
-			this->labelPriority->Location = System::Drawing::Point(7, 103);
+			this->labelPriority->Location = System::Drawing::Point(3, 103);
 			this->labelPriority->Name = L"labelPriority";
 			this->labelPriority->Size = System::Drawing::Size(108, 13);
 			this->labelPriority->TabIndex = 4;
@@ -235,7 +234,7 @@ namespace unlockfpsclr {
 			this->ckbAutoClose->TabIndex = 2;
 			this->ckbAutoClose->TabStop = false;
 			this->ckbAutoClose->Text = L"Auto close";
-			this->toolTip->SetToolTip(this->ckbAutoClose, L"Automatically close unlocker after game exits");
+			this->toolTip->SetToolTip(this->ckbAutoClose, L"Automatically close unlocker after game exits.");
 			this->ckbAutoClose->UseVisualStyleBackColor = true;
 			// 
 			// ckbStartMinimized
@@ -310,7 +309,7 @@ namespace unlockfpsclr {
 			this->comboWindowMode->Size = System::Drawing::Size(126, 21);
 			this->comboWindowMode->TabIndex = 8;
 			this->comboWindowMode->TabStop = false;
-			this->toolTip->SetToolTip(this->comboWindowMode, L"Fullscreen Window Mode\r\nThis will only apply if the game is running fullscreen");
+			this->toolTip->SetToolTip(this->comboWindowMode, L"Fullscreen Window Mode.\nThis will only apply if the game is running fullscreen.");
 			// 
 			// labelWindowMode
 			// 
@@ -391,7 +390,7 @@ namespace unlockfpsclr {
 			this->ckbPopupWnd->TabIndex = 0;
 			this->ckbPopupWnd->TabStop = false;
 			this->ckbPopupWnd->Text = L"Popup window";
-			this->toolTip->SetToolTip(this->ckbPopupWnd, L"Launch the game in borderless windowed mode");
+			this->toolTip->SetToolTip(this->ckbPopupWnd, L"Launch the game in borderless windowed mode.");
 			this->ckbPopupWnd->UseVisualStyleBackColor = true;
 			// 
 			// tabPageDLLs
@@ -410,7 +409,7 @@ namespace unlockfpsclr {
 			// 
 			// btnDllRemove
 			// 
-			this->btnDllRemove->Location = System::Drawing::Point(136, 52);
+			this->btnDllRemove->Location = System::Drawing::Point(136, 105);
 			this->btnDllRemove->Name = L"btnDllRemove";
 			this->btnDllRemove->Size = System::Drawing::Size(107, 23);
 			this->btnDllRemove->TabIndex = 3;
@@ -421,7 +420,7 @@ namespace unlockfpsclr {
 			// 
 			// btnDllAdd
 			// 
-			this->btnDllAdd->Location = System::Drawing::Point(136, 23);
+			this->btnDllAdd->Location = System::Drawing::Point(136, 76);
 			this->btnDllAdd->Name = L"btnDllAdd";
 			this->btnDllAdd->Size = System::Drawing::Size(107, 23);
 			this->btnDllAdd->TabIndex = 2;
@@ -442,11 +441,11 @@ namespace unlockfpsclr {
 			// labelDLLMessage
 			// 
 			this->labelDLLMessage->AutoSize = true;
-			this->labelDLLMessage->Location = System::Drawing::Point(7, 7);
+			this->labelDLLMessage->Location = System::Drawing::Point(7, 5);
 			this->labelDLLMessage->Name = L"labelDLLMessage";
-			this->labelDLLMessage->Size = System::Drawing::Size(206, 13);
+			this->labelDLLMessage->Size = System::Drawing::Size(209, 13);
 			this->labelDLLMessage->TabIndex = 0;
-			this->labelDLLMessage->Text = L"DLLs will be injected in the order of this list";
+			this->labelDLLMessage->Text = L"DLLs will be injected in the order of this list.";
 			// 
 			// toolTip
 			// 
@@ -458,7 +457,7 @@ namespace unlockfpsclr {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(284, 261);
+			this->ClientSize = System::Drawing::Size(284, 256);
 			this->Controls->Add(this->tabControl);
 			this->Controls->Add(this->labelAutoSave);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
@@ -478,7 +477,6 @@ namespace unlockfpsclr {
 			this->tabPageDLLs->ResumeLayout(false);
 			this->tabPageDLLs->PerformLayout();
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion

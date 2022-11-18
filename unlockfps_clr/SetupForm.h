@@ -87,7 +87,7 @@ namespace unlockfpsclr {
 			// labelSelectInstance
 			// 
 			this->labelSelectInstance->AutoSize = true;
-			this->labelSelectInstance->Location = System::Drawing::Point(12, 36);
+			this->labelSelectInstance->Location = System::Drawing::Point(9, 37);
 			this->labelSelectInstance->Name = L"labelSelectInstance";
 			this->labelSelectInstance->Size = System::Drawing::Size(37, 13);
 			this->labelSelectInstance->TabIndex = 1;
@@ -120,7 +120,7 @@ namespace unlockfpsclr {
 			this->labelHint->BackColor = System::Drawing::Color::Transparent;
 			this->labelHint->Location = System::Drawing::Point(93, 57);
 			this->labelHint->Name = L"labelHint";
-			this->labelHint->Size = System::Drawing::Size(118, 13);
+			this->labelHint->Size = System::Drawing::Size(121, 13);
 			this->labelHint->TabIndex = 4;
 			this->labelHint->Text = L"or open your game now.";
 			this->labelHint->Visible = false;
@@ -133,9 +133,9 @@ namespace unlockfpsclr {
 			// 
 			// btnConfirm
 			// 
-			this->btnConfirm->Location = System::Drawing::Point(371, 84);
+			this->btnConfirm->Location = System::Drawing::Point(360, 84);
 			this->btnConfirm->Name = L"btnConfirm";
-			this->btnConfirm->Size = System::Drawing::Size(75, 23);
+			this->btnConfirm->Size = System::Drawing::Size(86, 23);
 			this->btnConfirm->TabIndex = 5;
 			this->btnConfirm->Text = L"Confirm";
 			this->btnConfirm->UseVisualStyleBackColor = true;
