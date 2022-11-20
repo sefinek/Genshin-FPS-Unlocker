@@ -13,7 +13,7 @@
 
 ## Usage
 - Make sure you have the [Visual C++ 2019-2022 Redistributable (x64)](https://aka.ms/vs/17/release/vc_redist.x64.exe) and [.NET Framework 4.8](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48) installed
-- If it is your first time running, unlocker will attempt to find your game through registry. If it failes then it will ask you to either browse or run the game.
+- If it is your first time running, unlocker will attempt to find your game through registry. If it fails then it will ask you to either browse or run the game.
 - Place the compiled exe anywhere you want
 - Make sure your game is closed, the unlocker will automatically start the game for you
 - Run the exe as administrator, and leave the exe running
