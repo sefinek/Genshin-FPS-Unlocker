@@ -3,7 +3,7 @@
 
 ## Information
 - This tool helps you to unlock the 60 FPS limit in the game
-- This is an external program uses **WriteProcessMemory** to write the desired fps to  the game
+- This is an external program uses **WriteProcessMemory** to write the desired fps to the game
 - Handle protection bypass is already included
 - Does not require a driver for R/W access
 - Supports OS and CN version
