@@ -27,13 +27,13 @@ namespace unlockfpsclr
             
             if (!selectedFile->Contains("GenshinImpact.exe") && !selectedFile->Contains("YuanShen.exe"))
             {
-                MessageBox::Show("Please select the game exe.\n\nGenshinImpact.exe for OS version.\nYuanShen.exe for CN version.", "Information", MessageBoxButtons::OK, MessageBoxIcon::Information);
+                MessageBox::Show("Please select the game exe.\n\nGenshinImpact.exe for OS version.\nYuanShen.exe for CN version.", "Genshin Impact FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Information);
                 return;
             }
 
             if (!File::Exists(directory + "\\UnityPlayer.dll"))
             {
-                MessageBox::Show("That's not the right place.", "Warning", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+                MessageBox::Show("That's not the right place.", "Genshin Impact FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Warning);
                 return;
             }
 
@@ -68,15 +68,13 @@ namespace unlockfpsclr
 
             Thread::Sleep(200);
         }
-        
     }
 
     Void SetupForm::OnProgressChanged(Object^ sender, ProgressChangedEventArgs^ e)
     {
         auto object = e->UserState;
         auto percentage = e->ProgressPercentage;
-        if (percentage == 100)
-            this->Close();
+        if (percentage == 100) this->Close();
     }
 
     Void SetupForm::OnLoad(Object^ sender, EventArgs^ e)

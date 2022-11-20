@@ -111,7 +111,7 @@ bool Managed::StartGame(Settings^ settings)
 {
     if (Unmanaged::IsGameRunning() || Unmanaged::GetPID("GenshinImpact.exe") || Unmanaged::GetPID("YuanShen.exe"))
     {
-        MessageBox::Show("An instance of the game is already running.", "Information", MessageBoxButtons::OK, MessageBoxIcon::Information);
+        MessageBox::Show("An instance of the game is already running.", "Genshin Impact FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Information);
         return false;
     }
 

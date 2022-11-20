@@ -14,6 +14,7 @@ using namespace System::Windows::Forms;
 using namespace System::Text::Json;
 using namespace System::IO;
 using namespace System::Threading;
+using namespace System::Diagnostics;
 
 static const std::unordered_map<std::string, LPCSTR> dependencies = {
 	{"Microsoft.Bcl.AsyncInterfaces.dll", MAKEINTRESOURCEA(IDR_DLL1)},
@@ -91,7 +92,7 @@ int main(array<String^>^ args)
 	// Check to see if the unlocker is placed with the game
 	if (File::Exists("UnityPlayer.dll") && (File::Exists("GenshinImpact.exe") || File::Exists("YuanShen.exe")))
 	{
-		MessageBox::Show("Do not place unlocker in the same folder as the game.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		MessageBox::Show("Do not place unlocker in the same folder as the game.", "Genshin Impact FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 		goto Exit;
 	}
 
@@ -207,7 +208,7 @@ namespace unlockfpsclr
 		{
 			// Tray icon visibility and tooltip
 			notifyIcon->Visible = true;
-			notifyIcon->Text = String::Format("FPS Unlocker (FPS: {0})", settings->FPSTarget);
+			notifyIcon->Text = String::Format("Genshin Impact FPS Unlocker - Limit: {0} FPS", settings->FPSTarget);
 
 			// Only show wintoast notification once
 			static bool once = false;
@@ -247,5 +248,43 @@ namespace unlockfpsclr
 	{
 		auto form = gcnew AboutForm();
 		form->ShowDialog();
+	}
+
+	Void MainForm::mainApp_Click(Object^ sender, EventArgs^ e)
+	{
+		if (File::Exists("C:\\Genshin-Impact-ReShade\\Genshin Impact Mod Pack.exe")) {
+			Process::Start("C:\\Genshin-Impact-ReShade\\Genshin Impact Mod Pack.exe");
+		}
+		else {
+			MessageBox::Show("Cannot find Genshin Impact Mod Pack.exe in C:\\Genshin-Impact-ReShade.\n\nClone this app again via Git.", "Genshin Impact FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+		}
+	}
+
+	Void MainForm::si_Click(Object^ sender, EventArgs^ e)
+	{
+		Process::Start("msinfo32.exe");
+	}
+
+	Void MainForm::dxdiag_Click(Object^ sender, EventArgs^ e)
+	{
+		Process::Start("dxdiag.exe");
+	}
+
+	// Links
+	Void MainForm::githubMainRepo_Click(Object^ sender, EventArgs^ e)
+	{
+		Process::Start("https://github.com/sefinek24/genshin-impact-reshade-2023");
+	}
+	Void MainForm::githubFpsUnlock_Click(Object^ sender, EventArgs^ e)
+	{
+		Process::Start("https://github.com/sefinek24/genshin-fps-unlock");
+	}
+	Void MainForm::githubMyProfile_Click(Object^ sender, EventArgs^ e)
+	{
+		Process::Start("https://github.com/sefinek24");
+	}
+	Void MainForm::officialWebsite_Click(Object^ sender, EventArgs^ e)
+	{
+		Process::Start("https://sefinek.net");
 	}
 }

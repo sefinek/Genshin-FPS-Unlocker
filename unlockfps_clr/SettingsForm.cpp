@@ -11,7 +11,6 @@ namespace unlockfpsclr
     {
         // Update settings and write to file
         // will be called upon closing 'Settings' dialog
-
         settings->CustomResX = Convert::ToInt32(customResX->Value);
         settings->CustomResY = Convert::ToInt32(customResY->Value);
         settings->MonitorNum = Convert::ToInt32(monitorNum->Value);
@@ -36,7 +35,7 @@ namespace unlockfpsclr
 
     Void SettingsForm::OnLoad(Object^ sender, EventArgs^ e)
     {
-        monitorNum->Maximum = GetSystemMetrics(SM_CMONITORS); // get maximum monitor count
+        monitorNum->Maximum = GetSystemMetrics(SM_CMONITORS); // Get maximum monitor count
         customResX->Value = Convert::ToDecimal(std::clamp(settings->CustomResX, Convert::ToInt32(customResX->Minimum), Convert::ToInt32(customResX->Maximum))); // sanitization
         customResY->Value = Convert::ToDecimal(std::clamp(settings->CustomResY, Convert::ToInt32(customResY->Minimum), Convert::ToInt32(customResY->Maximum))); // sanitization
         monitorNum->Value = Convert::ToDecimal(std::clamp(settings->MonitorNum, Convert::ToInt32(monitorNum->Minimum), Convert::ToInt32(monitorNum->Maximum))); // sanitization
@@ -60,7 +59,7 @@ namespace unlockfpsclr
             if (auto index = lbDllList->Items->IndexOf(selectedFile); index >= 0)
             {
                 lbDllList->SelectedIndex = index;
-                MessageBox::Show("File already in list", "Info", MessageBoxButtons::OK, MessageBoxIcon::Information);
+                MessageBox::Show("File already in list.", "Genshin Impact FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Information);
                 return;
             }
 
@@ -71,14 +70,13 @@ namespace unlockfpsclr
             pin_ptr<Byte> pinned = &rawBytes[0];
             if (!Unmanaged::VerifyDLL((PVOID)pinned))
             {
-                MessageBox::Show("Invalid File.\nThe DLL is either corrupted or 32-bit.\nOnly 64-bit DLLs are supported.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                MessageBox::Show("Invalid File.\nThe DLL is either corrupted or 32-bit.\nOnly 64-bit DLLs are supported.", "Genshin Impact FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Information);
                 return;
             }
 
             settings->DllList->Add(selectedFile);
             lbDllList->Items->Add(selectedFile);
         }
-
     }
 
     Void SettingsForm::OnFormat(Object^ sender, ListControlConvertEventArgs^ e)
@@ -86,5 +84,4 @@ namespace unlockfpsclr
         // Formatting for DLL list box
         e->Value = Path::GetFileName(safe_cast<String^>(e->Value));
     }
-
 }

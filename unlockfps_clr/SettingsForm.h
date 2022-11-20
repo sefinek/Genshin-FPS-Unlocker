@@ -277,12 +277,12 @@ namespace unlockfpsclr {
 			this->tabPageLaunchOptions->Padding = System::Windows::Forms::Padding(3);
 			this->tabPageLaunchOptions->Size = System::Drawing::Size(249, 193);
 			this->tabPageLaunchOptions->TabIndex = 1;
-			this->tabPageLaunchOptions->Text = L"Launch Options";
+			this->tabPageLaunchOptions->Text = L"Launch options";
 			this->tabPageLaunchOptions->UseVisualStyleBackColor = true;
 			// 
 			// monitorNum
 			// 
-			this->monitorNum->Location = System::Drawing::Point(111, 132);
+			this->monitorNum->Location = System::Drawing::Point(111, 133);
 			this->monitorNum->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
 			this->monitorNum->Name = L"monitorNum";
 			this->monitorNum->Size = System::Drawing::Size(126, 20);
@@ -293,18 +293,18 @@ namespace unlockfpsclr {
 			// labelMonitorNum
 			// 
 			this->labelMonitorNum->AutoSize = true;
-			this->labelMonitorNum->Location = System::Drawing::Point(7, 134);
+			this->labelMonitorNum->Location = System::Drawing::Point(7, 135);
 			this->labelMonitorNum->Name = L"labelMonitorNum";
-			this->labelMonitorNum->Size = System::Drawing::Size(45, 13);
+			this->labelMonitorNum->Size = System::Drawing::Size(42, 13);
 			this->labelMonitorNum->TabIndex = 9;
-			this->labelMonitorNum->Text = L"Monitor:";
+			this->labelMonitorNum->Text = L"Monitor";
 			// 
 			// comboWindowMode
 			// 
 			this->comboWindowMode->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboWindowMode->FormattingEnabled = true;
 			this->comboWindowMode->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Borderless", L"Exclusive" });
-			this->comboWindowMode->Location = System::Drawing::Point(111, 104);
+			this->comboWindowMode->Location = System::Drawing::Point(111, 105);
 			this->comboWindowMode->Name = L"comboWindowMode";
 			this->comboWindowMode->Size = System::Drawing::Size(126, 21);
 			this->comboWindowMode->TabIndex = 8;
@@ -314,7 +314,7 @@ namespace unlockfpsclr {
 			// labelWindowMode
 			// 
 			this->labelWindowMode->AutoSize = true;
-			this->labelWindowMode->Location = System::Drawing::Point(7, 107);
+			this->labelWindowMode->Location = System::Drawing::Point(7, 108);
 			this->labelWindowMode->Name = L"labelWindowMode";
 			this->labelWindowMode->Size = System::Drawing::Size(75, 13);
 			this->labelWindowMode->TabIndex = 7;
@@ -323,7 +323,7 @@ namespace unlockfpsclr {
 			// labelDummy
 			// 
 			this->labelDummy->AutoSize = true;
-			this->labelDummy->Location = System::Drawing::Point(169, 79);
+			this->labelDummy->Location = System::Drawing::Point(169, 80);
 			this->labelDummy->Name = L"labelDummy";
 			this->labelDummy->Size = System::Drawing::Size(12, 13);
 			this->labelDummy->TabIndex = 6;
@@ -331,7 +331,7 @@ namespace unlockfpsclr {
 			// 
 			// customResY
 			// 
-			this->customResY->Location = System::Drawing::Point(182, 77);
+			this->customResY->Location = System::Drawing::Point(182, 78);
 			this->customResY->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 4320, 0, 0, 0 });
 			this->customResY->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 200, 0, 0, 0 });
 			this->customResY->Name = L"customResY";
@@ -341,7 +341,7 @@ namespace unlockfpsclr {
 			// 
 			// customResX
 			// 
-			this->customResX->Location = System::Drawing::Point(111, 77);
+			this->customResX->Location = System::Drawing::Point(111, 78);
 			this->customResX->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 7680, 0, 0, 0 });
 			this->customResX->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 200, 0, 0, 0 });
 			this->customResX->Name = L"customResX";
@@ -353,7 +353,7 @@ namespace unlockfpsclr {
 			// labelCustomRes
 			// 
 			this->labelCustomRes->AutoSize = true;
-			this->labelCustomRes->Location = System::Drawing::Point(7, 79);
+			this->labelCustomRes->Location = System::Drawing::Point(7, 80);
 			this->labelCustomRes->Name = L"labelCustomRes";
 			this->labelCustomRes->Size = System::Drawing::Size(90, 13);
 			this->labelCustomRes->TabIndex = 3;
@@ -441,7 +441,7 @@ namespace unlockfpsclr {
 			// labelDLLMessage
 			// 
 			this->labelDLLMessage->AutoSize = true;
-			this->labelDLLMessage->Location = System::Drawing::Point(7, 5);
+			this->labelDLLMessage->Location = System::Drawing::Point(7, 4);
 			this->labelDLLMessage->Name = L"labelDLLMessage";
 			this->labelDLLMessage->Size = System::Drawing::Size(209, 13);
 			this->labelDLLMessage->TabIndex = 0;
