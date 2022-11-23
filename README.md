@@ -12,7 +12,7 @@
 - You can download the compiled binary over at [Release](https://github.com/sefinek24/genshin-fps-unlock/releases) if you don't want to compile it yourself
 
 ## Usage
-- Make sure you have the [Visual C++ 2019-2022 Redistributable (x64)](https://aka.ms/vs/17/release/vc_redist.x64.exe) and [.NET Framework 4.8](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48) installed
+- Make sure you have the [Visual C++ 2015-2022 Redistributable (x64)](https://aka.ms/vs/17/release/vc_redist.x64.exe) and [.NET Framework 4.8](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48) installed
 - If it is your first time running, unlocker will attempt to find your game through registry. If it fails then it will ask you to either browse or run the game.
 - Place the compiled exe anywhere you want
 - Make sure your game is closed, the unlocker will automatically start the game for you
@@ -21,11 +21,11 @@
 - To inject other third party plugins (e.g. ReShade), go to `Options->Settings->DLLs` and click add
 
 ## Notes
-- My test account is currently AR55, can't guarantee it will be safe forever, But honestly though, I doubt they would ban you for this.
-- Modifying game memory with an unauthorized third party application is a violation of the ToS, so use it at your own risk (same thing applies for injecting ReShade)
+- My test account is currently AR55, can't guarantee it will be safe forever, but honestly though, I doubt they would ban you for this.
+- Modifying game memory with an unauthorized third party application is a violation of the ToS, so use it at your own risk. Same thing applies for injecting ReShade.
 
 ## Compiling
-Use Visual Studio 2022 Community Edition to compile
+Use Visual Studio 2022 Community Edition to compile.
 
 ## Version 2.0.0 Changes
 [Click here](https://github.com/34736384/genshin-fps-unlock#version-200-changes)
