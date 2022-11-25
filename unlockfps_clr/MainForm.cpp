@@ -291,5 +291,4 @@ namespace unlockfpsclr
 	{
 		Process::Start("https://github.com/sefinek24");
 	}
-
 }

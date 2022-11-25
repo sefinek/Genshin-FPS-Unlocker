@@ -9,8 +9,7 @@ namespace unlockfpsclr
 
     Void SetupForm::OnFormClosing(Object^ sender, FormClosingEventArgs^ e)
     {
-        if (String::IsNullOrWhiteSpace(settings->GamePath))
-            Application::Exit();
+        if (String::IsNullOrWhiteSpace(settings->GamePath)) Application::Exit();
     }
 
     Void SetupForm::btnBrowse_Click(Object^ sender, EventArgs^ e)

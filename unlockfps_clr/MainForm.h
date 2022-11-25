@@ -68,20 +68,18 @@ namespace unlockfpsclr {
 	private: System::Windows::Forms::ToolStripMenuItem^ toolStripMenuExit;
 	private: System::Windows::Forms::ToolStripMenuItem^ menuItemAbout;
 	private: System::Windows::Forms::ToolStripMenuItem^ openToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ genshinImpactModPackToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ checkHzOfYourMonitorToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ systemInformationToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ dxDiaxToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ linksToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ officialWebsiteToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ youTubeToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ gitHubToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ repositoriesToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ genshinImpactReShade2023ToolStripMenuItem1;
-	private: System::Windows::Forms::ToolStripMenuItem^ genshinFPSUnlockToolStripMenuItem1;
+	private: System::Windows::Forms::ToolStripMenuItem^ genshinImpactReShade2023ToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ genshinFPSUnlockToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ myProfileToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ officialWebsiteToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ toolStripMenuItem1;
-	private: System::Windows::Forms::ToolStripMenuItem^ youTubeToolStripMenuItem;
-
-
 
 
 
@@ -115,7 +113,6 @@ namespace unlockfpsclr {
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MainForm::typeid));
 			this->btnStartGame = (gcnew System::Windows::Forms::Button());
 			this->ckbAutoStart = (gcnew System::Windows::Forms::CheckBox());
 			this->ttAutoStart = (gcnew System::Windows::Forms::ToolTip(this->components));
@@ -128,22 +125,22 @@ namespace unlockfpsclr {
 			this->menuItemSetup = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuItemAbout = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->openToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->toolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->genshinImpactModPackToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->checkHzOfYourMonitorToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->systemInformationToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->dxDiaxToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->linksToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->officialWebsiteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->youTubeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->gitHubToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->repositoriesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->genshinImpactReShade2023ToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->genshinFPSUnlockToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->genshinImpactReShade2023ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->genshinFPSUnlockToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->myProfileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->officialWebsiteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ttGamePath = (gcnew System::Windows::Forms::ToolTip(this->components));
 			this->notifyIcon = (gcnew System::Windows::Forms::NotifyIcon(this->components));
 			this->contextMenuNotify = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
 			this->toolStripMenuExit = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->youTubeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbFPS))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->inputFPS))->BeginInit();
 			this->menuStrip1->SuspendLayout();
@@ -152,8 +149,7 @@ namespace unlockfpsclr {
 			// 
 			// btnStartGame
 			// 
-			this->btnStartGame->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
-			this->btnStartGame->Location = System::Drawing::Point(197, 84);
+			this->btnStartGame->Location = System::Drawing::Point(197, 82);
 			this->btnStartGame->Name = L"btnStartGame";
 			this->btnStartGame->Size = System::Drawing::Size(75, 23);
 			this->btnStartGame->TabIndex = 0;
@@ -164,9 +160,8 @@ namespace unlockfpsclr {
 			// 
 			// ckbAutoStart
 			// 
-			this->ckbAutoStart->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
 			this->ckbAutoStart->AutoSize = true;
-			this->ckbAutoStart->Location = System::Drawing::Point(12, 86);
+			this->ckbAutoStart->Location = System::Drawing::Point(15, 86);
 			this->ckbAutoStart->Name = L"ckbAutoStart";
 			this->ckbAutoStart->Size = System::Drawing::Size(141, 17);
 			this->ckbAutoStart->TabIndex = 1;
@@ -185,11 +180,11 @@ namespace unlockfpsclr {
 			// 
 			this->tbFPS->AutoSize = false;
 			this->tbFPS->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->tbFPS->Location = System::Drawing::Point(12, 58);
+			this->tbFPS->Location = System::Drawing::Point(15, 58);
 			this->tbFPS->Maximum = 360;
 			this->tbFPS->Minimum = 1;
 			this->tbFPS->Name = L"tbFPS";
-			this->tbFPS->Size = System::Drawing::Size(260, 21);
+			this->tbFPS->Size = System::Drawing::Size(257, 21);
 			this->tbFPS->TabIndex = 2;
 			this->tbFPS->TabStop = false;
 			this->tbFPS->TickStyle = System::Windows::Forms::TickStyle::None;
@@ -197,9 +192,8 @@ namespace unlockfpsclr {
 			// 
 			// labelFPS
 			// 
-			this->labelFPS->Anchor = System::Windows::Forms::AnchorStyles::Left;
 			this->labelFPS->AutoSize = true;
-			this->labelFPS->Location = System::Drawing::Point(9, 35);
+			this->labelFPS->Location = System::Drawing::Point(12, 35);
 			this->labelFPS->Name = L"labelFPS";
 			this->labelFPS->Size = System::Drawing::Size(47, 13);
 			this->labelFPS->TabIndex = 3;
@@ -207,14 +201,14 @@ namespace unlockfpsclr {
 			// 
 			// inputFPS
 			// 
-			this->inputFPS->Location = System::Drawing::Point(62, 33);
+			this->inputFPS->Location = System::Drawing::Point(65, 32);
 			this->inputFPS->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 360, 0, 0, 0 });
 			this->inputFPS->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
 			this->inputFPS->Name = L"inputFPS";
-			this->inputFPS->Size = System::Drawing::Size(210, 20);
+			this->inputFPS->Size = System::Drawing::Size(207, 20);
 			this->inputFPS->TabIndex = 4;
 			this->inputFPS->TabStop = false;
-			this->inputFPS->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 60, 0, 0, 0 });
+			this->inputFPS->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 120, 0, 0, 0 });
 			// 
 			// menuStrip1
 			// 
@@ -262,19 +256,19 @@ namespace unlockfpsclr {
 			// openToolStripMenuItem
 			// 
 			this->openToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-				this->toolStripMenuItem1,
+				this->genshinImpactModPackToolStripMenuItem,
 					this->checkHzOfYourMonitorToolStripMenuItem
 			});
 			this->openToolStripMenuItem->Name = L"openToolStripMenuItem";
 			this->openToolStripMenuItem->Size = System::Drawing::Size(48, 20);
 			this->openToolStripMenuItem->Text = L"Open";
 			// 
-			// toolStripMenuItem1
+			// genshinImpactModPackToolStripMenuItem
 			// 
-			this->toolStripMenuItem1->Name = L"toolStripMenuItem1";
-			this->toolStripMenuItem1->Size = System::Drawing::Size(213, 22);
-			this->toolStripMenuItem1->Text = L"Genshin Impact Mod Pack";
-			this->toolStripMenuItem1->Click += gcnew System::EventHandler(this, &MainForm::mainApp_Click);
+			this->genshinImpactModPackToolStripMenuItem->Name = L"genshinImpactModPackToolStripMenuItem";
+			this->genshinImpactModPackToolStripMenuItem->Size = System::Drawing::Size(213, 22);
+			this->genshinImpactModPackToolStripMenuItem->Text = L"Genshin Impact Mod Pack";
+			this->genshinImpactModPackToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::mainApp_Click);
 			// 
 			// checkHzOfYourMonitorToolStripMenuItem
 			// 
@@ -289,14 +283,14 @@ namespace unlockfpsclr {
 			// systemInformationToolStripMenuItem
 			// 
 			this->systemInformationToolStripMenuItem->Name = L"systemInformationToolStripMenuItem";
-			this->systemInformationToolStripMenuItem->Size = System::Drawing::Size(178, 22);
-			this->systemInformationToolStripMenuItem->Text = L"System Information";
+			this->systemInformationToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->systemInformationToolStripMenuItem->Text = L"System information";
 			this->systemInformationToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::si_Click);
 			// 
 			// dxDiaxToolStripMenuItem
 			// 
 			this->dxDiaxToolStripMenuItem->Name = L"dxDiaxToolStripMenuItem";
-			this->dxDiaxToolStripMenuItem->Size = System::Drawing::Size(178, 22);
+			this->dxDiaxToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->dxDiaxToolStripMenuItem->Text = L"DxDiax";
 			this->dxDiaxToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::dxdiag_Click);
 			// 
@@ -309,6 +303,20 @@ namespace unlockfpsclr {
 			this->linksToolStripMenuItem->Name = L"linksToolStripMenuItem";
 			this->linksToolStripMenuItem->Size = System::Drawing::Size(46, 20);
 			this->linksToolStripMenuItem->Text = L"Links";
+			// 
+			// officialWebsiteToolStripMenuItem
+			// 
+			this->officialWebsiteToolStripMenuItem->Name = L"officialWebsiteToolStripMenuItem";
+			this->officialWebsiteToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->officialWebsiteToolStripMenuItem->Text = L"Official website";
+			this->officialWebsiteToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::officialWebsite_Click);
+			// 
+			// youTubeToolStripMenuItem
+			// 
+			this->youTubeToolStripMenuItem->Name = L"youTubeToolStripMenuItem";
+			this->youTubeToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->youTubeToolStripMenuItem->Text = L"YouTube";
+			this->youTubeToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::youtube_Click);
 			// 
 			// gitHubToolStripMenuItem
 			// 
@@ -323,26 +331,26 @@ namespace unlockfpsclr {
 			// repositoriesToolStripMenuItem
 			// 
 			this->repositoriesToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-				this->genshinImpactReShade2023ToolStripMenuItem1,
-					this->genshinFPSUnlockToolStripMenuItem1
+				this->genshinImpactReShade2023ToolStripMenuItem,
+					this->genshinFPSUnlockToolStripMenuItem
 			});
 			this->repositoriesToolStripMenuItem->Name = L"repositoriesToolStripMenuItem";
 			this->repositoriesToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->repositoriesToolStripMenuItem->Text = L"Repositories";
 			// 
-			// genshinImpactReShade2023ToolStripMenuItem1
+			// genshinImpactReShade2023ToolStripMenuItem
 			// 
-			this->genshinImpactReShade2023ToolStripMenuItem1->Name = L"genshinImpactReShade2023ToolStripMenuItem1";
-			this->genshinImpactReShade2023ToolStripMenuItem1->Size = System::Drawing::Size(232, 22);
-			this->genshinImpactReShade2023ToolStripMenuItem1->Text = L"Genshin Impact ReShade 2023";
-			this->genshinImpactReShade2023ToolStripMenuItem1->Click += gcnew System::EventHandler(this, &MainForm::githubMainRepo_Click);
+			this->genshinImpactReShade2023ToolStripMenuItem->Name = L"genshinImpactReShade2023ToolStripMenuItem";
+			this->genshinImpactReShade2023ToolStripMenuItem->Size = System::Drawing::Size(232, 22);
+			this->genshinImpactReShade2023ToolStripMenuItem->Text = L"Genshin Impact ReShade 2023";
+			this->genshinImpactReShade2023ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::githubMainRepo_Click);
 			// 
-			// genshinFPSUnlockToolStripMenuItem1
+			// genshinFPSUnlockToolStripMenuItem
 			// 
-			this->genshinFPSUnlockToolStripMenuItem1->Name = L"genshinFPSUnlockToolStripMenuItem1";
-			this->genshinFPSUnlockToolStripMenuItem1->Size = System::Drawing::Size(232, 22);
-			this->genshinFPSUnlockToolStripMenuItem1->Text = L"Genshin FPS Unlock";
-			this->genshinFPSUnlockToolStripMenuItem1->Click += gcnew System::EventHandler(this, &MainForm::githubFpsUnlock_Click);
+			this->genshinFPSUnlockToolStripMenuItem->Name = L"genshinFPSUnlockToolStripMenuItem";
+			this->genshinFPSUnlockToolStripMenuItem->Size = System::Drawing::Size(232, 22);
+			this->genshinFPSUnlockToolStripMenuItem->Text = L"Genshin FPS Unlock";
+			this->genshinFPSUnlockToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::githubFpsUnlock_Click);
 			// 
 			// myProfileToolStripMenuItem
 			// 
@@ -350,13 +358,6 @@ namespace unlockfpsclr {
 			this->myProfileToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->myProfileToolStripMenuItem->Text = L"My profile";
 			this->myProfileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::githubMyProfile_Click);
-			// 
-			// officialWebsiteToolStripMenuItem
-			// 
-			this->officialWebsiteToolStripMenuItem->Name = L"officialWebsiteToolStripMenuItem";
-			this->officialWebsiteToolStripMenuItem->Size = System::Drawing::Size(180, 22);
-			this->officialWebsiteToolStripMenuItem->Text = L"Official website";
-			this->officialWebsiteToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::officialWebsite_Click);
 			// 
 			// ttGamePath
 			// 
@@ -370,7 +371,7 @@ namespace unlockfpsclr {
 			this->notifyIcon->BalloonTipText = L"Minimized to tray";
 			this->notifyIcon->BalloonTipTitle = L"FPS Unlocker";
 			this->notifyIcon->ContextMenuStrip = this->contextMenuNotify;
-			this->notifyIcon->Text = L"Genshin Impact FPS Unlocker";
+			this->notifyIcon->Text = L"Hello";
 			this->notifyIcon->Visible = true;
 			// 
 			// contextMenuNotify
@@ -387,13 +388,6 @@ namespace unlockfpsclr {
 			this->toolStripMenuExit->Text = L"Exit";
 			this->toolStripMenuExit->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuExit_Click);
 			// 
-			// youTubeToolStripMenuItem
-			// 
-			this->youTubeToolStripMenuItem->Name = L"youTubeToolStripMenuItem";
-			this->youTubeToolStripMenuItem->Size = System::Drawing::Size(180, 22);
-			this->youTubeToolStripMenuItem->Text = L"YouTube";
-			this->youTubeToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::youtube_Click);
-			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -406,7 +400,6 @@ namespace unlockfpsclr {
 			this->Controls->Add(this->btnStartGame);
 			this->Controls->Add(this->menuStrip1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
-			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MainMenuStrip = this->menuStrip1;
 			this->MaximizeBox = false;
 			this->Name = L"MainForm";

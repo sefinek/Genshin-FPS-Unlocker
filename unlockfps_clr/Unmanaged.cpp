@@ -304,8 +304,7 @@ bool Unmanaged::ShowError(std::string apiName, DWORD code)
 
 bool Unmanaged::VerifyDLL(PVOID module)
 {
-    if (!module)
-        return false;
+    if (!module) return false;
 
     uintptr_t base = reinterpret_cast<uintptr_t>(module);
 

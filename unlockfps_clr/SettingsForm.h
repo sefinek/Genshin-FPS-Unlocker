@@ -153,11 +153,11 @@ namespace unlockfpsclr {
 			// 
 			// labelAutoSave
 			// 
-			this->labelAutoSave->Font = (gcnew System::Drawing::Font(L"Arial", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->labelAutoSave->Location = System::Drawing::Point(15, 234);
+			this->labelAutoSave->Anchor = System::Windows::Forms::AnchorStyles::Bottom;
+			this->labelAutoSave->Font = (gcnew System::Drawing::Font(L"Arial", 8.25F, System::Drawing::FontStyle::Bold));
+			this->labelAutoSave->Location = System::Drawing::Point(16, 241);
 			this->labelAutoSave->Name = L"labelAutoSave";
-			this->labelAutoSave->Size = System::Drawing::Size(253, 14);
+			this->labelAutoSave->Size = System::Drawing::Size(249, 14);
 			this->labelAutoSave->TabIndex = 0;
 			this->labelAutoSave->Text = L"All settings will be automatically saved.";
 			this->labelAutoSave->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
@@ -167,10 +167,10 @@ namespace unlockfpsclr {
 			this->tabControl->Controls->Add(this->tabPageGeneral);
 			this->tabControl->Controls->Add(this->tabPageLaunchOptions);
 			this->tabControl->Controls->Add(this->tabPageDLLs);
-			this->tabControl->Location = System::Drawing::Point(15, 12);
+			this->tabControl->Location = System::Drawing::Point(12, 12);
 			this->tabControl->Name = L"tabControl";
 			this->tabControl->SelectedIndex = 0;
-			this->tabControl->Size = System::Drawing::Size(257, 219);
+			this->tabControl->Size = System::Drawing::Size(257, 223);
 			this->tabControl->TabIndex = 1;
 			// 
 			// tabPageGeneral
@@ -184,7 +184,7 @@ namespace unlockfpsclr {
 			this->tabPageGeneral->Location = System::Drawing::Point(4, 22);
 			this->tabPageGeneral->Name = L"tabPageGeneral";
 			this->tabPageGeneral->Padding = System::Windows::Forms::Padding(3);
-			this->tabPageGeneral->Size = System::Drawing::Size(249, 193);
+			this->tabPageGeneral->Size = System::Drawing::Size(249, 197);
 			this->tabPageGeneral->TabIndex = 0;
 			this->tabPageGeneral->Text = L"General";
 			this->tabPageGeneral->UseVisualStyleBackColor = true;
@@ -194,8 +194,8 @@ namespace unlockfpsclr {
 			this->comboPriority->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboPriority->FormattingEnabled = true;
 			this->comboPriority->Items->AddRange(gcnew cli::array< System::Object^  >(6) {
-				L"Realtime", L"High", L"Above Normal", L"Normal (default)",
-					L"Below Normal", L"Low"
+				L"Realtime", L"High", L"Above normal", L"Normal (default)",
+					L"Below normal", L"Low"
 			});
 			this->comboPriority->Location = System::Drawing::Point(123, 100);
 			this->comboPriority->Name = L"comboPriority";
@@ -206,7 +206,7 @@ namespace unlockfpsclr {
 			// labelPriority
 			// 
 			this->labelPriority->AutoSize = true;
-			this->labelPriority->Location = System::Drawing::Point(3, 103);
+			this->labelPriority->Location = System::Drawing::Point(7, 103);
 			this->labelPriority->Name = L"labelPriority";
 			this->labelPriority->Size = System::Drawing::Size(108, 13);
 			this->labelPriority->TabIndex = 4;
@@ -234,7 +234,7 @@ namespace unlockfpsclr {
 			this->ckbAutoClose->TabIndex = 2;
 			this->ckbAutoClose->TabStop = false;
 			this->ckbAutoClose->Text = L"Auto close";
-			this->toolTip->SetToolTip(this->ckbAutoClose, L"Automatically close unlocker after game exits.");
+			this->toolTip->SetToolTip(this->ckbAutoClose, L"Automatically close unlocker after game exits");
 			this->ckbAutoClose->UseVisualStyleBackColor = true;
 			// 
 			// ckbStartMinimized
@@ -253,10 +253,10 @@ namespace unlockfpsclr {
 			this->ckbVSync->AutoSize = true;
 			this->ckbVSync->Location = System::Drawing::Point(7, 7);
 			this->ckbVSync->Name = L"ckbVSync";
-			this->ckbVSync->Size = System::Drawing::Size(95, 17);
+			this->ckbVSync->Size = System::Drawing::Size(118, 17);
 			this->ckbVSync->TabIndex = 0;
 			this->ckbVSync->TabStop = false;
-			this->ckbVSync->Text = L"Disable VSync";
+			this->ckbVSync->Text = L"Auto disable VSync";
 			this->ckbVSync->UseVisualStyleBackColor = true;
 			// 
 			// tabPageLaunchOptions
@@ -275,14 +275,14 @@ namespace unlockfpsclr {
 			this->tabPageLaunchOptions->Location = System::Drawing::Point(4, 22);
 			this->tabPageLaunchOptions->Name = L"tabPageLaunchOptions";
 			this->tabPageLaunchOptions->Padding = System::Windows::Forms::Padding(3);
-			this->tabPageLaunchOptions->Size = System::Drawing::Size(249, 193);
+			this->tabPageLaunchOptions->Size = System::Drawing::Size(249, 197);
 			this->tabPageLaunchOptions->TabIndex = 1;
-			this->tabPageLaunchOptions->Text = L"Launch options";
+			this->tabPageLaunchOptions->Text = L"Launch Options";
 			this->tabPageLaunchOptions->UseVisualStyleBackColor = true;
 			// 
 			// monitorNum
 			// 
-			this->monitorNum->Location = System::Drawing::Point(111, 133);
+			this->monitorNum->Location = System::Drawing::Point(111, 132);
 			this->monitorNum->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
 			this->monitorNum->Name = L"monitorNum";
 			this->monitorNum->Size = System::Drawing::Size(126, 20);
@@ -293,7 +293,7 @@ namespace unlockfpsclr {
 			// labelMonitorNum
 			// 
 			this->labelMonitorNum->AutoSize = true;
-			this->labelMonitorNum->Location = System::Drawing::Point(7, 135);
+			this->labelMonitorNum->Location = System::Drawing::Point(7, 134);
 			this->labelMonitorNum->Name = L"labelMonitorNum";
 			this->labelMonitorNum->Size = System::Drawing::Size(42, 13);
 			this->labelMonitorNum->TabIndex = 9;
@@ -304,17 +304,17 @@ namespace unlockfpsclr {
 			this->comboWindowMode->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboWindowMode->FormattingEnabled = true;
 			this->comboWindowMode->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Borderless", L"Exclusive" });
-			this->comboWindowMode->Location = System::Drawing::Point(111, 105);
+			this->comboWindowMode->Location = System::Drawing::Point(111, 104);
 			this->comboWindowMode->Name = L"comboWindowMode";
 			this->comboWindowMode->Size = System::Drawing::Size(126, 21);
 			this->comboWindowMode->TabIndex = 8;
 			this->comboWindowMode->TabStop = false;
-			this->toolTip->SetToolTip(this->comboWindowMode, L"Fullscreen Window Mode.\nThis will only apply if the game is running fullscreen.");
+			this->toolTip->SetToolTip(this->comboWindowMode, L"Fullscreen Window Mode\r\nThis will only apply if the game is running fullscreen");
 			// 
 			// labelWindowMode
 			// 
 			this->labelWindowMode->AutoSize = true;
-			this->labelWindowMode->Location = System::Drawing::Point(7, 108);
+			this->labelWindowMode->Location = System::Drawing::Point(7, 107);
 			this->labelWindowMode->Name = L"labelWindowMode";
 			this->labelWindowMode->Size = System::Drawing::Size(75, 13);
 			this->labelWindowMode->TabIndex = 7;
@@ -323,7 +323,7 @@ namespace unlockfpsclr {
 			// labelDummy
 			// 
 			this->labelDummy->AutoSize = true;
-			this->labelDummy->Location = System::Drawing::Point(169, 80);
+			this->labelDummy->Location = System::Drawing::Point(169, 79);
 			this->labelDummy->Name = L"labelDummy";
 			this->labelDummy->Size = System::Drawing::Size(12, 13);
 			this->labelDummy->TabIndex = 6;
@@ -331,7 +331,7 @@ namespace unlockfpsclr {
 			// 
 			// customResY
 			// 
-			this->customResY->Location = System::Drawing::Point(182, 78);
+			this->customResY->Location = System::Drawing::Point(182, 77);
 			this->customResY->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 4320, 0, 0, 0 });
 			this->customResY->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 200, 0, 0, 0 });
 			this->customResY->Name = L"customResY";
@@ -341,7 +341,7 @@ namespace unlockfpsclr {
 			// 
 			// customResX
 			// 
-			this->customResX->Location = System::Drawing::Point(111, 78);
+			this->customResX->Location = System::Drawing::Point(111, 77);
 			this->customResX->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 7680, 0, 0, 0 });
 			this->customResX->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 200, 0, 0, 0 });
 			this->customResX->Name = L"customResX";
@@ -353,7 +353,7 @@ namespace unlockfpsclr {
 			// labelCustomRes
 			// 
 			this->labelCustomRes->AutoSize = true;
-			this->labelCustomRes->Location = System::Drawing::Point(7, 80);
+			this->labelCustomRes->Location = System::Drawing::Point(7, 79);
 			this->labelCustomRes->Name = L"labelCustomRes";
 			this->labelCustomRes->Size = System::Drawing::Size(90, 13);
 			this->labelCustomRes->TabIndex = 3;
@@ -390,7 +390,7 @@ namespace unlockfpsclr {
 			this->ckbPopupWnd->TabIndex = 0;
 			this->ckbPopupWnd->TabStop = false;
 			this->ckbPopupWnd->Text = L"Popup window";
-			this->toolTip->SetToolTip(this->ckbPopupWnd, L"Launch the game in borderless windowed mode.");
+			this->toolTip->SetToolTip(this->ckbPopupWnd, L"Launch the game in borderless windowed mode");
 			this->ckbPopupWnd->UseVisualStyleBackColor = true;
 			// 
 			// tabPageDLLs
@@ -402,14 +402,14 @@ namespace unlockfpsclr {
 			this->tabPageDLLs->Location = System::Drawing::Point(4, 22);
 			this->tabPageDLLs->Name = L"tabPageDLLs";
 			this->tabPageDLLs->Padding = System::Windows::Forms::Padding(3);
-			this->tabPageDLLs->Size = System::Drawing::Size(249, 193);
+			this->tabPageDLLs->Size = System::Drawing::Size(249, 197);
 			this->tabPageDLLs->TabIndex = 2;
 			this->tabPageDLLs->Text = L"DLLs";
 			this->tabPageDLLs->UseVisualStyleBackColor = true;
 			// 
 			// btnDllRemove
 			// 
-			this->btnDllRemove->Location = System::Drawing::Point(136, 105);
+			this->btnDllRemove->Location = System::Drawing::Point(136, 109);
 			this->btnDllRemove->Name = L"btnDllRemove";
 			this->btnDllRemove->Size = System::Drawing::Size(107, 23);
 			this->btnDllRemove->TabIndex = 3;
@@ -420,7 +420,7 @@ namespace unlockfpsclr {
 			// 
 			// btnDllAdd
 			// 
-			this->btnDllAdd->Location = System::Drawing::Point(136, 76);
+			this->btnDllAdd->Location = System::Drawing::Point(136, 75);
 			this->btnDllAdd->Name = L"btnDllAdd";
 			this->btnDllAdd->Size = System::Drawing::Size(107, 23);
 			this->btnDllAdd->TabIndex = 2;
@@ -432,7 +432,7 @@ namespace unlockfpsclr {
 			// lbDllList
 			// 
 			this->lbDllList->FormattingEnabled = true;
-			this->lbDllList->Location = System::Drawing::Point(10, 24);
+			this->lbDllList->Location = System::Drawing::Point(6, 31);
 			this->lbDllList->Name = L"lbDllList";
 			this->lbDllList->Size = System::Drawing::Size(120, 160);
 			this->lbDllList->TabIndex = 1;
@@ -440,12 +440,12 @@ namespace unlockfpsclr {
 			// 
 			// labelDLLMessage
 			// 
-			this->labelDLLMessage->AutoSize = true;
-			this->labelDLLMessage->Location = System::Drawing::Point(7, 4);
+			this->labelDLLMessage->Location = System::Drawing::Point(0, 8);
 			this->labelDLLMessage->Name = L"labelDLLMessage";
-			this->labelDLLMessage->Size = System::Drawing::Size(209, 13);
+			this->labelDLLMessage->Size = System::Drawing::Size(249, 13);
 			this->labelDLLMessage->TabIndex = 0;
 			this->labelDLLMessage->Text = L"DLLs will be injected in the order of this list.";
+			this->labelDLLMessage->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			// 
 			// toolTip
 			// 
@@ -457,13 +457,14 @@ namespace unlockfpsclr {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(284, 256);
+			this->ClientSize = System::Drawing::Size(281, 264);
 			this->Controls->Add(this->tabControl);
 			this->Controls->Add(this->labelAutoSave);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
 			this->MaximizeBox = false;
 			this->MinimizeBox = false;
 			this->Name = L"SettingsForm";
+			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"Settings";
 			this->tabControl->ResumeLayout(false);
@@ -475,7 +476,6 @@ namespace unlockfpsclr {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->customResY))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->customResX))->EndInit();
 			this->tabPageDLLs->ResumeLayout(false);
-			this->tabPageDLLs->PerformLayout();
 			this->ResumeLayout(false);
 
 		}

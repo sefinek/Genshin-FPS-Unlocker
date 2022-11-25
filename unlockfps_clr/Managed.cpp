@@ -36,7 +36,6 @@ List<String^>^ Managed::TryResolveGamePath()
 
     // Cannot find anything through chroma sdk
     // Use uninstall list instead
-
     auto Uninstall = Registry::LocalMachine->OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall");
     if (Uninstall && Uninstall->SubKeyCount)
     {
