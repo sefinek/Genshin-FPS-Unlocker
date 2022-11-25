@@ -112,7 +112,7 @@ namespace unlockfpsclr
 	Void MainForm::btnStartGame_Click(Object^ sender, EventArgs^ e)
 	{
 		// Exit the unlocker if create process was successful
-		if (Managed::StartGame(settings)) Application::Exit();
+		if (Managed::StartGame(settings)) this->WindowState = System::Windows::Forms::FormWindowState::Minimized;
 	}
 
 	Void MainForm::settingsMenuItem_Click(Object^ sender, EventArgs^ e)
@@ -252,7 +252,7 @@ namespace unlockfpsclr
 
 	Void MainForm::mainApp_Click(Object^ sender, EventArgs^ e)
 	{
-		if (File::Exists("C:\\Genshin-Impact-ReShade\\Genshin Impact Mod Pack.exe")) {
+		if (File::Exists("C:\\Genshin-Impact-ReShade\\Data\\Cmd\\open.cmd")) {
 			Process::Start("C:\\Genshin-Impact-ReShade\\Data\\Cmd\\open.cmd");
 		}
 		else {
@@ -260,6 +260,7 @@ namespace unlockfpsclr
 		}
 	}
 
+	// System apps
 	Void MainForm::si_Click(Object^ sender, EventArgs^ e)
 	{
 		Process::Start("msinfo32.exe");
