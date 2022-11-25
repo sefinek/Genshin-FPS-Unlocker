@@ -79,6 +79,7 @@ namespace unlockfpsclr {
 	private: System::Windows::Forms::ToolStripMenuItem^ myProfileToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ officialWebsiteToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ toolStripMenuItem1;
+	private: System::Windows::Forms::ToolStripMenuItem^ youTubeToolStripMenuItem;
 
 
 
@@ -142,6 +143,7 @@ namespace unlockfpsclr {
 			this->notifyIcon = (gcnew System::Windows::Forms::NotifyIcon(this->components));
 			this->contextMenuNotify = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
 			this->toolStripMenuExit = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->youTubeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbFPS))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->inputFPS))->BeginInit();
 			this->menuStrip1->SuspendLayout();
@@ -300,9 +302,9 @@ namespace unlockfpsclr {
 			// 
 			// linksToolStripMenuItem
 			// 
-			this->linksToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-				this->gitHubToolStripMenuItem,
-					this->officialWebsiteToolStripMenuItem
+			this->linksToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->officialWebsiteToolStripMenuItem,
+					this->youTubeToolStripMenuItem, this->gitHubToolStripMenuItem
 			});
 			this->linksToolStripMenuItem->Name = L"linksToolStripMenuItem";
 			this->linksToolStripMenuItem->Size = System::Drawing::Size(46, 20);
@@ -315,7 +317,7 @@ namespace unlockfpsclr {
 					this->myProfileToolStripMenuItem
 			});
 			this->gitHubToolStripMenuItem->Name = L"gitHubToolStripMenuItem";
-			this->gitHubToolStripMenuItem->Size = System::Drawing::Size(155, 22);
+			this->gitHubToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->gitHubToolStripMenuItem->Text = L"GitHub";
 			// 
 			// repositoriesToolStripMenuItem
@@ -325,7 +327,7 @@ namespace unlockfpsclr {
 					this->genshinFPSUnlockToolStripMenuItem1
 			});
 			this->repositoriesToolStripMenuItem->Name = L"repositoriesToolStripMenuItem";
-			this->repositoriesToolStripMenuItem->Size = System::Drawing::Size(138, 22);
+			this->repositoriesToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->repositoriesToolStripMenuItem->Text = L"Repositories";
 			// 
 			// genshinImpactReShade2023ToolStripMenuItem1
@@ -345,14 +347,14 @@ namespace unlockfpsclr {
 			// myProfileToolStripMenuItem
 			// 
 			this->myProfileToolStripMenuItem->Name = L"myProfileToolStripMenuItem";
-			this->myProfileToolStripMenuItem->Size = System::Drawing::Size(138, 22);
+			this->myProfileToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->myProfileToolStripMenuItem->Text = L"My profile";
 			this->myProfileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::githubMyProfile_Click);
 			// 
 			// officialWebsiteToolStripMenuItem
 			// 
 			this->officialWebsiteToolStripMenuItem->Name = L"officialWebsiteToolStripMenuItem";
-			this->officialWebsiteToolStripMenuItem->Size = System::Drawing::Size(155, 22);
+			this->officialWebsiteToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->officialWebsiteToolStripMenuItem->Text = L"Official website";
 			this->officialWebsiteToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::officialWebsite_Click);
 			// 
@@ -384,6 +386,13 @@ namespace unlockfpsclr {
 			this->toolStripMenuExit->Size = System::Drawing::Size(93, 22);
 			this->toolStripMenuExit->Text = L"Exit";
 			this->toolStripMenuExit->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuExit_Click);
+			// 
+			// youTubeToolStripMenuItem
+			// 
+			this->youTubeToolStripMenuItem->Name = L"youTubeToolStripMenuItem";
+			this->youTubeToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->youTubeToolStripMenuItem->Text = L"YouTube";
+			this->youTubeToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::youtube_Click);
 			// 
 			// MainForm
 			// 
@@ -432,5 +441,6 @@ namespace unlockfpsclr {
 	private: Void githubFpsUnlock_Click(Object^ sender, EventArgs^ e);
 	private: Void githubMyProfile_Click(Object^ sender, EventArgs^ e);
 	private: Void officialWebsite_Click(Object^ sender, EventArgs^ e);
+	private: Void youtube_Click(Object^ sender, EventArgs^ e);
 };
 }

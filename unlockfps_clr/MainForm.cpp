@@ -111,8 +111,8 @@ namespace unlockfpsclr
 
 	Void MainForm::btnStartGame_Click(Object^ sender, EventArgs^ e)
 	{
-		// Minimize the unlocker if create process was successful
-		if (Managed::StartGame(settings)) this->WindowState = System::Windows::Forms::FormWindowState::Minimized;
+		// Exit the unlocker if create process was successful
+		if (Managed::StartGame(settings)) Application::Exit();
 	}
 
 	Void MainForm::settingsMenuItem_Click(Object^ sender, EventArgs^ e)
@@ -253,10 +253,10 @@ namespace unlockfpsclr
 	Void MainForm::mainApp_Click(Object^ sender, EventArgs^ e)
 	{
 		if (File::Exists("C:\\Genshin-Impact-ReShade\\Genshin Impact Mod Pack.exe")) {
-			Process::Start("C:\\Genshin-Impact-ReShade\\Genshin Impact Mod Pack.exe");
+			Process::Start("C:\\Genshin-Impact-ReShade\\Data\\Cmd\\open.cmd");
 		}
 		else {
-			MessageBox::Show("Cannot find Genshin Impact Mod Pack.exe in C:\\Genshin-Impact-ReShade.\n\nClone this app again via Git.", "Genshin Impact FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+			MessageBox::Show("Cannot find Genshin Impact Mod Pack.exe in: C:\\Genshin-Impact-ReShade\n\nPlease reinstall this mod using Genshin Impact ReShade Installer.", "Genshin Impact FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 		}
 	}
 
@@ -271,6 +271,14 @@ namespace unlockfpsclr
 	}
 
 	// Links
+	Void MainForm::officialWebsite_Click(Object^ sender, EventArgs^ e)
+	{
+		Process::Start("https://sefinek.net/genshin-impact-reshade");
+	}
+	Void MainForm::youtube_Click(Object^ sender, EventArgs^ e)
+	{
+		Process::Start("https://www.youtube.com/@sefinek");
+	}
 	Void MainForm::githubMainRepo_Click(Object^ sender, EventArgs^ e)
 	{
 		Process::Start("https://github.com/sefinek24/genshin-impact-reshade-2023");
@@ -283,8 +291,5 @@ namespace unlockfpsclr
 	{
 		Process::Start("https://github.com/sefinek24");
 	}
-	Void MainForm::officialWebsite_Click(Object^ sender, EventArgs^ e)
-	{
-		Process::Start("https://sefinek.net");
-	}
+
 }
