@@ -18,12 +18,12 @@ Settings^ Settings::InitializeDefaults()
     AutoStart = false;
     AutoDisableVSync = true;
     PopupWindow = false;
-    Fullscreen = false;
+    Fullscreen = true;
     UseCustomRes = false;
     IsExclusiveFullscreen = false;
     UsePowerSave = false;
 
-    FPSTarget = 120;
+    FPSTarget = 60;
     CustomResX = 1920;
     CustomResY = 1080;
     Priority = 3;
