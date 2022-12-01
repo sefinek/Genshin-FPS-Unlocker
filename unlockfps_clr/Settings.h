@@ -6,7 +6,7 @@ using namespace System::Collections::Generic;
 public ref class Settings
 {
 private:
-	static String^ ConfigPath = "fps_config.json";
+	static String^ ConfigPath = "unlocker_config.json";
 public:
 	property String^ GamePath;
 

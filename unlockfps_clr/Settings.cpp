@@ -18,7 +18,7 @@ Settings^ Settings::InitializeDefaults()
     AutoStart = false;
     AutoDisableVSync = true;
     PopupWindow = false;
-    Fullscreen = true;
+    Fullscreen = false;
     UseCustomRes = false;
     IsExclusiveFullscreen = false;
     UsePowerSave = false;

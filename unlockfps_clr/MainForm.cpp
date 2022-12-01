@@ -196,10 +196,7 @@ namespace unlockfpsclr
 	Void MainForm::OnProgressChanged(Object^ sender, ProgressChangedEventArgs^ e)
 	{
 		auto progress = e->ProgressPercentage;
-		if (progress == 100)
-			Application::Exit();
-		if (progress == 10)
-			OnDoubleClick(nullptr, nullptr); // Restore window
+		if (progress == 10 || progress == 100) Application::Exit();
 	}
 
 	Void MainForm::OnResize(Object^ sender, EventArgs^ e)

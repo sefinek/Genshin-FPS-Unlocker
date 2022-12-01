@@ -35,10 +35,11 @@ namespace unlockfpsclr {
 			}
 		}
 	private: System::Windows::Forms::Label^ labelTitle;
-	private: System::Windows::Forms::LinkLabel^ linkLabelDescription;
+
 	private: System::Windows::Forms::LinkLabel^ linkLabelSource;
 	private: System::Windows::Forms::LinkLabel^ linkLabelIssues;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::Label^ label1;
 	protected:
 
 	private:
@@ -56,10 +57,10 @@ namespace unlockfpsclr {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(AboutForm::typeid));
 			this->labelTitle = (gcnew System::Windows::Forms::Label());
-			this->linkLabelDescription = (gcnew System::Windows::Forms::LinkLabel());
 			this->linkLabelSource = (gcnew System::Windows::Forms::LinkLabel());
 			this->linkLabelIssues = (gcnew System::Windows::Forms::LinkLabel());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -72,20 +73,8 @@ namespace unlockfpsclr {
 			this->labelTitle->Padding = System::Windows::Forms::Padding(0, 5, 0, 0);
 			this->labelTitle->Size = System::Drawing::Size(300, 44);
 			this->labelTitle->TabIndex = 0;
-			this->labelTitle->Text = L"Genshin FPS Unlocker\r\nv2.0.3\r\n";
+			this->labelTitle->Text = L"Genshin FPS Unlocker\r\nv2.0.4";
 			this->labelTitle->TextAlign = System::Drawing::ContentAlignment::TopCenter;
-			// 
-			// linkLabelDescription
-			// 
-			this->linkLabelDescription->ForeColor = System::Drawing::Color::White;
-			this->linkLabelDescription->LinkArea = System::Windows::Forms::LinkArea(92, 6);
-			this->linkLabelDescription->Location = System::Drawing::Point(12, 163);
-			this->linkLabelDescription->Name = L"linkLabelDescription";
-			this->linkLabelDescription->Size = System::Drawing::Size(300, 20);
-			this->linkLabelDescription->TabIndex = 1;
-			this->linkLabelDescription->Text = L"Thank you for using this software.";
-			this->linkLabelDescription->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			this->linkLabelDescription->UseCompatibleTextRendering = true;
 			// 
 			// linkLabelSource
 			// 
@@ -105,15 +94,15 @@ namespace unlockfpsclr {
 			// linkLabelIssues
 			// 
 			this->linkLabelIssues->ForeColor = System::Drawing::Color::White;
-			this->linkLabelIssues->LinkArea = System::Windows::Forms::LinkArea(85, 46);
+			this->linkLabelIssues->LinkArea = System::Windows::Forms::LinkArea(81, 46);
 			this->linkLabelIssues->LinkBehavior = System::Windows::Forms::LinkBehavior::NeverUnderline;
-			this->linkLabelIssues->Location = System::Drawing::Point(12, 105);
+			this->linkLabelIssues->Location = System::Drawing::Point(12, 106);
 			this->linkLabelIssues->Name = L"linkLabelIssues";
 			this->linkLabelIssues->Size = System::Drawing::Size(300, 47);
 			this->linkLabelIssues->TabIndex = 3;
 			this->linkLabelIssues->TabStop = true;
-			this->linkLabelIssues->Text = L"If you encounter any problems or have a suggestion\r\nGo ahead and submit an issue "
-				L"at\r\ngithub.com/sefinek24/genshin-fps-unlock/issues";
+			this->linkLabelIssues->Text = L"If you encounter any problems or have a suggestion\r\ngo ahead submit an issue at\r\n"
+				L"github.com/sefinek24/genshin-fps-unlock/issues";
 			this->linkLabelIssues->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			this->linkLabelIssues->UseCompatibleTextRendering = true;
 			this->linkLabelIssues->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &AboutForm::linkLabelIssues_LinkClicked);
@@ -130,6 +119,16 @@ namespace unlockfpsclr {
 			this->pictureBox1->TabStop = false;
 			this->pictureBox1->Click += gcnew System::EventHandler(this, &AboutForm::Exit_Button);
 			// 
+			// label1
+			// 
+			this->label1->ForeColor = System::Drawing::Color::White;
+			this->label1->Location = System::Drawing::Point(13, 162);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(299, 20);
+			this->label1->TabIndex = 7;
+			this->label1->Text = L"Thank you for using this software.";
+			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
 			// AboutForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -137,10 +136,10 @@ namespace unlockfpsclr {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(20)), static_cast<System::Int32>(static_cast<System::Byte>(22)),
 				static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			this->ClientSize = System::Drawing::Size(324, 192);
+			this->Controls->Add(this->label1);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->linkLabelIssues);
 			this->Controls->Add(this->linkLabelSource);
-			this->Controls->Add(this->linkLabelDescription);
 			this->Controls->Add(this->labelTitle);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"AboutForm";
