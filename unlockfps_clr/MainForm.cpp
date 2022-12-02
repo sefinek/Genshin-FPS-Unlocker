@@ -289,4 +289,10 @@ namespace unlockfpsclr
 	{
 		Process::Start("https://github.com/sefinek24");
 	}
+
+	// Other
+	Void MainForm::CfgVersion_Click(Object^ sender, EventArgs^ e)
+	{
+		MessageBox::Show("Version: v" + settings->ConfigVersion + "\nDate: " + settings->ConfigDate, "Genshin Impact FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	}
 }

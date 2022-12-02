@@ -6,8 +6,11 @@ using namespace System::Collections::Generic;
 public ref class Settings
 {
 private:
-	static String^ ConfigPath = "unlocker_config.json";
+	static String^ ConfigPath = "unlocker.config.json";
 public:
+	property String^ ConfigVersion;
+	property String^ ConfigDate;
+
 	property String^ GamePath;
 
 	property bool AutoStart;

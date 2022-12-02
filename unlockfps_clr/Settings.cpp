@@ -13,6 +13,9 @@ Settings::Settings()
 
 Settings^ Settings::InitializeDefaults()
 {
+    ConfigVersion = "1.0.0";
+    ConfigDate = "02.12.2022";
+
     GamePath = "";
 
     AutoStart = false;
