@@ -138,11 +138,11 @@ namespace unlockfpsclr {
 			this->genshinImpactReShade2023ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->genshinFPSUnlockToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->myProfileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->configVersionToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ttGamePath = (gcnew System::Windows::Forms::ToolTip(this->components));
 			this->notifyIcon = (gcnew System::Windows::Forms::NotifyIcon(this->components));
 			this->contextMenuNotify = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
 			this->toolStripMenuExit = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->configVersionToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbFPS))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->inputFPS))->BeginInit();
 			this->menuStrip1->SuspendLayout();
@@ -151,26 +151,29 @@ namespace unlockfpsclr {
 			// 
 			// btnStartGame
 			// 
+			this->btnStartGame->BackColor = System::Drawing::Color::Transparent;
 			this->btnStartGame->Location = System::Drawing::Point(197, 82);
 			this->btnStartGame->Name = L"btnStartGame";
 			this->btnStartGame->Size = System::Drawing::Size(75, 23);
 			this->btnStartGame->TabIndex = 0;
 			this->btnStartGame->TabStop = false;
 			this->btnStartGame->Text = L"Start game";
-			this->btnStartGame->UseVisualStyleBackColor = true;
+			this->btnStartGame->UseVisualStyleBackColor = false;
 			this->btnStartGame->Click += gcnew System::EventHandler(this, &MainForm::btnStartGame_Click);
 			// 
 			// ckbAutoStart
 			// 
 			this->ckbAutoStart->AutoSize = true;
-			this->ckbAutoStart->Location = System::Drawing::Point(15, 86);
+			this->ckbAutoStart->BackColor = System::Drawing::Color::Transparent;
+			this->ckbAutoStart->ForeColor = System::Drawing::Color::White;
+			this->ckbAutoStart->Location = System::Drawing::Point(12, 86);
 			this->ckbAutoStart->Name = L"ckbAutoStart";
 			this->ckbAutoStart->Size = System::Drawing::Size(141, 17);
 			this->ckbAutoStart->TabIndex = 1;
 			this->ckbAutoStart->TabStop = false;
 			this->ckbAutoStart->Text = L"Start game automatically";
 			this->ttAutoStart->SetToolTip(this->ckbAutoStart, L"This will take effect on subsequent launch");
-			this->ckbAutoStart->UseVisualStyleBackColor = true;
+			this->ckbAutoStart->UseVisualStyleBackColor = false;
 			// 
 			// ttAutoStart
 			// 
@@ -182,11 +185,11 @@ namespace unlockfpsclr {
 			// 
 			this->tbFPS->AutoSize = false;
 			this->tbFPS->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->tbFPS->Location = System::Drawing::Point(15, 58);
-			this->tbFPS->Maximum = 360;
-			this->tbFPS->Minimum = 1;
+			this->tbFPS->Location = System::Drawing::Point(12, 59);
+			this->tbFPS->Maximum = 365;
+			this->tbFPS->Minimum = 12;
 			this->tbFPS->Name = L"tbFPS";
-			this->tbFPS->Size = System::Drawing::Size(257, 21);
+			this->tbFPS->Size = System::Drawing::Size(260, 21);
 			this->tbFPS->TabIndex = 2;
 			this->tbFPS->TabStop = false;
 			this->tbFPS->TickStyle = System::Windows::Forms::TickStyle::None;
@@ -195,7 +198,9 @@ namespace unlockfpsclr {
 			// labelFPS
 			// 
 			this->labelFPS->AutoSize = true;
-			this->labelFPS->Location = System::Drawing::Point(12, 35);
+			this->labelFPS->BackColor = System::Drawing::Color::Transparent;
+			this->labelFPS->ForeColor = System::Drawing::Color::White;
+			this->labelFPS->Location = System::Drawing::Point(12, 37);
 			this->labelFPS->Name = L"labelFPS";
 			this->labelFPS->Size = System::Drawing::Size(47, 13);
 			this->labelFPS->TabIndex = 3;
@@ -203,9 +208,12 @@ namespace unlockfpsclr {
 			// 
 			// inputFPS
 			// 
-			this->inputFPS->Location = System::Drawing::Point(65, 32);
-			this->inputFPS->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 360, 0, 0, 0 });
-			this->inputFPS->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+			this->inputFPS->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(47)), static_cast<System::Int32>(static_cast<System::Byte>(49)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->inputFPS->ForeColor = System::Drawing::Color::White;
+			this->inputFPS->Location = System::Drawing::Point(65, 34);
+			this->inputFPS->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 365, 0, 0, 0 });
+			this->inputFPS->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 12, 0, 0, 0 });
 			this->inputFPS->Name = L"inputFPS";
 			this->inputFPS->Size = System::Drawing::Size(207, 20);
 			this->inputFPS->TabIndex = 4;
@@ -214,6 +222,8 @@ namespace unlockfpsclr {
 			// 
 			// menuStrip1
 			// 
+			this->menuStrip1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(34)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
 				this->toolStripMenuItem,
 					this->openToolStripMenuItem, this->linksToolStripMenuItem, this->configVersionToolStripMenuItem
@@ -230,6 +240,7 @@ namespace unlockfpsclr {
 				this->menuItemSettings,
 					this->menuItemSetup, this->menuItemAbout
 			});
+			this->toolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			this->toolStripMenuItem->Name = L"toolStripMenuItem";
 			this->toolStripMenuItem->Size = System::Drawing::Size(61, 20);
 			this->toolStripMenuItem->Text = L"Options";
@@ -261,6 +272,7 @@ namespace unlockfpsclr {
 				this->genshinImpactModPackToolStripMenuItem,
 					this->checkHzOfYourMonitorToolStripMenuItem
 			});
+			this->openToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			this->openToolStripMenuItem->Name = L"openToolStripMenuItem";
 			this->openToolStripMenuItem->Size = System::Drawing::Size(48, 20);
 			this->openToolStripMenuItem->Text = L"Open";
@@ -286,7 +298,7 @@ namespace unlockfpsclr {
 			// 
 			this->systemInformationToolStripMenuItem->Name = L"systemInformationToolStripMenuItem";
 			this->systemInformationToolStripMenuItem->Size = System::Drawing::Size(178, 22);
-			this->systemInformationToolStripMenuItem->Text = L"System information";
+			this->systemInformationToolStripMenuItem->Text = L"System Information";
 			this->systemInformationToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::si_Click);
 			// 
 			// dxDiaxToolStripMenuItem
@@ -302,6 +314,7 @@ namespace unlockfpsclr {
 				this->officialWebsiteToolStripMenuItem,
 					this->youTubeToolStripMenuItem, this->gitHubToolStripMenuItem
 			});
+			this->linksToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			this->linksToolStripMenuItem->Name = L"linksToolStripMenuItem";
 			this->linksToolStripMenuItem->Size = System::Drawing::Size(46, 20);
 			this->linksToolStripMenuItem->Text = L"Links";
@@ -343,14 +356,14 @@ namespace unlockfpsclr {
 			// genshinImpactReShade2023ToolStripMenuItem
 			// 
 			this->genshinImpactReShade2023ToolStripMenuItem->Name = L"genshinImpactReShade2023ToolStripMenuItem";
-			this->genshinImpactReShade2023ToolStripMenuItem->Size = System::Drawing::Size(232, 22);
-			this->genshinImpactReShade2023ToolStripMenuItem->Text = L"Genshin Impact ReShade 2023";
+			this->genshinImpactReShade2023ToolStripMenuItem->Size = System::Drawing::Size(205, 22);
+			this->genshinImpactReShade2023ToolStripMenuItem->Text = L"Genshin Impact ReShade";
 			this->genshinImpactReShade2023ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::githubMainRepo_Click);
 			// 
 			// genshinFPSUnlockToolStripMenuItem
 			// 
 			this->genshinFPSUnlockToolStripMenuItem->Name = L"genshinFPSUnlockToolStripMenuItem";
-			this->genshinFPSUnlockToolStripMenuItem->Size = System::Drawing::Size(232, 22);
+			this->genshinFPSUnlockToolStripMenuItem->Size = System::Drawing::Size(205, 22);
 			this->genshinFPSUnlockToolStripMenuItem->Text = L"Genshin FPS Unlock";
 			this->genshinFPSUnlockToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::githubFpsUnlock_Click);
 			// 
@@ -360,6 +373,14 @@ namespace unlockfpsclr {
 			this->myProfileToolStripMenuItem->Size = System::Drawing::Size(138, 22);
 			this->myProfileToolStripMenuItem->Text = L"My profile";
 			this->myProfileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::githubMyProfile_Click);
+			// 
+			// configVersionToolStripMenuItem
+			// 
+			this->configVersionToolStripMenuItem->ForeColor = System::Drawing::Color::White;
+			this->configVersionToolStripMenuItem->Name = L"configVersionToolStripMenuItem";
+			this->configVersionToolStripMenuItem->Size = System::Drawing::Size(96, 20);
+			this->configVersionToolStripMenuItem->Text = L"Config version";
+			this->configVersionToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::CfgVersion_Click);
 			// 
 			// ttGamePath
 			// 
@@ -390,18 +411,13 @@ namespace unlockfpsclr {
 			this->toolStripMenuExit->Text = L"Exit";
 			this->toolStripMenuExit->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuExit_Click);
 			// 
-			// configVersionToolStripMenuItem
-			// 
-			this->configVersionToolStripMenuItem->Name = L"configVersionToolStripMenuItem";
-			this->configVersionToolStripMenuItem->Size = System::Drawing::Size(96, 20);
-			this->configVersionToolStripMenuItem->Text = L"Config version";
-			this->configVersionToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::CfgVersion_Click);
-			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(284, 115);
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)), static_cast<System::Int32>(static_cast<System::Byte>(57)),
+				static_cast<System::Int32>(static_cast<System::Byte>(63)));
+			this->ClientSize = System::Drawing::Size(284, 116);
 			this->Controls->Add(this->inputFPS);
 			this->Controls->Add(this->labelFPS);
 			this->Controls->Add(this->tbFPS);
@@ -445,5 +461,6 @@ namespace unlockfpsclr {
 	private: Void officialWebsite_Click(Object^ sender, EventArgs^ e);
 	private: Void youtube_Click(Object^ sender, EventArgs^ e);
 	private: Void CfgVersion_Click(Object^ sender, EventArgs^ e);
+	// private: Void ToolStipMenu_MouseEnter(Object^ sender, EventArgs^ e);
 };
 }

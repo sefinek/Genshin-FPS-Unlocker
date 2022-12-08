@@ -66,6 +66,7 @@ namespace unlockfpsclr {
 			// 
 			// labelTitle
 			// 
+			this->labelTitle->BackColor = System::Drawing::Color::Transparent;
 			this->labelTitle->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold));
 			this->labelTitle->ForeColor = System::Drawing::Color::White;
 			this->labelTitle->Location = System::Drawing::Point(12, 12);
@@ -73,11 +74,12 @@ namespace unlockfpsclr {
 			this->labelTitle->Padding = System::Windows::Forms::Padding(0, 5, 0, 0);
 			this->labelTitle->Size = System::Drawing::Size(300, 44);
 			this->labelTitle->TabIndex = 0;
-			this->labelTitle->Text = L"Genshin FPS Unlocker\r\nv2.0.5";
+			this->labelTitle->Text = L"Genshin FPS Unlocker\r\nv2.0.6";
 			this->labelTitle->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			// 
 			// linkLabelSource
 			// 
+			this->linkLabelSource->BackColor = System::Drawing::Color::Transparent;
 			this->linkLabelSource->ForeColor = System::Drawing::Color::White;
 			this->linkLabelSource->LinkArea = System::Windows::Forms::LinkArea(25, 11);
 			this->linkLabelSource->LinkBehavior = System::Windows::Forms::LinkBehavior::NeverUnderline;
@@ -93,6 +95,7 @@ namespace unlockfpsclr {
 			// 
 			// linkLabelIssues
 			// 
+			this->linkLabelIssues->BackColor = System::Drawing::Color::Transparent;
 			this->linkLabelIssues->ForeColor = System::Drawing::Color::White;
 			this->linkLabelIssues->LinkArea = System::Windows::Forms::LinkArea(81, 46);
 			this->linkLabelIssues->LinkBehavior = System::Windows::Forms::LinkBehavior::NeverUnderline;
@@ -121,6 +124,7 @@ namespace unlockfpsclr {
 			// 
 			// label1
 			// 
+			this->label1->BackColor = System::Drawing::Color::Transparent;
 			this->label1->ForeColor = System::Drawing::Color::White;
 			this->label1->Location = System::Drawing::Point(13, 162);
 			this->label1->Name = L"label1";

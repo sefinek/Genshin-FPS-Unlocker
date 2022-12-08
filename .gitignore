@@ -2,6 +2,7 @@
 .vs
 .idea
 unlockfps_clr/Release
+unlockfps_clr/unlocker.config.json
 x64
 
 # Files

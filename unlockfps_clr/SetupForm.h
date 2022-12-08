@@ -75,10 +75,13 @@ namespace unlockfpsclr {
 			// labelResult
 			// 
 			this->labelResult->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->labelResult->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->labelResult->Location = System::Drawing::Point(12, 12);
+			this->labelResult->BackColor = System::Drawing::Color::Transparent;
+			this->labelResult->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->labelResult->ForeColor = System::Drawing::Color::White;
+			this->labelResult->Location = System::Drawing::Point(12, 9);
 			this->labelResult->Name = L"labelResult";
-			this->labelResult->Size = System::Drawing::Size(434, 22);
+			this->labelResult->Size = System::Drawing::Size(434, 27);
 			this->labelResult->TabIndex = 0;
 			this->labelResult->Text = L"labelResult";
 			this->labelResult->TextAlign = System::Drawing::ContentAlignment::TopCenter;
@@ -86,7 +89,9 @@ namespace unlockfpsclr {
 			// labelSelectInstance
 			// 
 			this->labelSelectInstance->AutoSize = true;
-			this->labelSelectInstance->Location = System::Drawing::Point(13, 35);
+			this->labelSelectInstance->BackColor = System::Drawing::Color::Transparent;
+			this->labelSelectInstance->ForeColor = System::Drawing::Color::White;
+			this->labelSelectInstance->Location = System::Drawing::Point(9, 36);
 			this->labelSelectInstance->Name = L"labelSelectInstance";
 			this->labelSelectInstance->Size = System::Drawing::Size(37, 13);
 			this->labelSelectInstance->TabIndex = 1;
@@ -94,17 +99,18 @@ namespace unlockfpsclr {
 			// 
 			// comboBoxSelectInst
 			// 
+			this->comboBoxSelectInst->BackColor = System::Drawing::Color::Black;
 			this->comboBoxSelectInst->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboBoxSelectInst->FormattingEnabled = true;
-			this->comboBoxSelectInst->Location = System::Drawing::Point(16, 54);
+			this->comboBoxSelectInst->Location = System::Drawing::Point(12, 52);
 			this->comboBoxSelectInst->Name = L"comboBoxSelectInst";
-			this->comboBoxSelectInst->Size = System::Drawing::Size(430, 21);
+			this->comboBoxSelectInst->Size = System::Drawing::Size(434, 21);
 			this->comboBoxSelectInst->TabIndex = 2;
 			this->comboBoxSelectInst->Visible = false;
 			// 
 			// btnBrowse
 			// 
-			this->btnBrowse->Location = System::Drawing::Point(16, 53);
+			this->btnBrowse->Location = System::Drawing::Point(12, 51);
 			this->btnBrowse->Name = L"btnBrowse";
 			this->btnBrowse->Size = System::Drawing::Size(75, 23);
 			this->btnBrowse->TabIndex = 3;
@@ -117,7 +123,7 @@ namespace unlockfpsclr {
 			// 
 			this->labelHint->AutoSize = true;
 			this->labelHint->BackColor = System::Drawing::Color::Transparent;
-			this->labelHint->Location = System::Drawing::Point(96, 58);
+			this->labelHint->Location = System::Drawing::Point(91, 56);
 			this->labelHint->Name = L"labelHint";
 			this->labelHint->Size = System::Drawing::Size(118, 13);
 			this->labelHint->TabIndex = 4;
@@ -132,9 +138,9 @@ namespace unlockfpsclr {
 			// 
 			// btnConfirm
 			// 
-			this->btnConfirm->Location = System::Drawing::Point(371, 89);
+			this->btnConfirm->Location = System::Drawing::Point(363, 82);
 			this->btnConfirm->Name = L"btnConfirm";
-			this->btnConfirm->Size = System::Drawing::Size(75, 23);
+			this->btnConfirm->Size = System::Drawing::Size(83, 23);
 			this->btnConfirm->TabIndex = 5;
 			this->btnConfirm->Text = L"Confirm";
 			this->btnConfirm->UseVisualStyleBackColor = true;
@@ -144,7 +150,9 @@ namespace unlockfpsclr {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(458, 124);
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)), static_cast<System::Int32>(static_cast<System::Byte>(57)),
+				static_cast<System::Int32>(static_cast<System::Byte>(63)));
+			this->ClientSize = System::Drawing::Size(458, 117);
 			this->Controls->Add(this->btnConfirm);
 			this->Controls->Add(this->labelHint);
 			this->Controls->Add(this->btnBrowse);

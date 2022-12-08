@@ -154,7 +154,9 @@ namespace unlockfpsclr {
 			// labelAutoSave
 			// 
 			this->labelAutoSave->Anchor = System::Windows::Forms::AnchorStyles::Bottom;
+			this->labelAutoSave->BackColor = System::Drawing::Color::Transparent;
 			this->labelAutoSave->Font = (gcnew System::Drawing::Font(L"Arial", 8.25F, System::Drawing::FontStyle::Bold));
+			this->labelAutoSave->ForeColor = System::Drawing::Color::White;
 			this->labelAutoSave->Location = System::Drawing::Point(16, 241);
 			this->labelAutoSave->Name = L"labelAutoSave";
 			this->labelAutoSave->Size = System::Drawing::Size(249, 14);
@@ -175,6 +177,8 @@ namespace unlockfpsclr {
 			// 
 			// tabPageGeneral
 			// 
+			this->tabPageGeneral->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(47)), static_cast<System::Int32>(static_cast<System::Byte>(49)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
 			this->tabPageGeneral->Controls->Add(this->comboPriority);
 			this->tabPageGeneral->Controls->Add(this->labelPriority);
 			this->tabPageGeneral->Controls->Add(this->ckbPowerSave);
@@ -187,7 +191,6 @@ namespace unlockfpsclr {
 			this->tabPageGeneral->Size = System::Drawing::Size(249, 197);
 			this->tabPageGeneral->TabIndex = 0;
 			this->tabPageGeneral->Text = L"General";
-			this->tabPageGeneral->UseVisualStyleBackColor = true;
 			// 
 			// comboPriority
 			// 
@@ -206,6 +209,8 @@ namespace unlockfpsclr {
 			// labelPriority
 			// 
 			this->labelPriority->AutoSize = true;
+			this->labelPriority->BackColor = System::Drawing::Color::Transparent;
+			this->labelPriority->ForeColor = System::Drawing::Color::White;
 			this->labelPriority->Location = System::Drawing::Point(7, 103);
 			this->labelPriority->Name = L"labelPriority";
 			this->labelPriority->Size = System::Drawing::Size(108, 13);
@@ -215,6 +220,8 @@ namespace unlockfpsclr {
 			// ckbPowerSave
 			// 
 			this->ckbPowerSave->AutoSize = true;
+			this->ckbPowerSave->BackColor = System::Drawing::Color::Transparent;
+			this->ckbPowerSave->ForeColor = System::Drawing::Color::White;
 			this->ckbPowerSave->Location = System::Drawing::Point(7, 79);
 			this->ckbPowerSave->Name = L"ckbPowerSave";
 			this->ckbPowerSave->Size = System::Drawing::Size(90, 17);
@@ -223,11 +230,13 @@ namespace unlockfpsclr {
 			this->ckbPowerSave->Text = L"Power saving";
 			this->toolTip->SetToolTip(this->ckbPowerSave, L"Sets fps to 10 and low process priority upon losing focus (e.g. tabbing out of ga"
 				L"me)");
-			this->ckbPowerSave->UseVisualStyleBackColor = true;
+			this->ckbPowerSave->UseVisualStyleBackColor = false;
 			// 
 			// ckbAutoClose
 			// 
 			this->ckbAutoClose->AutoSize = true;
+			this->ckbAutoClose->BackColor = System::Drawing::Color::Transparent;
+			this->ckbAutoClose->ForeColor = System::Drawing::Color::White;
 			this->ckbAutoClose->Location = System::Drawing::Point(7, 55);
 			this->ckbAutoClose->Name = L"ckbAutoClose";
 			this->ckbAutoClose->Size = System::Drawing::Size(76, 17);
@@ -235,32 +244,38 @@ namespace unlockfpsclr {
 			this->ckbAutoClose->TabStop = false;
 			this->ckbAutoClose->Text = L"Auto close";
 			this->toolTip->SetToolTip(this->ckbAutoClose, L"Automatically close unlocker after game exits");
-			this->ckbAutoClose->UseVisualStyleBackColor = true;
+			this->ckbAutoClose->UseVisualStyleBackColor = false;
 			// 
 			// ckbStartMinimized
 			// 
 			this->ckbStartMinimized->AutoSize = true;
+			this->ckbStartMinimized->BackColor = System::Drawing::Color::Transparent;
+			this->ckbStartMinimized->ForeColor = System::Drawing::Color::White;
 			this->ckbStartMinimized->Location = System::Drawing::Point(7, 31);
 			this->ckbStartMinimized->Name = L"ckbStartMinimized";
 			this->ckbStartMinimized->Size = System::Drawing::Size(140, 17);
 			this->ckbStartMinimized->TabIndex = 1;
 			this->ckbStartMinimized->TabStop = false;
 			this->ckbStartMinimized->Text = L"Start minimized unlocker";
-			this->ckbStartMinimized->UseVisualStyleBackColor = true;
+			this->ckbStartMinimized->UseVisualStyleBackColor = false;
 			// 
 			// ckbVSync
 			// 
 			this->ckbVSync->AutoSize = true;
+			this->ckbVSync->BackColor = System::Drawing::Color::Transparent;
+			this->ckbVSync->ForeColor = System::Drawing::Color::White;
 			this->ckbVSync->Location = System::Drawing::Point(7, 7);
 			this->ckbVSync->Name = L"ckbVSync";
 			this->ckbVSync->Size = System::Drawing::Size(118, 17);
 			this->ckbVSync->TabIndex = 0;
 			this->ckbVSync->TabStop = false;
 			this->ckbVSync->Text = L"Auto disable VSync";
-			this->ckbVSync->UseVisualStyleBackColor = true;
+			this->ckbVSync->UseVisualStyleBackColor = false;
 			// 
 			// tabPageLaunchOptions
 			// 
+			this->tabPageLaunchOptions->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(47)),
+				static_cast<System::Int32>(static_cast<System::Byte>(49)), static_cast<System::Int32>(static_cast<System::Byte>(54)));
 			this->tabPageLaunchOptions->Controls->Add(this->monitorNum);
 			this->tabPageLaunchOptions->Controls->Add(this->labelMonitorNum);
 			this->tabPageLaunchOptions->Controls->Add(this->comboWindowMode);
@@ -278,7 +293,6 @@ namespace unlockfpsclr {
 			this->tabPageLaunchOptions->Size = System::Drawing::Size(249, 197);
 			this->tabPageLaunchOptions->TabIndex = 1;
 			this->tabPageLaunchOptions->Text = L"Launch Options";
-			this->tabPageLaunchOptions->UseVisualStyleBackColor = true;
 			// 
 			// monitorNum
 			// 
@@ -293,6 +307,8 @@ namespace unlockfpsclr {
 			// labelMonitorNum
 			// 
 			this->labelMonitorNum->AutoSize = true;
+			this->labelMonitorNum->BackColor = System::Drawing::Color::Transparent;
+			this->labelMonitorNum->ForeColor = System::Drawing::Color::White;
 			this->labelMonitorNum->Location = System::Drawing::Point(7, 134);
 			this->labelMonitorNum->Name = L"labelMonitorNum";
 			this->labelMonitorNum->Size = System::Drawing::Size(42, 13);
@@ -314,6 +330,8 @@ namespace unlockfpsclr {
 			// labelWindowMode
 			// 
 			this->labelWindowMode->AutoSize = true;
+			this->labelWindowMode->BackColor = System::Drawing::Color::Transparent;
+			this->labelWindowMode->ForeColor = System::Drawing::Color::White;
 			this->labelWindowMode->Location = System::Drawing::Point(7, 107);
 			this->labelWindowMode->Name = L"labelWindowMode";
 			this->labelWindowMode->Size = System::Drawing::Size(75, 13);
@@ -323,6 +341,8 @@ namespace unlockfpsclr {
 			// labelDummy
 			// 
 			this->labelDummy->AutoSize = true;
+			this->labelDummy->BackColor = System::Drawing::Color::Transparent;
+			this->labelDummy->ForeColor = System::Drawing::Color::White;
 			this->labelDummy->Location = System::Drawing::Point(169, 79);
 			this->labelDummy->Name = L"labelDummy";
 			this->labelDummy->Size = System::Drawing::Size(12, 13);
@@ -353,6 +373,8 @@ namespace unlockfpsclr {
 			// labelCustomRes
 			// 
 			this->labelCustomRes->AutoSize = true;
+			this->labelCustomRes->BackColor = System::Drawing::Color::Transparent;
+			this->labelCustomRes->ForeColor = System::Drawing::Color::White;
 			this->labelCustomRes->Location = System::Drawing::Point(7, 79);
 			this->labelCustomRes->Name = L"labelCustomRes";
 			this->labelCustomRes->Size = System::Drawing::Size(90, 13);
@@ -362,28 +384,34 @@ namespace unlockfpsclr {
 			// ckbCustomRes
 			// 
 			this->ckbCustomRes->AutoSize = true;
+			this->ckbCustomRes->BackColor = System::Drawing::Color::Transparent;
+			this->ckbCustomRes->ForeColor = System::Drawing::Color::White;
 			this->ckbCustomRes->Location = System::Drawing::Point(7, 55);
 			this->ckbCustomRes->Name = L"ckbCustomRes";
 			this->ckbCustomRes->Size = System::Drawing::Size(109, 17);
 			this->ckbCustomRes->TabIndex = 2;
 			this->ckbCustomRes->TabStop = false;
 			this->ckbCustomRes->Text = L"Custom resolution";
-			this->ckbCustomRes->UseVisualStyleBackColor = true;
+			this->ckbCustomRes->UseVisualStyleBackColor = false;
 			// 
 			// ckbFullscreen
 			// 
 			this->ckbFullscreen->AutoSize = true;
+			this->ckbFullscreen->BackColor = System::Drawing::Color::Transparent;
+			this->ckbFullscreen->ForeColor = System::Drawing::Color::White;
 			this->ckbFullscreen->Location = System::Drawing::Point(7, 31);
 			this->ckbFullscreen->Name = L"ckbFullscreen";
 			this->ckbFullscreen->Size = System::Drawing::Size(74, 17);
 			this->ckbFullscreen->TabIndex = 1;
 			this->ckbFullscreen->TabStop = false;
 			this->ckbFullscreen->Text = L"Fullscreen";
-			this->ckbFullscreen->UseVisualStyleBackColor = true;
+			this->ckbFullscreen->UseVisualStyleBackColor = false;
 			// 
 			// ckbPopupWnd
 			// 
 			this->ckbPopupWnd->AutoSize = true;
+			this->ckbPopupWnd->BackColor = System::Drawing::Color::Transparent;
+			this->ckbPopupWnd->ForeColor = System::Drawing::Color::White;
 			this->ckbPopupWnd->Location = System::Drawing::Point(7, 7);
 			this->ckbPopupWnd->Name = L"ckbPopupWnd";
 			this->ckbPopupWnd->Size = System::Drawing::Size(96, 17);
@@ -391,10 +419,12 @@ namespace unlockfpsclr {
 			this->ckbPopupWnd->TabStop = false;
 			this->ckbPopupWnd->Text = L"Popup window";
 			this->toolTip->SetToolTip(this->ckbPopupWnd, L"Launch the game in borderless windowed mode");
-			this->ckbPopupWnd->UseVisualStyleBackColor = true;
+			this->ckbPopupWnd->UseVisualStyleBackColor = false;
 			// 
 			// tabPageDLLs
 			// 
+			this->tabPageDLLs->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(47)), static_cast<System::Int32>(static_cast<System::Byte>(49)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
 			this->tabPageDLLs->Controls->Add(this->btnDllRemove);
 			this->tabPageDLLs->Controls->Add(this->btnDllAdd);
 			this->tabPageDLLs->Controls->Add(this->lbDllList);
@@ -405,7 +435,6 @@ namespace unlockfpsclr {
 			this->tabPageDLLs->Size = System::Drawing::Size(249, 197);
 			this->tabPageDLLs->TabIndex = 2;
 			this->tabPageDLLs->Text = L"DLLs";
-			this->tabPageDLLs->UseVisualStyleBackColor = true;
 			// 
 			// btnDllRemove
 			// 
@@ -431,6 +460,9 @@ namespace unlockfpsclr {
 			// 
 			// lbDllList
 			// 
+			this->lbDllList->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(34)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			this->lbDllList->ForeColor = System::Drawing::Color::White;
 			this->lbDllList->FormattingEnabled = true;
 			this->lbDllList->Location = System::Drawing::Point(6, 31);
 			this->lbDllList->Name = L"lbDllList";
@@ -440,6 +472,8 @@ namespace unlockfpsclr {
 			// 
 			// labelDLLMessage
 			// 
+			this->labelDLLMessage->BackColor = System::Drawing::Color::Transparent;
+			this->labelDLLMessage->ForeColor = System::Drawing::Color::White;
 			this->labelDLLMessage->Location = System::Drawing::Point(0, 8);
 			this->labelDLLMessage->Name = L"labelDLLMessage";
 			this->labelDLLMessage->Size = System::Drawing::Size(249, 13);
@@ -457,6 +491,8 @@ namespace unlockfpsclr {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(34)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->ClientSize = System::Drawing::Size(281, 264);
 			this->Controls->Add(this->tabControl);
 			this->Controls->Add(this->labelAutoSave);

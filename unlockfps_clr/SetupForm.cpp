@@ -85,20 +85,19 @@ namespace unlockfpsclr
             btnBrowse->Visible = false;
             labelHint->Visible = false;
             labelResult->Text = String::Format("Found {0} installation of the game.", result->Count);
-            labelResult->ForeColor = Color::Green;
+            labelResult->ForeColor = Color::LimeGreen;
             labelSelectInstance->Text = "Select the instance you want to use:";
             comboBoxSelectInst->Visible = true;
             comboBoxSelectInst->Items->AddRange(result->ToArray());
             comboBoxSelectInst->SelectedIndex = 0;
-            if (!String::IsNullOrWhiteSpace(settings->GamePath))
-                comboBoxSelectInst->SelectedIndex = result->IndexOf(settings->GamePath);
+            if (!String::IsNullOrWhiteSpace(settings->GamePath)) comboBoxSelectInst->SelectedIndex = result->IndexOf(settings->GamePath);
         }
         else
         {
             btnConfirm->Visible = false;
             btnBrowse->Visible = true;
             labelHint->Visible = true;
-            labelResult->Text = "Sorry, i can't find your game.";
+            labelResult->Text = "Sorry, I can't find your game.";
             labelResult->ForeColor = Color::Red;
             labelSelectInstance->Text = "You can:";
             comboBoxSelectInst->Visible = false;

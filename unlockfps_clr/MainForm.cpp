@@ -295,4 +295,9 @@ namespace unlockfpsclr
 	{
 		MessageBox::Show("Version: v" + settings->ConfigVersion + "\nDate: " + settings->ConfigDate, "Genshin Impact FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Information);
 	}
+
+	// Void MainForm::ToolStipMenu_MouseEnter(Object^ sender, EventArgs^ e)
+	// {
+	// 	toolStripMenuItem->BackColor = Color::Red;
+	// }
 }

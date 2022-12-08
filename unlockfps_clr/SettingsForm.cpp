@@ -6,7 +6,6 @@ using namespace System::Runtime::InteropServices;
 
 namespace unlockfpsclr
 {
-
     Void SettingsForm::UpdateSettings(System::Object^ sender, FormClosingEventArgs^ e)
     {
         // Update settings and write to file
