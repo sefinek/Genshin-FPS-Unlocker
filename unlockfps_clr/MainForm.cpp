@@ -112,7 +112,10 @@ namespace unlockfpsclr
 	Void MainForm::btnStartGame_Click(Object^ sender, EventArgs^ e)
 	{
 		// Exit the unlocker if create process was successful
-		if (Managed::StartGame(settings)) this->WindowState = System::Windows::Forms::FormWindowState::Minimized;
+		if (Managed::StartGame(settings)) {
+			this->WindowState = System::Windows::Forms::FormWindowState::Minimized;
+			settings->Save();
+		}
 	}
 
 	Void MainForm::settingsMenuItem_Click(Object^ sender, EventArgs^ e)
