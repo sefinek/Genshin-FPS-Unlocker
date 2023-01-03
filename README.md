@@ -1,24 +1,24 @@
-# Genshin Impact FPS Unlocker (modified by Sefinek)
-[The best Genshin Impact ReShade mod pack with custom presets. 2022/2023](https://github.com/sefinek24/Genshin-Impact-ReShade)
+# Genshin Impact FPS Unlocker [modified by Sefinek]
+[The best Genshin Impact ReShade mod pack with custom graphics presets and FPS Unlocker.](https://github.com/sefinek24/Genshin-Impact-ReShade)
 
 ## Information
-- This tool helps you to unlock the 60 FPS limit in the game
-- This is an external program uses **WriteProcessMemory** to write the desired fps to the game
-- Handle protection bypass is already included
-- Does not require a driver for R/W access
-- Supports OS and CN version
-- Should work for future updates
-- If the source needs to be updated, I'll try to do it as soon as possible
-- You can download the compiled binary over at [Release](https://github.com/sefinek24/genshin-fps-unlock/releases) if you don't want to compile it yourself
+- This tool helps you to unlock the 60 FPS limit in the game.
+- This is an external program uses **WriteProcessMemory** to write the desired fps to the game.
+- Handle protection bypass is already included.
+- Does not require a driver for R/W access.
+- Supports OS and CN version.
+- Should work for future updates.
+- If the source needs to be updated, I'll try to do it as soon as possible.
+- You can download the compiled binary over at [Release](https://github.com/sefinek24/genshin-fps-unlock/releases) if you don't want to compile it yourself.
 
 ## Usage
-- Make sure you have the [Visual C++ 2015-2022 Redistributable (x64)](https://aka.ms/vs/17/release/vc_redist.x64.exe) and [.NET Framework 4.8](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48) installed
+- Make sure you have the [Visual C++ 2015-2022 Redistributable (x64)](https://aka.ms/vs/17/release/vc_redist.x64.exe) and [.NET Framework 4.8](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48) installed.
 - If it is your first time running, unlocker will attempt to find your game through registry. If it fails then it will ask you to either browse or run the game.
-- Place the compiled exe anywhere you want
-- Make sure your game is closed, the unlocker will automatically start the game for you
-- Run the exe as administrator, and leave the exe running
-> It requires administrator because the game needs to be started by the unlocker and the game requires such permission
-- To inject other third party plugins (e.g. ReShade), go to `Options->Settings->DLLs` and click add
+- Place the compiled exe anywhere you want.
+- Make sure your game is closed, the unlocker will automatically start the game for you.
+- Run the exe as administrator, and leave the exe running.
+> It requires administrator because the game needs to be started by the unlocker and the game requires such permission.
+- To inject other third party plugins (e.g. ReShade), go to `Options->Settings->DLLs` and click add.
 
 ## Notes
 - My test account is currently AR55, can't guarantee it will be safe forever, but honestly though, I doubt they would ban you for this.
