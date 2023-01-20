@@ -157,7 +157,7 @@ namespace unlockfpsclr {
 			this->labelAutoSave->BackColor = System::Drawing::Color::Transparent;
 			this->labelAutoSave->Font = (gcnew System::Drawing::Font(L"Arial", 8.25F, System::Drawing::FontStyle::Bold));
 			this->labelAutoSave->ForeColor = System::Drawing::Color::White;
-			this->labelAutoSave->Location = System::Drawing::Point(16, 241);
+			this->labelAutoSave->Location = System::Drawing::Point(16, 243);
 			this->labelAutoSave->Name = L"labelAutoSave";
 			this->labelAutoSave->Size = System::Drawing::Size(249, 14);
 			this->labelAutoSave->TabIndex = 0;
@@ -200,7 +200,7 @@ namespace unlockfpsclr {
 				L"Realtime", L"High", L"Above normal", L"Normal (default)",
 					L"Below normal", L"Low"
 			});
-			this->comboPriority->Location = System::Drawing::Point(123, 100);
+			this->comboPriority->Location = System::Drawing::Point(123, 101);
 			this->comboPriority->Name = L"comboPriority";
 			this->comboPriority->Size = System::Drawing::Size(120, 21);
 			this->comboPriority->TabIndex = 5;
@@ -211,7 +211,7 @@ namespace unlockfpsclr {
 			this->labelPriority->AutoSize = true;
 			this->labelPriority->BackColor = System::Drawing::Color::Transparent;
 			this->labelPriority->ForeColor = System::Drawing::Color::White;
-			this->labelPriority->Location = System::Drawing::Point(7, 103);
+			this->labelPriority->Location = System::Drawing::Point(7, 104);
 			this->labelPriority->Name = L"labelPriority";
 			this->labelPriority->Size = System::Drawing::Size(108, 13);
 			this->labelPriority->TabIndex = 4;

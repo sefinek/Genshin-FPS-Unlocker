@@ -79,9 +79,9 @@ namespace unlockfpsclr {
 			this->labelResult->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->labelResult->ForeColor = System::Drawing::Color::White;
-			this->labelResult->Location = System::Drawing::Point(12, 9);
+			this->labelResult->Location = System::Drawing::Point(9, 9);
 			this->labelResult->Name = L"labelResult";
-			this->labelResult->Size = System::Drawing::Size(434, 27);
+			this->labelResult->Size = System::Drawing::Size(437, 18);
 			this->labelResult->TabIndex = 0;
 			this->labelResult->Text = L"labelResult";
 			this->labelResult->TextAlign = System::Drawing::ContentAlignment::TopCenter;
@@ -123,6 +123,7 @@ namespace unlockfpsclr {
 			// 
 			this->labelHint->AutoSize = true;
 			this->labelHint->BackColor = System::Drawing::Color::Transparent;
+			this->labelHint->ForeColor = System::Drawing::Color::White;
 			this->labelHint->Location = System::Drawing::Point(91, 56);
 			this->labelHint->Name = L"labelHint";
 			this->labelHint->Size = System::Drawing::Size(118, 13);
