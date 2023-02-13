@@ -252,11 +252,10 @@ namespace unlockfpsclr
 
 	Void MainForm::mainApp_Click(Object^ sender, EventArgs^ e)
 	{
-		if (File::Exists("C:\\Genshin-Impact-ReShade\\Data\\Cmd\\open.cmd")) {
-			Process::Start("C:\\Genshin-Impact-ReShade\\Data\\Cmd\\open.cmd");
-		}
-		else {
-			MessageBox::Show("Cannot find Genshin Impact Mod Pack.exe in: C:\\Genshin-Impact-ReShade\n\nPlease reinstall this mod using Genshin Impact ReShade Installer.", "Genshin Impact FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+		if (File::Exists("C:\\Genshin-Impact-ReShade\\Data\\Cmd\\open-launcher.cmd")) {
+			Process::Start("C:\\Genshin-Impact-ReShade\\Data\\Cmd\\open-launcher.cmd");
+		} else {
+			MessageBox::Show("Cannot find a required file.\n\nPlease reinstall this mod using Genshin Impact Mod Setup.", "Genshin Impact FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 		}
 	}
 
@@ -282,7 +281,7 @@ namespace unlockfpsclr
 	}
 	Void MainForm::githubMainRepo_Click(Object^ sender, EventArgs^ e)
 	{
-		Process::Start("https://github.com/sefinek24/genshin-impact-reshade-2023");
+		Process::Start("https://github.com/sefinek24/Genshin-Impact-ReShade");
 	}
 	Void MainForm::githubFpsUnlock_Click(Object^ sender, EventArgs^ e)
 	{
@@ -294,9 +293,18 @@ namespace unlockfpsclr
 	}
 
 	// Other
-	Void MainForm::CfgVersion_Click(Object^ sender, EventArgs^ e)
+	Void MainForm::viewCfg_Click(Object^ sender, EventArgs^ e)
 	{
-		MessageBox::Show("Version: v" + settings->ConfigVersion + "\nDate: " + settings->ConfigDate, "Genshin Impact FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		if (File::Exists("C:\\Genshin-Impact-ReShade\\Data\\Unlocker\\unlocker.config.json")) {
+			Process::Start("C:\\Genshin-Impact-ReShade\\Data\\Unlocker\\unlocker.config.json");
+		} else {
+			MessageBox::Show("I can't find file with name unlocker.config.json.", "Genshin Impact FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		}
+	}
+
+	Void MainForm::seeCurrentVersion_Click(Object^ sender, EventArgs^ e)
+	{
+		MessageBox::Show("Config version: v" + settings->ConfigVersion + "\nDate: " + settings->ConfigDate, "Genshin Impact FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Information);
 	}
 
 	// Void MainForm::ToolStipMenu_MouseEnter(Object^ sender, EventArgs^ e)

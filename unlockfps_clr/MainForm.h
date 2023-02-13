@@ -81,6 +81,8 @@ namespace unlockfpsclr {
 	private: System::Windows::Forms::ToolStripMenuItem^ genshinFPSUnlockToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ myProfileToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ configVersionToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ viewConfigToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ seeCurrentVersionToolStripMenuItem;
 
 
 
@@ -139,6 +141,8 @@ namespace unlockfpsclr {
 			this->genshinFPSUnlockToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->myProfileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->configVersionToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->viewConfigToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->seeCurrentVersionToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ttGamePath = (gcnew System::Windows::Forms::ToolTip(this->components));
 			this->notifyIcon = (gcnew System::Windows::Forms::NotifyIcon(this->components));
 			this->contextMenuNotify = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
@@ -152,7 +156,7 @@ namespace unlockfpsclr {
 			// btnStartGame
 			// 
 			this->btnStartGame->BackColor = System::Drawing::Color::Transparent;
-			this->btnStartGame->Location = System::Drawing::Point(197, 82);
+			this->btnStartGame->Location = System::Drawing::Point(209, 87);
 			this->btnStartGame->Name = L"btnStartGame";
 			this->btnStartGame->Size = System::Drawing::Size(75, 23);
 			this->btnStartGame->TabIndex = 0;
@@ -166,7 +170,7 @@ namespace unlockfpsclr {
 			this->ckbAutoStart->AutoSize = true;
 			this->ckbAutoStart->BackColor = System::Drawing::Color::Transparent;
 			this->ckbAutoStart->ForeColor = System::Drawing::Color::White;
-			this->ckbAutoStart->Location = System::Drawing::Point(12, 86);
+			this->ckbAutoStart->Location = System::Drawing::Point(12, 90);
 			this->ckbAutoStart->Name = L"ckbAutoStart";
 			this->ckbAutoStart->Size = System::Drawing::Size(141, 17);
 			this->ckbAutoStart->TabIndex = 1;
@@ -185,11 +189,11 @@ namespace unlockfpsclr {
 			// 
 			this->tbFPS->AutoSize = false;
 			this->tbFPS->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->tbFPS->Location = System::Drawing::Point(12, 59);
+			this->tbFPS->Location = System::Drawing::Point(6, 64);
 			this->tbFPS->Maximum = 365;
 			this->tbFPS->Minimum = 12;
 			this->tbFPS->Name = L"tbFPS";
-			this->tbFPS->Size = System::Drawing::Size(260, 21);
+			this->tbFPS->Size = System::Drawing::Size(283, 21);
 			this->tbFPS->TabIndex = 2;
 			this->tbFPS->TabStop = false;
 			this->tbFPS->TickStyle = System::Windows::Forms::TickStyle::None;
@@ -200,7 +204,7 @@ namespace unlockfpsclr {
 			this->labelFPS->AutoSize = true;
 			this->labelFPS->BackColor = System::Drawing::Color::Transparent;
 			this->labelFPS->ForeColor = System::Drawing::Color::White;
-			this->labelFPS->Location = System::Drawing::Point(12, 37);
+			this->labelFPS->Location = System::Drawing::Point(12, 40);
 			this->labelFPS->Name = L"labelFPS";
 			this->labelFPS->Size = System::Drawing::Size(47, 13);
 			this->labelFPS->TabIndex = 3;
@@ -211,7 +215,7 @@ namespace unlockfpsclr {
 			this->inputFPS->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(47)), static_cast<System::Int32>(static_cast<System::Byte>(49)),
 				static_cast<System::Int32>(static_cast<System::Byte>(54)));
 			this->inputFPS->ForeColor = System::Drawing::Color::White;
-			this->inputFPS->Location = System::Drawing::Point(65, 34);
+			this->inputFPS->Location = System::Drawing::Point(77, 37);
 			this->inputFPS->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 365, 0, 0, 0 });
 			this->inputFPS->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 12, 0, 0, 0 });
 			this->inputFPS->Name = L"inputFPS";
@@ -226,11 +230,11 @@ namespace unlockfpsclr {
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
 				this->toolStripMenuItem,
-					this->openToolStripMenuItem, this->linksToolStripMenuItem, this->configVersionToolStripMenuItem
+					this->openToolStripMenuItem, this->configVersionToolStripMenuItem, this->linksToolStripMenuItem
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(284, 24);
+			this->menuStrip1->Size = System::Drawing::Size(296, 24);
 			this->menuStrip1->TabIndex = 5;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -376,11 +380,28 @@ namespace unlockfpsclr {
 			// 
 			// configVersionToolStripMenuItem
 			// 
+			this->configVersionToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->viewConfigToolStripMenuItem,
+					this->seeCurrentVersionToolStripMenuItem
+			});
 			this->configVersionToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			this->configVersionToolStripMenuItem->Name = L"configVersionToolStripMenuItem";
-			this->configVersionToolStripMenuItem->Size = System::Drawing::Size(96, 20);
-			this->configVersionToolStripMenuItem->Text = L"Config version";
-			this->configVersionToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::CfgVersion_Click);
+			this->configVersionToolStripMenuItem->Size = System::Drawing::Size(55, 20);
+			this->configVersionToolStripMenuItem->Text = L"Config";
+			// 
+			// viewConfigToolStripMenuItem
+			// 
+			this->viewConfigToolStripMenuItem->Name = L"viewConfigToolStripMenuItem";
+			this->viewConfigToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->viewConfigToolStripMenuItem->Text = L"View config";
+			this->viewConfigToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::viewCfg_Click);
+			// 
+			// seeCurrentVersionToolStripMenuItem
+			// 
+			this->seeCurrentVersionToolStripMenuItem->Name = L"seeCurrentVersionToolStripMenuItem";
+			this->seeCurrentVersionToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->seeCurrentVersionToolStripMenuItem->Text = L"See current version";
+			this->seeCurrentVersionToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::seeCurrentVersion_Click);
 			// 
 			// ttGamePath
 			// 
@@ -417,7 +438,7 @@ namespace unlockfpsclr {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)), static_cast<System::Int32>(static_cast<System::Byte>(57)),
 				static_cast<System::Int32>(static_cast<System::Byte>(63)));
-			this->ClientSize = System::Drawing::Size(284, 116);
+			this->ClientSize = System::Drawing::Size(296, 122);
 			this->Controls->Add(this->inputFPS);
 			this->Controls->Add(this->labelFPS);
 			this->Controls->Add(this->tbFPS);
@@ -460,7 +481,8 @@ namespace unlockfpsclr {
 	private: Void githubMyProfile_Click(Object^ sender, EventArgs^ e);
 	private: Void officialWebsite_Click(Object^ sender, EventArgs^ e);
 	private: Void youtube_Click(Object^ sender, EventArgs^ e);
-	private: Void CfgVersion_Click(Object^ sender, EventArgs^ e);
 	// private: Void ToolStipMenu_MouseEnter(Object^ sender, EventArgs^ e);
+	private: Void viewCfg_Click(Object^ sender, EventArgs^ e);
+	private: Void seeCurrentVersion_Click(Object^ sender, EventArgs^ e);
 };
 }

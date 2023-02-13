@@ -153,10 +153,10 @@ namespace unlockfpsclr {
 			// 
 			// labelAutoSave
 			// 
-			this->labelAutoSave->Anchor = System::Windows::Forms::AnchorStyles::Bottom;
+			this->labelAutoSave->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->labelAutoSave->BackColor = System::Drawing::Color::Transparent;
 			this->labelAutoSave->Font = (gcnew System::Drawing::Font(L"Arial", 8.25F, System::Drawing::FontStyle::Bold));
-			this->labelAutoSave->ForeColor = System::Drawing::Color::White;
+			this->labelAutoSave->ForeColor = System::Drawing::Color::SkyBlue;
 			this->labelAutoSave->Location = System::Drawing::Point(16, 243);
 			this->labelAutoSave->Name = L"labelAutoSave";
 			this->labelAutoSave->Size = System::Drawing::Size(249, 14);
@@ -166,6 +166,7 @@ namespace unlockfpsclr {
 			// 
 			// tabControl
 			// 
+			this->tabControl->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->tabControl->Controls->Add(this->tabPageGeneral);
 			this->tabControl->Controls->Add(this->tabPageLaunchOptions);
 			this->tabControl->Controls->Add(this->tabPageDLLs);
@@ -194,6 +195,7 @@ namespace unlockfpsclr {
 			// 
 			// comboPriority
 			// 
+			this->comboPriority->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->comboPriority->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboPriority->FormattingEnabled = true;
 			this->comboPriority->Items->AddRange(gcnew cli::array< System::Object^  >(6) {
@@ -208,10 +210,11 @@ namespace unlockfpsclr {
 			// 
 			// labelPriority
 			// 
+			this->labelPriority->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->labelPriority->AutoSize = true;
 			this->labelPriority->BackColor = System::Drawing::Color::Transparent;
 			this->labelPriority->ForeColor = System::Drawing::Color::White;
-			this->labelPriority->Location = System::Drawing::Point(7, 104);
+			this->labelPriority->Location = System::Drawing::Point(5, 104);
 			this->labelPriority->Name = L"labelPriority";
 			this->labelPriority->Size = System::Drawing::Size(108, 13);
 			this->labelPriority->TabIndex = 4;
@@ -219,6 +222,7 @@ namespace unlockfpsclr {
 			// 
 			// ckbPowerSave
 			// 
+			this->ckbPowerSave->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->ckbPowerSave->AutoSize = true;
 			this->ckbPowerSave->BackColor = System::Drawing::Color::Transparent;
 			this->ckbPowerSave->ForeColor = System::Drawing::Color::White;
@@ -234,6 +238,7 @@ namespace unlockfpsclr {
 			// 
 			// ckbAutoClose
 			// 
+			this->ckbAutoClose->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->ckbAutoClose->AutoSize = true;
 			this->ckbAutoClose->BackColor = System::Drawing::Color::Transparent;
 			this->ckbAutoClose->ForeColor = System::Drawing::Color::White;
@@ -248,6 +253,7 @@ namespace unlockfpsclr {
 			// 
 			// ckbStartMinimized
 			// 
+			this->ckbStartMinimized->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->ckbStartMinimized->AutoSize = true;
 			this->ckbStartMinimized->BackColor = System::Drawing::Color::Transparent;
 			this->ckbStartMinimized->ForeColor = System::Drawing::Color::White;
@@ -261,6 +267,7 @@ namespace unlockfpsclr {
 			// 
 			// ckbVSync
 			// 
+			this->ckbVSync->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->ckbVSync->AutoSize = true;
 			this->ckbVSync->BackColor = System::Drawing::Color::Transparent;
 			this->ckbVSync->ForeColor = System::Drawing::Color::White;
@@ -296,6 +303,7 @@ namespace unlockfpsclr {
 			// 
 			// monitorNum
 			// 
+			this->monitorNum->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->monitorNum->Location = System::Drawing::Point(111, 132);
 			this->monitorNum->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
 			this->monitorNum->Name = L"monitorNum";
@@ -306,6 +314,7 @@ namespace unlockfpsclr {
 			// 
 			// labelMonitorNum
 			// 
+			this->labelMonitorNum->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->labelMonitorNum->AutoSize = true;
 			this->labelMonitorNum->BackColor = System::Drawing::Color::Transparent;
 			this->labelMonitorNum->ForeColor = System::Drawing::Color::White;
@@ -317,6 +326,7 @@ namespace unlockfpsclr {
 			// 
 			// comboWindowMode
 			// 
+			this->comboWindowMode->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->comboWindowMode->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboWindowMode->FormattingEnabled = true;
 			this->comboWindowMode->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Borderless", L"Exclusive" });
@@ -329,6 +339,7 @@ namespace unlockfpsclr {
 			// 
 			// labelWindowMode
 			// 
+			this->labelWindowMode->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->labelWindowMode->AutoSize = true;
 			this->labelWindowMode->BackColor = System::Drawing::Color::Transparent;
 			this->labelWindowMode->ForeColor = System::Drawing::Color::White;
@@ -340,6 +351,7 @@ namespace unlockfpsclr {
 			// 
 			// labelDummy
 			// 
+			this->labelDummy->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->labelDummy->AutoSize = true;
 			this->labelDummy->BackColor = System::Drawing::Color::Transparent;
 			this->labelDummy->ForeColor = System::Drawing::Color::White;
@@ -351,6 +363,7 @@ namespace unlockfpsclr {
 			// 
 			// customResY
 			// 
+			this->customResY->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->customResY->Location = System::Drawing::Point(182, 77);
 			this->customResY->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 4320, 0, 0, 0 });
 			this->customResY->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 200, 0, 0, 0 });
@@ -361,6 +374,7 @@ namespace unlockfpsclr {
 			// 
 			// customResX
 			// 
+			this->customResX->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->customResX->Location = System::Drawing::Point(111, 77);
 			this->customResX->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 7680, 0, 0, 0 });
 			this->customResX->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 200, 0, 0, 0 });
@@ -372,6 +386,7 @@ namespace unlockfpsclr {
 			// 
 			// labelCustomRes
 			// 
+			this->labelCustomRes->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->labelCustomRes->AutoSize = true;
 			this->labelCustomRes->BackColor = System::Drawing::Color::Transparent;
 			this->labelCustomRes->ForeColor = System::Drawing::Color::White;
@@ -383,6 +398,7 @@ namespace unlockfpsclr {
 			// 
 			// ckbCustomRes
 			// 
+			this->ckbCustomRes->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->ckbCustomRes->AutoSize = true;
 			this->ckbCustomRes->BackColor = System::Drawing::Color::Transparent;
 			this->ckbCustomRes->ForeColor = System::Drawing::Color::White;
@@ -396,6 +412,7 @@ namespace unlockfpsclr {
 			// 
 			// ckbFullscreen
 			// 
+			this->ckbFullscreen->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->ckbFullscreen->AutoSize = true;
 			this->ckbFullscreen->BackColor = System::Drawing::Color::Transparent;
 			this->ckbFullscreen->ForeColor = System::Drawing::Color::White;
@@ -409,6 +426,7 @@ namespace unlockfpsclr {
 			// 
 			// ckbPopupWnd
 			// 
+			this->ckbPopupWnd->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->ckbPopupWnd->AutoSize = true;
 			this->ckbPopupWnd->BackColor = System::Drawing::Color::Transparent;
 			this->ckbPopupWnd->ForeColor = System::Drawing::Color::White;
@@ -438,7 +456,8 @@ namespace unlockfpsclr {
 			// 
 			// btnDllRemove
 			// 
-			this->btnDllRemove->Location = System::Drawing::Point(136, 109);
+			this->btnDllRemove->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->btnDllRemove->Location = System::Drawing::Point(136, 115);
 			this->btnDllRemove->Name = L"btnDllRemove";
 			this->btnDllRemove->Size = System::Drawing::Size(107, 23);
 			this->btnDllRemove->TabIndex = 3;
@@ -449,7 +468,8 @@ namespace unlockfpsclr {
 			// 
 			// btnDllAdd
 			// 
-			this->btnDllAdd->Location = System::Drawing::Point(136, 75);
+			this->btnDllAdd->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->btnDllAdd->Location = System::Drawing::Point(136, 81);
 			this->btnDllAdd->Name = L"btnDllAdd";
 			this->btnDllAdd->Size = System::Drawing::Size(107, 23);
 			this->btnDllAdd->TabIndex = 2;
@@ -460,6 +480,7 @@ namespace unlockfpsclr {
 			// 
 			// lbDllList
 			// 
+			this->lbDllList->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->lbDllList->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(34)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->lbDllList->ForeColor = System::Drawing::Color::White;
@@ -472,6 +493,7 @@ namespace unlockfpsclr {
 			// 
 			// labelDLLMessage
 			// 
+			this->labelDLLMessage->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->labelDLLMessage->BackColor = System::Drawing::Color::Transparent;
 			this->labelDLLMessage->ForeColor = System::Drawing::Color::White;
 			this->labelDLLMessage->Location = System::Drawing::Point(0, 8);
