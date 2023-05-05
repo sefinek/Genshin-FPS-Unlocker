@@ -82,8 +82,7 @@ Assembly^ OnAssemblyResolve(Object^ sender, ResolveEventArgs^ args)
 int main(array<String^>^ args)
 {
 	HANDLE hMutex = OpenMutexA(MUTEX_ALL_ACCESS, FALSE, MUTEX_NAME);
-	if (hMutex)
-		return 0;
+	if (hMutex) return 0;
 
 	hMutex = CreateMutexA(nullptr, FALSE, MUTEX_NAME);
 
@@ -252,8 +251,16 @@ namespace unlockfpsclr
 
 	Void MainForm::mainApp_Click(Object^ sender, EventArgs^ e)
 	{
-		if (File::Exists("C:\\Genshin-Impact-ReShade\\Data\\Cmd\\open-launcher.cmd")) {
-			Process::Start("C:\\Genshin-Impact-ReShade\\Data\\Cmd\\open-launcher.cmd");
+		settings->Save();
+
+		if (!SetCurrentDirectory("C:\\Genshin-Impact-ReShade")) {
+			MessageBox::Show("Genshin-Impact-ReShade directory was not found in C:\\ disk.", "Genshin Impact FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+			return;
+		}
+
+		if (File::Exists("C:\\Genshin-Impact-ReShade\\Genshin Stella Mod.exe")) {
+			Process::Start("C:\\Genshin-Impact-ReShade\\Genshin Stella Mod.exe");
+			Application::Exit();
 		} else {
 			MessageBox::Show("Cannot find a required file.\n\nPlease reinstall this mod using Genshin Impact Mod Setup.", "Genshin Impact FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 		}
