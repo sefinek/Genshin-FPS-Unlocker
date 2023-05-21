@@ -134,9 +134,8 @@ namespace unlockfpsclr
 		// DestroyIcon(hIcon);
 
 		// Start setup dialog if game path is invalid in config
-		if (String::IsNullOrWhiteSpace(settings->GamePath) || !File::Exists(settings->GamePath))
-			(gcnew
-				SetupForm(settings))->ShowDialog();
+		if (String::IsNullOrWhiteSpace(settings->GamePath) || !File::Exists(settings->GamePath)) (gcnew
+			SetupForm(settings))->ShowDialog();
 
 		settings->FPSTarget = std::clamp(settings->FPSTarget, tbFPS->Minimum, tbFPS->Maximum); // sanitize
 
