@@ -91,8 +91,9 @@ namespace unlockfpsclr
 			comboBoxSelectInst->Visible = true;
 			comboBoxSelectInst->Items->AddRange(result->ToArray());
 			comboBoxSelectInst->SelectedIndex = 0;
-			if (!String::IsNullOrWhiteSpace(settings->GamePath)) comboBoxSelectInst->SelectedIndex = result->IndexOf(
-				settings->GamePath);
+			if (!String::IsNullOrWhiteSpace(settings->GamePath))
+				comboBoxSelectInst->SelectedIndex = result->IndexOf(
+					settings->GamePath);
 		}
 		else
 		{

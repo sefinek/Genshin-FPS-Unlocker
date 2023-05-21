@@ -2,8 +2,8 @@
 #include "Settings.h"
 #include "Managed.h"
 
-namespace unlockfpsclr {
-
+namespace unlockfpsclr
+{
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -37,16 +37,37 @@ namespace unlockfpsclr {
 				delete components;
 			}
 		}
-	private: Settings^ settings;
-	private: BackgroundWorker^ backgroundWorker;
-	private: System::Windows::Forms::Label^ labelResult;
-	private: System::Windows::Forms::Label^ labelSelectInstance;
-	private: System::Windows::Forms::ComboBox^ comboBoxSelectInst;
-	private: System::Windows::Forms::Button^ btnBrowse;
-	private: System::Windows::Forms::Label^ labelHint;
-	private: System::Windows::Forms::ToolTip^ ttPath;
-	private: System::Windows::Forms::Button^ btnConfirm;
-	private: System::ComponentModel::IContainer^ components;
+
+	private:
+		Settings^ settings;
+
+	private:
+		BackgroundWorker^ backgroundWorker;
+
+	private:
+		System::Windows::Forms::Label^ labelResult;
+
+	private:
+		System::Windows::Forms::Label^ labelSelectInstance;
+
+	private:
+		System::Windows::Forms::ComboBox^ comboBoxSelectInst;
+
+	private:
+		System::Windows::Forms::Button^ btnBrowse;
+
+	private:
+		System::Windows::Forms::Label^ labelHint;
+
+	private:
+		System::Windows::Forms::ToolTip^ ttPath;
+
+	private:
+		System::Windows::Forms::Button^ btnConfirm;
+
+	private:
+		System::ComponentModel::IContainer^ components;
+
 	protected:
 
 	private:
@@ -76,8 +97,9 @@ namespace unlockfpsclr {
 			// 
 			this->labelResult->Anchor = System::Windows::Forms::AnchorStyles::Top;
 			this->labelResult->BackColor = System::Drawing::Color::Transparent;
-			this->labelResult->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->labelResult->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular,
+			                                                       System::Drawing::GraphicsUnit::Point,
+			                                                       static_cast<System::Byte>(0)));
 			this->labelResult->ForeColor = System::Drawing::Color::White;
 			this->labelResult->Location = System::Drawing::Point(9, 9);
 			this->labelResult->Name = L"labelResult";
@@ -151,7 +173,9 @@ namespace unlockfpsclr {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)), static_cast<System::Int32>(static_cast<System::Byte>(57)),
+			this->BackColor = System::Drawing::Color::FromArgb(
+				static_cast<System::Int32>(static_cast<System::Byte>(54)),
+				static_cast<System::Int32>(static_cast<System::Byte>(57)),
 				static_cast<System::Int32>(static_cast<System::Byte>(63)));
 			this->ClientSize = System::Drawing::Size(458, 117);
 			this->Controls->Add(this->btnConfirm);
@@ -168,15 +192,28 @@ namespace unlockfpsclr {
 			this->Text = L"Setup";
 			this->ResumeLayout(false);
 			this->PerformLayout();
-
 		}
 #pragma endregion
-	private: Void OnFormClosing(Object^ sender, FormClosingEventArgs^ e);
-	private: Void btnBrowse_Click(Object^ sender, EventArgs^ e);
-	private: Void OnProcessFound(String^ processPath);
-	private: Void OnDoWork(Object^ sender, DoWorkEventArgs^ e);
-	private: Void OnProgressChanged(Object^ sender, ProgressChangedEventArgs^ e);
-	private: Void OnLoad(Object^ sender, EventArgs^ e);
-	private: Void btnConfirm_Click(System::Object^ sender, EventArgs^ e);
+
+	private:
+		Void OnFormClosing(Object^ sender, FormClosingEventArgs^ e);
+
+	private:
+		Void btnBrowse_Click(Object^ sender, EventArgs^ e);
+
+	private:
+		Void OnProcessFound(String^ processPath);
+
+	private:
+		Void OnDoWork(Object^ sender, DoWorkEventArgs^ e);
+
+	private:
+		Void OnProgressChanged(Object^ sender, ProgressChangedEventArgs^ e);
+
+	private:
+		Void OnLoad(Object^ sender, EventArgs^ e);
+
+	private:
+		Void btnConfirm_Click(System::Object^ sender, EventArgs^ e);
 	};
 }
