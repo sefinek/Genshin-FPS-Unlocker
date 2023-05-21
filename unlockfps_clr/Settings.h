@@ -1,13 +1,12 @@
 #pragma once
 using namespace System;
-using namespace Collections::Generic;
+using namespace System::Collections::Generic;
 
 [Serializable]
 public ref class Settings
 {
 private:
 	static String^ ConfigPath = "unlocker.config.json";
-
 public:
 	property String^ ConfigVersion;
 	property String^ ConfigDate;
