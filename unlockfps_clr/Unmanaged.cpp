@@ -46,14 +46,7 @@ bool Unmanaged::StartProcess(LPCSTR ProcessPath, LPSTR CommandLine, int Priority
     StartPriority = PrioityClass[Priority];
     SetPriorityClass(GameHandle, StartPriority);
 
-<<<<<<< HEAD
-	if (!EventHook)
-		EventHook = SetWinEventHook(EVENT_SYSTEM_FOREGROUND, EVENT_SYSTEM_FOREGROUND, nullptr, WinEventProc,
-		                            0, 0, WINEVENT_OUTOFCONTEXT);
-	// Create event hook for window change detection
-=======
     if (!EventHook) EventHook = SetWinEventHook(EVENT_SYSTEM_FOREGROUND, EVENT_SYSTEM_FOREGROUND, nullptr, WinEventProc, 0, 0, WINEVENT_OUTOFCONTEXT); // Create event hook for window change detection
->>>>>>> parent of 29451f7 (Reformat code)
 
     return true;
 }
@@ -128,13 +121,8 @@ uintptr_t Unmanaged::PatternScan(PVOID module, LPCSTR signature)
         return bytes;
     };
 
-<<<<<<< HEAD
-	auto dosHeader = static_cast<PIMAGE_DOS_HEADER>(module);
-	auto ntHeaders = (PIMAGE_NT_HEADERS)(static_cast<std::uint8_t*>(module) + dosHeader->e_lfanew);
-=======
     auto dosHeader = (PIMAGE_DOS_HEADER)module;
     auto ntHeaders = (PIMAGE_NT_HEADERS)((std::uint8_t*)module + dosHeader->e_lfanew);
->>>>>>> parent of 29451f7 (Reformat code)
 
     auto sizeOfImage = ntHeaders->OptionalHeader.SizeOfImage;
     auto patternBytes = pattern_to_byte(signature);
@@ -176,21 +164,12 @@ std::string Unmanaged::GetGamePath()
 
 std::string Unmanaged::GetLastErrorAsString(DWORD code)
 {
-<<<<<<< HEAD
-	LPSTR buf = nullptr;
-	FormatMessageA(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
-	               nullptr, code, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPSTR)&buf, 0, nullptr);
-	std::string ret = buf;
-	LocalFree(buf);
-	return ret;
-=======
     LPSTR buf = nullptr;
     FormatMessageA(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
         NULL, code, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPSTR)&buf, 0, NULL);
     std::string ret = buf;
     LocalFree(buf);
     return ret;
->>>>>>> parent of 29451f7 (Reformat code)
 }
 
 bool Unmanaged::SetupData()

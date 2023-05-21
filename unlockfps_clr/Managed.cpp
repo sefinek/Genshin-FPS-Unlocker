@@ -3,13 +3,8 @@
 
 List<String^>^ Managed::TryResolveGamePath()
 {
-<<<<<<< HEAD
-	auto result = gcnew List<String^>{};
-	auto RazerChromaSDK = Registry::LocalMachine->OpenSubKey("SOFTWARE\\WOW6432Node\\Razer Chroma SDK\\Apps");
-=======
     List<String^>^ result = gcnew List<String^>{};
     auto RazerChromaSDK = Registry::LocalMachine->OpenSubKey("SOFTWARE\\WOW6432Node\\Razer Chroma SDK\\Apps");
->>>>>>> parent of 29451f7 (Reformat code)
 
     if (RazerChromaSDK && RazerChromaSDK->SubKeyCount)
     {
@@ -67,17 +62,6 @@ List<String^>^ Managed::TryResolveGamePath()
             if (!File::Exists(LauncherConfigPath))
                 continue;
 
-<<<<<<< HEAD
-			// Read the official launcher config
-			// it contains the game install path and exe name
-			auto LauncherConfig = File::ReadAllLines(LauncherConfigPath);
-			auto ini = gcnew Dictionary<String^, String^>();
-			for each (auto Line in LauncherConfig)
-			{
-				auto split = Line->Split(gcnew array<String^>{"="}, StringSplitOptions::RemoveEmptyEntries);
-				if (split->Length < 2)
-					continue;
-=======
             // Read the official launcher config
             // it contains the game install path and exe name
             auto LauncherConfig = File::ReadAllLines(LauncherConfigPath);
@@ -87,7 +71,6 @@ List<String^>^ Managed::TryResolveGamePath()
                 auto split = Line->Split(gcnew array<String^>{"="}, StringSplitOptions::RemoveEmptyEntries);
                 if (split->Length < 2)
                     continue;
->>>>>>> parent of 29451f7 (Reformat code)
 
                 ini[split[0]] = split[1];
             }
@@ -120,18 +103,7 @@ void Managed::InjectDLLs(List<String^>^ paths)
         Marshal::FreeHGlobal(static_cast<IntPtr>(nativeString));
     }
 
-<<<<<<< HEAD
-	for each (auto path in paths)
-	{
-		auto nativeString = static_cast<LPSTR>(static_cast<PVOID>(Marshal::StringToHGlobalAnsi(path)));
-		stlPaths.push_back(nativeString);
-		Marshal::FreeHGlobal(static_cast<IntPtr>(nativeString));
-	}
-
-	Unmanaged::InjectDLLs(stlPaths);
-=======
     Unmanaged::InjectDLLs(stlPaths);
->>>>>>> parent of 29451f7 (Reformat code)
 }
 
 bool Managed::StartGame(Settings^ settings)
@@ -153,13 +125,8 @@ bool Managed::StartGame(Settings^ settings)
     commandLine += String::Format("-window-mode {0} ", settings->IsExclusiveFullscreen ? "exclusive" : "borderless");
     commandLine += String::Format("-monitor {0} ", settings->MonitorNum);
 
-<<<<<<< HEAD
-	auto nativeCommandLine = static_cast<LPSTR>(static_cast<PVOID>(Marshal::StringToHGlobalAnsi(commandLine)));
-	auto nativeGamePath = static_cast<LPSTR>(static_cast<PVOID>(Marshal::StringToHGlobalAnsi(settings->GamePath)));
-=======
     LPSTR nativeCommandLine = static_cast<LPSTR>(static_cast<PVOID>(Marshal::StringToHGlobalAnsi(commandLine)));
     LPSTR nativeGamePath = static_cast<LPSTR>(static_cast<PVOID>(Marshal::StringToHGlobalAnsi(settings->GamePath)));
->>>>>>> parent of 29451f7 (Reformat code)
 
     auto result = Unmanaged::StartProcess(nativeGamePath, nativeCommandLine, settings->Priority);
 
