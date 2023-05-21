@@ -167,7 +167,6 @@ namespace unlockfpsclr
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
-<<<<<<< HEAD
 			this->btnStartGame = (gcnew Button());
 			this->ckbAutoStart = (gcnew CheckBox());
 			this->ttAutoStart = (gcnew ToolTip(this->components));
@@ -201,41 +200,6 @@ namespace unlockfpsclr
 			this->toolStripMenuExit = (gcnew ToolStripMenuItem());
 			(cli::safe_cast<ISupportInitialize^>(this->tbFPS))->BeginInit();
 			(cli::safe_cast<ISupportInitialize^>(this->inputFPS))->BeginInit();
-=======
-			this->btnStartGame = (gcnew System::Windows::Forms::Button());
-			this->ckbAutoStart = (gcnew System::Windows::Forms::CheckBox());
-			this->ttAutoStart = (gcnew System::Windows::Forms::ToolTip(this->components));
-			this->tbFPS = (gcnew System::Windows::Forms::TrackBar());
-			this->labelFPS = (gcnew System::Windows::Forms::Label());
-			this->inputFPS = (gcnew System::Windows::Forms::NumericUpDown());
-			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
-			this->toolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->menuItemSettings = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->menuItemSetup = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->menuItemAbout = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->openToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->genshinImpactModPackToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->checkHzOfYourMonitorToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->systemInformationToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->dxDiaxToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->linksToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->officialWebsiteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->youTubeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->gitHubToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->repositoriesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->genshinImpactReShade2023ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->genshinFPSUnlockToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->myProfileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->configVersionToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->viewConfigToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->seeCurrentVersionToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->ttGamePath = (gcnew System::Windows::Forms::ToolTip(this->components));
-			this->notifyIcon = (gcnew System::Windows::Forms::NotifyIcon(this->components));
-			this->contextMenuNotify = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
-			this->toolStripMenuExit = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbFPS))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->inputFPS))->BeginInit();
->>>>>>> parent of fa52316 (2.0.9)
 			this->menuStrip1->SuspendLayout();
 			this->contextMenuNotify->SuspendLayout();
 			this->SuspendLayout();
@@ -371,15 +335,9 @@ namespace unlockfpsclr
 			// genshinImpactModPackToolStripMenuItem
 			// 
 			this->genshinImpactModPackToolStripMenuItem->Name = L"genshinImpactModPackToolStripMenuItem";
-<<<<<<< HEAD
 			this->genshinImpactModPackToolStripMenuItem->Size = Drawing::Size(211, 22);
 			this->genshinImpactModPackToolStripMenuItem->Text = L"Genshin Stella Mod";
 			this->genshinImpactModPackToolStripMenuItem->Click += gcnew EventHandler(this, &MainForm::mainApp_Click);
-=======
-			this->genshinImpactModPackToolStripMenuItem->Size = System::Drawing::Size(213, 22);
-			this->genshinImpactModPackToolStripMenuItem->Text = L"Genshin Impact Mod Pack";
-			this->genshinImpactModPackToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::mainApp_Click);
->>>>>>> parent of fa52316 (2.0.9)
 			// 
 			// checkHzOfYourMonitorToolStripMenuItem
 			// 
@@ -388,11 +346,7 @@ namespace unlockfpsclr
 				this->dxDiaxToolStripMenuItem
 			});
 			this->checkHzOfYourMonitorToolStripMenuItem->Name = L"checkHzOfYourMonitorToolStripMenuItem";
-<<<<<<< HEAD
 			this->checkHzOfYourMonitorToolStripMenuItem->Size = Drawing::Size(211, 22);
-=======
-			this->checkHzOfYourMonitorToolStripMenuItem->Size = System::Drawing::Size(213, 22);
->>>>>>> parent of fa52316 (2.0.9)
 			this->checkHzOfYourMonitorToolStripMenuItem->Text = L"Check Hz of your monitor";
 			// 
 			// systemInformationToolStripMenuItem
@@ -409,7 +363,6 @@ namespace unlockfpsclr
 			this->dxDiaxToolStripMenuItem->Text = L"DxDiax";
 			this->dxDiaxToolStripMenuItem->Click += gcnew EventHandler(this, &MainForm::dxdiag_Click);
 			// 
-<<<<<<< HEAD
 			// configVersionToolStripMenuItem
 			// 
 			this->configVersionToolStripMenuItem->DropDownItems->AddRange(gcnew array<ToolStripItem^>(2){
@@ -436,8 +389,6 @@ namespace unlockfpsclr
 			this->seeCurrentVersionToolStripMenuItem->Click += gcnew EventHandler(
 				this, &MainForm::seeCurrentVersion_Click);
 			// 
-=======
->>>>>>> parent of fa52316 (2.0.9)
 			// linksToolStripMenuItem
 			// 
 			this->linksToolStripMenuItem->DropDownItems->AddRange(gcnew array<ToolStripItem^>(3){
@@ -505,31 +456,6 @@ namespace unlockfpsclr
 			this->myProfileToolStripMenuItem->Size = Drawing::Size(138, 22);
 			this->myProfileToolStripMenuItem->Text = L"My profile";
 			this->myProfileToolStripMenuItem->Click += gcnew EventHandler(this, &MainForm::githubMyProfile_Click);
-			// 
-			// configVersionToolStripMenuItem
-			// 
-			this->configVersionToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-				this->viewConfigToolStripMenuItem,
-					this->seeCurrentVersionToolStripMenuItem
-			});
-			this->configVersionToolStripMenuItem->ForeColor = System::Drawing::Color::White;
-			this->configVersionToolStripMenuItem->Name = L"configVersionToolStripMenuItem";
-			this->configVersionToolStripMenuItem->Size = System::Drawing::Size(55, 20);
-			this->configVersionToolStripMenuItem->Text = L"Config";
-			// 
-			// viewConfigToolStripMenuItem
-			// 
-			this->viewConfigToolStripMenuItem->Name = L"viewConfigToolStripMenuItem";
-			this->viewConfigToolStripMenuItem->Size = System::Drawing::Size(180, 22);
-			this->viewConfigToolStripMenuItem->Text = L"View config";
-			this->viewConfigToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::viewCfg_Click);
-			// 
-			// seeCurrentVersionToolStripMenuItem
-			// 
-			this->seeCurrentVersionToolStripMenuItem->Name = L"seeCurrentVersionToolStripMenuItem";
-			this->seeCurrentVersionToolStripMenuItem->Size = System::Drawing::Size(180, 22);
-			this->seeCurrentVersionToolStripMenuItem->Text = L"See current version";
-			this->seeCurrentVersionToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::seeCurrentVersion_Click);
 			// 
 			// ttGamePath
 			// 
