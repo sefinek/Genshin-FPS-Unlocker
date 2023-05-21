@@ -2,11 +2,11 @@
 #include "Settings.h"
 
 using namespace System;
-using namespace System::IO;
-using namespace System::Windows::Forms;
-using namespace System::Collections::Generic;
+using namespace IO;
+using namespace Windows::Forms;
+using namespace Collections::Generic;
 using namespace Microsoft::Win32;
-using namespace System::Runtime::InteropServices;
+using namespace Runtime::InteropServices;
 
 namespace Managed
 {
