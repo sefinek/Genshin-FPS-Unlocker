@@ -6,7 +6,7 @@ namespace unlockfpsclr
 {
 	Void AboutForm::Exit_Button(Object^ sender, EventArgs^ e)
 	{
-		Form::Close();
+		Close();
 	}
 
 	Void AboutForm::linkLabelSource_LinkClicked(Object^ sender, LinkLabelLinkClickedEventArgs^ e)

@@ -3,7 +3,7 @@
 
 List<String^>^ Managed::TryResolveGamePath()
 {
-	List<String^>^ result = gcnew List<String^>{};
+	auto result = gcnew List<String^>{};
 	auto RazerChromaSDK = Registry::LocalMachine->OpenSubKey("SOFTWARE\\WOW6432Node\\Razer Chroma SDK\\Apps");
 
 	if (RazerChromaSDK && RazerChromaSDK->SubKeyCount)
@@ -65,7 +65,7 @@ List<String^>^ Managed::TryResolveGamePath()
 			// Read the official launcher config
 			// it contains the game install path and exe name
 			auto LauncherConfig = File::ReadAllLines(LauncherConfigPath);
-			Dictionary<String^, String^>^ ini = gcnew Dictionary<String^, String^>();
+			auto ini = gcnew Dictionary<String^, String^>();
 			for each (auto Line in LauncherConfig)
 			{
 				auto split = Line->Split(gcnew array<String^>{"="}, StringSplitOptions::RemoveEmptyEntries);
@@ -99,7 +99,7 @@ void Managed::InjectDLLs(List<String^>^ paths)
 
 	for each (auto path in paths)
 	{
-		LPSTR nativeString = static_cast<LPSTR>(static_cast<PVOID>(Marshal::StringToHGlobalAnsi(path)));
+		auto nativeString = static_cast<LPSTR>(static_cast<PVOID>(Marshal::StringToHGlobalAnsi(path)));
 		stlPaths.push_back(nativeString);
 		Marshal::FreeHGlobal(static_cast<IntPtr>(nativeString));
 	}
@@ -128,8 +128,8 @@ bool Managed::StartGame(Settings^ settings)
 	commandLine += String::Format("-window-mode {0} ", settings->IsExclusiveFullscreen ? "exclusive" : "borderless");
 	commandLine += String::Format("-monitor {0} ", settings->MonitorNum);
 
-	LPSTR nativeCommandLine = static_cast<LPSTR>(static_cast<PVOID>(Marshal::StringToHGlobalAnsi(commandLine)));
-	LPSTR nativeGamePath = static_cast<LPSTR>(static_cast<PVOID>(Marshal::StringToHGlobalAnsi(settings->GamePath)));
+	auto nativeCommandLine = static_cast<LPSTR>(static_cast<PVOID>(Marshal::StringToHGlobalAnsi(commandLine)));
+	auto nativeGamePath = static_cast<LPSTR>(static_cast<PVOID>(Marshal::StringToHGlobalAnsi(settings->GamePath)));
 
 	auto result = Unmanaged::StartProcess(nativeGamePath, nativeCommandLine, settings->Priority);
 
