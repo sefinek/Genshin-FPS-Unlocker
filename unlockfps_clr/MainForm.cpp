@@ -83,7 +83,8 @@ Assembly^ OnAssemblyResolve(Object^ sender, ResolveEventArgs^ args)
 int main(array<String^>^ args)
 {
 	HANDLE hMutex = OpenMutexA(MUTEX_ALL_ACCESS, FALSE, MUTEX_NAME);
-	if (hMutex) return 0;
+	if (hMutex)
+		return 0;
 
 	hMutex = CreateMutexA(nullptr, FALSE, MUTEX_NAME);
 
@@ -255,6 +256,7 @@ namespace unlockfpsclr
 
 	Void MainForm::mainApp_Click(Object^ sender, EventArgs^ e)
 	{
+<<<<<<< HEAD
 		settings->save();
 
 		if (!SetCurrentDirectory("C:\\Genshin-Impact-ReShade"))
@@ -274,6 +276,12 @@ namespace unlockfpsclr
 			MessageBox::Show(
 				"Cannot find a required file.\n\nPlease reinstall this mod using Genshin Impact Mod Setup.",
 				"Genshin Impact FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+=======
+		if (File::Exists("C:\\Genshin-Impact-ReShade\\Data\\Cmd\\open-launcher.cmd")) {
+			Process::Start("C:\\Genshin-Impact-ReShade\\Data\\Cmd\\open-launcher.cmd");
+		} else {
+			MessageBox::Show("Cannot find a required file.\n\nPlease reinstall this mod using Genshin Impact Mod Setup.", "Genshin Impact FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+>>>>>>> parent of fa52316 (2.0.9)
 		}
 	}
 

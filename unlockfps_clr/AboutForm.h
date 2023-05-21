@@ -74,7 +74,7 @@ namespace unlockfpsclr {
 			this->labelTitle->Padding = System::Windows::Forms::Padding(0, 5, 0, 0);
 			this->labelTitle->Size = System::Drawing::Size(300, 44);
 			this->labelTitle->TabIndex = 0;
-			this->labelTitle->Text = L"Genshin FPS Unlocker\r\nv2.0.9";
+			this->labelTitle->Text = L"Genshin FPS Unlocker\r\nv2.0.8";
 			this->labelTitle->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			// 
 			// linkLabelSource
@@ -88,7 +88,7 @@ namespace unlockfpsclr {
 			this->linkLabelSource->Size = System::Drawing::Size(300, 29);
 			this->linkLabelSource->TabIndex = 2;
 			this->linkLabelSource->TabStop = true;
-			this->linkLabelSource->Text = L"This program is free and open source.\r\nModified by Sefinek.";
+			this->linkLabelSource->Text = L"This program is free and open source.\r\nEdited by Sefinek.";
 			this->linkLabelSource->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			this->linkLabelSource->UseCompatibleTextRendering = true;
 			this->linkLabelSource->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &AboutForm::linkLabelSource_LinkClicked);
@@ -97,15 +97,15 @@ namespace unlockfpsclr {
 			// 
 			this->linkLabelIssues->BackColor = System::Drawing::Color::Transparent;
 			this->linkLabelIssues->ForeColor = System::Drawing::Color::White;
-			this->linkLabelIssues->LinkArea = System::Windows::Forms::LinkArea(86, 46);
+			this->linkLabelIssues->LinkArea = System::Windows::Forms::LinkArea(81, 46);
 			this->linkLabelIssues->LinkBehavior = System::Windows::Forms::LinkBehavior::NeverUnderline;
 			this->linkLabelIssues->Location = System::Drawing::Point(12, 106);
 			this->linkLabelIssues->Name = L"linkLabelIssues";
 			this->linkLabelIssues->Size = System::Drawing::Size(300, 47);
 			this->linkLabelIssues->TabIndex = 3;
 			this->linkLabelIssues->TabStop = true;
-			this->linkLabelIssues->Text = L"If you encounter any problems or have a suggestion,\r\nfeel free to submit an issue"
-				L" at\r\ngithub.com/sefinek24/genshin-fps-unlock/issues.";
+			this->linkLabelIssues->Text = L"If you encounter any problems or have a suggestion\r\ngo ahead submit an issue at\r\n"
+				L"github.com/sefinek24/genshin-fps-unlock/issues";
 			this->linkLabelIssues->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			this->linkLabelIssues->UseCompatibleTextRendering = true;
 			this->linkLabelIssues->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &AboutForm::linkLabelIssues_LinkClicked);
