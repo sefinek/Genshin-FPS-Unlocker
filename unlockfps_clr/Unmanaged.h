@@ -24,7 +24,8 @@ namespace Unmanaged
 		IDLE_PRIORITY_CLASS
 	};
 
-	void __stdcall WinEventProc(HWINEVENTHOOK hWinEventHook, DWORD event, HWND hwnd, LONG idObject, LONG idChild, DWORD idEventThread, DWORD dwmsEventTime);
+	void __stdcall WinEventProc(HWINEVENTHOOK hWinEventHook, DWORD event, HWND hwnd, LONG idObject, LONG idChild,
+	                            DWORD idEventThread, DWORD dwmsEventTime);
 
 	bool StartProcess(LPCSTR ProcessPath, LPSTR CommandLine, int Priority);
 	bool IsGameRunning();

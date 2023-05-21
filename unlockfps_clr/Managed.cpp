@@ -3,135 +3,138 @@
 
 List<String^>^ Managed::TryResolveGamePath()
 {
-    List<String^>^ result = gcnew List<String^>{};
-    auto RazerChromaSDK = Registry::LocalMachine->OpenSubKey("SOFTWARE\\WOW6432Node\\Razer Chroma SDK\\Apps");
+	auto result = gcnew List<String^>{};
+	auto RazerChromaSDK = Registry::LocalMachine->OpenSubKey("SOFTWARE\\WOW6432Node\\Razer Chroma SDK\\Apps");
 
-    if (RazerChromaSDK && RazerChromaSDK->SubKeyCount)
-    {
-        auto SubKeys = RazerChromaSDK->GetSubKeyNames();
-        for each(auto it in SubKeys)
-        {
-            auto SubKeyName = it;
-            if (!SubKeyName->Contains("GenshinImpact") && !SubKeyName->Contains("YuanShen"))
-                continue;
+	if (RazerChromaSDK && RazerChromaSDK->SubKeyCount)
+	{
+		auto SubKeys = RazerChromaSDK->GetSubKeyNames();
+		for each (auto it in SubKeys)
+		{
+			auto SubKeyName = it;
+			if (!SubKeyName->Contains("GenshinImpact") && !SubKeyName->Contains("YuanShen"))
+				continue;
 
-            auto SubKey = RazerChromaSDK->OpenSubKey(SubKeyName);
-            if (!SubKey)
-                continue;
+			auto SubKey = RazerChromaSDK->OpenSubKey(SubKeyName);
+			if (!SubKey)
+				continue;
 
-            auto Path = static_cast<String^>(SubKey->GetValue("Path"));
-            if (String::IsNullOrWhiteSpace(Path))
-                continue;
+			auto Path = static_cast<String^>(SubKey->GetValue("Path"));
+			if (String::IsNullOrWhiteSpace(Path))
+				continue;
 
-            if (!File::Exists(Path))
-                continue;
+			if (!File::Exists(Path))
+				continue;
 
-            Path = Path->Replace("/", "\\");
-            result->Add(Path);
-        }
+			Path = Path->Replace("/", "\\");
+			result->Add(Path);
+		}
 
-        if (result->Count)
-            return result;
-    }
+		if (result->Count)
+			return result;
+	}
 
-    // Cannot find anything through chroma sdk
-    // Use uninstall list instead
-    auto Uninstall = Registry::LocalMachine->OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall");
-    if (Uninstall && Uninstall->SubKeyCount)
-    {
-        auto SubKeys = Uninstall->GetSubKeyNames();
-        for each (auto it in SubKeys)
-        {
-            auto SubKeyName = it;
-            if (!SubKeyName->Contains("Genshin Impact") && !SubKeyName->Contains(L"Ô­Éñ"))
-                continue;
+	// Cannot find anything through chroma sdk
+	// Use uninstall list instead
+	auto Uninstall = Registry::LocalMachine->OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall");
+	if (Uninstall && Uninstall->SubKeyCount)
+	{
+		auto SubKeys = Uninstall->GetSubKeyNames();
+		for each (auto it in SubKeys)
+		{
+			auto SubKeyName = it;
+			if (!SubKeyName->Contains("Genshin Impact") && !SubKeyName->Contains(L"Ô­ï¿½ï¿½"))
+				continue;
 
-            auto SubKey = Uninstall->OpenSubKey(SubKeyName);
-            if (!SubKey)
-                continue;
+			auto SubKey = Uninstall->OpenSubKey(SubKeyName);
+			if (!SubKey)
+				continue;
 
-            // The install path is the official launcher path
-            auto InstallPath = static_cast<String^>(SubKey->GetValue("InstallPath"));
-            if (String::IsNullOrWhiteSpace(InstallPath))
-                continue;
+			// The install path is the official launcher path
+			auto InstallPath = static_cast<String^>(SubKey->GetValue("InstallPath"));
+			if (String::IsNullOrWhiteSpace(InstallPath))
+				continue;
 
-            if (!Directory::Exists(InstallPath))
-                continue;
+			if (!Directory::Exists(InstallPath))
+				continue;
 
-            String^ LauncherConfigPath = InstallPath + "\\config.ini";
-            if (!File::Exists(LauncherConfigPath))
-                continue;
+			String^ LauncherConfigPath = InstallPath + "\\config.ini";
+			if (!File::Exists(LauncherConfigPath))
+				continue;
 
-            // Read the official launcher config
-            // it contains the game install path and exe name
-            auto LauncherConfig = File::ReadAllLines(LauncherConfigPath);
-            Dictionary<String^, String^>^ ini = gcnew Dictionary<String^, String^>();
-            for each (auto Line in LauncherConfig)
-            {
-                auto split = Line->Split(gcnew array<String^>{"="}, StringSplitOptions::RemoveEmptyEntries);
-                if (split->Length < 2)
-                    continue;
+			// Read the official launcher config
+			// it contains the game install path and exe name
+			auto LauncherConfig = File::ReadAllLines(LauncherConfigPath);
+			auto ini = gcnew Dictionary<String^, String^>();
+			for each (auto Line in LauncherConfig)
+			{
+				auto split = Line->Split(gcnew array<String^>{"="}, StringSplitOptions::RemoveEmptyEntries);
+				if (split->Length < 2)
+					continue;
 
-                ini[split[0]] = split[1];
-            }
+				ini[split[0]] = split[1];
+			}
 
-            result->Add(String::Format("{0}/{1}", ini["game_install_path"], ini["game_start_name"])->Replace("/", "\\"));
-        }
+			result->Add(
+				String::Format("{0}/{1}", ini["game_install_path"], ini["game_start_name"])->Replace("/", "\\"));
+		}
 
-        return result;
-    }
+		return result;
+	}
 
-    return result;
+	return result;
 }
 
 String^ Managed::TryGetGamePath()
 {
-    auto path = Unmanaged::GetGamePath();
-    return gcnew String(path.c_str());
+	auto path = Unmanaged::GetGamePath();
+	return gcnew String(path.c_str());
 }
 
 void Managed::InjectDLLs(List<String^>^ paths)
 {
-    if (!paths->Count) return;
+	if (!paths->Count) return;
 
-    std::vector<std::string> stlPaths;
-    
-    for each (auto path in paths)
-    {
-        LPSTR nativeString = static_cast<LPSTR>(static_cast<PVOID>(Marshal::StringToHGlobalAnsi(path)));
-        stlPaths.push_back(nativeString);
-        Marshal::FreeHGlobal(static_cast<IntPtr>(nativeString));
-    }
+	std::vector<std::string> stlPaths;
 
-    Unmanaged::InjectDLLs(stlPaths);
+	for each (auto path in paths)
+	{
+		auto nativeString = static_cast<LPSTR>(static_cast<PVOID>(Marshal::StringToHGlobalAnsi(path)));
+		stlPaths.push_back(nativeString);
+		Marshal::FreeHGlobal(static_cast<IntPtr>(nativeString));
+	}
+
+	Unmanaged::InjectDLLs(stlPaths);
 }
 
 bool Managed::StartGame(Settings^ settings)
 {
-    if (Unmanaged::IsGameRunning() || Unmanaged::GetPID("GenshinImpact.exe") || Unmanaged::GetPID("YuanShen.exe"))
-    {
-        MessageBox::Show("An instance of the game is already running.", "Genshin Impact FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Information);
-        return false;
-    }
+	if (Unmanaged::IsGameRunning() || Unmanaged::GetPID("GenshinImpact.exe") || Unmanaged::GetPID("YuanShen.exe"))
+	{
+		MessageBox::Show("An instance of the game is already running.", "Genshin Impact FPS Unlocker",
+		                 MessageBoxButtons::OK, MessageBoxIcon::Information);
+		return false;
+	}
 
-    String^ commandLine = "";
+	String^ commandLine = "";
 
-    if (settings->PopupWindow)
-        commandLine += "-popupwindow ";
-    if (settings->UseCustomRes)
-        commandLine += String::Format("-screen-width {0} -screen-height {1} ", settings->CustomResX, settings->CustomResY);
+	if (settings->PopupWindow)
+		commandLine += "-popupwindow ";
+	if (settings->UseCustomRes)
+		commandLine += String::Format("-screen-width {0} -screen-height {1} ", settings->CustomResX,
+		                              settings->CustomResY);
 
-    commandLine += String::Format("-screen-fullscreen {0} ", Convert::ToInt32(settings->Fullscreen));
-    commandLine += String::Format("-window-mode {0} ", settings->IsExclusiveFullscreen ? "exclusive" : "borderless");
-    commandLine += String::Format("-monitor {0} ", settings->MonitorNum);
+	commandLine += String::Format("-screen-fullscreen {0} ", Convert::ToInt32(settings->Fullscreen));
+	commandLine += String::Format("-window-mode {0} ", settings->IsExclusiveFullscreen ? "exclusive" : "borderless");
+	commandLine += String::Format("-monitor {0} ", settings->MonitorNum);
 
-    LPSTR nativeCommandLine = static_cast<LPSTR>(static_cast<PVOID>(Marshal::StringToHGlobalAnsi(commandLine)));
-    LPSTR nativeGamePath = static_cast<LPSTR>(static_cast<PVOID>(Marshal::StringToHGlobalAnsi(settings->GamePath)));
+	auto nativeCommandLine = static_cast<LPSTR>(static_cast<PVOID>(Marshal::StringToHGlobalAnsi(commandLine)));
+	auto nativeGamePath = static_cast<LPSTR>(static_cast<PVOID>(Marshal::StringToHGlobalAnsi(settings->GamePath)));
 
-    auto result = Unmanaged::StartProcess(nativeGamePath, nativeCommandLine, settings->Priority);
+	auto result = Unmanaged::StartProcess(nativeGamePath, nativeCommandLine, settings->Priority);
 
-    Marshal::FreeHGlobal(static_cast<IntPtr>(nativeCommandLine));
-    Marshal::FreeHGlobal(static_cast<IntPtr>(nativeGamePath));
+	Marshal::FreeHGlobal(static_cast<IntPtr>(nativeCommandLine));
+	Marshal::FreeHGlobal(static_cast<IntPtr>(nativeGamePath));
 
-    return result;
+	return result;
 }
