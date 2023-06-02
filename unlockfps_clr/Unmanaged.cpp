@@ -330,6 +330,7 @@ void Unmanaged::InjectDLLs(std::vector<std::string> paths)
 	BYTE dummyBuffer[0x1000]{};
 	auto pLoadLibraryA = GetProcAddress(GetModuleHandleA("kernel32.dll"), "LoadLibraryA");
 
+	// Reuse the same buffer for injection
 	for (auto it : paths)
 	{
 		WriteProcessMemory(GameHandle, mem, it.data(), it.size(), nullptr);
