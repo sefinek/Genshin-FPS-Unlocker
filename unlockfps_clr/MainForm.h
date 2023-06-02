@@ -132,6 +132,9 @@ namespace unlockfpsclr {
 			this->checkHzOfYourMonitorToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->systemInformationToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->dxDiaxToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->configVersionToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->viewConfigToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->seeCurrentVersionToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->linksToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->officialWebsiteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->youTubeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -140,9 +143,6 @@ namespace unlockfpsclr {
 			this->genshinImpactReShade2023ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->genshinFPSUnlockToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->myProfileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->configVersionToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->viewConfigToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->seeCurrentVersionToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ttGamePath = (gcnew System::Windows::Forms::ToolTip(this->components));
 			this->notifyIcon = (gcnew System::Windows::Forms::NotifyIcon(this->components));
 			this->contextMenuNotify = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
@@ -284,8 +284,8 @@ namespace unlockfpsclr {
 			// genshinImpactModPackToolStripMenuItem
 			//
 			this->genshinImpactModPackToolStripMenuItem->Name = L"genshinImpactModPackToolStripMenuItem";
-			this->genshinImpactModPackToolStripMenuItem->Size = System::Drawing::Size(213, 22);
-			this->genshinImpactModPackToolStripMenuItem->Text = L"Genshin Impact Mod Pack";
+			this->genshinImpactModPackToolStripMenuItem->Size = System::Drawing::Size(211, 22);
+			this->genshinImpactModPackToolStripMenuItem->Text = L"Genshin Stella Mod";
 			this->genshinImpactModPackToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::mainApp_Click);
 			//
 			// checkHzOfYourMonitorToolStripMenuItem
@@ -295,7 +295,7 @@ namespace unlockfpsclr {
 					this->dxDiaxToolStripMenuItem
 			});
 			this->checkHzOfYourMonitorToolStripMenuItem->Name = L"checkHzOfYourMonitorToolStripMenuItem";
-			this->checkHzOfYourMonitorToolStripMenuItem->Size = System::Drawing::Size(213, 22);
+			this->checkHzOfYourMonitorToolStripMenuItem->Size = System::Drawing::Size(211, 22);
 			this->checkHzOfYourMonitorToolStripMenuItem->Text = L"Check Hz of your monitor";
 			//
 			// systemInformationToolStripMenuItem
@@ -311,6 +311,31 @@ namespace unlockfpsclr {
 			this->dxDiaxToolStripMenuItem->Size = System::Drawing::Size(178, 22);
 			this->dxDiaxToolStripMenuItem->Text = L"DxDiax";
 			this->dxDiaxToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::dxdiag_Click);
+			//
+			// configVersionToolStripMenuItem
+			//
+			this->configVersionToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->viewConfigToolStripMenuItem,
+					this->seeCurrentVersionToolStripMenuItem
+			});
+			this->configVersionToolStripMenuItem->ForeColor = System::Drawing::Color::White;
+			this->configVersionToolStripMenuItem->Name = L"configVersionToolStripMenuItem";
+			this->configVersionToolStripMenuItem->Size = System::Drawing::Size(55, 20);
+			this->configVersionToolStripMenuItem->Text = L"Config";
+			//
+			// viewConfigToolStripMenuItem
+			//
+			this->viewConfigToolStripMenuItem->Name = L"viewConfigToolStripMenuItem";
+			this->viewConfigToolStripMenuItem->Size = System::Drawing::Size(174, 22);
+			this->viewConfigToolStripMenuItem->Text = L"View config";
+			this->viewConfigToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::viewCfg_Click);
+			//
+			// seeCurrentVersionToolStripMenuItem
+			//
+			this->seeCurrentVersionToolStripMenuItem->Name = L"seeCurrentVersionToolStripMenuItem";
+			this->seeCurrentVersionToolStripMenuItem->Size = System::Drawing::Size(174, 22);
+			this->seeCurrentVersionToolStripMenuItem->Text = L"See current version";
+			this->seeCurrentVersionToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::seeCurrentVersion_Click);
 			//
 			// linksToolStripMenuItem
 			//
@@ -377,31 +402,6 @@ namespace unlockfpsclr {
 			this->myProfileToolStripMenuItem->Size = System::Drawing::Size(138, 22);
 			this->myProfileToolStripMenuItem->Text = L"My profile";
 			this->myProfileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::githubMyProfile_Click);
-			//
-			// configVersionToolStripMenuItem
-			//
-			this->configVersionToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-				this->viewConfigToolStripMenuItem,
-					this->seeCurrentVersionToolStripMenuItem
-			});
-			this->configVersionToolStripMenuItem->ForeColor = System::Drawing::Color::White;
-			this->configVersionToolStripMenuItem->Name = L"configVersionToolStripMenuItem";
-			this->configVersionToolStripMenuItem->Size = System::Drawing::Size(55, 20);
-			this->configVersionToolStripMenuItem->Text = L"Config";
-			//
-			// viewConfigToolStripMenuItem
-			//
-			this->viewConfigToolStripMenuItem->Name = L"viewConfigToolStripMenuItem";
-			this->viewConfigToolStripMenuItem->Size = System::Drawing::Size(180, 22);
-			this->viewConfigToolStripMenuItem->Text = L"View config";
-			this->viewConfigToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::viewCfg_Click);
-			//
-			// seeCurrentVersionToolStripMenuItem
-			//
-			this->seeCurrentVersionToolStripMenuItem->Name = L"seeCurrentVersionToolStripMenuItem";
-			this->seeCurrentVersionToolStripMenuItem->Size = System::Drawing::Size(180, 22);
-			this->seeCurrentVersionToolStripMenuItem->Text = L"See current version";
-			this->seeCurrentVersionToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::seeCurrentVersion_Click);
 			//
 			// ttGamePath
 			//
