@@ -5,8 +5,7 @@
 
 #pragma unmanaged
 
-void __stdcall Unmanaged::WinEventProc(HWINEVENTHOOK hWinEventHook, DWORD event, HWND hwnd, LONG idObject, LONG idChild,
-                                       DWORD idEventThread, DWORD dwmsEventTime)
+void __stdcall Unmanaged::WinEventProc(HWINEVENTHOOK hWinEventHook, DWORD event, HWND hwnd, LONG idObject, LONG idChild, DWORD idEventThread, DWORD dwmsEventTime)
 {
 	// Event handler for monitoring window change
 	if (event != EVENT_SYSTEM_FOREGROUND)
@@ -37,8 +36,7 @@ bool Unmanaged::StartProcess(LPCSTR ProcessPath, LPSTR CommandLine, int Priority
 	STARTUPINFOA si{};
 	PROCESS_INFORMATION pi{};
 
-	if (!CreateProcessA(ProcessPath, CommandLine, nullptr, nullptr, FALSE, 0, nullptr, CurrentDirectory.c_str(), &si,
-	                    &pi))
+	if (!CreateProcessA(ProcessPath, CommandLine, nullptr, nullptr, FALSE, 0, nullptr, CurrentDirectory.c_str(), &si, &pi))
 		return ShowError("CreateProcessA", GetLastError());
 
 	GameHandle = pi.hProcess;
@@ -49,8 +47,7 @@ bool Unmanaged::StartProcess(LPCSTR ProcessPath, LPSTR CommandLine, int Priority
 	SetPriorityClass(GameHandle, StartPriority);
 
 	if (!EventHook)
-		EventHook = SetWinEventHook(EVENT_SYSTEM_FOREGROUND, EVENT_SYSTEM_FOREGROUND, nullptr, WinEventProc, 0, 0,
-		                            WINEVENT_OUTOFCONTEXT); // create event hook for window change detection
+		EventHook = SetWinEventHook(EVENT_SYSTEM_FOREGROUND, EVENT_SYSTEM_FOREGROUND, nullptr, WinEventProc, 0, 0, WINEVENT_OUTOFCONTEXT); // Create event hook for window change detection
 
 	return true;
 }
@@ -64,25 +61,37 @@ bool Unmanaged::IsGameRunning()
 
 bool Unmanaged::GetModule(DWORD pid, std::string ModuleName, PMODULEENTRY32 pEntry)
 {
-	if (!pEntry) return false;
+	if (!pEntry)
+		return false;
 
-	MODULEENTRY32 mod32{};
-	mod32.dwSize = sizeof(mod32);
-	HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE, pid);
-	for (Module32First(snap, &mod32); Module32Next(snap, &mod32);)
+	std::vector<HMODULE> modules(1024);
+	ZeroMemory(modules.data(), modules.size() * sizeof(HMODULE));
+	DWORD cbNeeded = 0;
+
+	if (!K32EnumProcessModules(GameHandle, modules.data(), modules.size() * sizeof(HMODULE), &cbNeeded))
+		return ShowError("K32EnumProcessModules", GetLastError());
+
+	modules.resize(cbNeeded / sizeof(HMODULE));
+	for (auto& it : modules)
 	{
-		if (mod32.th32ProcessID != pid)
+		char szModuleName[MAX_PATH]{};
+		if (!K32GetModuleBaseNameA(GameHandle, it, szModuleName, MAX_PATH))
 			continue;
 
-		if (mod32.szModule == ModuleName)
-		{
-			*pEntry = mod32;
-			break;
-		}
-	}
-	CloseHandle(snap);
+		if (ModuleName != szModuleName)
+			continue;
 
-	return pEntry->modBaseAddr;
+		MODULEINFO modInfo{};
+		if (!K32GetModuleInformation(GameHandle, it, &modInfo, sizeof(MODULEINFO)))
+			continue;
+
+		pEntry->modBaseAddr = static_cast<BYTE*>(modInfo.lpBaseOfDll);
+		pEntry->modBaseSize = modInfo.SizeOfImage;
+		return true;
+	}
+
+
+	return false;
 }
 
 DWORD Unmanaged::GetPID(std::string ProcessName)
@@ -191,10 +200,8 @@ bool Unmanaged::SetupData()
 
 	if (!GetModule(GamePID, "UserAssembly.dll", &UserAssembly)) return false;
 
-	LPVOID up = VirtualAlloc(nullptr, UnityPlayer.modBaseSize + UserAssembly.modBaseSize, MEM_COMMIT | MEM_RESERVE,
-	                         PAGE_READWRITE);
-	if (!up)
-		return ShowError("VirtualAlloc", GetLastError());
+	LPVOID up = VirtualAlloc(nullptr, UnityPlayer.modBaseSize + UserAssembly.modBaseSize, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
+	if (!up) return ShowError("VirtualAlloc", GetLastError());
 
 	if (!ReadProcessMemory(GameHandle, UnityPlayer.modBaseAddr, up, UnityPlayer.modBaseSize, nullptr))
 		return ShowError("ReadProcessMemory", GetLastError()) && VirtualFree(up, 0, MEM_RELEASE) == -1;
@@ -214,8 +221,7 @@ bool Unmanaged::SetupData()
 		*/
 		uintptr_t address = PatternScan(up, "7F 0F 8B 05 ? ? ? ?");
 		if (!address)
-			return MessageBoxA(nullptr, "outdated fps pattern", "Error", MB_OK | MB_ICONERROR) == -1 &&
-				VirtualFree(up, 0, MEM_RELEASE) == -1; // lazy returns, should always evaluate to false
+			return MessageBoxA(nullptr, "Outdated fps pattern. [1]", "Error", MB_OK | MB_ICONERROR) == -1 && VirtualFree(up, 0, MEM_RELEASE) == -1; // lazy returns, should always evaluate to false
 
 
 		uintptr_t rip = address + 2;
@@ -227,9 +233,7 @@ bool Unmanaged::SetupData()
 	else
 	{
 		uintptr_t address = PatternScan(ua, "E8 ? ? ? ? 85 C0 7E 07 E8 ? ? ? ? EB 05");
-		if (!address)
-			return MessageBoxA(nullptr, "outdated fps pattern", "Error", MB_OK | MB_ICONERROR) == -1 && VirtualFree(
-				up, 0, MEM_RELEASE) == -1;
+		if (!address) return MessageBoxA(nullptr, "Outdated fps pattern. [2]", "Error", MB_OK | MB_ICONERROR) == -1 && VirtualFree(up, 0, MEM_RELEASE) == -1;
 
 		uintptr_t rip = address;
 		rip += *(int32_t*)(rip + 1) + 5;
@@ -285,8 +289,7 @@ void Unmanaged::ApplyFPS(int fps, bool powerSave)
 {
 	UsePowerSave = powerSave; // idc lol
 
-	if (!pFPSValue || (InBackground && UsePowerSave))
-		return;
+	if (!pFPSValue || (InBackground && UsePowerSave)) return;
 
 	ApplyFPSImpl(fps);
 }
@@ -296,8 +299,7 @@ void Unmanaged::ApplyFPSImpl(int fps)
 	int current = 0;
 	ReadProcessMemory(GameHandle, (LPCVOID)pFPSValue, &current, sizeof(current), nullptr);
 
-	if (current < 0)
-		return;
+	if (current < 0) return;
 
 	if (current == fps)
 		return;
@@ -308,8 +310,7 @@ void Unmanaged::ApplyFPSImpl(int fps)
 
 void Unmanaged::ApplyVSync(bool disable)
 {
-	if (!pVSyncValue)
-		return;
+	if (!pVSyncValue) return;
 
 	int vsync = !disable;
 	WriteProcessMemory(GameHandle, (LPVOID)pVSyncValue, &vsync, sizeof(vsync), nullptr);
@@ -317,8 +318,7 @@ void Unmanaged::ApplyVSync(bool disable)
 
 void Unmanaged::InjectDLLs(std::vector<std::string> paths)
 {
-	if (!paths.size())
-		return;
+	if (!paths.size()) return;
 
 	LPVOID mem = VirtualAllocEx(GameHandle, nullptr, 0x1000, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
 	if (!mem)
@@ -334,8 +334,7 @@ void Unmanaged::InjectDLLs(std::vector<std::string> paths)
 	for (auto it : paths)
 	{
 		WriteProcessMemory(GameHandle, mem, it.data(), it.size(), nullptr);
-		HANDLE hThread = CreateRemoteThread(GameHandle, nullptr, 0, (LPTHREAD_START_ROUTINE)pLoadLibraryA, mem, 0,
-		                                    nullptr);
+		HANDLE hThread = CreateRemoteThread(GameHandle, nullptr, 0, (LPTHREAD_START_ROUTINE)pLoadLibraryA, mem, 0, nullptr);
 		if (!hThread)
 		{
 			ShowError("CreateRemoteThread", GetLastError());
