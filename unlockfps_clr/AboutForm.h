@@ -1,7 +1,7 @@
 #pragma once
 
-namespace unlockfpsclr {
-
+namespace unlockfpsclr
+{
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -34,12 +34,22 @@ namespace unlockfpsclr {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Label^ labelTitle;
 
-	private: System::Windows::Forms::LinkLabel^ linkLabelSource;
-	private: System::Windows::Forms::LinkLabel^ linkLabelIssues;
-	private: System::Windows::Forms::PictureBox^ pictureBox1;
-	private: System::Windows::Forms::Label^ label1;
+	private:
+		System::Windows::Forms::Label^ labelTitle;
+
+	private:
+		System::Windows::Forms::LinkLabel^ linkLabelSource;
+
+	private:
+		System::Windows::Forms::LinkLabel^ linkLabelIssues;
+
+	private:
+		System::Windows::Forms::PictureBox^ pictureBox1;
+
+	private:
+		System::Windows::Forms::Label^ label1;
+
 	protected:
 
 	private:
@@ -55,7 +65,8 @@ namespace unlockfpsclr {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(AboutForm::typeid));
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew
+				System::ComponentModel::ComponentResourceManager(AboutForm::typeid));
 			this->labelTitle = (gcnew System::Windows::Forms::Label());
 			this->linkLabelSource = (gcnew System::Windows::Forms::LinkLabel());
 			this->linkLabelIssues = (gcnew System::Windows::Forms::LinkLabel());
@@ -74,7 +85,7 @@ namespace unlockfpsclr {
 			this->labelTitle->Padding = System::Windows::Forms::Padding(0, 5, 0, 0);
 			this->labelTitle->Size = System::Drawing::Size(300, 44);
 			this->labelTitle->TabIndex = 0;
-			this->labelTitle->Text = L"Genshin FPS Unlocker\r\nv2.0.10";
+			this->labelTitle->Text = L"Genshin FPS Unlocker\r\nv2.0.11";
 			this->labelTitle->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			// 
 			// linkLabelSource
@@ -91,7 +102,8 @@ namespace unlockfpsclr {
 			this->linkLabelSource->Text = L"This program is free and open source.\r\nModified by Sefinek.";
 			this->linkLabelSource->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			this->linkLabelSource->UseCompatibleTextRendering = true;
-			this->linkLabelSource->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &AboutForm::linkLabelSource_LinkClicked);
+			this->linkLabelSource->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(
+				this, &AboutForm::linkLabelSource_LinkClicked);
 			// 
 			// linkLabelIssues
 			// 
@@ -104,16 +116,19 @@ namespace unlockfpsclr {
 			this->linkLabelIssues->Size = System::Drawing::Size(300, 47);
 			this->linkLabelIssues->TabIndex = 3;
 			this->linkLabelIssues->TabStop = true;
-			this->linkLabelIssues->Text = L"If you encounter any problems or have a suggestion,\r\nfeel free to submit an issue"
+			this->linkLabelIssues->Text =
+				L"If you encounter any problems or have a suggestion,\r\nfeel free to submit an issue"
 				L" at\r\ngithub.com/sefinek24/genshin-fps-unlock/issues.";
 			this->linkLabelIssues->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			this->linkLabelIssues->UseCompatibleTextRendering = true;
-			this->linkLabelIssues->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &AboutForm::linkLabelIssues_LinkClicked);
+			this->linkLabelIssues->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(
+				this, &AboutForm::linkLabelIssues_LinkClicked);
 			// 
 			// pictureBox1
 			// 
 			this->pictureBox1->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(
+				L"pictureBox1.Image")));
 			this->pictureBox1->Location = System::Drawing::Point(290, 12);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(22, 22);
@@ -137,7 +152,9 @@ namespace unlockfpsclr {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(20)), static_cast<System::Int32>(static_cast<System::Byte>(22)),
+			this->BackColor = System::Drawing::Color::FromArgb(
+				static_cast<System::Int32>(static_cast<System::Byte>(20)),
+				static_cast<System::Int32>(static_cast<System::Byte>(22)),
 				static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			this->ClientSize = System::Drawing::Size(324, 192);
 			this->Controls->Add(this->label1);
@@ -151,11 +168,16 @@ namespace unlockfpsclr {
 			this->Text = L"About";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
-
 		}
 #pragma endregion
-	private: Void linkLabelSource_LinkClicked(Object^ sender, LinkLabelLinkClickedEventArgs^ e);
-	private: Void linkLabelIssues_LinkClicked(Object^ sender, LinkLabelLinkClickedEventArgs^ e);
-	private: Void Exit_Button(Object^ sender, EventArgs^ e);
-};
+
+	private:
+		Void linkLabelSource_LinkClicked(Object^ sender, LinkLabelLinkClickedEventArgs^ e);
+
+	private:
+		Void linkLabelIssues_LinkClicked(Object^ sender, LinkLabelLinkClickedEventArgs^ e);
+
+	private:
+		Void Exit_Button(Object^ sender, EventArgs^ e);
+	};
 }

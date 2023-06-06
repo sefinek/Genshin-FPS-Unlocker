@@ -7,6 +7,7 @@ public ref class Settings
 {
 private:
 	static String^ ConfigPath = "unlocker.config.json";
+
 public:
 	property String^ ConfigVersion;
 	property String^ ConfigDate;

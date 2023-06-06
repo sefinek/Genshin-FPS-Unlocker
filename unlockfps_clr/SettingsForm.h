@@ -2,8 +2,8 @@
 #include "Settings.h"
 #include <algorithm>
 
-namespace unlockfpsclr {
-
+namespace unlockfpsclr
+{
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -22,13 +22,20 @@ namespace unlockfpsclr {
 		{
 			InitializeComponent();
 
-			this->ckbVSync->DataBindings->Add("Checked", settings, "AutoDisableVSync", false, DataSourceUpdateMode::OnPropertyChanged);
-			this->ckbPopupWnd->DataBindings->Add("Checked", settings, "PopupWindow", false, DataSourceUpdateMode::OnPropertyChanged);
-			this->ckbFullscreen->DataBindings->Add("Checked", settings, "Fullscreen", false, DataSourceUpdateMode::OnPropertyChanged);
-			this->ckbCustomRes->DataBindings->Add("Checked", settings, "UseCustomRes", false, DataSourceUpdateMode::OnPropertyChanged);
-			this->ckbStartMinimized->DataBindings->Add("Checked", settings, "StartMinimized", false, DataSourceUpdateMode::OnPropertyChanged);
-			this->ckbAutoClose->DataBindings->Add("Checked", settings, "AutoClose", false, DataSourceUpdateMode::OnPropertyChanged);
-			this->ckbPowerSave->DataBindings->Add("Checked", settings, "UsePowerSave", false, DataSourceUpdateMode::OnPropertyChanged);
+			this->ckbVSync->DataBindings->Add("Checked", settings, "AutoDisableVSync", false,
+			                                  DataSourceUpdateMode::OnPropertyChanged);
+			this->ckbPopupWnd->DataBindings->Add("Checked", settings, "PopupWindow", false,
+			                                     DataSourceUpdateMode::OnPropertyChanged);
+			this->ckbFullscreen->DataBindings->Add("Checked", settings, "Fullscreen", false,
+			                                       DataSourceUpdateMode::OnPropertyChanged);
+			this->ckbCustomRes->DataBindings->Add("Checked", settings, "UseCustomRes", false,
+			                                      DataSourceUpdateMode::OnPropertyChanged);
+			this->ckbStartMinimized->DataBindings->Add("Checked", settings, "StartMinimized", false,
+			                                           DataSourceUpdateMode::OnPropertyChanged);
+			this->ckbAutoClose->DataBindings->Add("Checked", settings, "AutoClose", false,
+			                                      DataSourceUpdateMode::OnPropertyChanged);
+			this->ckbPowerSave->DataBindings->Add("Checked", settings, "UsePowerSave", false,
+			                                      DataSourceUpdateMode::OnPropertyChanged);
 
 			//this->customResX->DataBindings->Add("Value", settings, "CustomResX");
 			//this->customResY->DataBindings->Add("Value", settings, "CustomResY");
@@ -58,48 +65,93 @@ namespace unlockfpsclr {
 				delete components;
 			}
 		}
-	private: Settings^ settings;
-	private: System::Windows::Forms::Label^ labelAutoSave;
-	private: System::Windows::Forms::TabControl^ tabControl;
-	private: System::Windows::Forms::TabPage^ tabPageGeneral;
-	private: System::Windows::Forms::CheckBox^ ckbVSync;
-	private: System::Windows::Forms::TabPage^ tabPageLaunchOptions;
-	private: System::Windows::Forms::NumericUpDown^ customResX;
 
-	private: System::Windows::Forms::Label^ labelCustomRes;
-	private: System::Windows::Forms::CheckBox^ ckbCustomRes;
-	private: System::Windows::Forms::CheckBox^ ckbFullscreen;
-	private: System::Windows::Forms::CheckBox^ ckbPopupWnd;
-	private: System::Windows::Forms::NumericUpDown^ customResY;
-	private: System::Windows::Forms::Label^ labelDummy;
-	private: System::Windows::Forms::ComboBox^ comboWindowMode;
-	private: System::Windows::Forms::Label^ labelWindowMode;
-	private: System::Windows::Forms::ToolTip^ toolTip;
+	private:
+		Settings^ settings;
 
+	private:
+		System::Windows::Forms::Label^ labelAutoSave;
 
-	private: System::Windows::Forms::CheckBox^ ckbStartMinimized;
-	private: System::Windows::Forms::CheckBox^ ckbAutoClose;
+	private:
+		System::Windows::Forms::TabControl^ tabControl;
 
-	private: System::Windows::Forms::NumericUpDown^ monitorNum;
+	private:
+		System::Windows::Forms::TabPage^ tabPageGeneral;
 
-	private: System::Windows::Forms::Label^ labelMonitorNum;
-	private: System::Windows::Forms::TabPage^ tabPageDLLs;
-	private: System::Windows::Forms::Button^ btnDllRemove;
-	private: System::Windows::Forms::Button^ btnDllAdd;
-	private: System::Windows::Forms::ListBox^ lbDllList;
-	private: System::Windows::Forms::Label^ labelDLLMessage;
+	private:
+		System::Windows::Forms::CheckBox^ ckbVSync;
 
-	private: System::Windows::Forms::ComboBox^ comboPriority;
+	private:
+		System::Windows::Forms::TabPage^ tabPageLaunchOptions;
 
-	private: System::Windows::Forms::Label^ labelPriority;
-	private: System::Windows::Forms::CheckBox^ ckbPowerSave;
+	private:
+		System::Windows::Forms::NumericUpDown^ customResX;
 
+	private:
+		System::Windows::Forms::Label^ labelCustomRes;
 
+	private:
+		System::Windows::Forms::CheckBox^ ckbCustomRes;
 
+	private:
+		System::Windows::Forms::CheckBox^ ckbFullscreen;
 
+	private:
+		System::Windows::Forms::CheckBox^ ckbPopupWnd;
 
-	private: System::ComponentModel::IContainer^ components;
+	private:
+		System::Windows::Forms::NumericUpDown^ customResY;
 
+	private:
+		System::Windows::Forms::Label^ labelDummy;
+
+	private:
+		System::Windows::Forms::ComboBox^ comboWindowMode;
+
+	private:
+		System::Windows::Forms::Label^ labelWindowMode;
+
+	private:
+		System::Windows::Forms::ToolTip^ toolTip;
+
+	private:
+		System::Windows::Forms::CheckBox^ ckbStartMinimized;
+
+	private:
+		System::Windows::Forms::CheckBox^ ckbAutoClose;
+
+	private:
+		System::Windows::Forms::NumericUpDown^ monitorNum;
+
+	private:
+		System::Windows::Forms::Label^ labelMonitorNum;
+
+	private:
+		System::Windows::Forms::TabPage^ tabPageDLLs;
+
+	private:
+		System::Windows::Forms::Button^ btnDllRemove;
+
+	private:
+		System::Windows::Forms::Button^ btnDllAdd;
+
+	private:
+		System::Windows::Forms::ListBox^ lbDllList;
+
+	private:
+		System::Windows::Forms::Label^ labelDLLMessage;
+
+	private:
+		System::Windows::Forms::ComboBox^ comboPriority;
+
+	private:
+		System::Windows::Forms::Label^ labelPriority;
+
+	private:
+		System::Windows::Forms::CheckBox^ ckbPowerSave;
+
+	private:
+		System::ComponentModel::IContainer^ components;
 
 	private:
 		/// <summary>
@@ -155,7 +207,8 @@ namespace unlockfpsclr {
 			// 
 			this->labelAutoSave->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->labelAutoSave->BackColor = System::Drawing::Color::Transparent;
-			this->labelAutoSave->Font = (gcnew System::Drawing::Font(L"Arial", 8.25F, System::Drawing::FontStyle::Bold));
+			this->labelAutoSave->Font = (gcnew
+				System::Drawing::Font(L"Arial", 8.25F, System::Drawing::FontStyle::Bold));
 			this->labelAutoSave->ForeColor = System::Drawing::Color::SkyBlue;
 			this->labelAutoSave->Location = System::Drawing::Point(16, 243);
 			this->labelAutoSave->Name = L"labelAutoSave";
@@ -178,7 +231,9 @@ namespace unlockfpsclr {
 			// 
 			// tabPageGeneral
 			// 
-			this->tabPageGeneral->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(47)), static_cast<System::Int32>(static_cast<System::Byte>(49)),
+			this->tabPageGeneral->BackColor = System::Drawing::Color::FromArgb(
+				static_cast<System::Int32>(static_cast<System::Byte>(47)),
+				static_cast<System::Int32>(static_cast<System::Byte>(49)),
 				static_cast<System::Int32>(static_cast<System::Byte>(54)));
 			this->tabPageGeneral->Controls->Add(this->comboPriority);
 			this->tabPageGeneral->Controls->Add(this->labelPriority);
@@ -198,9 +253,9 @@ namespace unlockfpsclr {
 			this->comboPriority->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->comboPriority->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboPriority->FormattingEnabled = true;
-			this->comboPriority->Items->AddRange(gcnew cli::array< System::Object^  >(6) {
+			this->comboPriority->Items->AddRange(gcnew cli::array<System::Object^>(6){
 				L"Realtime", L"High", L"Above normal", L"Normal (default)",
-					L"Below normal", L"Low"
+				L"Below normal", L"Low"
 			});
 			this->comboPriority->Location = System::Drawing::Point(123, 101);
 			this->comboPriority->Name = L"comboPriority";
@@ -232,8 +287,9 @@ namespace unlockfpsclr {
 			this->ckbPowerSave->TabIndex = 3;
 			this->ckbPowerSave->TabStop = false;
 			this->ckbPowerSave->Text = L"Power saving";
-			this->toolTip->SetToolTip(this->ckbPowerSave, L"Sets fps to 10 and low process priority upon losing focus (e.g. tabbing out of ga"
-				L"me)");
+			this->toolTip->SetToolTip(this->ckbPowerSave,
+			                          L"Sets fps to 10 and low process priority upon losing focus (e.g. tabbing out of ga"
+			                          L"me)");
 			this->ckbPowerSave->UseVisualStyleBackColor = false;
 			// 
 			// ckbAutoClose
@@ -281,8 +337,10 @@ namespace unlockfpsclr {
 			// 
 			// tabPageLaunchOptions
 			// 
-			this->tabPageLaunchOptions->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(47)),
-				static_cast<System::Int32>(static_cast<System::Byte>(49)), static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->tabPageLaunchOptions->BackColor = System::Drawing::Color::FromArgb(
+				static_cast<System::Int32>(static_cast<System::Byte>(47)),
+				static_cast<System::Int32>(static_cast<System::Byte>(49)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
 			this->tabPageLaunchOptions->Controls->Add(this->monitorNum);
 			this->tabPageLaunchOptions->Controls->Add(this->labelMonitorNum);
 			this->tabPageLaunchOptions->Controls->Add(this->comboWindowMode);
@@ -305,12 +363,12 @@ namespace unlockfpsclr {
 			// 
 			this->monitorNum->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->monitorNum->Location = System::Drawing::Point(111, 132);
-			this->monitorNum->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+			this->monitorNum->Minimum = System::Decimal(gcnew cli::array<System::Int32>(4){1, 0, 0, 0});
 			this->monitorNum->Name = L"monitorNum";
 			this->monitorNum->Size = System::Drawing::Size(126, 20);
 			this->monitorNum->TabIndex = 10;
 			this->monitorNum->TabStop = false;
-			this->monitorNum->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+			this->monitorNum->Value = System::Decimal(gcnew cli::array<System::Int32>(4){1, 0, 0, 0});
 			// 
 			// labelMonitorNum
 			// 
@@ -329,13 +387,14 @@ namespace unlockfpsclr {
 			this->comboWindowMode->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->comboWindowMode->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboWindowMode->FormattingEnabled = true;
-			this->comboWindowMode->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Borderless", L"Exclusive" });
+			this->comboWindowMode->Items->AddRange(gcnew cli::array<System::Object^>(2){L"Borderless", L"Exclusive"});
 			this->comboWindowMode->Location = System::Drawing::Point(111, 104);
 			this->comboWindowMode->Name = L"comboWindowMode";
 			this->comboWindowMode->Size = System::Drawing::Size(126, 21);
 			this->comboWindowMode->TabIndex = 8;
 			this->comboWindowMode->TabStop = false;
-			this->toolTip->SetToolTip(this->comboWindowMode, L"Fullscreen Window Mode\r\nThis will only apply if the game is running fullscreen");
+			this->toolTip->SetToolTip(this->comboWindowMode,
+			                          L"Fullscreen Window Mode\r\nThis will only apply if the game is running fullscreen");
 			// 
 			// labelWindowMode
 			// 
@@ -365,24 +424,24 @@ namespace unlockfpsclr {
 			// 
 			this->customResY->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->customResY->Location = System::Drawing::Point(182, 77);
-			this->customResY->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 4320, 0, 0, 0 });
-			this->customResY->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 200, 0, 0, 0 });
+			this->customResY->Maximum = System::Decimal(gcnew cli::array<System::Int32>(4){4320, 0, 0, 0});
+			this->customResY->Minimum = System::Decimal(gcnew cli::array<System::Int32>(4){200, 0, 0, 0});
 			this->customResY->Name = L"customResY";
 			this->customResY->Size = System::Drawing::Size(55, 20);
 			this->customResY->TabIndex = 5;
-			this->customResY->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1080, 0, 0, 0 });
+			this->customResY->Value = System::Decimal(gcnew cli::array<System::Int32>(4){1080, 0, 0, 0});
 			// 
 			// customResX
 			// 
 			this->customResX->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->customResX->Location = System::Drawing::Point(111, 77);
-			this->customResX->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 7680, 0, 0, 0 });
-			this->customResX->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 200, 0, 0, 0 });
+			this->customResX->Maximum = System::Decimal(gcnew cli::array<System::Int32>(4){7680, 0, 0, 0});
+			this->customResX->Minimum = System::Decimal(gcnew cli::array<System::Int32>(4){200, 0, 0, 0});
 			this->customResX->Name = L"customResX";
 			this->customResX->Size = System::Drawing::Size(55, 20);
 			this->customResX->TabIndex = 4;
 			this->customResX->TabStop = false;
-			this->customResX->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1920, 0, 0, 0 });
+			this->customResX->Value = System::Decimal(gcnew cli::array<System::Int32>(4){1920, 0, 0, 0});
 			// 
 			// labelCustomRes
 			// 
@@ -441,7 +500,9 @@ namespace unlockfpsclr {
 			// 
 			// tabPageDLLs
 			// 
-			this->tabPageDLLs->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(47)), static_cast<System::Int32>(static_cast<System::Byte>(49)),
+			this->tabPageDLLs->BackColor = System::Drawing::Color::FromArgb(
+				static_cast<System::Int32>(static_cast<System::Byte>(47)),
+				static_cast<System::Int32>(static_cast<System::Byte>(49)),
 				static_cast<System::Int32>(static_cast<System::Byte>(54)));
 			this->tabPageDLLs->Controls->Add(this->btnDllRemove);
 			this->tabPageDLLs->Controls->Add(this->btnDllAdd);
@@ -481,7 +542,9 @@ namespace unlockfpsclr {
 			// lbDllList
 			// 
 			this->lbDllList->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->lbDllList->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(34)),
+			this->lbDllList->BackColor = System::Drawing::Color::FromArgb(
+				static_cast<System::Int32>(static_cast<System::Byte>(32)),
+				static_cast<System::Int32>(static_cast<System::Byte>(34)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->lbDllList->ForeColor = System::Drawing::Color::White;
 			this->lbDllList->FormattingEnabled = true;
@@ -513,7 +576,9 @@ namespace unlockfpsclr {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(34)),
+			this->BackColor = System::Drawing::Color::FromArgb(
+				static_cast<System::Int32>(static_cast<System::Byte>(32)),
+				static_cast<System::Int32>(static_cast<System::Byte>(34)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->ClientSize = System::Drawing::Size(281, 264);
 			this->Controls->Add(this->tabControl);
@@ -535,13 +600,22 @@ namespace unlockfpsclr {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->customResX))->EndInit();
 			this->tabPageDLLs->ResumeLayout(false);
 			this->ResumeLayout(false);
-
 		}
 #pragma endregion
-	private: Void UpdateSettings(Object^ sender, FormClosingEventArgs^ e);
-	private: Void btnDllRemove_Click(Object^ sender, EventArgs^ e);
-	private: Void OnLoad(Object^ sender, EventArgs^ e);
-	private: Void btnDllAdd_Click(Object^ sender, EventArgs^ e);
-	private: Void OnFormat(Object^ sender, ListControlConvertEventArgs^ e);
+
+	private:
+		Void UpdateSettings(Object^ sender, FormClosingEventArgs^ e);
+
+	private:
+		Void btnDllRemove_Click(Object^ sender, EventArgs^ e);
+
+	private:
+		Void OnLoad(Object^ sender, EventArgs^ e);
+
+	private:
+		Void btnDllAdd_Click(Object^ sender, EventArgs^ e);
+
+	private:
+		Void OnFormat(Object^ sender, ListControlConvertEventArgs^ e);
 	};
 }
