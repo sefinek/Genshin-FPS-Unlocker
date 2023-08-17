@@ -1,20 +1,28 @@
 # Top-most EditorConfig file
 root = true
 
-# Global settings
+# Specify the charset for the files
 [*]
 charset = utf-8
-end_of_line = lf
+
+# Use 4 spaces for indentation
+[*.cpp, *.h]
 indent_style = space
 indent_size = 4
-insert_final_newline = true
+
+# Use LF (Unix) line endings
+[*]
+end_of_line = lf
+
+# Trim trailing whitespace
+[*]
 trim_trailing_whitespace = true
 
-# C++/CLI files
-[*.cpp]
-indent_style = tab
-indent_size = 4
+# Ensure a single newline at the end of the file
+[*]
+insert_final_newline = true
 
-[*.h]
+# Set tab width to 4 for any other files (e.g., makefiles)
+[*.{mk,make}]
 indent_style = tab
-indent_size = 4
+tab_width = 4

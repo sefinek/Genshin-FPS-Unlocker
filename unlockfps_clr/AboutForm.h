@@ -65,7 +65,7 @@ namespace unlockfpsclr
         /// </summary>
         void InitializeComponent(void)
         {
-            System::ComponentModel::ComponentResourceManager ^resources = (gcnew
+            auto resources = (gcnew
                 System::ComponentModel::ComponentResourceManager(AboutForm::typeid));
             this->labelTitle = (gcnew System::Windows::Forms::Label());
             this->linkLabelSource = (gcnew System::Windows::Forms::LinkLabel());
