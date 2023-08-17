@@ -98,8 +98,8 @@ namespace unlockfpsclr
             this->labelResult->Anchor = System::Windows::Forms::AnchorStyles::Top;
             this->labelResult->BackColor = System::Drawing::Color::Transparent;
             this->labelResult->Font =
-                (gcnew System::Drawing::Font(L"Arial", 11.25F, System::Drawing::FontStyle::Regular,
-                                             System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+            (gcnew System::Drawing::Font(L"Arial", 11.25F, System::Drawing::FontStyle::Regular,
+                                         System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
             this->labelResult->ForeColor = System::Drawing::Color::White;
             this->labelResult->Location = System::Drawing::Point(12, 9);
             this->labelResult->Name = L"labelResult";
@@ -113,8 +113,8 @@ namespace unlockfpsclr
             this->labelSelectInstance->AutoSize = true;
             this->labelSelectInstance->BackColor = System::Drawing::Color::Transparent;
             this->labelSelectInstance->Font =
-                (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular,
-                                             System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+            (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular,
+                                         System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
             this->labelSelectInstance->ForeColor = System::Drawing::Color::White;
             this->labelSelectInstance->Location = System::Drawing::Point(9, 32);
             this->labelSelectInstance->Name = L"labelSelectInstance";
@@ -153,8 +153,8 @@ namespace unlockfpsclr
             this->labelHint->AutoSize = true;
             this->labelHint->BackColor = System::Drawing::Color::Transparent;
             this->labelHint->Font =
-                (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular,
-                                             System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+            (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular,
+                                         System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
             this->labelHint->ForeColor = System::Drawing::Color::White;
             this->labelHint->Location = System::Drawing::Point(103, 54);
             this->labelHint->Name = L"labelHint";
