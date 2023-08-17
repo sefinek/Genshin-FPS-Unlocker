@@ -19,7 +19,7 @@ namespace unlockfpsclr
         dialog->FilterIndex = 0;
         dialog->RestoreDirectory = true;
 
-        if (dialog->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+        if (dialog->ShowDialog() == Windows::Forms::DialogResult::OK)
         {
             auto selectedFile = dialog->FileName;
             auto directory = Path::GetDirectoryName(selectedFile);

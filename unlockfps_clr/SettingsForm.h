@@ -202,23 +202,23 @@ namespace unlockfpsclr
             (cli::safe_cast<System::ComponentModel::ISupportInitialize ^>(this->customResX))->BeginInit();
             this->tabPageDLLs->SuspendLayout();
             this->SuspendLayout();
-            // 
+            //
             // labelAutoSave
-            // 
+            //
             this->labelAutoSave->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->labelAutoSave->BackColor = System::Drawing::Color::Transparent;
-            this->labelAutoSave->Font = (gcnew
-                System::Drawing::Font(L"Arial", 8.25F, System::Drawing::FontStyle::Bold));
+            this->labelAutoSave->Font =
+                (gcnew System::Drawing::Font(L"Arial", 8.25F, System::Drawing::FontStyle::Bold));
             this->labelAutoSave->ForeColor = System::Drawing::Color::SkyBlue;
-            this->labelAutoSave->Location = System::Drawing::Point(16, 243);
+            this->labelAutoSave->Location = System::Drawing::Point(12, 243);
             this->labelAutoSave->Name = L"labelAutoSave";
-            this->labelAutoSave->Size = System::Drawing::Size(249, 14);
+            this->labelAutoSave->Size = System::Drawing::Size(257, 14);
             this->labelAutoSave->TabIndex = 0;
             this->labelAutoSave->Text = L"All settings will be automatically saved.";
             this->labelAutoSave->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
-            // 
+            //
             // tabControl
-            // 
+            //
             this->tabControl->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->tabControl->Controls->Add(this->tabPageGeneral);
             this->tabControl->Controls->Add(this->tabPageLaunchOptions);
@@ -228,13 +228,13 @@ namespace unlockfpsclr
             this->tabControl->SelectedIndex = 0;
             this->tabControl->Size = System::Drawing::Size(257, 223);
             this->tabControl->TabIndex = 1;
-            // 
+            //
             // tabPageGeneral
-            // 
-            this->tabPageGeneral->BackColor = System::Drawing::Color::FromArgb(
-                static_cast<System::Int32>(static_cast<System::Byte>(47)),
-                static_cast<System::Int32>(static_cast<System::Byte>(49)),
-                static_cast<System::Int32>(static_cast<System::Byte>(54)));
+            //
+            this->tabPageGeneral->BackColor =
+                System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(47)),
+                                                 static_cast<System::Int32>(static_cast<System::Byte>(49)),
+                                                 static_cast<System::Int32>(static_cast<System::Byte>(54)));
             this->tabPageGeneral->Controls->Add(this->comboPriority);
             this->tabPageGeneral->Controls->Add(this->labelPriority);
             this->tabPageGeneral->Controls->Add(this->ckbPowerSave);
@@ -247,24 +247,22 @@ namespace unlockfpsclr
             this->tabPageGeneral->Size = System::Drawing::Size(249, 197);
             this->tabPageGeneral->TabIndex = 0;
             this->tabPageGeneral->Text = L"General";
-            // 
+            //
             // comboPriority
-            // 
+            //
             this->comboPriority->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->comboPriority->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
             this->comboPriority->FormattingEnabled = true;
             this->comboPriority->Items->AddRange(gcnew cli::array<System::Object ^>(6){
-                L"Realtime", L"High", L"Above normal", L"Normal (default)",
-                L"Below normal", L"Low"
-            });
+                L"Realtime", L"High", L"Above normal", L"Normal (default)", L"Below normal", L"Low"});
             this->comboPriority->Location = System::Drawing::Point(123, 101);
             this->comboPriority->Name = L"comboPriority";
             this->comboPriority->Size = System::Drawing::Size(120, 21);
             this->comboPriority->TabIndex = 5;
             this->comboPriority->TabStop = false;
-            // 
+            //
             // labelPriority
-            // 
+            //
             this->labelPriority->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->labelPriority->AutoSize = true;
             this->labelPriority->BackColor = System::Drawing::Color::Transparent;
@@ -274,9 +272,9 @@ namespace unlockfpsclr
             this->labelPriority->Size = System::Drawing::Size(108, 13);
             this->labelPriority->TabIndex = 4;
             this->labelPriority->Text = L"Game process priority";
-            // 
+            //
             // ckbPowerSave
-            // 
+            //
             this->ckbPowerSave->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->ckbPowerSave->AutoSize = true;
             this->ckbPowerSave->BackColor = System::Drawing::Color::Transparent;
@@ -287,13 +285,14 @@ namespace unlockfpsclr
             this->ckbPowerSave->TabIndex = 3;
             this->ckbPowerSave->TabStop = false;
             this->ckbPowerSave->Text = L"Power saving";
-            this->toolTip->SetToolTip(this->ckbPowerSave,
-                                      L"Sets fps to 10 and low process priority upon losing focus (e.g. tabbing out of ga"
-                                      L"me)");
+            this->toolTip->SetToolTip(
+                this->ckbPowerSave,
+                L"Sets fps to 10 and low process priority upon losing focus (e.g. tabbing out of ga"
+                L"me)");
             this->ckbPowerSave->UseVisualStyleBackColor = false;
-            // 
+            //
             // ckbAutoClose
-            // 
+            //
             this->ckbAutoClose->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->ckbAutoClose->AutoSize = true;
             this->ckbAutoClose->BackColor = System::Drawing::Color::Transparent;
@@ -306,9 +305,9 @@ namespace unlockfpsclr
             this->ckbAutoClose->Text = L"Auto close";
             this->toolTip->SetToolTip(this->ckbAutoClose, L"Automatically close unlocker after game exits");
             this->ckbAutoClose->UseVisualStyleBackColor = false;
-            // 
+            //
             // ckbStartMinimized
-            // 
+            //
             this->ckbStartMinimized->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->ckbStartMinimized->AutoSize = true;
             this->ckbStartMinimized->BackColor = System::Drawing::Color::Transparent;
@@ -320,9 +319,9 @@ namespace unlockfpsclr
             this->ckbStartMinimized->TabStop = false;
             this->ckbStartMinimized->Text = L"Start minimized unlocker";
             this->ckbStartMinimized->UseVisualStyleBackColor = false;
-            // 
+            //
             // ckbVSync
-            // 
+            //
             this->ckbVSync->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->ckbVSync->AutoSize = true;
             this->ckbVSync->BackColor = System::Drawing::Color::Transparent;
@@ -334,13 +333,13 @@ namespace unlockfpsclr
             this->ckbVSync->TabStop = false;
             this->ckbVSync->Text = L"Auto disable VSync";
             this->ckbVSync->UseVisualStyleBackColor = false;
-            // 
+            //
             // tabPageLaunchOptions
-            // 
-            this->tabPageLaunchOptions->BackColor = System::Drawing::Color::FromArgb(
-                static_cast<System::Int32>(static_cast<System::Byte>(47)),
-                static_cast<System::Int32>(static_cast<System::Byte>(49)),
-                static_cast<System::Int32>(static_cast<System::Byte>(54)));
+            //
+            this->tabPageLaunchOptions->BackColor =
+                System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(47)),
+                                                 static_cast<System::Int32>(static_cast<System::Byte>(49)),
+                                                 static_cast<System::Int32>(static_cast<System::Byte>(54)));
             this->tabPageLaunchOptions->Controls->Add(this->monitorNum);
             this->tabPageLaunchOptions->Controls->Add(this->labelMonitorNum);
             this->tabPageLaunchOptions->Controls->Add(this->comboWindowMode);
@@ -358,9 +357,9 @@ namespace unlockfpsclr
             this->tabPageLaunchOptions->Size = System::Drawing::Size(249, 197);
             this->tabPageLaunchOptions->TabIndex = 1;
             this->tabPageLaunchOptions->Text = L"Launch Options";
-            // 
+            //
             // monitorNum
-            // 
+            //
             this->monitorNum->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->monitorNum->Location = System::Drawing::Point(111, 132);
             this->monitorNum->Minimum = System::Decimal(gcnew cli::array<System::Int32>(4){1, 0, 0, 0});
@@ -369,9 +368,9 @@ namespace unlockfpsclr
             this->monitorNum->TabIndex = 10;
             this->monitorNum->TabStop = false;
             this->monitorNum->Value = System::Decimal(gcnew cli::array<System::Int32>(4){1, 0, 0, 0});
-            // 
+            //
             // labelMonitorNum
-            // 
+            //
             this->labelMonitorNum->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->labelMonitorNum->AutoSize = true;
             this->labelMonitorNum->BackColor = System::Drawing::Color::Transparent;
@@ -381,9 +380,9 @@ namespace unlockfpsclr
             this->labelMonitorNum->Size = System::Drawing::Size(42, 13);
             this->labelMonitorNum->TabIndex = 9;
             this->labelMonitorNum->Text = L"Monitor";
-            // 
+            //
             // comboWindowMode
-            // 
+            //
             this->comboWindowMode->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->comboWindowMode->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
             this->comboWindowMode->FormattingEnabled = true;
@@ -393,11 +392,12 @@ namespace unlockfpsclr
             this->comboWindowMode->Size = System::Drawing::Size(126, 21);
             this->comboWindowMode->TabIndex = 8;
             this->comboWindowMode->TabStop = false;
-            this->toolTip->SetToolTip(this->comboWindowMode,
-                                      L"Fullscreen Window Mode\r\nThis will only apply if the game is running fullscreen");
-            // 
+            this->toolTip->SetToolTip(
+                this->comboWindowMode,
+                L"Fullscreen Window Mode\r\nThis will only apply if the game is running fullscreen");
+            //
             // labelWindowMode
-            // 
+            //
             this->labelWindowMode->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->labelWindowMode->AutoSize = true;
             this->labelWindowMode->BackColor = System::Drawing::Color::Transparent;
@@ -407,9 +407,9 @@ namespace unlockfpsclr
             this->labelWindowMode->Size = System::Drawing::Size(75, 13);
             this->labelWindowMode->TabIndex = 7;
             this->labelWindowMode->Text = L"Window mode";
-            // 
+            //
             // labelDummy
-            // 
+            //
             this->labelDummy->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->labelDummy->AutoSize = true;
             this->labelDummy->BackColor = System::Drawing::Color::Transparent;
@@ -419,9 +419,9 @@ namespace unlockfpsclr
             this->labelDummy->Size = System::Drawing::Size(12, 13);
             this->labelDummy->TabIndex = 6;
             this->labelDummy->Text = L"x";
-            // 
+            //
             // customResY
-            // 
+            //
             this->customResY->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->customResY->Location = System::Drawing::Point(182, 77);
             this->customResY->Maximum = System::Decimal(gcnew cli::array<System::Int32>(4){4320, 0, 0, 0});
@@ -430,9 +430,9 @@ namespace unlockfpsclr
             this->customResY->Size = System::Drawing::Size(55, 20);
             this->customResY->TabIndex = 5;
             this->customResY->Value = System::Decimal(gcnew cli::array<System::Int32>(4){1080, 0, 0, 0});
-            // 
+            //
             // customResX
-            // 
+            //
             this->customResX->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->customResX->Location = System::Drawing::Point(111, 77);
             this->customResX->Maximum = System::Decimal(gcnew cli::array<System::Int32>(4){7680, 0, 0, 0});
@@ -442,9 +442,9 @@ namespace unlockfpsclr
             this->customResX->TabIndex = 4;
             this->customResX->TabStop = false;
             this->customResX->Value = System::Decimal(gcnew cli::array<System::Int32>(4){1920, 0, 0, 0});
-            // 
+            //
             // labelCustomRes
-            // 
+            //
             this->labelCustomRes->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->labelCustomRes->AutoSize = true;
             this->labelCustomRes->BackColor = System::Drawing::Color::Transparent;
@@ -454,9 +454,9 @@ namespace unlockfpsclr
             this->labelCustomRes->Size = System::Drawing::Size(90, 13);
             this->labelCustomRes->TabIndex = 3;
             this->labelCustomRes->Text = L"Custom resolution";
-            // 
+            //
             // ckbCustomRes
-            // 
+            //
             this->ckbCustomRes->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->ckbCustomRes->AutoSize = true;
             this->ckbCustomRes->BackColor = System::Drawing::Color::Transparent;
@@ -468,9 +468,9 @@ namespace unlockfpsclr
             this->ckbCustomRes->TabStop = false;
             this->ckbCustomRes->Text = L"Custom resolution";
             this->ckbCustomRes->UseVisualStyleBackColor = false;
-            // 
+            //
             // ckbFullscreen
-            // 
+            //
             this->ckbFullscreen->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->ckbFullscreen->AutoSize = true;
             this->ckbFullscreen->BackColor = System::Drawing::Color::Transparent;
@@ -482,9 +482,9 @@ namespace unlockfpsclr
             this->ckbFullscreen->TabStop = false;
             this->ckbFullscreen->Text = L"Fullscreen";
             this->ckbFullscreen->UseVisualStyleBackColor = false;
-            // 
+            //
             // ckbPopupWnd
-            // 
+            //
             this->ckbPopupWnd->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->ckbPopupWnd->AutoSize = true;
             this->ckbPopupWnd->BackColor = System::Drawing::Color::Transparent;
@@ -497,13 +497,13 @@ namespace unlockfpsclr
             this->ckbPopupWnd->Text = L"Popup window";
             this->toolTip->SetToolTip(this->ckbPopupWnd, L"Launch the game in borderless windowed mode");
             this->ckbPopupWnd->UseVisualStyleBackColor = false;
-            // 
+            //
             // tabPageDLLs
-            // 
-            this->tabPageDLLs->BackColor = System::Drawing::Color::FromArgb(
-                static_cast<System::Int32>(static_cast<System::Byte>(47)),
-                static_cast<System::Int32>(static_cast<System::Byte>(49)),
-                static_cast<System::Int32>(static_cast<System::Byte>(54)));
+            //
+            this->tabPageDLLs->BackColor =
+                System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(47)),
+                                                 static_cast<System::Int32>(static_cast<System::Byte>(49)),
+                                                 static_cast<System::Int32>(static_cast<System::Byte>(54)));
             this->tabPageDLLs->Controls->Add(this->btnDllRemove);
             this->tabPageDLLs->Controls->Add(this->btnDllAdd);
             this->tabPageDLLs->Controls->Add(this->lbDllList);
@@ -514,9 +514,9 @@ namespace unlockfpsclr
             this->tabPageDLLs->Size = System::Drawing::Size(249, 197);
             this->tabPageDLLs->TabIndex = 2;
             this->tabPageDLLs->Text = L"DLLs";
-            // 
+            //
             // btnDllRemove
-            // 
+            //
             this->btnDllRemove->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->btnDllRemove->Location = System::Drawing::Point(136, 115);
             this->btnDllRemove->Name = L"btnDllRemove";
@@ -526,9 +526,9 @@ namespace unlockfpsclr
             this->btnDllRemove->Text = L"Remove";
             this->btnDllRemove->UseVisualStyleBackColor = true;
             this->btnDllRemove->Click += gcnew System::EventHandler(this, &SettingsForm::btnDllRemove_Click);
-            // 
+            //
             // btnDllAdd
-            // 
+            //
             this->btnDllAdd->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->btnDllAdd->Location = System::Drawing::Point(136, 81);
             this->btnDllAdd->Name = L"btnDllAdd";
@@ -538,14 +538,14 @@ namespace unlockfpsclr
             this->btnDllAdd->Text = L"Add";
             this->btnDllAdd->UseVisualStyleBackColor = true;
             this->btnDllAdd->Click += gcnew System::EventHandler(this, &SettingsForm::btnDllAdd_Click);
-            // 
+            //
             // lbDllList
-            // 
+            //
             this->lbDllList->Anchor = System::Windows::Forms::AnchorStyles::None;
-            this->lbDllList->BackColor = System::Drawing::Color::FromArgb(
-                static_cast<System::Int32>(static_cast<System::Byte>(32)),
-                static_cast<System::Int32>(static_cast<System::Byte>(34)),
-                static_cast<System::Int32>(static_cast<System::Byte>(37)));
+            this->lbDllList->BackColor =
+                System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)),
+                                                 static_cast<System::Int32>(static_cast<System::Byte>(34)),
+                                                 static_cast<System::Int32>(static_cast<System::Byte>(37)));
             this->lbDllList->ForeColor = System::Drawing::Color::White;
             this->lbDllList->FormattingEnabled = true;
             this->lbDllList->Location = System::Drawing::Point(6, 31);
@@ -553,9 +553,9 @@ namespace unlockfpsclr
             this->lbDllList->Size = System::Drawing::Size(120, 160);
             this->lbDllList->TabIndex = 1;
             this->lbDllList->TabStop = false;
-            // 
+            //
             // labelDLLMessage
-            // 
+            //
             this->labelDLLMessage->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->labelDLLMessage->BackColor = System::Drawing::Color::Transparent;
             this->labelDLLMessage->ForeColor = System::Drawing::Color::White;
@@ -565,21 +565,21 @@ namespace unlockfpsclr
             this->labelDLLMessage->TabIndex = 0;
             this->labelDLLMessage->Text = L"DLLs will be injected in the order of this list.";
             this->labelDLLMessage->TextAlign = System::Drawing::ContentAlignment::TopCenter;
-            // 
+            //
             // toolTip
-            // 
+            //
             this->toolTip->AutoPopDelay = 5000;
             this->toolTip->InitialDelay = 1;
             this->toolTip->ReshowDelay = 100;
-            // 
+            //
             // SettingsForm
-            // 
+            //
             this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
             this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-            this->BackColor = System::Drawing::Color::FromArgb(
-                static_cast<System::Int32>(static_cast<System::Byte>(32)),
-                static_cast<System::Int32>(static_cast<System::Byte>(34)),
-                static_cast<System::Int32>(static_cast<System::Byte>(37)));
+            this->BackColor =
+                System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)),
+                                                 static_cast<System::Int32>(static_cast<System::Byte>(34)),
+                                                 static_cast<System::Int32>(static_cast<System::Byte>(37)));
             this->ClientSize = System::Drawing::Size(281, 264);
             this->Controls->Add(this->tabControl);
             this->Controls->Add(this->labelAutoSave);

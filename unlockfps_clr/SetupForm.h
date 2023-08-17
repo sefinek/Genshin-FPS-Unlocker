@@ -98,8 +98,8 @@ namespace unlockfpsclr
             this->labelResult->Anchor = System::Windows::Forms::AnchorStyles::Top;
             this->labelResult->BackColor = System::Drawing::Color::Transparent;
             this->labelResult->Font =
-            (gcnew System::Drawing::Font(L"Arial", 11.25F, System::Drawing::FontStyle::Regular,
-                                         System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+                (gcnew System::Drawing::Font(L"Arial", 11.25F, System::Drawing::FontStyle::Regular,
+                                             System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
             this->labelResult->ForeColor = System::Drawing::Color::White;
             this->labelResult->Location = System::Drawing::Point(12, 9);
             this->labelResult->Name = L"labelResult";
@@ -113,10 +113,10 @@ namespace unlockfpsclr
             this->labelSelectInstance->AutoSize = true;
             this->labelSelectInstance->BackColor = System::Drawing::Color::Transparent;
             this->labelSelectInstance->Font =
-            (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular,
-                                         System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+                (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular,
+                                             System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
             this->labelSelectInstance->ForeColor = System::Drawing::Color::White;
-            this->labelSelectInstance->Location = System::Drawing::Point(9, 33);
+            this->labelSelectInstance->Location = System::Drawing::Point(9, 32);
             this->labelSelectInstance->Name = L"labelSelectInstance";
             this->labelSelectInstance->Size = System::Drawing::Size(41, 15);
             this->labelSelectInstance->TabIndex = 1;
@@ -131,7 +131,7 @@ namespace unlockfpsclr
             this->comboBoxSelectInst->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
             this->comboBoxSelectInst->ForeColor = System::Drawing::Color::WhiteSmoke;
             this->comboBoxSelectInst->FormattingEnabled = true;
-            this->comboBoxSelectInst->Location = System::Drawing::Point(12, 52);
+            this->comboBoxSelectInst->Location = System::Drawing::Point(12, 51);
             this->comboBoxSelectInst->Name = L"comboBoxSelectInst";
             this->comboBoxSelectInst->Size = System::Drawing::Size(434, 21);
             this->comboBoxSelectInst->TabIndex = 2;
@@ -139,7 +139,7 @@ namespace unlockfpsclr
             //
             // btnBrowse
             //
-            this->btnBrowse->Location = System::Drawing::Point(12, 51);
+            this->btnBrowse->Location = System::Drawing::Point(12, 50);
             this->btnBrowse->Name = L"btnBrowse";
             this->btnBrowse->Size = System::Drawing::Size(86, 23);
             this->btnBrowse->TabIndex = 3;
@@ -153,10 +153,10 @@ namespace unlockfpsclr
             this->labelHint->AutoSize = true;
             this->labelHint->BackColor = System::Drawing::Color::Transparent;
             this->labelHint->Font =
-            (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular,
-                                         System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+                (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular,
+                                             System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
             this->labelHint->ForeColor = System::Drawing::Color::White;
-            this->labelHint->Location = System::Drawing::Point(103, 55);
+            this->labelHint->Location = System::Drawing::Point(103, 54);
             this->labelHint->Name = L"labelHint";
             this->labelHint->Size = System::Drawing::Size(136, 15);
             this->labelHint->TabIndex = 4;
@@ -171,7 +171,7 @@ namespace unlockfpsclr
             //
             // btnConfirm
             //
-            this->btnConfirm->Location = System::Drawing::Point(342, 82);
+            this->btnConfirm->Location = System::Drawing::Point(342, 87);
             this->btnConfirm->Name = L"btnConfirm";
             this->btnConfirm->Size = System::Drawing::Size(104, 23);
             this->btnConfirm->TabIndex = 5;
@@ -187,7 +187,7 @@ namespace unlockfpsclr
                 System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)),
                                                  static_cast<System::Int32>(static_cast<System::Byte>(57)),
                                                  static_cast<System::Int32>(static_cast<System::Byte>(63)));
-            this->ClientSize = System::Drawing::Size(458, 117);
+            this->ClientSize = System::Drawing::Size(458, 122);
             this->Controls->Add(this->btnConfirm);
             this->Controls->Add(this->labelHint);
             this->Controls->Add(this->btnBrowse);

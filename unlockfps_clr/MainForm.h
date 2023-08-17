@@ -208,7 +208,7 @@ namespace unlockfpsclr
             // btnStartGame
             //
             this->btnStartGame->BackColor = System::Drawing::Color::Transparent;
-            this->btnStartGame->Location = System::Drawing::Point(209, 87);
+            this->btnStartGame->Location = System::Drawing::Point(225, 89);
             this->btnStartGame->Name = L"btnStartGame";
             this->btnStartGame->Size = System::Drawing::Size(75, 23);
             this->btnStartGame->TabIndex = 0;
@@ -222,7 +222,7 @@ namespace unlockfpsclr
             this->ckbAutoStart->AutoSize = true;
             this->ckbAutoStart->BackColor = System::Drawing::Color::Transparent;
             this->ckbAutoStart->ForeColor = System::Drawing::Color::White;
-            this->ckbAutoStart->Location = System::Drawing::Point(12, 90);
+            this->ckbAutoStart->Location = System::Drawing::Point(12, 93);
             this->ckbAutoStart->Name = L"ckbAutoStart";
             this->ckbAutoStart->Size = System::Drawing::Size(141, 17);
             this->ckbAutoStart->TabIndex = 1;
@@ -241,11 +241,11 @@ namespace unlockfpsclr
             //
             this->tbFPS->AutoSize = false;
             this->tbFPS->Cursor = System::Windows::Forms::Cursors::Hand;
-            this->tbFPS->Location = System::Drawing::Point(6, 64);
+            this->tbFPS->Location = System::Drawing::Point(12, 66);
             this->tbFPS->Maximum = 365;
             this->tbFPS->Minimum = 12;
             this->tbFPS->Name = L"tbFPS";
-            this->tbFPS->Size = System::Drawing::Size(283, 21);
+            this->tbFPS->Size = System::Drawing::Size(288, 21);
             this->tbFPS->TabIndex = 2;
             this->tbFPS->TabStop = false;
             this->tbFPS->TickStyle = System::Windows::Forms::TickStyle::None;
@@ -256,7 +256,7 @@ namespace unlockfpsclr
             this->labelFPS->AutoSize = true;
             this->labelFPS->BackColor = System::Drawing::Color::Transparent;
             this->labelFPS->ForeColor = System::Drawing::Color::White;
-            this->labelFPS->Location = System::Drawing::Point(12, 40);
+            this->labelFPS->Location = System::Drawing::Point(17, 42);
             this->labelFPS->Name = L"labelFPS";
             this->labelFPS->Size = System::Drawing::Size(47, 13);
             this->labelFPS->TabIndex = 3;
@@ -269,11 +269,11 @@ namespace unlockfpsclr
                                                  static_cast<System::Int32>(static_cast<System::Byte>(49)),
                                                  static_cast<System::Int32>(static_cast<System::Byte>(54)));
             this->inputFPS->ForeColor = System::Drawing::Color::White;
-            this->inputFPS->Location = System::Drawing::Point(77, 37);
+            this->inputFPS->Location = System::Drawing::Point(81, 39);
             this->inputFPS->Maximum = System::Decimal(gcnew cli::array<System::Int32>(4){365, 0, 0, 0});
             this->inputFPS->Minimum = System::Decimal(gcnew cli::array<System::Int32>(4){12, 0, 0, 0});
             this->inputFPS->Name = L"inputFPS";
-            this->inputFPS->Size = System::Drawing::Size(207, 20);
+            this->inputFPS->Size = System::Drawing::Size(212, 20);
             this->inputFPS->TabIndex = 4;
             this->inputFPS->TabStop = false;
             this->inputFPS->Value = System::Decimal(gcnew cli::array<System::Int32>(4){60, 0, 0, 0});
@@ -289,7 +289,7 @@ namespace unlockfpsclr
                 this->linksToolStripMenuItem});
             this->menuStrip1->Location = System::Drawing::Point(0, 0);
             this->menuStrip1->Name = L"menuStrip1";
-            this->menuStrip1->Size = System::Drawing::Size(296, 24);
+            this->menuStrip1->Size = System::Drawing::Size(312, 24);
             this->menuStrip1->TabIndex = 5;
             this->menuStrip1->Text = L"menuStrip1";
             //
@@ -297,7 +297,7 @@ namespace unlockfpsclr
             //
             this->toolStripMenuItem->DropDownItems->AddRange(gcnew cli::array<System::Windows::Forms::ToolStripItem ^>(
                 3){this->menuItemSettings, this->menuItemSetup, this->menuItemAbout});
-            this->toolStripMenuItem->ForeColor = System::Drawing::Color::DodgerBlue;
+            this->toolStripMenuItem->ForeColor = System::Drawing::Color::DimGray;
             this->toolStripMenuItem->Name = L"toolStripMenuItem";
             this->toolStripMenuItem->Size = System::Drawing::Size(61, 20);
             this->toolStripMenuItem->Text = L"Options";
@@ -328,7 +328,7 @@ namespace unlockfpsclr
             this->openToolStripMenuItem->DropDownItems->AddRange(
                 gcnew cli::array<System::Windows::Forms::ToolStripItem ^>(2){
                     this->genshinImpactModPackToolStripMenuItem, this->checkHzOfYourMonitorToolStripMenuItem});
-            this->openToolStripMenuItem->ForeColor = System::Drawing::Color::DodgerBlue;
+            this->openToolStripMenuItem->ForeColor = System::Drawing::Color::DimGray;
             this->openToolStripMenuItem->Name = L"openToolStripMenuItem";
             this->openToolStripMenuItem->Size = System::Drawing::Size(48, 20);
             this->openToolStripMenuItem->Text = L"Open";
@@ -369,7 +369,7 @@ namespace unlockfpsclr
             this->configVersionToolStripMenuItem->DropDownItems->AddRange(
                 gcnew cli::array<System::Windows::Forms::ToolStripItem ^>(2){this->viewConfigToolStripMenuItem,
                                                                              this->seeCurrentVersionToolStripMenuItem});
-            this->configVersionToolStripMenuItem->ForeColor = System::Drawing::Color::DodgerBlue;
+            this->configVersionToolStripMenuItem->ForeColor = System::Drawing::Color::DimGray;
             this->configVersionToolStripMenuItem->Name = L"configVersionToolStripMenuItem";
             this->configVersionToolStripMenuItem->Size = System::Drawing::Size(55, 20);
             this->configVersionToolStripMenuItem->Text = L"Config";
@@ -377,14 +377,14 @@ namespace unlockfpsclr
             // viewConfigToolStripMenuItem
             //
             this->viewConfigToolStripMenuItem->Name = L"viewConfigToolStripMenuItem";
-            this->viewConfigToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+            this->viewConfigToolStripMenuItem->Size = System::Drawing::Size(174, 22);
             this->viewConfigToolStripMenuItem->Text = L"View config";
             this->viewConfigToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::viewCfg_Click);
             //
             // seeCurrentVersionToolStripMenuItem
             //
             this->seeCurrentVersionToolStripMenuItem->Name = L"seeCurrentVersionToolStripMenuItem";
-            this->seeCurrentVersionToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+            this->seeCurrentVersionToolStripMenuItem->Size = System::Drawing::Size(174, 22);
             this->seeCurrentVersionToolStripMenuItem->Text = L"See current version";
             this->seeCurrentVersionToolStripMenuItem->Click +=
                 gcnew System::EventHandler(this, &MainForm::seeCurrentVersion_Click);
@@ -395,7 +395,7 @@ namespace unlockfpsclr
                 gcnew cli::array<System::Windows::Forms::ToolStripItem ^>(3){this->officialWebsiteToolStripMenuItem,
                                                                              this->youTubeToolStripMenuItem,
                                                                              this->gitHubToolStripMenuItem});
-            this->linksToolStripMenuItem->ForeColor = System::Drawing::Color::DodgerBlue;
+            this->linksToolStripMenuItem->ForeColor = System::Drawing::Color::DimGray;
             this->linksToolStripMenuItem->Name = L"linksToolStripMenuItem";
             this->linksToolStripMenuItem->Size = System::Drawing::Size(46, 20);
             this->linksToolStripMenuItem->Text = L"Links";
@@ -403,7 +403,7 @@ namespace unlockfpsclr
             // officialWebsiteToolStripMenuItem
             //
             this->officialWebsiteToolStripMenuItem->Name = L"officialWebsiteToolStripMenuItem";
-            this->officialWebsiteToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+            this->officialWebsiteToolStripMenuItem->Size = System::Drawing::Size(155, 22);
             this->officialWebsiteToolStripMenuItem->Text = L"Official website";
             this->officialWebsiteToolStripMenuItem->Click +=
                 gcnew System::EventHandler(this, &MainForm::officialWebsite_Click);
@@ -411,7 +411,7 @@ namespace unlockfpsclr
             // youTubeToolStripMenuItem
             //
             this->youTubeToolStripMenuItem->Name = L"youTubeToolStripMenuItem";
-            this->youTubeToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+            this->youTubeToolStripMenuItem->Size = System::Drawing::Size(155, 22);
             this->youTubeToolStripMenuItem->Text = L"YouTube";
             this->youTubeToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::youtube_Click);
             //
@@ -421,7 +421,7 @@ namespace unlockfpsclr
                 gcnew cli::array<System::Windows::Forms::ToolStripItem ^>(2){this->repositoriesToolStripMenuItem,
                                                                              this->myProfileToolStripMenuItem});
             this->gitHubToolStripMenuItem->Name = L"gitHubToolStripMenuItem";
-            this->gitHubToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+            this->gitHubToolStripMenuItem->Size = System::Drawing::Size(155, 22);
             this->gitHubToolStripMenuItem->Text = L"GitHub";
             //
             // repositoriesToolStripMenuItem
@@ -495,7 +495,7 @@ namespace unlockfpsclr
                 System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)),
                                                  static_cast<System::Int32>(static_cast<System::Byte>(57)),
                                                  static_cast<System::Int32>(static_cast<System::Byte>(63)));
-            this->ClientSize = System::Drawing::Size(296, 122);
+            this->ClientSize = System::Drawing::Size(312, 122);
             this->Controls->Add(this->inputFPS);
             this->Controls->Add(this->labelFPS);
             this->Controls->Add(this->tbFPS);

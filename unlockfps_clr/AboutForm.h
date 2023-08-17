@@ -65,8 +65,8 @@ namespace unlockfpsclr
         /// </summary>
         void InitializeComponent(void)
         {
-            auto resources = (gcnew
-                System::ComponentModel::ComponentResourceManager(AboutForm::typeid));
+            System::ComponentModel::ComponentResourceManager ^ resources =
+                (gcnew System::ComponentModel::ComponentResourceManager(AboutForm::typeid));
             this->labelTitle = (gcnew System::Windows::Forms::Label());
             this->linkLabelSource = (gcnew System::Windows::Forms::LinkLabel());
             this->linkLabelIssues = (gcnew System::Windows::Forms::LinkLabel());
@@ -74,9 +74,10 @@ namespace unlockfpsclr
             this->label1 = (gcnew System::Windows::Forms::Label());
             (cli::safe_cast<System::ComponentModel::ISupportInitialize ^>(this->pictureBox1))->BeginInit();
             this->SuspendLayout();
-            // 
+            //
             // labelTitle
-            // 
+            //
+            this->labelTitle->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->labelTitle->BackColor = System::Drawing::Color::Transparent;
             this->labelTitle->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold));
             this->labelTitle->ForeColor = System::Drawing::Color::White;
@@ -85,11 +86,12 @@ namespace unlockfpsclr
             this->labelTitle->Padding = System::Windows::Forms::Padding(0, 5, 0, 0);
             this->labelTitle->Size = System::Drawing::Size(300, 44);
             this->labelTitle->TabIndex = 0;
-            this->labelTitle->Text = L"Genshin FPS Unlocker\r\nv2.0.11";
+            this->labelTitle->Text = L"Genshin FPS Unlocker\r\nv2.0.12";
             this->labelTitle->TextAlign = System::Drawing::ContentAlignment::TopCenter;
-            // 
+            //
             // linkLabelSource
-            // 
+            //
+            this->linkLabelSource->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->linkLabelSource->BackColor = System::Drawing::Color::Transparent;
             this->linkLabelSource->ForeColor = System::Drawing::Color::White;
             this->linkLabelSource->LinkArea = System::Windows::Forms::LinkArea(25, 11);
@@ -104,9 +106,10 @@ namespace unlockfpsclr
             this->linkLabelSource->UseCompatibleTextRendering = true;
             this->linkLabelSource->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(
                 this, &AboutForm::linkLabelSource_LinkClicked);
-            // 
+            //
             // linkLabelIssues
-            // 
+            //
+            this->linkLabelIssues->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->linkLabelIssues->BackColor = System::Drawing::Color::Transparent;
             this->linkLabelIssues->ForeColor = System::Drawing::Color::White;
             this->linkLabelIssues->LinkArea = System::Windows::Forms::LinkArea(86, 46);
@@ -123,12 +126,13 @@ namespace unlockfpsclr
             this->linkLabelIssues->UseCompatibleTextRendering = true;
             this->linkLabelIssues->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(
                 this, &AboutForm::linkLabelIssues_LinkClicked);
-            // 
+            //
             // pictureBox1
-            // 
+            //
+            this->pictureBox1->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->pictureBox1->Cursor = System::Windows::Forms::Cursors::Hand;
-            this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image ^>(resources->GetObject(
-                L"pictureBox1.Image")));
+            this->pictureBox1->Image =
+                (cli::safe_cast<System::Drawing::Image ^>(resources->GetObject(L"pictureBox1.Image")));
             this->pictureBox1->Location = System::Drawing::Point(290, 12);
             this->pictureBox1->Name = L"pictureBox1";
             this->pictureBox1->Size = System::Drawing::Size(22, 22);
@@ -136,9 +140,10 @@ namespace unlockfpsclr
             this->pictureBox1->TabIndex = 6;
             this->pictureBox1->TabStop = false;
             this->pictureBox1->Click += gcnew System::EventHandler(this, &AboutForm::Exit_Button);
-            // 
+            //
             // label1
-            // 
+            //
+            this->label1->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label1->BackColor = System::Drawing::Color::Transparent;
             this->label1->ForeColor = System::Drawing::Color::White;
             this->label1->Location = System::Drawing::Point(13, 162);
@@ -147,15 +152,15 @@ namespace unlockfpsclr
             this->label1->TabIndex = 7;
             this->label1->Text = L"Thank you for using this software.";
             this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-            // 
+            //
             // AboutForm
-            // 
+            //
             this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
             this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-            this->BackColor = System::Drawing::Color::FromArgb(
-                static_cast<System::Int32>(static_cast<System::Byte>(20)),
-                static_cast<System::Int32>(static_cast<System::Byte>(22)),
-                static_cast<System::Int32>(static_cast<System::Byte>(25)));
+            this->BackColor =
+                System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(20)),
+                                                 static_cast<System::Int32>(static_cast<System::Byte>(22)),
+                                                 static_cast<System::Int32>(static_cast<System::Byte>(25)));
             this->ClientSize = System::Drawing::Size(324, 192);
             this->Controls->Add(this->label1);
             this->Controls->Add(this->pictureBox1);

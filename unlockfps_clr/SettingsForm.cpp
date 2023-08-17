@@ -6,7 +6,7 @@ using namespace System::Runtime::InteropServices;
 
 namespace unlockfpsclr
 {
-    Void SettingsForm::UpdateSettings(System::Object ^sender, FormClosingEventArgs ^e)
+    Void SettingsForm::UpdateSettings(Object ^sender, FormClosingEventArgs ^e)
     {
         // Update settings and write to file
         // will be called upon closing 'Settings' dialog
@@ -53,7 +53,7 @@ namespace unlockfpsclr
         dialog->FilterIndex = 0;
         dialog->RestoreDirectory = true;
 
-        if (dialog->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+        if (dialog->ShowDialog() == Windows::Forms::DialogResult::OK)
         {
             auto selectedFile = dialog->FileName;
             auto fileName = Path::GetFileName(selectedFile);
@@ -71,7 +71,7 @@ namespace unlockfpsclr
             auto rawBytes = gcnew array<uint8_t>(0x1000);
             fileStream->Read(rawBytes, 0, 0x1000);
             pin_ptr<Byte> pinned = &rawBytes[0];
-            if (!Unmanaged::VerifyDLL((PVOID)pinned))
+            if (!Unmanaged::VerifyDLL(pinned))
             {
                 MessageBox::Show(
                     "Invalid File.\nThe DLL is either corrupted or 32-bit.\nOnly 64-bit DLLs are supported.",
