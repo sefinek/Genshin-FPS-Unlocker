@@ -98,10 +98,10 @@ namespace unlockfpsclr
             this->labelResult->Anchor = System::Windows::Forms::AnchorStyles::Top;
             this->labelResult->BackColor = System::Drawing::Color::Transparent;
             this->labelResult->Font =
-            (gcnew System::Drawing::Font(L"Arial", 11.25F, System::Drawing::FontStyle::Regular,
-                                         System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+                (gcnew System::Drawing::Font(L"Arial", 11.25F, System::Drawing::FontStyle::Regular,
+                                             System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
             this->labelResult->ForeColor = System::Drawing::Color::White;
-            this->labelResult->Location = System::Drawing::Point(12, 9);
+            this->labelResult->Location = System::Drawing::Point(12, 11);
             this->labelResult->Name = L"labelResult";
             this->labelResult->Size = System::Drawing::Size(434, 18);
             this->labelResult->TabIndex = 0;
@@ -113,10 +113,10 @@ namespace unlockfpsclr
             this->labelSelectInstance->AutoSize = true;
             this->labelSelectInstance->BackColor = System::Drawing::Color::Transparent;
             this->labelSelectInstance->Font =
-            (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular,
-                                         System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+                (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular,
+                                             System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
             this->labelSelectInstance->ForeColor = System::Drawing::Color::White;
-            this->labelSelectInstance->Location = System::Drawing::Point(9, 32);
+            this->labelSelectInstance->Location = System::Drawing::Point(10, 34);
             this->labelSelectInstance->Name = L"labelSelectInstance";
             this->labelSelectInstance->Size = System::Drawing::Size(41, 15);
             this->labelSelectInstance->TabIndex = 1;
@@ -131,7 +131,7 @@ namespace unlockfpsclr
             this->comboBoxSelectInst->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
             this->comboBoxSelectInst->ForeColor = System::Drawing::Color::WhiteSmoke;
             this->comboBoxSelectInst->FormattingEnabled = true;
-            this->comboBoxSelectInst->Location = System::Drawing::Point(12, 51);
+            this->comboBoxSelectInst->Location = System::Drawing::Point(12, 53);
             this->comboBoxSelectInst->Name = L"comboBoxSelectInst";
             this->comboBoxSelectInst->Size = System::Drawing::Size(434, 21);
             this->comboBoxSelectInst->TabIndex = 2;
@@ -139,7 +139,7 @@ namespace unlockfpsclr
             //
             // btnBrowse
             //
-            this->btnBrowse->Location = System::Drawing::Point(12, 50);
+            this->btnBrowse->Location = System::Drawing::Point(12, 52);
             this->btnBrowse->Name = L"btnBrowse";
             this->btnBrowse->Size = System::Drawing::Size(86, 23);
             this->btnBrowse->TabIndex = 3;
@@ -153,10 +153,10 @@ namespace unlockfpsclr
             this->labelHint->AutoSize = true;
             this->labelHint->BackColor = System::Drawing::Color::Transparent;
             this->labelHint->Font =
-            (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular,
-                                         System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+                (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular,
+                                             System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
             this->labelHint->ForeColor = System::Drawing::Color::White;
-            this->labelHint->Location = System::Drawing::Point(103, 54);
+            this->labelHint->Location = System::Drawing::Point(103, 56);
             this->labelHint->Name = L"labelHint";
             this->labelHint->Size = System::Drawing::Size(136, 15);
             this->labelHint->TabIndex = 4;

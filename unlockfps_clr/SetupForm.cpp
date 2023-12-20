@@ -40,7 +40,7 @@ namespace unlockfpsclr
             }
 
             backgroundWorker->CancelAsync();
-            settings->GamePath = selectedFile;
+            if (backgroundWorker) backgroundWorker->CancelAsync();
             settings->Save();
             this->Close();
         }
@@ -85,8 +85,6 @@ namespace unlockfpsclr
         if (result->Count)
         {
             btnConfirm->Visible = true;
-            btnBrowse->Visible = false;
-            labelHint->Visible = false;
             labelResult->Text = String::Format("Found {0} installation of the game.", result->Count);
             labelResult->ForeColor = Color::LimeGreen;
             labelSelectInstance->Text = "Select the instance you want to use:";
@@ -100,11 +98,9 @@ namespace unlockfpsclr
         else
         {
             btnConfirm->Visible = false;
-            btnBrowse->Visible = true;
-            labelHint->Visible = true;
             labelResult->Text = "Sorry, I can't find your game.";
             labelResult->ForeColor = Color::Red;
-            labelSelectInstance->Text = "You can:";
+            labelSelectInstance->Text = "You can open the game now or browse";
             comboBoxSelectInst->Visible = false;
 
             backgroundWorker = gcnew BackgroundWorker();
