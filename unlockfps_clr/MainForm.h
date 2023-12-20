@@ -207,6 +207,7 @@ namespace unlockfpsclr
             //
             // btnStartGame
             //
+            this->btnStartGame->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->btnStartGame->BackColor = System::Drawing::Color::Transparent;
             this->btnStartGame->Location = System::Drawing::Point(225, 89);
             this->btnStartGame->Name = L"btnStartGame";
@@ -219,6 +220,7 @@ namespace unlockfpsclr
             //
             // ckbAutoStart
             //
+            this->ckbAutoStart->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->ckbAutoStart->AutoSize = true;
             this->ckbAutoStart->BackColor = System::Drawing::Color::Transparent;
             this->ckbAutoStart->ForeColor = System::Drawing::Color::White;
@@ -239,6 +241,7 @@ namespace unlockfpsclr
             //
             // tbFPS
             //
+            this->tbFPS->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->tbFPS->AutoSize = false;
             this->tbFPS->Cursor = System::Windows::Forms::Cursors::Hand;
             this->tbFPS->Location = System::Drawing::Point(12, 66);
@@ -253,6 +256,7 @@ namespace unlockfpsclr
             //
             // labelFPS
             //
+            this->labelFPS->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->labelFPS->AutoSize = true;
             this->labelFPS->BackColor = System::Drawing::Color::Transparent;
             this->labelFPS->ForeColor = System::Drawing::Color::White;
@@ -264,6 +268,7 @@ namespace unlockfpsclr
             //
             // inputFPS
             //
+            this->inputFPS->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->inputFPS->BackColor =
                 System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(47)),
                                                  static_cast<System::Int32>(static_cast<System::Byte>(49)),
@@ -305,21 +310,21 @@ namespace unlockfpsclr
             // menuItemSettings
             //
             this->menuItemSettings->Name = L"menuItemSettings";
-            this->menuItemSettings->Size = System::Drawing::Size(180, 22);
+            this->menuItemSettings->Size = System::Drawing::Size(116, 22);
             this->menuItemSettings->Text = L"Settings";
             this->menuItemSettings->Click += gcnew System::EventHandler(this, &MainForm::settingsMenuItem_Click);
             //
             // menuItemSetup
             //
             this->menuItemSetup->Name = L"menuItemSetup";
-            this->menuItemSetup->Size = System::Drawing::Size(180, 22);
+            this->menuItemSetup->Size = System::Drawing::Size(116, 22);
             this->menuItemSetup->Text = L"Setup";
             this->menuItemSetup->Click += gcnew System::EventHandler(this, &MainForm::setupMenuItem_Click);
             //
             // menuItemAbout
             //
             this->menuItemAbout->Name = L"menuItemAbout";
-            this->menuItemAbout->Size = System::Drawing::Size(180, 22);
+            this->menuItemAbout->Size = System::Drawing::Size(116, 22);
             this->menuItemAbout->Text = L"About";
             this->menuItemAbout->Click += gcnew System::EventHandler(this, &MainForm::menuItemAbout_Click);
             //

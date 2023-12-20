@@ -95,7 +95,7 @@ namespace unlockfpsclr
             //
             // labelResult
             //
-            this->labelResult->Anchor = System::Windows::Forms::AnchorStyles::Top;
+            this->labelResult->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->labelResult->BackColor = System::Drawing::Color::Transparent;
             this->labelResult->Font =
                 (gcnew System::Drawing::Font(L"Arial", 11.25F, System::Drawing::FontStyle::Regular,
@@ -110,6 +110,7 @@ namespace unlockfpsclr
             //
             // labelSelectInstance
             //
+            this->labelSelectInstance->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->labelSelectInstance->AutoSize = true;
             this->labelSelectInstance->BackColor = System::Drawing::Color::Transparent;
             this->labelSelectInstance->Font =
@@ -124,6 +125,7 @@ namespace unlockfpsclr
             //
             // comboBoxSelectInst
             //
+            this->comboBoxSelectInst->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->comboBoxSelectInst->BackColor =
                 System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)),
                                                  static_cast<System::Int32>(static_cast<System::Byte>(34)),
@@ -139,6 +141,7 @@ namespace unlockfpsclr
             //
             // btnBrowse
             //
+            this->btnBrowse->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->btnBrowse->Location = System::Drawing::Point(12, 52);
             this->btnBrowse->Name = L"btnBrowse";
             this->btnBrowse->Size = System::Drawing::Size(86, 23);
@@ -150,6 +153,7 @@ namespace unlockfpsclr
             //
             // labelHint
             //
+            this->labelHint->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->labelHint->AutoSize = true;
             this->labelHint->BackColor = System::Drawing::Color::Transparent;
             this->labelHint->Font =
@@ -171,6 +175,7 @@ namespace unlockfpsclr
             //
             // btnConfirm
             //
+            this->btnConfirm->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->btnConfirm->Location = System::Drawing::Point(342, 87);
             this->btnConfirm->Name = L"btnConfirm";
             this->btnConfirm->Size = System::Drawing::Size(104, 23);
