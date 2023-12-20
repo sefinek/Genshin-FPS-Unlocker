@@ -6,13 +6,13 @@ using namespace System::Collections::Generic;
 public ref class Settings
 {
 private:
-    static String ^ConfigPath = "unlocker.config.json";
+    static String^ ConfigPath = "unlocker.config.json";
 
 public:
-    property String ^ConfigVersion;
-    property String ^ConfigDate;
+    property String^ ConfigVersion;
+    property String^ ConfigDate;
 
-    property String ^GamePath;
+    property String^ GamePath;
 
     property bool AutoStart;
     property bool AutoDisableVSync;
@@ -30,10 +30,10 @@ public:
     property int MonitorNum;
     property int Priority;
 
-    property List<String ^> ^DllList;
+    property List<String^>^ DllList;
 
     Settings();
-    Settings ^InitializeDefaults();
+    Settings^ InitializeDefaults();
     void Save();
-    static Settings ^Load();
+    static Settings^ Load();
 };

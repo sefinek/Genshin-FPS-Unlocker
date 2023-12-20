@@ -1,16 +1,16 @@
 #include "Settings.h"
 
 using namespace System;
-using namespace IO;
-using namespace Text;
-using namespace Json;
-using namespace Windows::Forms;
+using namespace System::IO;
+using namespace System::Text;
+using namespace System::Text::Json;
+using namespace System::Windows::Forms;
 
 Settings::Settings()
 {
 }
 
-Settings ^Settings::InitializeDefaults()
+Settings^ Settings::InitializeDefaults()
 {
     ConfigVersion = "1.1.1";
     ConfigDate = "18.04.2023";
@@ -31,7 +31,7 @@ Settings ^Settings::InitializeDefaults()
     CustomResY = 1080;
     Priority = 3;
 
-    DllList = gcnew List<String ^>();
+    DllList = gcnew List<String^>();
 
     return this;
 }
@@ -45,18 +45,18 @@ void Settings::Save()
     File::WriteAllText(ConfigPath, serialized, Encoding::UTF8);
 }
 
-Settings ^Settings::Load()
+Settings^ Settings::Load()
 {
     // Create a config if there isn't one
     if (!File::Exists(ConfigPath))
         return (gcnew Settings())->InitializeDefaults();
 
     auto serialized = File::ReadAllText(ConfigPath, Encoding::UTF8);
-    auto instance = JsonSerializer::Deserialize<Settings ^>(serialized, nullptr);
+    Settings^ instance = JsonSerializer::Deserialize<Settings^>(serialized, nullptr);
 
     // Extra sanitization
     if (!instance->DllList)
-        instance->DllList = gcnew List<String ^>();
+        instance->DllList = gcnew List<String^>();
 
     // Remove invalid items
     for each (auto path in instance->DllList->ToArray())
