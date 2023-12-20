@@ -89,7 +89,7 @@ int main(array<String^>^ args)
 
 	AppDomain::CurrentDomain->AssemblyResolve += gcnew ResolveEventHandler(&OnAssemblyResolve);
 
-	// check to see if the unlocker is placed with the game
+	// Check to see if the unlocker is placed with the game
 	if (File::Exists("UnityPlayer.dll") && (File::Exists("GenshinImpact.exe") || File::Exists("YuanShen.exe")))
 	{
 		MessageBox::Show("Do not place unlocker in the same folder as the game", "Genshin FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Error);
@@ -129,9 +129,9 @@ namespace unlockfpsclr
 		auto hIcon = (HICON)LoadImageA(GetModuleHandleA(nullptr), MAKEINTRESOURCEA(IDI_ICON1), IMAGE_ICON, 32, 32, 0);
 		this->Icon = System::Drawing::Icon::FromHandle(static_cast<IntPtr>(hIcon));
 		notifyIcon->Icon = this->Icon;
-		//DestroyIcon(hIcon);
+		// DestroyIcon(hIcon);
 
-		// start setup dialog if game path is invalid in config
+		// Start setup dialog if game path is invalid in config
 		if (String::IsNullOrWhiteSpace(settings->GamePath) || !File::Exists(settings->GamePath))
 			(gcnew SetupForm(settings))->ShowDialog();
 
@@ -206,7 +206,7 @@ namespace unlockfpsclr
 		if (progress == 100)
 			Application::Exit();
 		if (progress == 10)
-			OnDoubleClick(nullptr, nullptr); // restore window
+			OnDoubleClick(nullptr, nullptr); // Restore window
 	}
 
 	Void MainForm::OnResize(Object^ sender, EventArgs^ e)
@@ -238,7 +238,7 @@ namespace unlockfpsclr
 		this->ShowInTaskbar = true;
 		this->Show();
 		this->Activate();
-		//notifyIcon->Visible = false;
+		// notifyIcon->Visible = false;
 	}
 
 	Void MainForm::toolStripMenuExit_Click(Object^ sender, EventArgs^ e)
@@ -259,85 +259,104 @@ namespace unlockfpsclr
 		form->ShowDialog();
 	}
 
-    Void MainForm::mainApp_Click(Object ^sender, EventArgs ^e)
-    {
-        settings->Save();
+	Void MainForm::mainApp_Click(Object^ sender, EventArgs^ e)
+	{
+		settings->Save();
 
-        if (!SetCurrentDirectory("C:\\Genshin-Impact-ReShade"))
-        {
-            MessageBox::Show("Genshin-Impact-ReShade directory was not found in C:\\ disk.",
-                             "Genshin Impact FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Warning);
-            return;
-        }
+		String^ stellaPath;
+		try
+		{
+			Microsoft::Win32::RegistryKey^ key = Microsoft::Win32::Registry::CurrentUser->OpenSubKey("SOFTWARE\\Stella Mod Launcher");
+			if (key != nullptr)
+			{
+				stellaPath = dynamic_cast<String^>(key->GetValue("StellaPath"));
+				key->Close();
+			}
+		}
+		catch (System::Exception^)
+		{
+			MessageBox::Show("Failed to read StellaPath from the registry.", "Genshin FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			return;
+		}
 
-        if (File::Exists("C:\\Genshin-Impact-ReShade\\Genshin Stella Mod.exe"))
-        {
-            Process::Start("C:\\Genshin-Impact-ReShade\\Genshin Stella Mod.exe");
-            Application::Exit();
-        }
-        else
-        {
-            MessageBox::Show(
-                "Cannot find `Genshin Stella Mod.exe` in `C:\Genshin-Impact-ReShade`.",
-                "Genshin Impact FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Warning);
-        }
-    }
+		if (String::IsNullOrEmpty(stellaPath))
+		{
+			MessageBox::Show("StellaPath is not set in the registry.", "Genshin FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			return;
+		}
+
+		String^ fullPath = Path::Combine(stellaPath, "Stella Mod Launcher.exe");
+
+		if (File::Exists(fullPath))
+		{
+			settings->Save();
+
+			Process::Start(fullPath);
+			Application::Exit();
+		}
+		else
+		{
+			MessageBox::Show("Cannot find `Stella Mod Launcher.exe` at the specified path: " + fullPath, "Genshin FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+		}
+	}
 
     // System apps
-    Void MainForm::si_Click(Object ^sender, EventArgs ^e)
+    Void MainForm::si_Click(Object^ sender, EventArgs^ e)
     {
         Process::Start("msinfo32.exe");
     }
 
-    Void MainForm::dxdiag_Click(Object ^sender, EventArgs ^e)
+    Void MainForm::dxdiag_Click(Object^ sender, EventArgs^ e)
     {
         Process::Start("dxdiag.exe");
     }
 
     // Links
-    Void MainForm::officialWebsite_Click(Object ^sender, EventArgs ^e)
+    Void MainForm::officialWebsite_Click(Object^ sender, EventArgs^ e)
     {
         Process::Start("https://sefinek.net/genshin-impact-reshade");
     }
 
-    Void MainForm::youtube_Click(Object ^sender, EventArgs ^e)
+    Void MainForm::youtube_Click(Object^ sender, EventArgs^ e)
     {
-        Process::Start("https://www.youtube.com/@sefinek");
+        Process::Start("https://www.youtube.com/channel/UClrAIcAzcqIMbvGXZqK7e0A");
     }
 
-    Void MainForm::githubMainRepo_Click(Object ^sender, EventArgs ^e)
+    Void MainForm::githubMainRepo_Click(Object^ sender, EventArgs^ e)
     {
         Process::Start("https://github.com/sefinek24/Genshin-Impact-ReShade");
     }
 
-    Void MainForm::githubFpsUnlock_Click(Object ^sender, EventArgs ^e)
+    Void MainForm::githubFpsUnlock_Click(Object^ sender, EventArgs^ e)
     {
         Process::Start("https://github.com/sefinek24/genshin-fps-unlock");
     }
 
-    Void MainForm::githubMyProfile_Click(Object ^sender, EventArgs ^e)
+    Void MainForm::githubMyProfile_Click(Object^ sender, EventArgs^ e)
     {
         Process::Start("https://github.com/sefinek24");
     }
 
     // Other
-    Void MainForm::viewCfg_Click(Object ^sender, EventArgs ^e)
-    {
-        if (File::Exists("C:\\Genshin-Impact-ReShade\\data\\unlocker\\unlocker.config.json"))
-        {
-            Process::Start("C:\\Genshin-Impact-ReShade\\data\\unlocker\\unlocker.config.json");
-        }
-        else
-        {
-            MessageBox::Show("I can't find file with name unlocker.config.json.", "Genshin Impact FPS Unlocker",
-                             MessageBoxButtons::OK, MessageBoxIcon::Information);
-        }
-    }
+	Void MainForm::viewCfg_Click(Object^ sender, EventArgs^ e)
+	{
+		char exePath[MAX_PATH];
+		GetModuleFileName(NULL, exePath, MAX_PATH);
 
-    Void MainForm::seeCurrentVersion_Click(Object ^sender, EventArgs ^e)
+		String^ jsonPath = Path::GetDirectoryName(gcnew String(exePath)) + "\\unlocker.config.json";
+		if (File::Exists(jsonPath))
+		{
+		    Process::Start(jsonPath);
+		}
+		else
+		{
+			MessageBox::Show("Cannot find file with name unlocker.config.json.", "Genshin FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		}
+	}
+
+    Void MainForm::seeCurrentVersion_Click(Object^ sender, EventArgs^ e)
     {
-        MessageBox::Show("Config version: v" + settings->ConfigVersion + "\nDate: " + settings->ConfigDate,
-                         "Genshin Impact FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Information);
+        MessageBox::Show("Config version: v" + settings->ConfigVersion + "\nDate: " + settings->ConfigDate, "Genshin FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Information);
     }
 
     // Void MainForm::ToolStipMenu_MouseEnter(Object^ sender, EventArgs^ e)
