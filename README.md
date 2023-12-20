@@ -1,5 +1,5 @@
 # Genshin Impact FPS Unlocker [modified by Sefinek]
-[The best Genshin Impact ReShade mod pack with custom graphics presets and FPS Unlocker.](https://github.com/sefinek24/Genshin-Impact-ReShade)
+> [Custom release for Genshin Stella Mod. Read more...](https://sefinek.net/genshin-impact-reshade)
 
 ## Information
 - This tool helps you to unlock the 60 FPS limit in the game.
