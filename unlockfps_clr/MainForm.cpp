@@ -33,7 +33,7 @@ void Run()
 	Application::EnableVisualStyles();
 
 	unlockfpsclr::MainForm mainForm;
-	Application::Run(% mainForm);
+	Application::Run(%mainForm);
 }
 
 
@@ -108,21 +108,21 @@ Exit:
 
 namespace unlockfpsclr
 {
-    Void MainForm::btnStartGame_Click(Object ^sender, EventArgs ^e)
-    {
-        // Exit the unlocker if create process was successful
-        if (Managed::StartGame(settings))
-        {
-            this->WindowState = FormWindowState::Minimized;
-            settings->Save();
-        }
-    }
+	Void MainForm::btnStartGame_Click(Object^ sender, EventArgs^ e)
+	{
+		// Exit the unlocker if create process was successful
+		if (Managed::StartGame(settings))
+		{
+			this->WindowState = FormWindowState::Minimized;
+			settings->Save();
+		}
+	}
 
-    Void MainForm::settingsMenuItem_Click(Object ^sender, EventArgs ^e)
-    {
-        // Open settings page
-        settingsForm->ShowDialog();
-    }
+	Void MainForm::settingsMenuItem_Click(Object^ sender, EventArgs^ e)
+	{
+		// Open settings page
+		settingsForm->ShowDialog();
+	}
 
 	Void MainForm::OnLoad(Object^ sender, EventArgs^ e)
 	{
@@ -195,9 +195,7 @@ namespace unlockfpsclr
 				worker->ReportProgress(100);
 			else
 				worker->ReportProgress(10);
-
 		}
-
 	}
 
 	Void MainForm::OnProgressChanged(Object^ sender, ProgressChangedEventArgs^ e)
@@ -300,44 +298,44 @@ namespace unlockfpsclr
 		}
 	}
 
-    // System apps
-    Void MainForm::si_Click(Object^ sender, EventArgs^ e)
-    {
-        Process::Start("msinfo32.exe");
-    }
+	// System apps
+	Void MainForm::si_Click(Object^ sender, EventArgs^ e)
+	{
+		Process::Start("msinfo32.exe");
+	}
 
-    Void MainForm::dxdiag_Click(Object^ sender, EventArgs^ e)
-    {
-        Process::Start("dxdiag.exe");
-    }
+	Void MainForm::dxdiag_Click(Object^ sender, EventArgs^ e)
+	{
+		Process::Start("dxdiag.exe");
+	}
 
-    // Links
-    Void MainForm::officialWebsite_Click(Object^ sender, EventArgs^ e)
-    {
-        Process::Start("https://sefinek.net/genshin-impact-reshade");
-    }
+	// Links
+	Void MainForm::officialWebsite_Click(Object^ sender, EventArgs^ e)
+	{
+		Process::Start("https://sefinek.net/genshin-impact-reshade");
+	}
 
-    Void MainForm::youtube_Click(Object^ sender, EventArgs^ e)
-    {
-        Process::Start("https://www.youtube.com/channel/UClrAIcAzcqIMbvGXZqK7e0A");
-    }
+	Void MainForm::youtube_Click(Object^ sender, EventArgs^ e)
+	{
+		Process::Start("https://www.youtube.com/channel/UClrAIcAzcqIMbvGXZqK7e0A");
+	}
 
-    Void MainForm::githubMainRepo_Click(Object^ sender, EventArgs^ e)
-    {
-        Process::Start("https://github.com/sefinek24/Genshin-Impact-ReShade");
-    }
+	Void MainForm::githubMainRepo_Click(Object^ sender, EventArgs^ e)
+	{
+		Process::Start("https://github.com/sefinek24/Genshin-Impact-ReShade");
+	}
 
-    Void MainForm::githubFpsUnlock_Click(Object^ sender, EventArgs^ e)
-    {
-        Process::Start("https://github.com/sefinek24/genshin-fps-unlock");
-    }
+	Void MainForm::githubFpsUnlock_Click(Object^ sender, EventArgs^ e)
+	{
+		Process::Start("https://github.com/sefinek24/genshin-fps-unlock");
+	}
 
-    Void MainForm::githubMyProfile_Click(Object^ sender, EventArgs^ e)
-    {
-        Process::Start("https://github.com/sefinek24");
-    }
+	Void MainForm::githubMyProfile_Click(Object^ sender, EventArgs^ e)
+	{
+		Process::Start("https://github.com/sefinek24");
+	}
 
-    // Other
+	// Other
 	Void MainForm::viewCfg_Click(Object^ sender, EventArgs^ e)
 	{
 		char exePath[MAX_PATH];
@@ -346,7 +344,7 @@ namespace unlockfpsclr
 		String^ jsonPath = Path::GetDirectoryName(gcnew String(exePath)) + "\\unlocker.config.json";
 		if (File::Exists(jsonPath))
 		{
-		    Process::Start(jsonPath);
+			Process::Start(jsonPath);
 		}
 		else
 		{
@@ -354,13 +352,13 @@ namespace unlockfpsclr
 		}
 	}
 
-    Void MainForm::seeCurrentVersion_Click(Object^ sender, EventArgs^ e)
-    {
-        MessageBox::Show("Config version: v" + settings->ConfigVersion + "\nDate: " + settings->ConfigDate, "Genshin FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Information);
-    }
+	Void MainForm::seeCurrentVersion_Click(Object^ sender, EventArgs^ e)
+	{
+		MessageBox::Show("Config version: v" + settings->ConfigVersion + "\nDate: " + settings->ConfigDate, "Genshin FPS Unlocker", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	}
 
-    // Void MainForm::ToolStipMenu_MouseEnter(Object^ sender, EventArgs^ e)
-    // {
-    // 	toolStripMenuItem->BackColor = Color::Red;
-    // }
+	// Void MainForm::ToolStipMenu_MouseEnter(Object^ sender, EventArgs^ e)
+	// {
+	// 	toolStripMenuItem->BackColor = Color::Red;
+	// }
 }

@@ -5,9 +5,9 @@ using namespace System::Diagnostics;
 namespace unlockfpsclr
 {
 	Void AboutForm::Exit_Button(Object^ sender, EventArgs^ e)
-    {
-        Close();
-    }
+	{
+		Close();
+	}
 
 	Void AboutForm::linkLabelSource_LinkClicked(Object^ sender, LinkLabelLinkClickedEventArgs^ e)
 	{
