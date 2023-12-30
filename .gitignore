@@ -1,14 +1,17 @@
 # Folders
 .vs
 .idea
-unlockfps_clr/Release
-unlockfps_clr/unlocker.config.json
+unlockfps_nc/bin/Release
+unlockfps_nc/obj/Release
+unlockfps_nc/bin/Debug
+unlockfps_nc/obj/Debug
+unlockfps_nc/unlocker.config.json
 x64
 
 # Files
 fps_config.json
 UpgradeLog.htm
-unlockfps_clr/unlocker_config.json
+unlockfps_nc/unlocker_config.json
 
 # Prerequisites
 *.d
