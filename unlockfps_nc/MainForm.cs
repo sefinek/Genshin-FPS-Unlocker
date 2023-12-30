@@ -106,7 +106,7 @@ public partial class MainForm : Form
 
     private void AboutMenuItem_Click(object sender, EventArgs e)
     {
-        AboutForm aboutForm = new AboutForm();
+        AboutForm aboutForm = new();
         aboutForm.ShowDialog();
     }
 }

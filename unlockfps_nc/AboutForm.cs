@@ -21,7 +21,7 @@ public partial class AboutForm : Form
 
     private void OpenLink(string url)
     {
-        ProcessStartInfo psi = new ProcessStartInfo
+        ProcessStartInfo psi = new()
         {
             FileName = url,
             UseShellExecute = true
