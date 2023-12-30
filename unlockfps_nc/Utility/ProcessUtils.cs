@@ -1,136 +1,125 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.PortableExecutable;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace unlockfps_nc.Utility
+namespace unlockfps_nc.Utility;
+
+internal class ProcessUtils
 {
-    internal class ProcessUtils
+    public static string GetProcessPathFromPid(uint pid, out IntPtr processHandle)
     {
-        public static string GetProcessPathFromPid(uint pid, out IntPtr processHandle)
+        IntPtr hProcess = Native.OpenProcess(
+            ProcessAccess.QUERY_LIMITED_INFORMATION |
+            ProcessAccess.TERMINATE |
+            StandardAccess.SYNCHRONIZE, false, pid);
+
+        processHandle = hProcess;
+
+        if (hProcess == IntPtr.Zero)
+            return string.Empty;
+
+        StringBuilder sb = new(1024);
+        uint bufferSize = (uint)sb.Capacity;
+        if (!Native.QueryFullProcessImageName(hProcess, 0, sb, ref bufferSize))
+            return string.Empty;
+
+        return sb.ToString();
+    }
+
+    public static bool InjectDlls(IntPtr processHandle, List<string> dllPaths)
+    {
+        if (dllPaths.Count == 0)
+            return true;
+
+        Native.RtlAdjustPrivilege(20, true, false, out bool _);
+
+        IntPtr kernel32 = Native.LoadLibrary("kernel32.dll");
+        IntPtr loadLibrary = Native.GetProcAddress(kernel32, "LoadLibraryW");
+
+        IntPtr remoteVa = Native.VirtualAllocEx(processHandle, IntPtr.Zero, 0x1000,
+            AllocationType.COMMIT | AllocationType.RESERVE, MemoryProtection.READWRITE);
+        if (remoteVa == IntPtr.Zero)
+            return false;
+
+        foreach (string dllPath in dllPaths)
         {
-            var hProcess = Native.OpenProcess(
-                ProcessAccess.QUERY_LIMITED_INFORMATION |
-                ProcessAccess.TERMINATE |
-                StandardAccess.SYNCHRONIZE, false, pid);
+            IntPtr nativeString = Marshal.StringToHGlobalUni(dllPath);
+            byte[] bytes = Encoding.Unicode.GetBytes(dllPath);
+            Marshal.FreeHGlobal(nativeString);
 
-            processHandle = hProcess;
-
-            if (hProcess == IntPtr.Zero)
-                return string.Empty;
-
-            StringBuilder sb = new StringBuilder(1024);
-            uint bufferSize = (uint)sb.Capacity;
-            if (!Native.QueryFullProcessImageName(hProcess, 0, sb, ref bufferSize))
-                return string.Empty;
-
-            return sb.ToString();
-        }
-
-        public static bool InjectDlls(IntPtr processHandle, List<string> dllPaths)
-        {
-            if (dllPaths.Count == 0)
-                return true;
-
-            Native.RtlAdjustPrivilege(20, true, false, out var _);
-
-            var kernel32 = Native.LoadLibrary("kernel32.dll");
-            var loadLibrary = Native.GetProcAddress(kernel32, "LoadLibraryW");
-
-            var remoteVa = Native.VirtualAllocEx(processHandle, IntPtr.Zero, 0x1000,
-                AllocationType.COMMIT | AllocationType.RESERVE, MemoryProtection.READWRITE);
-            if (remoteVa == IntPtr.Zero)
+            if (!Native.WriteProcessMemory(processHandle, remoteVa, bytes, bytes.Length, out int bytesWritten))
                 return false;
 
-            foreach (var dllPath in dllPaths)
-            {
-                var nativeString = Marshal.StringToHGlobalUni(dllPath);
-                var bytes = Encoding.Unicode.GetBytes(dllPath);
-                Marshal.FreeHGlobal(nativeString);
+            IntPtr thread = Native.CreateRemoteThread(processHandle, IntPtr.Zero, 0, loadLibrary, remoteVa, 0, out uint threadId);
+            if (thread == IntPtr.Zero)
+                return false;
 
-                if (!Native.WriteProcessMemory(processHandle, remoteVa, bytes, bytes.Length, out var bytesWritten))
-                    return false;
-
-                var thread = Native.CreateRemoteThread(processHandle, IntPtr.Zero, 0, loadLibrary, remoteVa, 0, out var threadId);
-                if (thread == IntPtr.Zero)
-                    return false;
-
-                Native.WaitForSingleObject(thread, uint.MaxValue);
-                Native.CloseHandle(thread);
-                Native.WriteProcessMemory(processHandle, remoteVa, new byte[bytes.Length], bytes.Length, out _);
-            }
-
-            Native.VirtualFreeEx(processHandle, remoteVa, 0, FreeType.RELEASE);
-
-            return true;
+            Native.WaitForSingleObject(thread, uint.MaxValue);
+            Native.CloseHandle(thread);
+            Native.WriteProcessMemory(processHandle, remoteVa, new byte[bytes.Length], bytes.Length, out _);
         }
 
-        public static unsafe IntPtr PatternScan(IntPtr module, string signature)
+        Native.VirtualFreeEx(processHandle, remoteVa, 0, FreeType.RELEASE);
+
+        return true;
+    }
+
+    public static unsafe IntPtr PatternScan(IntPtr module, string signature)
+    {
+        string[] tokens = signature.Split(' ');
+        byte[] patternBytes = tokens
+            .ToList()
+            .Select(x => x == "?" ? (byte)0xFF : Convert.ToByte(x, 16))
+            .ToArray();
+
+        IMAGE_DOS_HEADER dosHeader = Marshal.PtrToStructure<IMAGE_DOS_HEADER>(module);
+        IMAGE_NT_HEADERS ntHeader = Marshal.PtrToStructure<IMAGE_NT_HEADERS>((IntPtr)(module.ToInt64() + dosHeader.e_lfanew));
+
+        uint sizeOfImage = ntHeader.OptionalHeader.SizeOfImage;
+        byte* scanBytes = (byte*)module;
+
+        int s = patternBytes.Length;
+        byte[] d = patternBytes;
+
+        for (uint i = 0U; i < sizeOfImage - s; i++)
         {
-            var tokens = signature.Split(' ');
-            var patternBytes = tokens
-                .ToList()
-                .Select(x => x == "?" ? (byte)0xFF : Convert.ToByte(x, 16))
-                .ToArray();
-
-            var dosHeader = Marshal.PtrToStructure<IMAGE_DOS_HEADER>(module);
-            var ntHeader = Marshal.PtrToStructure<IMAGE_NT_HEADERS>((IntPtr)(module.ToInt64() + dosHeader.e_lfanew));
-
-            var sizeOfImage = ntHeader.OptionalHeader.SizeOfImage;
-            var scanBytes = (byte*)module;
-
-            var s = patternBytes.Length;
-            var d = patternBytes;
-
-            for (var i = 0U; i < sizeOfImage - s; i++)
-            {
-                var found = true;
-                for (var j = 0; j < s; j++)
+            bool found = true;
+            for (int j = 0; j < s; j++)
+                if (d[j] != scanBytes[i + j] && d[j] != 0xFF)
                 {
-                    if (d[j] != scanBytes[i + j] && d[j] != 0xFF)
-                    {
-                        found = false;
-                        break;
-                    }
+                    found = false;
+                    break;
                 }
 
-                if (found)
-                    return (IntPtr)(module.ToInt64() + i);
-            }
-
-            return IntPtr.Zero;
+            if (found)
+                return (IntPtr)(module.ToInt64() + i);
         }
 
-        public static IntPtr GetModuleBase(IntPtr hProcess, string moduleName)
+        return IntPtr.Zero;
+    }
+
+    public static IntPtr GetModuleBase(IntPtr hProcess, string moduleName)
+    {
+        IntPtr[] modules = new IntPtr[1024];
+
+        if (!Native.EnumProcessModules(hProcess, modules, (uint)(modules.Length * IntPtr.Size), out uint bytesNeeded))
+            if (Marshal.GetLastWin32Error() != 299)
+                return IntPtr.Zero;
+
+        foreach (IntPtr module in modules.Where(x => x != IntPtr.Zero))
         {
-            var modules = new IntPtr[1024];
+            StringBuilder sb = new(1024);
+            if (Native.GetModuleBaseName(hProcess, module, sb, (uint)sb.Capacity) == 0)
+                continue;
 
-            if (!Native.EnumProcessModules(hProcess, modules, (uint)(modules.Length * IntPtr.Size), out var bytesNeeded))
-            {
-                if (Marshal.GetLastWin32Error() != 299)
-                    return IntPtr.Zero;
-            }
+            if (sb.ToString() != moduleName)
+                continue;
 
-            foreach (var module in modules.Where(x => x != IntPtr.Zero))
-            {
-                StringBuilder sb = new StringBuilder(1024);
-                if (Native.GetModuleBaseName(hProcess, module, sb, (uint)sb.Capacity) == 0)
-                    continue;
+            if (!Native.GetModuleInformation(hProcess, module, out MODULEINFO moduleInfo, (uint)Marshal.SizeOf<MODULEINFO>()))
+                continue;
 
-                if (sb.ToString() != moduleName)
-                    continue;
-
-                if (!Native.GetModuleInformation(hProcess, module, out var moduleInfo, (uint)Marshal.SizeOf<MODULEINFO>()))
-                    continue;
-
-                return moduleInfo.lpBaseOfDll;
-            }
-
-            return IntPtr.Zero;
+            return moduleInfo.lpBaseOfDll;
         }
 
+        return IntPtr.Zero;
     }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("unlockfps_nc")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f28cfe3d23c5d466f936725b4619a69c039803b4")]
 [assembly: System.Reflection.AssemblyProductAttribute("unlockfps_nc")]
 [assembly: System.Reflection.AssemblyTitleAttribute("unlockfps_nc")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
