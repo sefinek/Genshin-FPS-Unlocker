@@ -7,20 +7,19 @@ namespace unlockfps_nc;
 
 internal static class Program
 {
-    private static IntPtr MutexHandle = IntPtr.Zero;
-    public static IServiceProvider ServiceProvider { get; private set; }
+    public static IServiceProvider? ServiceProvider { get; private set; }
 
     [STAThread]
     private static void Main()
     {
-        MutexHandle = Native.CreateMutex(IntPtr.Zero, true, @"GenshinFPSUnlocker");
+        Native.CreateMutex(IntPtr.Zero, true, @"GenshinFPSUnlocker");
         if (Marshal.GetLastWin32Error() == 183)
         {
             MessageBox.Show(@"Another unlocker is already running.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
 
-        ServiceCollection services = new ServiceCollection();
+        ServiceCollection services = new();
         services.AddTransient<MainForm>();
         services.AddTransient<SettingsForm>();
         services.AddTransient<SetupForm>();
