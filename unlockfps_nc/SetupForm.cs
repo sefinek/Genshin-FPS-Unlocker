@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 using Microsoft.Win32;
 using unlockfps_nc.Model;
 using unlockfps_nc.Service;
@@ -8,10 +8,10 @@ namespace unlockfps_nc;
 
 public partial class SetupForm : Form
 {
-    private readonly Config _config;
+    private readonly Config? _config;
 
     private readonly ConfigService _configService;
-    private CancellationTokenSource _cts;
+    private CancellationTokenSource? _cts;
 
     public SetupForm(ConfigService configService)
     {
@@ -25,7 +25,7 @@ public partial class SetupForm : Form
         _cts = new CancellationTokenSource();
         Task.Run(PollProcess, _cts.Token);
 
-        LabelCurrentPath.Text = $@"Current Path: {_config.GamePath}";
+        LabelCurrentPath.Text = $@"Current Path: {_config!.GamePath}";
         LabelResult.Text = @"Searching...";
         LabelResult.ForeColor = Color.Orange;
         Task.Run(SearchGamePath, _cts.Token);
@@ -33,7 +33,7 @@ public partial class SetupForm : Form
 
     private void SetupForm_FormClosing(object sender, FormClosingEventArgs e)
     {
-        _cts.Cancel();
+        _cts?.Cancel();
         _configService.Save();
     }
 
@@ -42,28 +42,25 @@ public partial class SetupForm : Form
         // System.Diagnostics.Process will throw access denied
         // use native win32 api instead
 
-        while (!_cts.Token.IsCancellationRequested)
+        while (!_cts!.Token.IsCancellationRequested)
         {
-            await Task.Delay(1000);
+            await Task.Delay(1000).ConfigureAwait(false);
             IntPtr windowHandle = IntPtr.Zero;
             IntPtr processHandle = IntPtr.Zero;
             string processPath = string.Empty;
 
-            Native.EnumWindows((hWnd, lParam) =>
+            Native.EnumWindows((hWnd, _) =>
             {
                 const int maxCount = 256;
                 StringBuilder sb = new(maxCount);
 
                 Native.GetClassName(hWnd, sb, maxCount);
-                if (sb.ToString() == "UnityWndClass")
-                {
-                    windowHandle = hWnd;
-                    Native.GetWindowThreadProcessId(hWnd, out uint pid);
-                    processPath = ProcessUtils.GetProcessPathFromPid(pid, out processHandle);
-                    return false;
-                }
+                if (sb.ToString() != "UnityWndClass") return true;
 
-                return true;
+                windowHandle = hWnd;
+                Native.GetWindowThreadProcessId(hWnd, out uint pid);
+                processPath = ProcessUtils.GetProcessPathFromPid(pid, out processHandle);
+                return false;
             }, IntPtr.Zero);
 
             if (windowHandle == IntPtr.Zero)
@@ -74,22 +71,20 @@ public partial class SetupForm : Form
 
             if (string.IsNullOrEmpty(processPath))
             {
-                MessageBox.Show(@"Failed to find process path\nPlease use ""Browse"" instead", @"Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Failed to find process path\nPlease use \"Browse\" instead", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            MessageBox.Show($@"Game Found!{Environment.NewLine}{processPath}", @"Success", MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+            MessageBox.Show($@"Game Found!{Environment.NewLine}{processPath}", @"Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            _config.GamePath = processPath;
+            _config!.GamePath = processPath;
             Invoke(Close);
         }
     }
 
     private void SearchGamePath()
     {
-        List<RegistryKey> openedSubKeys = new();
+        List<RegistryKey> openedSubKeys = [];
 
         try
         {
@@ -104,19 +99,19 @@ public partial class SetupForm : Form
                 .Where(key => key != null)
                 .ToList();
 
-            subKeys.ForEach(openedSubKeys.Add);
+            subKeys.ForEach(openedSubKeys.Add!);
 
             List<string> launcherIniPaths = subKeys
-                .Select(key => (string)key.GetValue("InstallPath"))
+                .Select(key => (string)key?.GetValue("InstallPath")!)
                 .Where(path => !string.IsNullOrEmpty(path) && Directory.Exists(path))
                 .Select(launcherPath => $@"{launcherPath}\config.ini")
                 .ToList();
 
-            List<string> gamePaths = new();
+            List<string> gamePaths = [];
             foreach (string configPath in launcherIniPaths)
             {
                 IEnumerable<string> configLines = File.ReadLines(configPath);
-                Dictionary<string, string> ini = new();
+                Dictionary<string, string> ini = [];
                 foreach (string line in configLines)
                 {
                     string[] split = line.Split('=', StringSplitOptions.RemoveEmptyEntries);
@@ -152,8 +147,7 @@ public partial class SetupForm : Form
 
     private void BtnBrowse_Click(object sender, EventArgs e)
     {
-        if (BrowseDialog.ShowDialog() != DialogResult.OK)
-            return;
+        if (BrowseDialog.ShowDialog() != DialogResult.OK) return;
 
         string selectedFile = BrowseDialog.FileName;
         string fileName = Path.GetFileNameWithoutExtension(selectedFile);
@@ -161,30 +155,27 @@ public partial class SetupForm : Form
 
         if (fileName != "GenshinImpact" && fileName != "YuanShen")
         {
-            MessageBox.Show(
-                $@"Please select the game exe{Environment.NewLine}GenshinImpact.exe or YuanShen.exe",
-                @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show($@"Please select the game exe{Environment.NewLine}GenshinImpact.exe or YuanShen.exe", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
 
-        string unityPlayer = Path.Combine(directory, "UnityPlayer.dll");
+        string unityPlayer = Path.Combine(directory!, "UnityPlayer.dll");
         if (!File.Exists(unityPlayer))
         {
             MessageBox.Show(@"That's not the right place", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
 
-        _config.GamePath = selectedFile;
+        _config!.GamePath = selectedFile;
         Close();
     }
 
     private void BtnConfirm_Click(object sender, EventArgs e)
     {
-        string? selectedPath = (string)ComboResult.SelectedItem;
-        if (string.IsNullOrEmpty(selectedPath))
-            return;
+        string? selectedPath = (string)ComboResult.SelectedItem!;
+        if (string.IsNullOrEmpty(selectedPath)) return;
 
-        _config.GamePath = selectedPath;
+        _config!.GamePath = selectedPath;
         Close();
     }
 }

@@ -1,4 +1,4 @@
-﻿using System.Reflection.PortableExecutable;
+using System.Reflection.PortableExecutable;
 using unlockfps_nc.Model;
 using unlockfps_nc.Service;
 
@@ -6,7 +6,7 @@ namespace unlockfps_nc;
 
 public partial class SettingsForm : Form
 {
-    private readonly Config _config;
+    private readonly Config? _config;
     private readonly ConfigService _configService;
 
     public SettingsForm(ConfigService configService)
@@ -43,7 +43,7 @@ public partial class SettingsForm : Form
 
     private void RefreshDllList()
     {
-        _config.DllList = _config.DllList
+        _config!.DllList = _config.DllList
             .Where(VerifyDll)
             .ToList();
 
@@ -53,7 +53,7 @@ public partial class SettingsForm : Form
 
     private void UpdateControlState()
     {
-        if (_config.PopupWindow) // they can't coexist (?) so disable the other
+        if (_config!.PopupWindow) // they can't coexist (?) so disable the other
             _config.Fullscreen = false;
 
         CBPopup.Enabled = !_config.Fullscreen;
@@ -83,15 +83,15 @@ public partial class SettingsForm : Form
         if (DllAddDialog.ShowDialog() != DialogResult.OK)
             return;
 
-        List<string> selectedFiles = DllAddDialog.FileNames.ToList();
+        List<string> selectedFiles = [.. DllAddDialog.FileNames];
         selectedFiles = selectedFiles
             .Where(x => VerifyDll(x) || MessageBox.Show(
                 $@"Invalid File: {Environment.NewLine}{x}{Environment.NewLine}{Environment.NewLine}Only native x64 dlls are supported",
                 @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error) != DialogResult.OK)
-            .Where(x => !_config.DllList.Contains(x))
+            .Where(x => _config!.DllList.Contains(x))
             .ToList();
 
-        _config.DllList.AddRange(selectedFiles);
+        _config!.DllList.AddRange(selectedFiles);
         RefreshDllList();
     }
 
@@ -120,7 +120,7 @@ public partial class SettingsForm : Form
         if (index == -1)
             return;
 
-        string toolTipText = _config.DllList[index];
+        string toolTipText = _config!.DllList[index];
         ToolTipSettings.SetToolTip(ListBoxDlls, toolTipText);
     }
 
@@ -130,7 +130,11 @@ public partial class SettingsForm : Form
         if (selectedIndex == -1)
             return;
 
-        _config.DllList.RemoveAt(selectedIndex);
+        _config!.DllList.RemoveAt(selectedIndex);
         RefreshDllList();
+    }
+
+    private void LabelAutoSave_Click(object sender, EventArgs e)
+    {
     }
 }

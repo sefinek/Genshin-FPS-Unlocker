@@ -69,23 +69,24 @@
             // 
             // LabelAutoSave
             // 
-            LabelAutoSave.AutoSize = true;
+            LabelAutoSave.Anchor = AnchorStyles.None;
             LabelAutoSave.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LabelAutoSave.Location = new Point(12, 9);
+            LabelAutoSave.Location = new Point(12, 254);
             LabelAutoSave.Name = "LabelAutoSave";
-            LabelAutoSave.Size = new Size(219, 15);
+            LabelAutoSave.Size = new Size(288, 15);
             LabelAutoSave.TabIndex = 0;
-            LabelAutoSave.Text = "All settings will be saved automatically";
+            LabelAutoSave.Text = "All settings will be saved automatically.";
+            LabelAutoSave.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // TabCtrlSettings
             // 
             TabCtrlSettings.Controls.Add(TabGeneral);
             TabCtrlSettings.Controls.Add(TabLaunchOptions);
             TabCtrlSettings.Controls.Add(TabDlls);
-            TabCtrlSettings.Location = new Point(12, 27);
+            TabCtrlSettings.Location = new Point(12, 12);
             TabCtrlSettings.Name = "TabCtrlSettings";
             TabCtrlSettings.SelectedIndex = 0;
-            TabCtrlSettings.Size = new Size(260, 222);
+            TabCtrlSettings.Size = new Size(288, 238);
             TabCtrlSettings.TabIndex = 1;
             // 
             // TabGeneral
@@ -98,7 +99,7 @@
             TabGeneral.Location = new Point(4, 24);
             TabGeneral.Name = "TabGeneral";
             TabGeneral.Padding = new Padding(3);
-            TabGeneral.Size = new Size(252, 194);
+            TabGeneral.Size = new Size(280, 210);
             TabGeneral.TabIndex = 0;
             TabGeneral.Text = "General";
             TabGeneral.UseVisualStyleBackColor = true;
@@ -107,7 +108,7 @@
             // 
             ComboPriority.FormattingEnabled = true;
             ComboPriority.Items.AddRange(new object[] { "Realtime", "High", "Above Normal", "Normal", "Below Normal", "Low" });
-            ComboPriority.Location = new Point(125, 82);
+            ComboPriority.Location = new Point(153, 79);
             ComboPriority.Name = "ComboPriority";
             ComboPriority.Size = new Size(121, 23);
             ComboPriority.TabIndex = 5;
@@ -116,11 +117,11 @@
             // LabelPriority
             // 
             LabelPriority.AutoSize = true;
-            LabelPriority.Location = new Point(3, 85);
+            LabelPriority.Location = new Point(6, 82);
             LabelPriority.Name = "LabelPriority";
             LabelPriority.Size = new Size(122, 15);
             LabelPriority.TabIndex = 4;
-            LabelPriority.Text = "Game Process Priority";
+            LabelPriority.Text = "Game process priority";
             // 
             // CBPowerSave
             // 
@@ -172,9 +173,9 @@
             TabLaunchOptions.Location = new Point(4, 24);
             TabLaunchOptions.Name = "TabLaunchOptions";
             TabLaunchOptions.Padding = new Padding(3);
-            TabLaunchOptions.Size = new Size(252, 194);
+            TabLaunchOptions.Size = new Size(280, 210);
             TabLaunchOptions.TabIndex = 1;
-            TabLaunchOptions.Text = "Launch Options";
+            TabLaunchOptions.Text = "Launch options";
             TabLaunchOptions.UseVisualStyleBackColor = true;
             // 
             // CBUseMobileUI
@@ -189,7 +190,7 @@
             // 
             // InputMonitorNum
             // 
-            InputMonitorNum.Location = new Point(111, 168);
+            InputMonitorNum.Location = new Point(139, 168);
             InputMonitorNum.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             InputMonitorNum.Name = "InputMonitorNum";
             InputMonitorNum.Size = new Size(135, 23);
@@ -209,7 +210,7 @@
             // 
             ComboFullscreenMode.FormattingEnabled = true;
             ComboFullscreenMode.Items.AddRange(new object[] { "Borderless", "Exclusive" });
-            ComboFullscreenMode.Location = new Point(111, 139);
+            ComboFullscreenMode.Location = new Point(139, 139);
             ComboFullscreenMode.Name = "ComboFullscreenMode";
             ComboFullscreenMode.Size = new Size(135, 23);
             ComboFullscreenMode.TabIndex = 8;
@@ -222,22 +223,23 @@
             LabelWindowMode.Name = "LabelWindowMode";
             LabelWindowMode.Size = new Size(97, 15);
             LabelWindowMode.TabIndex = 7;
-            LabelWindowMode.Text = "Fullscreen Mode:";
+            LabelWindowMode.Text = "Fullscreen mode:";
             // 
             // InputResY
             // 
-            InputResY.Location = new Point(191, 110);
+            InputResY.Location = new Point(219, 110);
             InputResY.Maximum = new decimal(new int[] { 4320, 0, 0, 0 });
             InputResY.Minimum = new decimal(new int[] { 200, 0, 0, 0 });
             InputResY.Name = "InputResY";
             InputResY.Size = new Size(55, 23);
             InputResY.TabIndex = 6;
+            InputResY.TextAlign = HorizontalAlignment.Center;
             InputResY.Value = new decimal(new int[] { 1080, 0, 0, 0 });
             // 
             // LabelX
             // 
             LabelX.AutoSize = true;
-            LabelX.Location = new Point(172, 112);
+            LabelX.Location = new Point(200, 113);
             LabelX.Name = "LabelX";
             LabelX.Size = new Size(13, 15);
             LabelX.TabIndex = 5;
@@ -245,18 +247,19 @@
             // 
             // InputResX
             // 
-            InputResX.Location = new Point(111, 110);
+            InputResX.Location = new Point(139, 110);
             InputResX.Maximum = new decimal(new int[] { 7680, 0, 0, 0 });
             InputResX.Minimum = new decimal(new int[] { 200, 0, 0, 0 });
             InputResX.Name = "InputResX";
             InputResX.Size = new Size(55, 23);
             InputResX.TabIndex = 4;
+            InputResX.TextAlign = HorizontalAlignment.Center;
             InputResX.Value = new decimal(new int[] { 1920, 0, 0, 0 });
             // 
             // LabelCustomRes
             // 
             LabelCustomRes.AutoSize = true;
-            LabelCustomRes.Location = new Point(6, 112);
+            LabelCustomRes.Location = new Point(6, 113);
             LabelCustomRes.Name = "LabelCustomRes";
             LabelCustomRes.Size = new Size(69, 15);
             LabelCustomRes.TabIndex = 3;
@@ -305,7 +308,7 @@
             TabDlls.Location = new Point(4, 24);
             TabDlls.Name = "TabDlls";
             TabDlls.Padding = new Padding(3);
-            TabDlls.Size = new Size(252, 194);
+            TabDlls.Size = new Size(280, 210);
             TabDlls.TabIndex = 2;
             TabDlls.Text = "DLLs";
             TabDlls.UseVisualStyleBackColor = true;
@@ -313,7 +316,7 @@
             // CBSuspendLoad
             // 
             CBSuspendLoad.AutoSize = true;
-            CBSuspendLoad.Location = new Point(138, 79);
+            CBSuspendLoad.Location = new Point(138, 64);
             CBSuspendLoad.Name = "CBSuspendLoad";
             CBSuspendLoad.Size = new Size(100, 19);
             CBSuspendLoad.TabIndex = 4;
@@ -323,9 +326,9 @@
             // 
             // BtnRemoveDll
             // 
-            BtnRemoveDll.Location = new Point(132, 50);
+            BtnRemoveDll.Location = new Point(138, 35);
             BtnRemoveDll.Name = "BtnRemoveDll";
-            BtnRemoveDll.Size = new Size(114, 23);
+            BtnRemoveDll.Size = new Size(128, 23);
             BtnRemoveDll.TabIndex = 3;
             BtnRemoveDll.Text = "Remove";
             BtnRemoveDll.UseVisualStyleBackColor = true;
@@ -333,9 +336,9 @@
             // 
             // BtnAddDll
             // 
-            BtnAddDll.Location = new Point(132, 21);
+            BtnAddDll.Location = new Point(138, 6);
             BtnAddDll.Name = "BtnAddDll";
-            BtnAddDll.Size = new Size(114, 23);
+            BtnAddDll.Size = new Size(128, 23);
             BtnAddDll.TabIndex = 2;
             BtnAddDll.Text = "Add";
             BtnAddDll.UseVisualStyleBackColor = true;
@@ -345,7 +348,7 @@
             // 
             ListBoxDlls.FormattingEnabled = true;
             ListBoxDlls.ItemHeight = 15;
-            ListBoxDlls.Location = new Point(6, 21);
+            ListBoxDlls.Location = new Point(6, 6);
             ListBoxDlls.Name = "ListBoxDlls";
             ListBoxDlls.Size = new Size(120, 169);
             ListBoxDlls.TabIndex = 1;
@@ -355,11 +358,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(6, 3);
+            label1.Location = new Point(23, 184);
             label1.Name = "label1";
-            label1.Size = new Size(232, 15);
+            label1.Size = new Size(235, 15);
             label1.TabIndex = 0;
-            label1.Text = "DLLs will be injected in the order of this list";
+            label1.Text = "DLLs will be injected in the order of this list.";
             // 
             // ToolTipSettings
             // 
@@ -377,7 +380,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(284, 261);
+            ClientSize = new Size(312, 277);
             Controls.Add(TabCtrlSettings);
             Controls.Add(LabelAutoSave);
             FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -399,7 +402,6 @@
             TabDlls.ResumeLayout(false);
             TabDlls.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

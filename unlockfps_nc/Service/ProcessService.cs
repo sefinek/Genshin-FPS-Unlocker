@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using unlockfps_nc.Model;
 using unlockfps_nc.Utility;
@@ -7,21 +7,19 @@ namespace unlockfps_nc.Service;
 
 public class ProcessService
 {
-    private static Native.WinEventProc _eventCallback;
-
     private static readonly uint[] PriorityClass =
-    {
+    [
         0x00000100,
         0x00000080,
         0x00008000,
         0x00000020,
         0x00004000,
         0x00000040
-    };
+    ];
 
-    private readonly Config _config;
-
+    private readonly Config? _config;
     private readonly ConfigService _configService;
+
     private readonly IntPtr _winEventHook;
 
     private CancellationTokenSource _cts = new();
@@ -39,13 +37,13 @@ public class ProcessService
         _configService = configService;
         _config = _configService.Config;
 
-        _eventCallback = WinEventProc;
-        _pinnedCallback = GCHandle.Alloc(_eventCallback, GCHandleType.Normal);
+        Native.WinEventProc eventCallback = WinEventProc;
+        _pinnedCallback = GCHandle.Alloc(eventCallback, GCHandleType.Normal);
         _winEventHook = Native.SetWinEventHook(
             3, // EVENT_SYSTEM_FOREGROUND
             3, // EVENT_SYSTEM_FOREGROUND
             IntPtr.Zero,
-            _eventCallback,
+            eventCallback,
             0,
             0,
             0 // WINEVENT_OUTOFCONTEXT
@@ -56,8 +54,7 @@ public class ProcessService
     {
         if (IsGameRunning())
         {
-            MessageBox.Show(@"An instance of the game is already running.", @"Error", MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
+            MessageBox.Show(@"An instance of the game is already running.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
 
@@ -82,16 +79,14 @@ public class ProcessService
 
     private void WinEventProc(IntPtr hWinEventHook, uint eventType, IntPtr hWnd, int idObject, int idChild, uint dwEventThread, uint dwmsEventTime)
     {
-        if (eventType != 3)
-            return;
+        if (eventType != 3) return;
 
         Native.GetWindowThreadProcessId(hWnd, out uint pid);
         _gameInForeground = pid == _gamePid;
 
         ApplyFpsLimit();
 
-        if (!_config.UsePowerSave)
-            return;
+        if (_config!.UsePowerSave) return;
 
         uint targetPriority = _gameInForeground ? PriorityClass[_config.Priority] : 0x00000040;
         Native.SetPriorityClass(_gameHandle, targetPriority);
@@ -99,8 +94,7 @@ public class ProcessService
 
     private bool IsGameRunning()
     {
-        if (_gameHandle == IntPtr.Zero)
-            return false;
+        if (_gameHandle == IntPtr.Zero) return false;
 
         Native.GetExitCodeProcess(_gameHandle, out uint exitCode);
         return exitCode == 259;
@@ -109,31 +103,26 @@ public class ProcessService
     private async Task Worker()
     {
         STARTUPINFO si = new();
-        uint creationFlag = _config.SuspendLoad ? 4u : 0u;
+        uint creationFlag = _config!.SuspendLoad ? 4u : 0u;
         string? gameFolder = Path.GetDirectoryName(_config.GamePath);
 
         if (!Native.CreateProcess(_config.GamePath, BuildCommandLine(), IntPtr.Zero, IntPtr.Zero, false, creationFlag, IntPtr.Zero, gameFolder, ref si, out PROCESS_INFORMATION pi))
         {
-            MessageBox.Show(
-                $@"CreateProcess failed ({Marshal.GetLastWin32Error()}){Environment.NewLine} {Marshal.GetLastPInvokeErrorMessage()}",
-                @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show($@"CreateProcess failed ({Marshal.GetLastWin32Error()}){Environment.NewLine} {Marshal.GetLastPInvokeErrorMessage()}", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
 
         if (!ProcessUtils.InjectDlls(pi.hProcess, _config.DllList))
-            MessageBox.Show(
-                $@"Dll Injection failed ({Marshal.GetLastWin32Error()}){Environment.NewLine} {Marshal.GetLastPInvokeErrorMessage()}",
-                @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show($@"Dll Injection failed ({Marshal.GetLastWin32Error()}){Environment.NewLine} {Marshal.GetLastPInvokeErrorMessage()}", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-        if (_config.SuspendLoad)
-            Native.ResumeThread(pi.hThread);
+        if (_config.SuspendLoad) Native.ResumeThread(pi.hThread);
 
         _gamePid = pi.dwProcessId;
         _gameHandle = pi.hProcess;
 
         Native.CloseHandle(pi.hThread);
 
-        if (!await UpdateRemoteModules())
+        if (!await UpdateRemoteModules().ConfigureAwait(false))
             return;
 
         if (!SetupData())
@@ -142,39 +131,33 @@ public class ProcessService
         while (IsGameRunning() && !_cts.Token.IsCancellationRequested)
         {
             ApplyFpsLimit();
-            await Task.Delay(1000, _cts.Token);
+            await Task.Delay(1000, _cts.Token).ConfigureAwait(false);
         }
 
         if (!IsGameRunning() && _config.AutoClose)
-            Task.Run(async () =>
+            _ = Task.Run(async () =>
             {
-                await Task.Delay(2000);
+                await Task.Delay(2000).ConfigureAwait(false);
                 Application.Exit();
             });
     }
 
     private void ApplyFpsLimit()
     {
-        int fpsTarget = _gameInForeground ? _config.FPSTarget : _config.UsePowerSave ? 10 : _config.FPSTarget;
+        int fpsTarget = _gameInForeground ? _config!.FpsTarget : _config!.UsePowerSave ? 10 : _config.FpsTarget;
         byte[] toWrite = BitConverter.GetBytes(fpsTarget);
         Native.WriteProcessMemory(_gameHandle, _pFpsValue, toWrite, 4, out _);
     }
 
     private string BuildCommandLine()
     {
-        string commandLine = $"{_config.GamePath} ";
-        if (_config.PopupWindow)
-            commandLine += "-popupwindow ";
-
-        if (_config.UseCustomRes)
-            commandLine += $"-screen-width {_config.CustomResX} -screen-height {_config.CustomResY} ";
+        string commandLine = $"{_config!.GamePath} ";
+        if (_config.PopupWindow) commandLine += "-popupwindow ";
+        if (_config.UseCustomRes) commandLine += $"-screen-width {_config.CustomResX} -screen-height {_config.CustomResY} ";
 
         commandLine += $"-screen-fullscreen {(_config.Fullscreen ? 1 : 0)} ";
-        if (_config.Fullscreen)
-            commandLine += $"-window-mode {(_config.IsExclusiveFullscreen ? "exclusive" : "borderless")} ";
-
-        if (_config.UseMobileUI)
-            commandLine += "use_mobile_platform -is_cloud 1 -platform_type CLOUD_THIRD_PARTY_MOBILE ";
+        if (_config.Fullscreen) commandLine += $"-window-mode {(_config.IsExclusiveFullscreen ? "exclusive" : "borderless")} ";
+        if (_config.UseMobileUi) commandLine += "use_mobile_platform -is_cloud 1 -platform_type CLOUD_THIRD_PARTY_MOBILE ";
 
         commandLine += $"-monitor {_config.MonitorNum} ";
         return commandLine;
@@ -182,11 +165,11 @@ public class ProcessService
 
     private unsafe bool SetupData()
     {
-        string? gameDir = Path.GetDirectoryName(_config.GamePath);
+        string? gameDir = Path.GetDirectoryName(_config!.GamePath);
         string gameName = Path.GetFileNameWithoutExtension(_config.GamePath);
-        string dataDir = Path.Combine(gameDir, $"{gameName}_Data");
+        string dataDir = Path.Combine(gameDir!, $"{gameName}_Data");
 
-        string unityPlayerPath = Path.Combine(gameDir, "UnityPlayer.dll");
+        string unityPlayerPath = Path.Combine(gameDir!, "UnityPlayer.dll");
         string userAssemblyPath = Path.Combine(dataDir, "Native", "UserAssembly.dll");
 
         using ModuleGuard pUnityPlayer = Native.LoadLibraryEx(unityPlayerPath, IntPtr.Zero, 32);
@@ -194,9 +177,7 @@ public class ProcessService
 
         if (!pUnityPlayer || !pUserAssembly)
         {
-            MessageBox.Show(
-                @"Failed to load UnityPlayer.dll or UserAssembly.dll",
-                @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(@"Failed to load UnityPlayer.dll or UserAssembly.dll", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
 
@@ -206,8 +187,7 @@ public class ProcessService
         if (ntHeader.FileHeader.TimeDateStamp < 0x656FFAF7U) // < 3.7
         {
             byte* address = (byte*)ProcessUtils.PatternScan(pUnityPlayer, "7F 0F 8B 05 ? ? ? ?");
-            if (address == null)
-                goto BAD_PATTERN;
+            if (address == null) goto BAD_PATTERN;
 
             byte* rip = address + 2;
             int rel = *(int*)(rip + 2);
@@ -221,8 +201,7 @@ public class ProcessService
             if (ntHeader.FileHeader.TimeDateStamp < 0x656FFAF7U) // < 4.3
             {
                 byte* address = (byte*)ProcessUtils.PatternScan(pUserAssembly, "E8 ? ? ? ? 85 C0 7E 07 E8 ? ? ? ? EB 05");
-                if (address == null)
-                    goto BAD_PATTERN;
+                if (address == null) goto BAD_PATTERN;
 
                 rip = address;
                 rip += *(int*)(rip + 1) + 5;
@@ -231,8 +210,7 @@ public class ProcessService
             else
             {
                 byte* address = (byte*)ProcessUtils.PatternScan(pUserAssembly, "B9 3C 00 00 00 FF 15");
-                if (address == null)
-                    goto BAD_PATTERN;
+                if (address == null) goto BAD_PATTERN;
 
                 rip = address;
                 rip += 5;
@@ -252,8 +230,7 @@ public class ProcessService
             }
 
             byte* localVa = dataPtr - _remoteUnityPlayer.ToInt64() + pUnityPlayer.BaseAddress.ToInt64();
-            while (localVa[0] == 0xE8 || localVa[0] == 0xE9)
-                localVa += *(int*)(localVa + 1) + 5;
+            while (localVa[0] == 0xE8 || localVa[0] == 0xE9) localVa += *(int*)(localVa + 1) + 5;
 
             localVa += *(int*)(localVa + 2) + 6;
             byte* rva = localVa - pUnityPlayer.BaseAddress.ToInt64();
@@ -263,9 +240,7 @@ public class ProcessService
         return true;
 
         BAD_PATTERN:
-        MessageBox.Show(
-            @"outdated fps pattern",
-            @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        MessageBox.Show(@"Outdated fps pattern", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         return false;
     }
 
@@ -284,18 +259,13 @@ public class ProcessService
             if (retries > 10)
                 break;
 
-            await Task.Delay(2000, _cts.Token);
+            await Task.Delay(2000, _cts.Token).ConfigureAwait(false);
             retries++;
         }
 
-        if (_remoteUnityPlayer == IntPtr.Zero || _remoteUserAssembly == IntPtr.Zero)
-        {
-            MessageBox.Show(
-                @"Failed to get remote module base address",
-                @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return false;
-        }
+        if (_remoteUnityPlayer != IntPtr.Zero && _remoteUserAssembly != IntPtr.Zero) return true;
 
-        return true;
+        MessageBox.Show(@"Failed to get remote module base address", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        return false;
     }
 }

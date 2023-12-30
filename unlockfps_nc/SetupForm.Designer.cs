@@ -1,4 +1,4 @@
-﻿namespace unlockfps_nc
+namespace unlockfps_nc
 {
     partial class SetupForm
     {
@@ -16,6 +16,7 @@
             if (disposing && (components != null))
             {
                 components.Dispose();
+                _cts?.Dispose();
             }
             base.Dispose(disposing);
         }
@@ -28,7 +29,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            LabelResult = new Label();
             LabelSelect = new Label();
             ComboResult = new ComboBox();
             LabelHint = new Label();
@@ -36,21 +36,13 @@
             BtnConfirm = new Button();
             LabelCurrentPath = new Label();
             BrowseDialog = new OpenFileDialog();
+            LabelResult = new Label();
             SuspendLayout();
-            // 
-            // LabelResult
-            // 
-            LabelResult.AutoSize = true;
-            LabelResult.Location = new Point(12, 48);
-            LabelResult.Name = "LabelResult";
-            LabelResult.Size = new Size(67, 15);
-            LabelResult.TabIndex = 0;
-            LabelResult.Text = "LabelResult";
             // 
             // LabelSelect
             // 
             LabelSelect.AutoSize = true;
-            LabelSelect.Location = new Point(12, 63);
+            LabelSelect.Location = new Point(12, 60);
             LabelSelect.Name = "LabelSelect";
             LabelSelect.Size = new Size(38, 15);
             LabelSelect.TabIndex = 1;
@@ -59,7 +51,7 @@
             // ComboResult
             // 
             ComboResult.FormattingEnabled = true;
-            ComboResult.Location = new Point(12, 81);
+            ComboResult.Location = new Point(12, 78);
             ComboResult.Name = "ComboResult";
             ComboResult.Size = new Size(435, 23);
             ComboResult.TabIndex = 2;
@@ -67,7 +59,7 @@
             // LabelHint
             // 
             LabelHint.AutoSize = true;
-            LabelHint.Location = new Point(12, 117);
+            LabelHint.Location = new Point(12, 114);
             LabelHint.Name = "LabelHint";
             LabelHint.Size = new Size(359, 45);
             LabelHint.TabIndex = 3;
@@ -77,7 +69,7 @@
             // 
             BtnBrowse.Location = new Point(12, 176);
             BtnBrowse.Name = "BtnBrowse";
-            BtnBrowse.Size = new Size(75, 23);
+            BtnBrowse.Size = new Size(90, 23);
             BtnBrowse.TabIndex = 4;
             BtnBrowse.Text = "Browse";
             BtnBrowse.UseVisualStyleBackColor = true;
@@ -85,9 +77,9 @@
             // 
             // BtnConfirm
             // 
-            BtnConfirm.Location = new Point(372, 176);
+            BtnConfirm.Location = new Point(357, 176);
             BtnConfirm.Name = "BtnConfirm";
-            BtnConfirm.Size = new Size(75, 23);
+            BtnConfirm.Size = new Size(90, 23);
             BtnConfirm.TabIndex = 5;
             BtnConfirm.Text = "Confirm";
             BtnConfirm.UseVisualStyleBackColor = true;
@@ -107,18 +99,28 @@
             BrowseDialog.RestoreDirectory = true;
             BrowseDialog.Title = "Select GenshinImpact.exe or YuanShen.exe";
             // 
+            // LabelResult
+            // 
+            LabelResult.Anchor = AnchorStyles.None;
+            LabelResult.AutoSize = true;
+            LabelResult.Location = new Point(9, 60);
+            LabelResult.Name = "LabelResult";
+            LabelResult.Size = new Size(67, 15);
+            LabelResult.TabIndex = 7;
+            LabelResult.Text = "LabelResult";
+            // 
             // SetupForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(459, 211);
+            Controls.Add(LabelResult);
             Controls.Add(LabelCurrentPath);
             Controls.Add(BtnConfirm);
             Controls.Add(BtnBrowse);
             Controls.Add(LabelHint);
             Controls.Add(ComboResult);
             Controls.Add(LabelSelect);
-            Controls.Add(LabelResult);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             MinimizeBox = false;
@@ -132,8 +134,6 @@
         }
 
         #endregion
-
-        private Label LabelResult;
         private Label LabelSelect;
         private ComboBox ComboResult;
         private Label LabelHint;
@@ -141,5 +141,6 @@
         private Button BtnConfirm;
         private Label LabelCurrentPath;
         private OpenFileDialog BrowseDialog;
+        private Label LabelResult;
     }
 }

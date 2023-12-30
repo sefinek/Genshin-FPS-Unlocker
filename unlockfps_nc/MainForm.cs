@@ -1,4 +1,6 @@
+using System.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Win32;
 using unlockfps_nc.Model;
 using unlockfps_nc.Service;
 
@@ -6,7 +8,7 @@ namespace unlockfps_nc;
 
 public partial class MainForm : Form
 {
-    private readonly Config _config;
+    private readonly Config? _config;
 
     private readonly ConfigService _configService;
     private readonly ProcessService _processService;
@@ -26,7 +28,7 @@ public partial class MainForm : Form
 
     private void SettingsMenuItem_Click(object sender, EventArgs e)
     {
-        SettingsForm settingsForm = Program.ServiceProvider.GetRequiredService<SettingsForm>();
+        SettingsForm settingsForm = Program.ServiceProvider!.GetRequiredService<SettingsForm>();
         settingsForm.ShowDialog();
     }
 
@@ -41,15 +43,15 @@ public partial class MainForm : Form
     {
         _windowLocation = Location;
         _windowSize = Size;
-        if (_config.AutoStart)
+        if (_config!.AutoStart)
             BtnStartGame_Click(null, null);
     }
 
     private void SetupBindings()
     {
-        InputFPS.DataBindings.Add("Value", _config, "FPSTarget", true, DataSourceUpdateMode.OnPropertyChanged);
-        SliderFPS.DataBindings.Add("Value", _config, "FPSTarget", true, DataSourceUpdateMode.OnPropertyChanged);
-        CBAutoStart.DataBindings.Add("Checked", _config, "AutoStart", true, DataSourceUpdateMode.OnPropertyChanged);
+        InputFPS.DataBindings.Add("Value", _config!, "FPSTarget", true, DataSourceUpdateMode.OnPropertyChanged);
+        SliderFPS.DataBindings.Add("Value", _config!, "FPSTarget", true, DataSourceUpdateMode.OnPropertyChanged);
+        CBAutoStart.DataBindings.Add("Checked", _config!, "AutoStart", true, DataSourceUpdateMode.OnPropertyChanged);
     }
 
     private void SetupMenuItem_Click(object sender, EventArgs e)
@@ -57,18 +59,18 @@ public partial class MainForm : Form
         ShowSetupForm();
     }
 
-    private void BtnStartGame_Click(object sender, EventArgs e)
+    private void BtnStartGame_Click(object? sender, EventArgs? e)
     {
-        if (!File.Exists(_config.GamePath))
+        if (!File.Exists(_config!.GamePath))
             ShowSetupForm();
 
         if (_processService.Start())
             WindowState = FormWindowState.Minimized;
     }
 
-    private void ShowSetupForm()
+    private static void ShowSetupForm()
     {
-        SetupForm setupForm = Program.ServiceProvider.GetRequiredService<SetupForm>();
+        SetupForm setupForm = Program.ServiceProvider!.GetRequiredService<SetupForm>();
         setupForm.ShowDialog();
     }
 
@@ -79,14 +81,13 @@ public partial class MainForm : Form
 
     private void MainForm_Resize(object sender, EventArgs e)
     {
-        if (WindowState == FormWindowState.Minimized)
-            NotifyAndHide();
+        if (WindowState == FormWindowState.Minimized) NotifyAndHide();
     }
 
     private void NotifyAndHide()
     {
         NotifyIconMain.Visible = true;
-        NotifyIconMain.Text = $@"FPS Unlocker (FPS: {_config.FPSTarget})";
+        NotifyIconMain.Text = $@"FPS Unlocker (FPS: {_config!.FpsTarget})";
         NotifyIconMain.ShowBalloonTip(500);
 
         ShowInTaskbar = false;
@@ -108,5 +109,85 @@ public partial class MainForm : Form
     {
         AboutForm aboutForm = new();
         aboutForm.ShowDialog();
+    }
+
+    private void OpenStella_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            using RegistryKey? key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Stella Mod Launcher");
+
+            if (key != null)
+            {
+                object? o = key.GetValue("StellaPath");
+                if (o != null)
+                {
+                    string? stellaPath = o.ToString();
+                    string exePath = Path.Combine(stellaPath!, "Stella Mod Launcher.exe");
+
+                    ProcessStartInfo startInfo = new()
+                    {
+                        FileName = exePath,
+                        WorkingDirectory = stellaPath
+                    };
+
+                    Process.Start(startInfo);
+                }
+                else
+                {
+                    MessageBox.Show(@"Key 'StellaPath' not found. Is the Genshin Stella Mod definitely installed?", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show(@"Registry key 'SOFTWARE\Stella Mod Launcher' not found. Is the Genshin Stella Mod definitely installed?", "@Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+    }
+
+    private void SysInf_Click(object sender, EventArgs e)
+    {
+        Process.Start("msinfo32.exe");
+    }
+
+    private void DxDiag_Click(object sender, EventArgs e)
+    {
+        Process.Start("dxdiag.exe");
+    }
+
+
+    private void ViewCfg_Click(object sender, EventArgs e)
+    {
+        Process.Start("dxdiag.exe");
+    }
+
+
+    private void OfficialWebsite_Click(object sender, EventArgs e)
+    {
+        AboutForm.OpenLink("https://sefinek.net");
+    }
+
+    private void YouTube_Click(object sender, EventArgs e)
+    {
+        AboutForm.OpenLink("https://www.youtube.com/channel/UClrAIcAzcqIMbvGXZqK7e0A");
+    }
+
+    private void GIReShade_Click(object sender, EventArgs e)
+    {
+        AboutForm.OpenLink("https://github.com/sefinek24/Genshin-Impact-ReShade");
+    }
+
+    private void FpsUnlocker_Click(object sender, EventArgs e)
+    {
+        AboutForm.OpenLink("https://github.com/sefinek24/genshin-fps-unlock");
+    }
+
+    private void SefinGitHub_Click(object sender, EventArgs e)
+    {
+        AboutForm.OpenLink("https://github.com/sefinek24");
     }
 }

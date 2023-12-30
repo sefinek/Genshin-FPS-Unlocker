@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 
 namespace unlockfps_nc;
 
@@ -19,7 +19,7 @@ public partial class AboutForm : Form
         OpenLink("https://github.com/34736384/genshin-fps-unlock/issues");
     }
 
-    private void OpenLink(string url)
+    public static void OpenLink(string url)
     {
         ProcessStartInfo psi = new()
         {

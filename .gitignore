@@ -3,8 +3,7 @@
 .idea
 unlockfps_nc/bin/Release
 unlockfps_nc/obj/Release
-unlockfps_nc/bin/Debug
-unlockfps_nc/obj/Debug
+unlockfps_nc/obj
 unlockfps_nc/unlocker.config.json
 x64
 
