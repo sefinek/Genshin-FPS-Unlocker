@@ -22,4 +22,7 @@ public class Config
     public int Priority { get; set; } = 3;
 
     public List<string> DllList { get; set; } = [];
+
+    public string ConfigDate { get; set; } = "31.12.2023";
+    public string ConfigVersion { get; set; } = "1.2.0";
 }

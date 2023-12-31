@@ -13,8 +13,22 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
     <StartupObject>unlockfps_nc.Program</StartupObject>
-    <AssemblyName>genshin-fps-unlocker</AssemblyName>
+    <AssemblyName>gen-fps-unlocker</AssemblyName>
     <IsPublishable>False</IsPublishable>
+    <AssemblyVersion>3.1.0</AssemblyVersion>
+    <FileVersion>3.1.0</FileVersion>
+    <Version>3.1.0</Version>
+    <SignAssembly>False</SignAssembly>
+    <Company>Sefinek Inc.</Company>
+    <Authors>34736384</Authors>
+    <Title>Genshin FPS Unlocker</Title>
+    <Description>Genshin Impact FPS Unlocker</Description>
+    <RepositoryUrl>https://github.com/sefinek24/genshin-fps-unlock</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://genshin.sefinek.net</PackageProjectUrl>
+    <Copyright>Copyright 2023 © by Sefinek. All Rights Reserved.</Copyright>
+    <NeutralLanguage>en</NeutralLanguage>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -31,6 +45,13 @@
 
   <ItemGroup>
     <Content Include="Resources\icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>

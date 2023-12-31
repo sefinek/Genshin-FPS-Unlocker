@@ -9,6 +9,11 @@ public partial class AboutForm : Form
         InitializeComponent();
     }
 
+    private void AboutForm_Load(object sender, EventArgs e)
+    {
+        LabelTitle.Text = string.Format(LabelTitle.Text, Application.ProductVersion);
+    }
+
     private void LinkLabelSource_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
         OpenLink("https://github.com/34736384/genshin-fps-unlock");
