@@ -109,6 +109,7 @@ public partial class MainForm : Form
 		aboutForm.ShowDialog();
 	}
 
+
 	private void OpenStella_Click(object sender, EventArgs e)
 	{
 		try
