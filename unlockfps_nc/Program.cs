@@ -7,28 +7,28 @@ namespace unlockfps_nc;
 
 internal static class Program
 {
-    public static IServiceProvider? ServiceProvider { get; private set; }
+	public static IServiceProvider? ServiceProvider { get; private set; }
 
-    [STAThread]
-    private static void Main()
-    {
-        Native.CreateMutex(IntPtr.Zero, true, @"GenshinFPSUnlocker");
-        if (Marshal.GetLastWin32Error() == 183)
-        {
-            MessageBox.Show(@"Another unlocker is already running.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
+	[STAThread]
+	private static void Main()
+	{
+		Native.CreateMutex(IntPtr.Zero, true, @"GenshinFPSUnlocker");
+		if (Marshal.GetLastWin32Error() == 183)
+		{
+			MessageBox.Show(@"Another unlocker is already running.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			return;
+		}
 
-        ServiceCollection services = new();
-        services.AddTransient<MainForm>();
-        services.AddTransient<SettingsForm>();
-        services.AddTransient<SetupForm>();
-        services.AddSingleton<ConfigService>();
-        services.AddSingleton<ProcessService>();
+		ServiceCollection services = new();
+		services.AddTransient<MainForm>();
+		services.AddTransient<SettingsForm>();
+		services.AddTransient<SetupForm>();
+		services.AddSingleton<ConfigService>();
+		services.AddSingleton<ProcessService>();
 
-        ServiceProvider = services.BuildServiceProvider();
+		ServiceProvider = services.BuildServiceProvider();
 
-        ApplicationConfiguration.Initialize();
-        Application.Run(ServiceProvider.GetRequiredService<MainForm>());
-    }
+		ApplicationConfiguration.Initialize();
+		Application.Run(ServiceProvider.GetRequiredService<MainForm>());
+	}
 }

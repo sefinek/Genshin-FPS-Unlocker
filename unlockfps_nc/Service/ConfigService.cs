@@ -5,36 +5,36 @@ namespace unlockfps_nc.Service;
 
 public class ConfigService
 {
-    private const string CONFIG_NAME = "unlocker.config.json";
+	private const string CONFIG_NAME = "unlocker.config.json";
 
-    public ConfigService()
-    {
-        Load();
-        Sanitize();
-    }
+	public ConfigService()
+	{
+		Load();
+		Sanitize();
+	}
 
-    public Config? Config { get; private set; } = new();
+	public Config? Config { get; private set; } = new();
 
-    private void Load()
-    {
-        if (!File.Exists(CONFIG_NAME)) return;
+	private void Load()
+	{
+		if (!File.Exists(CONFIG_NAME)) return;
 
-        string json = File.ReadAllText(CONFIG_NAME);
-        Config = JsonConvert.DeserializeObject<Config>(json);
-    }
+		string json = File.ReadAllText(CONFIG_NAME);
+		Config = JsonConvert.DeserializeObject<Config>(json);
+	}
 
-    private void Sanitize()
-    {
-        Config!.FpsTarget = Math.Clamp(Config.FpsTarget, 1, 420);
-        Config.Priority = Math.Clamp(Config.Priority, 0, 5);
-        Config.CustomResX = Math.Clamp(Config.CustomResX, 200, 7680);
-        Config.CustomResY = Math.Clamp(Config.CustomResY, 200, 4320);
-        Config.MonitorNum = Math.Clamp(Config.MonitorNum, 1, 100);
-    }
+	private void Sanitize()
+	{
+		Config!.FpsTarget = Math.Clamp(Config.FpsTarget, 1, 420);
+		Config.Priority = Math.Clamp(Config.Priority, 0, 5);
+		Config.CustomResX = Math.Clamp(Config.CustomResX, 200, 7680);
+		Config.CustomResY = Math.Clamp(Config.CustomResY, 200, 4320);
+		Config.MonitorNum = Math.Clamp(Config.MonitorNum, 1, 100);
+	}
 
-    public void Save()
-    {
-        string json = JsonConvert.SerializeObject(Config, Formatting.Indented);
-        File.WriteAllText(CONFIG_NAME, json);
-    }
+	public void Save()
+	{
+		string json = JsonConvert.SerializeObject(Config, Formatting.Indented);
+		File.WriteAllText(CONFIG_NAME, json);
+	}
 }
