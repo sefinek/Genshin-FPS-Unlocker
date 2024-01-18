@@ -285,8 +285,8 @@ namespace unlockfps_nc
             // NotifyIconMain
             // 
             NotifyIconMain.BalloonTipIcon = ToolTipIcon.Info;
-            NotifyIconMain.BalloonTipText = "Minimized to tray";
-            NotifyIconMain.BalloonTipTitle = "FPS Unlcoker";
+            NotifyIconMain.BalloonTipText = "The program has been minimized to the system tray. You can change the FPS limit even during the game.";
+            NotifyIconMain.BalloonTipTitle = "Genshin FPS Unlocker";
             NotifyIconMain.ContextMenuStrip = ContextNotify;
             NotifyIconMain.Icon = (Icon)resources.GetObject("NotifyIconMain.Icon");
             NotifyIconMain.Text = "FPS Unlocker";

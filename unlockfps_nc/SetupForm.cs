@@ -25,7 +25,7 @@ public partial class SetupForm : Form
 		_cts = new CancellationTokenSource();
 		Task.Run(PollProcess, _cts.Token);
 
-		LabelCurrentPath.Text = $@"Current Path: {_config!.GamePath}";
+		LabelCurrentPath.Text = $@"Current path: {_config!.GamePath}";
 		LabelResult.Text = @"Searching...";
 		LabelResult.ForeColor = Color.Orange;
 		Task.Run(SearchGamePath, _cts.Token);
@@ -155,14 +155,14 @@ public partial class SetupForm : Form
 
 		if (fileName != "GenshinImpact" && fileName != "YuanShen")
 		{
-			MessageBox.Show($@"Please select the game exe{Environment.NewLine}GenshinImpact.exe or YuanShen.exe", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show($@"Please select the game exe{Environment.NewLine}GenshinImpact.exe or YuanShen.exe.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return;
 		}
 
 		string unityPlayer = Path.Combine(directory!, "UnityPlayer.dll");
 		if (!File.Exists(unityPlayer))
 		{
-			MessageBox.Show(@"That's not the right place", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show(@"That's not the right place.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return;
 		}
 

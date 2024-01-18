@@ -19,7 +19,7 @@ internal static class Program
 			return;
 		}
 
-		ServiceCollection services = new();
+		ServiceCollection services = [];
 		services.AddTransient<MainForm>();
 		services.AddTransient<SettingsForm>();
 		services.AddTransient<SetupForm>();

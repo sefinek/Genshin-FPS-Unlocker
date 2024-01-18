@@ -53,8 +53,7 @@ public partial class SettingsForm : Form
 
 	private void UpdateControlState()
 	{
-		if (_config!.PopupWindow) // they can't coexist (?) so disable the other
-			_config.Fullscreen = false;
+		if (_config!.PopupWindow) _config.Fullscreen = false; // They can't coexist (?) so disable the other
 
 		CBPopup.Enabled = !_config.Fullscreen;
 		CBFullscreen.Enabled = !_config.PopupWindow;
@@ -63,7 +62,7 @@ public partial class SettingsForm : Form
 		ComboFullscreenMode.Enabled = _config is { Fullscreen: true, PopupWindow: false };
 	}
 
-	public void LaunchOptionsChanged(object sender, EventArgs e)
+	private void LaunchOptionsChanged(object sender, EventArgs e)
 	{
 		UpdateControlState();
 	}
@@ -95,7 +94,7 @@ public partial class SettingsForm : Form
 		RefreshDllList();
 	}
 
-	private bool VerifyDll(string fullPath)
+	private static bool VerifyDll(string fullPath)
 	{
 		if (!File.Exists(fullPath))
 			return false;
@@ -132,9 +131,5 @@ public partial class SettingsForm : Form
 
 		_config!.DllList.RemoveAt(selectedIndex);
 		RefreshDllList();
-	}
-
-	private void LabelAutoSave_Click(object sender, EventArgs e)
-	{
 	}
 }

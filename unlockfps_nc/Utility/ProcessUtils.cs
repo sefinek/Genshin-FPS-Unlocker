@@ -14,31 +14,24 @@ internal static class ProcessUtils
 
 		processHandle = hProcess;
 
-		if (hProcess == IntPtr.Zero)
-			return string.Empty;
+		if (hProcess == IntPtr.Zero) return string.Empty;
 
 		StringBuilder sb = new(1024);
 		uint bufferSize = (uint)sb.Capacity;
-		if (!Native.QueryFullProcessImageName(hProcess, 0, sb, ref bufferSize))
-			return string.Empty;
-
-		return sb.ToString();
+		return !Native.QueryFullProcessImageName(hProcess, 0, sb, ref bufferSize) ? string.Empty : sb.ToString();
 	}
 
 	public static bool InjectDlls(IntPtr processHandle, List<string> dllPaths)
 	{
-		if (dllPaths.Count == 0)
-			return true;
+		if (dllPaths.Count == 0) return true;
 
 		Native.RtlAdjustPrivilege(20, true, false, out bool _);
 
 		IntPtr kernel32 = Native.LoadLibrary("kernel32.dll");
 		IntPtr loadLibrary = Native.GetProcAddress(kernel32, "LoadLibraryW");
 
-		IntPtr remoteVa = Native.VirtualAllocEx(processHandle, IntPtr.Zero, 0x1000,
-			AllocationType.COMMIT | AllocationType.RESERVE, MemoryProtection.READWRITE);
-		if (remoteVa == IntPtr.Zero)
-			return false;
+		IntPtr remoteVa = Native.VirtualAllocEx(processHandle, IntPtr.Zero, 0x1000, AllocationType.COMMIT | AllocationType.RESERVE, MemoryProtection.READWRITE);
+		if (remoteVa == IntPtr.Zero) return false;
 
 		foreach (string dllPath in dllPaths)
 		{
@@ -46,12 +39,10 @@ internal static class ProcessUtils
 			byte[] bytes = Encoding.Unicode.GetBytes(dllPath);
 			Marshal.FreeHGlobal(nativeString);
 
-			if (!Native.WriteProcessMemory(processHandle, remoteVa, bytes, bytes.Length, out int bytesWritten))
-				return false;
+			if (!Native.WriteProcessMemory(processHandle, remoteVa, bytes, bytes.Length, out int bytesWritten)) return false;
 
 			IntPtr thread = Native.CreateRemoteThread(processHandle, IntPtr.Zero, 0, loadLibrary, remoteVa, 0, out uint threadId);
-			if (thread == IntPtr.Zero)
-				return false;
+			if (thread == IntPtr.Zero) return false;
 
 			Native.WaitForSingleObject(thread, uint.MaxValue);
 			Native.CloseHandle(thread);
@@ -78,13 +69,11 @@ internal static class ProcessUtils
 		byte* scanBytes = (byte*)module;
 
 		int s = patternBytes.Length;
-		byte[] d = patternBytes;
-
 		for (uint i = 0U; i < sizeOfImage - s; i++)
 		{
 			bool found = true;
 			for (int j = 0; j < s; j++)
-				if (d[j] != scanBytes[i + j] && d[j] != 0xFF)
+				if (patternBytes[j] != scanBytes[i + j] && patternBytes[j] != 0xFF)
 				{
 					found = false;
 					break;

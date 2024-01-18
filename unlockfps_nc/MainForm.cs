@@ -15,9 +15,7 @@ public partial class MainForm : Form
 	private Point _windowLocation;
 	private Size _windowSize;
 
-	public MainForm(
-		ConfigService configService,
-		ProcessService processService)
+	public MainForm(ConfigService configService, ProcessService processService)
 	{
 		InitializeComponent();
 		_configService = configService;
@@ -87,7 +85,7 @@ public partial class MainForm : Form
 	private void NotifyAndHide()
 	{
 		NotifyIconMain.Visible = true;
-		NotifyIconMain.Text = $@"FPS Unlocker (FPS: {_config!.FpsTarget})";
+		NotifyIconMain.Text = $@"Genshin FPS Unlocker (Current limit: {_config!.FpsTarget})";
 		NotifyIconMain.ShowBalloonTip(500);
 
 		ShowInTaskbar = false;
@@ -140,12 +138,12 @@ public partial class MainForm : Form
 			}
 			else
 			{
-				MessageBox.Show(@"Registry key 'SOFTWARE\Stella Mod Launcher' not found. Is the Genshin Stella Mod definitely installed?", "@Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(@"Registry key 'SOFTWARE\Stella Mod Launcher' not found. Is the Genshin Stella Mod definitely installed?", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 		catch (Exception ex)
 		{
-			MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show($@"An error occurred: {ex.Message}", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 	}
 

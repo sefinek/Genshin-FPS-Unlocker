@@ -177,7 +177,7 @@ public class ProcessService
 
 		if (!pUnityPlayer || !pUserAssembly)
 		{
-			MessageBox.Show(@"Failed to load UnityPlayer.dll or UserAssembly.dll", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show($@"Failed to load {Path.GetFileName(unityPlayerPath)} or {Path.GetFileName(userAssemblyPath)}.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return false;
 		}
 
@@ -197,7 +197,7 @@ public class ProcessService
 		}
 		else
 		{
-			byte* rip = null;
+			byte* rip;
 			if (ntHeader.FileHeader.TimeDateStamp < 0x656FFAF7U) // < 4.3
 			{
 				byte* address = (byte*)ProcessUtils.PatternScan(pUserAssembly, "E8 ? ? ? ? 85 C0 7E 07 E8 ? ? ? ? EB 05");
@@ -240,7 +240,7 @@ public class ProcessService
 		return true;
 
 		BAD_PATTERN:
-		MessageBox.Show(@"Outdated fps pattern", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+		MessageBox.Show(@"Outdated fps pattern. If a new version of the game has been recently released, please wait for a new update of the Genshin Stella Mod.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 		return false;
 	}
 
@@ -265,7 +265,7 @@ public class ProcessService
 
 		if (_remoteUnityPlayer != IntPtr.Zero && _remoteUserAssembly != IntPtr.Zero) return true;
 
-		MessageBox.Show(@"Failed to get remote module base address", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+		MessageBox.Show(@"Failed to get remote module base address. Please try again.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 		return false;
 	}
 }
