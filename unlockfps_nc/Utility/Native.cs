@@ -3,7 +3,7 @@ using System.Text;
 
 namespace unlockfps_nc.Utility;
 
-internal class Native
+internal static class Native
 {
 	public delegate bool EnumWindowsProc(IntPtr hWnd, IntPtr lParam);
 
