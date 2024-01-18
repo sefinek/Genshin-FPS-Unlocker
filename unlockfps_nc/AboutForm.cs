@@ -16,12 +16,12 @@ public partial class AboutForm : Form
 
 	private void LinkLabelSource_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 	{
-		OpenLink("https://github.com/34736384/genshin-fps-unlock");
+		OpenLink("https://github.com/sefinek24/genshin-fps-unlock");
 	}
 
 	private void LinkLabelIssues_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 	{
-		OpenLink("https://github.com/34736384/genshin-fps-unlock/issues");
+		OpenLink("https://github.com/sefinek24/genshin-fps-unlock/issues");
 	}
 
 	public static void OpenLink(string url)
