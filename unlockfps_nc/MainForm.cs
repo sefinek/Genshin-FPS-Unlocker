@@ -44,7 +44,7 @@ public partial class MainForm : Form
 		_windowSize = Size;
 		if (_config!.AutoStart) BtnStartGame_Click(null, null);
 
-		this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
+		Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
 	}
 
 	private void SetupBindings()
