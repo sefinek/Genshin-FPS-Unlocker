@@ -1,5 +1,6 @@
 using System.Runtime.InteropServices;
 using Microsoft.Extensions.DependencyInjection;
+using unlockfps_nc.Properties;
 using unlockfps_nc.Service;
 using unlockfps_nc.Utility;
 
@@ -15,7 +16,7 @@ internal static class Program
 		Native.CreateMutex(IntPtr.Zero, true, @"GenshinFPSUnlocker");
 		if (Marshal.GetLastWin32Error() == 183)
 		{
-			MessageBox.Show(@"Another unlocker is already running.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show(Resources.Program_AnotherUnlockerIsAlreadyRunning, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return;
 		}
 

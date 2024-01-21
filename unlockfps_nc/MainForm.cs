@@ -2,6 +2,7 @@ using System.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Win32;
 using unlockfps_nc.Model;
+using unlockfps_nc.Properties;
 using unlockfps_nc.Service;
 
 namespace unlockfps_nc;
@@ -41,8 +42,9 @@ public partial class MainForm : Form
 	{
 		_windowLocation = Location;
 		_windowSize = Size;
-		if (_config!.AutoStart)
-			BtnStartGame_Click(null, null);
+		if (_config!.AutoStart) BtnStartGame_Click(null, null);
+
+		this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
 	}
 
 	private void SetupBindings()
@@ -85,7 +87,7 @@ public partial class MainForm : Form
 	private void NotifyAndHide()
 	{
 		NotifyIconMain.Visible = true;
-		NotifyIconMain.Text = $@"Genshin FPS Unlocker (Current limit: {_config!.FpsTarget})";
+		NotifyIconMain.Text = string.Format(Resources.MainForm_GenshinFPSUnlocker_CurrentLimit, _config!.FpsTarget);
 		NotifyIconMain.ShowBalloonTip(500);
 
 		ShowInTaskbar = false;
@@ -134,17 +136,17 @@ public partial class MainForm : Form
 				}
 				else
 				{
-					MessageBox.Show(@"Key 'StellaPath' not found. Is the Genshin Stella Mod definitely installed?", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show(Resources.MainForm_KeyStellaPathNotFound, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
 			else
 			{
-				MessageBox.Show(@"Registry key 'SOFTWARE\Stella Mod Launcher' not found. Is the Genshin Stella Mod definitely installed?", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(Resources.MainForm_RegistryKeySOFTWAREStellaModLauncherNotFound, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 		catch (Exception ex)
 		{
-			MessageBox.Show($@"An error occurred: {ex.Message}", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show(string.Format(Resources.MainForm_AnErrorOccurred, ex.Message), Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 	}
 

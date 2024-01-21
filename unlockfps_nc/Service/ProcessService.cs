@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using unlockfps_nc.Model;
+using unlockfps_nc.Properties;
 using unlockfps_nc.Utility;
 
 namespace unlockfps_nc.Service;
@@ -54,7 +55,7 @@ public class ProcessService
 	{
 		if (IsGameRunning())
 		{
-			MessageBox.Show(@"An instance of the game is already running.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show(@"An instance of the game is already running.", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return false;
 		}
 
@@ -108,12 +109,12 @@ public class ProcessService
 
 		if (!Native.CreateProcess(_config.GamePath, BuildCommandLine(), IntPtr.Zero, IntPtr.Zero, false, creationFlag, IntPtr.Zero, gameFolder, ref si, out PROCESS_INFORMATION pi))
 		{
-			MessageBox.Show($@"CreateProcess failed ({Marshal.GetLastWin32Error()}){Environment.NewLine} {Marshal.GetLastPInvokeErrorMessage()}", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show($@"CreateProcess failed ({Marshal.GetLastWin32Error()}){Environment.NewLine} {Marshal.GetLastPInvokeErrorMessage()}", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return;
 		}
 
 		if (!ProcessUtils.InjectDlls(pi.hProcess, _config.DllList))
-			MessageBox.Show($@"Dll Injection failed ({Marshal.GetLastWin32Error()}){Environment.NewLine} {Marshal.GetLastPInvokeErrorMessage()}", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show($@"Dll Injection failed ({Marshal.GetLastWin32Error()}){Environment.NewLine} {Marshal.GetLastPInvokeErrorMessage()}", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 		if (_config.SuspendLoad) Native.ResumeThread(pi.hThread);
 
@@ -177,7 +178,7 @@ public class ProcessService
 
 		if (!pUnityPlayer || !pUserAssembly)
 		{
-			MessageBox.Show($@"Failed to load {Path.GetFileName(unityPlayerPath)} or {Path.GetFileName(userAssemblyPath)}.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show($@"Failed to load {Path.GetFileName(unityPlayerPath)} or {Path.GetFileName(userAssemblyPath)}.", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return false;
 		}
 
@@ -240,7 +241,7 @@ public class ProcessService
 		return true;
 
 		BAD_PATTERN:
-		MessageBox.Show(@"Outdated fps pattern. If a new version of the game has been recently released, please wait for a new update of the Genshin Stella Mod.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+		MessageBox.Show(@"Outdated fps pattern. If a new version of the game has been recently released, please wait for a new update of the Genshin Stella Mod.", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		return false;
 	}
 
@@ -265,7 +266,7 @@ public class ProcessService
 
 		if (_remoteUnityPlayer != IntPtr.Zero && _remoteUserAssembly != IntPtr.Zero) return true;
 
-		MessageBox.Show(@"Failed to get remote module base address. Please try again.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+		MessageBox.Show(@"Failed to get remote module base address. Please try again.", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		return false;
 	}
 }

@@ -1,5 +1,6 @@
 using Newtonsoft.Json;
 using unlockfps_nc.Model;
+using unlockfps_nc.Properties;
 
 namespace unlockfps_nc.Service;
 
@@ -30,9 +31,7 @@ public class ConfigService
 		}
 		catch (Exception ex)
 		{
-			MessageBox.Show(
-				$"We have detected errors in the FPS Unlocker's configuration file. We will attempt its repair. If the program launches normally, this will indicate that the repair was successful. If this message keeps appearing, please delete the configuration file (unlocker.config.json) or contact the developer.\n\n{ex.Message}",
-				@"Fatal error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show(string.Format(Resources.ConfigService_WeHaveDetectedErrorsInTheConfigFile, ex.Message), Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 	}
 

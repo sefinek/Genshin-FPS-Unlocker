@@ -1,5 +1,6 @@
 using System.Reflection.PortableExecutable;
 using unlockfps_nc.Model;
+using unlockfps_nc.Properties;
 using unlockfps_nc.Service;
 
 namespace unlockfps_nc;
@@ -79,14 +80,13 @@ public partial class SettingsForm : Form
 
 	private void BtnAddDll_Click(object sender, EventArgs e)
 	{
-		if (DllAddDialog.ShowDialog() != DialogResult.OK)
-			return;
+		if (DllAddDialog.ShowDialog() != DialogResult.OK) return;
 
 		List<string> selectedFiles = [.. DllAddDialog.FileNames];
 		selectedFiles = selectedFiles
 			.Where(x => VerifyDll(x) || MessageBox.Show(
-				$@"Invalid File: {Environment.NewLine}{x}{Environment.NewLine}{Environment.NewLine}Only native x64 dlls are supported",
-				@"Error", MessageBoxButtons.OK, MessageBoxIcon.Error) != DialogResult.OK)
+				string.Format(Resources.SettingsForm_InvaildFile, x),
+				Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error) != DialogResult.OK)
 			.Where(x => _config!.DllList.Contains(x))
 			.ToList();
 
@@ -116,8 +116,7 @@ public partial class SettingsForm : Form
 	private void ListBoxDlls_MouseMove(object sender, MouseEventArgs e)
 	{
 		int index = ListBoxDlls.IndexFromPoint(e.Location);
-		if (index == -1)
-			return;
+		if (index == -1) return;
 
 		string toolTipText = _config!.DllList[index];
 		ToolTipSettings.SetToolTip(ListBoxDlls, toolTipText);
@@ -126,8 +125,7 @@ public partial class SettingsForm : Form
 	private void BtnRemoveDll_Click(object sender, EventArgs e)
 	{
 		int selectedIndex = ListBoxDlls.SelectedIndex;
-		if (selectedIndex == -1)
-			return;
+		if (selectedIndex == -1) return;
 
 		_config!.DllList.RemoveAt(selectedIndex);
 		RefreshDllList();

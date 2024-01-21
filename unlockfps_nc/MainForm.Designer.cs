@@ -29,7 +29,6 @@ namespace unlockfps_nc
 		  private void InitializeComponent()
 		  {
 				components = new System.ComponentModel.Container();
-				System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 				OptionsMenuStrip = new MenuStrip();
 				openToolStripMenuItem = new ToolStripMenuItem();
 				stellaModLauncherToolStripMenuItem = new ToolStripMenuItem();
@@ -244,7 +243,7 @@ namespace unlockfps_nc
 				InputFPS.Name = "InputFPS";
 				InputFPS.Size = new Size(240, 23);
 				InputFPS.TabIndex = 2;
-				InputFPS.Value = new decimal(new int[] { 120, 0, 0, 0 });
+				InputFPS.Value = new decimal(new int[] { 144, 0, 0, 0 });
 				// 
 				// SliderFPS
 				// 
@@ -274,9 +273,9 @@ namespace unlockfps_nc
 				// BtnStartGame
 				// 
 				BtnStartGame.Anchor = AnchorStyles.None;
-				BtnStartGame.Location = new Point(214, 93);
+				BtnStartGame.Location = new Point(207, 93);
 				BtnStartGame.Name = "BtnStartGame";
-				BtnStartGame.Size = new Size(85, 23);
+				BtnStartGame.Size = new Size(92, 23);
 				BtnStartGame.TabIndex = 5;
 				BtnStartGame.Text = "Start Game";
 				BtnStartGame.UseVisualStyleBackColor = true;
@@ -288,7 +287,6 @@ namespace unlockfps_nc
 				NotifyIconMain.BalloonTipText = "The program has been minimized to the system tray. You can change the FPS limit even during the game.";
 				NotifyIconMain.BalloonTipTitle = "Genshin FPS Unlocker";
 				NotifyIconMain.ContextMenuStrip = ContextNotify;
-				NotifyIconMain.Icon = (Icon)resources.GetObject("NotifyIconMain.Icon");
 				NotifyIconMain.Text = "FPS Unlocker";
 				NotifyIconMain.Visible = true;
 				NotifyIconMain.DoubleClick += NotifyIconMain_DoubleClick;
@@ -319,7 +317,6 @@ namespace unlockfps_nc
 				Controls.Add(LabelFPS);
 				Controls.Add(OptionsMenuStrip);
 				FormBorderStyle = FormBorderStyle.FixedSingle;
-				Icon = (Icon)resources.GetObject("$this.Icon");
 				MainMenuStrip = OptionsMenuStrip;
 				MaximizeBox = false;
 				Name = "MainForm";

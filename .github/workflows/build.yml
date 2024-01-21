@@ -1,0 +1,26 @@
+name: Build Stella Mod Launcher
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup MSBuild Path
+        uses: microsoft/setup-msbuild@v1
+
+      - name: Restore NuGet Packages for Stella Mod Launcher
+        run: dotnet msbuild -t:restore ".\Genshin FPS Unlocker.sln"
+
+      - name: Build Genshin FPS Unlocker
+        run: dotnet msbuild ".\Genshin FPS Unlocker.sln" /t:Build /p:Configuration=Release /p:Platform="Any CPU"
+
+      - name: Run Stella Mod Launcher
+        run: start ".\unlockfps_nc\bin\Release\net8.0-windows\gen-fps-unlocker.exe"
