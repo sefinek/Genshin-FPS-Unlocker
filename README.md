@@ -16,21 +16,15 @@
 - Run the exe and click `Start game`.
 - If it is your first time running, unlocker will attempt to find your game through the registry. If it fails, then it will ask you to either browse or run the game.
 - Place the compiled exe anywhere you want (except for the game folder).
-- Make sure your game is closed—the unlocker will automatically start the game for you
-- Run the exe as administrator, and leave the exe running
-> It requires administrator because the game needs to be started by the unlocker and the game requires such permission
-- To load other third-party plugins, go to `Options>Settings>DLLs` and click add
+- Make sure your game is closed—the unlocker will automatically start the game for you.
+- Run the exe as administrator, and leave the exe running.
+> It requires administrator because the game needs to be started by the unlocker and the game requires such permission.
+- To load other third-party plugins, go to `Options>Settings>DLLs` and click add.
 
 ## Notes
-- HoYoverse (miHoYo) is well aware of this tool, and you will not get banned for using ONLY FPS unlock.
+- HoYoverse (miHoYo) is well aware of this tool, and you will not get banned for using FPS unlock.
 - If you are using other third-party plugins, you are doing it at your own risk.
-- Any artifacts from unlocking fps (e.g. stuttering) is NOT a bug of the unlocker
+- Any artifacts from unlocking fps (e.g. stuttering) is NOT a bug of the unlocker.
 
 ## Compiling
 Use `Visual Studio 2022 Community Edition` to compile.
-
-## Changelog for v3.0.0
-[Click here](https://github.com/34736384/genshin-fps-unlock?tab=readme-ov-file#version-300-changes)
-
-# Chinese translation
-[Click here](https://github.com/34736384/genshin-fps-unlock?tab=readme-ov-file#%E5%8E%9F%E7%A5%9E%E8%A7%A3%E9%94%81fps%E9%99%90%E5%88%B6)
