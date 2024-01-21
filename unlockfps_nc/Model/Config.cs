@@ -5,7 +5,7 @@ public class Config
 	public string GamePath { get; set; } = "";
 
 	public bool AutoStart { get; set; }
-	public bool AutoClose { get; set; }
+	public bool AutoClose { get; set; } = true;
 	public bool PopupWindow { get; set; }
 	public bool Fullscreen { get; set; } = true;
 	public bool UseCustomRes { get; set; }
