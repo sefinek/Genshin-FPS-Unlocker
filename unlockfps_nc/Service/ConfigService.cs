@@ -17,10 +17,30 @@ public class ConfigService
 
 	private void Load()
 	{
-		if (!File.Exists(CONFIG_NAME)) return;
+		if (!File.Exists(CONFIG_NAME) || string.IsNullOrWhiteSpace(File.ReadAllText(CONFIG_NAME)))
+		{
+			InitializeDefaultConfig();
+			return;
+		}
 
 		string json = File.ReadAllText(CONFIG_NAME);
-		Config = JsonConvert.DeserializeObject<Config>(json);
+		try
+		{
+			Config = JsonConvert.DeserializeObject<Config>(json) ?? InitializeDefaultConfig();
+		}
+		catch (Exception ex)
+		{
+			MessageBox.Show(
+				$"We have detected errors in the FPS Unlocker's configuration file. We will attempt its repair. If the program launches normally, this will indicate that the repair was successful. If this message keeps appearing, please delete the configuration file (unlocker.config.json) or contact the developer.\n\n{ex.Message}",
+				@"Fatal error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+	}
+
+	private Config InitializeDefaultConfig()
+	{
+		Config = new Config();
+		Save();
+		return Config;
 	}
 
 	private void Sanitize()
