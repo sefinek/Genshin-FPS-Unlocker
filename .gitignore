@@ -1,48 +1,10 @@
-# Folders
-.vs
 .idea
-unlockfps_nc/bin/Release
+.vs
+unlockfps_nc/bin
+unlockfps_nc/obj/Debug
 unlockfps_nc/obj/Release
-unlockfps_nc/obj
-unlockfps_nc/unlocker.config.json
-x64
-
-# Files
-fps_config.json
-UpgradeLog.htm
-unlockfps_nc/unlocker_config.json
-
-# Prerequisites
-*.d
-
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
-
-# Other
-*.aps
+unlockfps_nc/obj/project.assets.json
+unlockfps_nc/obj/project.nuget.cache
+unlockfps_nc/obj/unlockfps_nc.csproj.nuget.dgspec.json
+unlockfps_nc/obj/unlockfps_nc.csproj.nuget.g.props
+unlockfps_nc/obj/unlockfps_nc.csproj.nuget.g.targets
