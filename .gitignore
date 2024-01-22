@@ -8,3 +8,5 @@ unlockfps_nc/obj/project.nuget.cache
 unlockfps_nc/obj/unlockfps_nc.csproj.nuget.dgspec.json
 unlockfps_nc/obj/unlockfps_nc.csproj.nuget.g.props
 unlockfps_nc/obj/unlockfps_nc.csproj.nuget.g.targets
+
+net8.0-windows.zip
