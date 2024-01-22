@@ -47,7 +47,7 @@ echo Dotnet build completed successfully! && echo.
 
 
 echo Compressing Release directory...
-.\Dependencies\7z.exe a -tzip "Release.zip" "%RELEASE_DIR%\net8.0-windows\*"
+.\Dependencies\7z.exe a -tzip "net8.0-windows.zip" "%RELEASE_DIR%\net8.0-windows\*"
 IF %ERRORLEVEL% NEQ 0 (
     echo Error occurred during compression.
     goto EndScript
