@@ -116,7 +116,7 @@ public partial class MainForm : Form
 	{
 		try
 		{
-			using RegistryKey? key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Stella Mod Launcher");
+			using RegistryKey? key = Registry.CurrentUser.OpenSubKey(@"Software\Stella Mod Launcher");
 
 			if (key != null)
 			{
