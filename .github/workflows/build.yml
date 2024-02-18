@@ -3,8 +3,17 @@ name: Build Genshin FPS Unlocker
 on:
   push:
     branches: [ main ]
+    paths:
+      - '**/*.cs'
+      - '**/*.csproj'
+      - '**/*.sln'
+      - '**/*.resx'
   pull_request:
     branches: [ main ]
+    paths:
+      - '**/*.cs'
+      - '**/*.csproj'
+      - '**/*.resx'
 
 jobs:
   build:
@@ -22,5 +31,5 @@ jobs:
       - name: Build Genshin FPS Unlocker
         run: dotnet build "Genshin FPS Unlocker.sln" --configuration Release --no-restore
 
-      - name: Run Stella Mod Launcher
+      - name: Run Genshin FPS Unlocker
         run: start ".\unlockfps_nc\bin\Release\net8.0-windows\gen-fps-unlocker.exe"
