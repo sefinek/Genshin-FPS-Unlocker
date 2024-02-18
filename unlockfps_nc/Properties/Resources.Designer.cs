@@ -118,7 +118,7 @@ namespace unlockfps_nc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Registry key &apos;SOFTWARE\Stella Mod Launcher&apos; not found. Is the Genshin Stella Mod definitely installed?.
+        ///   Looks up a localized string similar to Registry key &apos;{0}&apos; not found. Is the Genshin Stella Mod definitely installed?.
         /// </summary>
         internal static string MainForm_RegistryKeySOFTWAREStellaModLauncherNotFound {
             get {

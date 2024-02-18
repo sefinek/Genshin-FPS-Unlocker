@@ -8,6 +8,7 @@ namespace unlockfps_nc;
 
 internal static class Program
 {
+	public static readonly string RegistryPath = @"Software\Stella Mod Launcher";
 	public static IServiceProvider? ServiceProvider { get; private set; }
 
 	[STAThread]

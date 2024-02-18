@@ -116,7 +116,7 @@ public partial class MainForm : Form
 	{
 		try
 		{
-			using RegistryKey? key = Registry.CurrentUser.OpenSubKey(@"Software\Stella Mod Launcher");
+			using RegistryKey? key = Registry.CurrentUser.OpenSubKey(Program.RegistryPath);
 
 			if (key != null)
 			{
@@ -141,7 +141,7 @@ public partial class MainForm : Form
 			}
 			else
 			{
-				MessageBox.Show(Resources.MainForm_RegistryKeySOFTWAREStellaModLauncherNotFound, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(string.Format(Resources.MainForm_RegistryKeySOFTWAREStellaModLauncherNotFound, Program.RegistryPath), Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 		catch (Exception ex)
