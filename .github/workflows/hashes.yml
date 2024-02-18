@@ -1,0 +1,56 @@
+name: Add file hashes to release description
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  update-release-description:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Get Release Assets
+        id: get-assets
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const releaseId = context.payload.release.id;
+            const assets = await github.rest.repos.listReleaseAssets({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              release_id: releaseId,
+            });
+            return assets.data.map(asset => asset.browser_download_url);
+
+      - name: Download and Calculate Hashes
+        id: calc-hashes
+        run: |
+          mkdir -p assets
+          cd assets
+          hashes=""
+          for url in ${{ steps.get-assets.outputs.result }}; do
+            wget -q $url
+            file=$(basename $url)
+            hash=$(sha256sum $file | awk '{print $1}')
+            hashes+="$file: $hash\n"
+          done
+          echo "hashes=$hashes" >> $GITHUB_ENV
+
+      - name: Update Release Description
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const hashes = process.env.hashes;
+            const releaseId = context.payload.release.id;
+            const oldBody = context.payload.release.body;
+            const newBody = `### File Hashes\n\`\`\`\n${hashes}\n\`\`\`\n\n${oldBody}`;
+            github.rest.repos.updateRelease({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              release_id: releaseId,
+              body: newBody
+            });
