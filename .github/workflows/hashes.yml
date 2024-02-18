@@ -11,51 +11,45 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Download release assets
-        uses: dsaltares/fetch-gh-release-asset@master
+      - name: Get release assets
+        id: get_assets
+        uses: actions/github-script@v5
         with:
-          repo: "${{ github.repository }}"
-          version: "latest"
-          file: "*"
-          token: "${{ secrets.GITHUB_TOKEN }}"
-
-      - name: Calculate file hashes
-        id: calculate_hashes
-        run: |
-          HASHES=""
-          for FILE in *; do
-            if [ -f "$FILE" ]; then
-              HASH=$(sha256sum "$FILE" | awk '{ print $1 }')
-              HASHES+="\n${FILE}: ${HASH}"
-            fi
-          done
-          echo "::set-output name=hashes::${HASHES}"
-
-      - name: Get release ID
-        id: get_release
-        uses: actions/github-script@v3
-        with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const release = await github.repos.getReleaseByTag({
+            const release = await github.rest.repos.getReleaseByTag({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              tag: context.payload.release.tag_name
+              tag: context.payload.release.tag_name,
             });
-            return release.data.id;
+            return release.data.assets.map(asset => ({
+              id: asset.id,
+              name: asset.name,
+              url: asset.url,
+            }));
+
+      - name: Download and calculate hashes
+        id: hash_assets
+        run: |
+          mkdir assets
+          cd assets
+          HASHES=""
+          for asset in ${{ toJson(steps.get_assets.outputs.result) }}; do
+            ASSET_URL=$(echo $asset | jq -r '.url')
+            ASSET_NAME=$(echo $asset | jq -r '.name')
+            curl -L -H "Accept: application/octet-stream" -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "$ASSET_URL" --output "$ASSET_NAME"
+            HASH=$(sha256sum "$ASSET_NAME" | awk '{ print $1 }')
+            HASHES+="$ASSET_NAME: $HASH\n"
+          done
+          echo "HASHES=$HASHES" >> $GITHUB_ENV
 
       - name: Update release notes
-        uses: actions/github-script@v3
+        uses: actions/github-script@v5
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const releaseId = ${{ steps.get_release.outputs.id }};
-            const existingBody = "${{ github.event.release.body }}";
-            const hashes = `${{ steps.calculate_hashes.outputs.hashes }}`;
-            const newBody = `${existingBody}\n### File Hashes${hashes}`;
-            github.repos.updateRelease({
+            const newBody = `${{ github.event.release.body }}\n### File Hashes\n${process.env.HASHES}`;
+            await github.rest.repos.updateRelease({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              release_id: releaseId,
-              body: newBody
+              release_id: ${{ github.event.release.id }},
+              body: newBody,
             });
