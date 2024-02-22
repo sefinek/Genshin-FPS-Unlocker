@@ -59,10 +59,12 @@ namespace unlockfps_nc
 				NotifyIconMain = new NotifyIcon(components);
 				ContextNotify = new ContextMenuStrip(components);
 				ExitMenuItem = new ToolStripMenuItem();
+				pictureBox1 = new PictureBox();
 				OptionsMenuStrip.SuspendLayout();
 				((System.ComponentModel.ISupportInitialize)InputFPS).BeginInit();
 				((System.ComponentModel.ISupportInitialize)SliderFPS).BeginInit();
 				ContextNotify.SuspendLayout();
+				((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
 				SuspendLayout();
 				// 
 				// OptionsMenuStrip
@@ -71,7 +73,7 @@ namespace unlockfps_nc
 				OptionsMenuStrip.Items.AddRange(new ToolStripItem[] { openToolStripMenuItem, configToolStripMenuItem, linksToolStripMenuItem, optionsToolStripMenuItem, toolStripMenuItem1 });
 				OptionsMenuStrip.Location = new Point(0, 0);
 				OptionsMenuStrip.Name = "OptionsMenuStrip";
-				OptionsMenuStrip.Size = new Size(311, 24);
+				OptionsMenuStrip.Size = new Size(446, 24);
 				OptionsMenuStrip.TabIndex = 0;
 				OptionsMenuStrip.Text = "menuStrip1";
 				// 
@@ -226,7 +228,7 @@ namespace unlockfps_nc
 				LabelFPS.Anchor = AnchorStyles.None;
 				LabelFPS.AutoSize = true;
 				LabelFPS.ForeColor = Color.White;
-				LabelFPS.Location = new Point(12, 43);
+				LabelFPS.Location = new Point(141, 58);
 				LabelFPS.Name = "LabelFPS";
 				LabelFPS.Size = new Size(29, 15);
 				LabelFPS.TabIndex = 1;
@@ -237,7 +239,7 @@ namespace unlockfps_nc
 				InputFPS.Anchor = AnchorStyles.None;
 				InputFPS.BackColor = Color.FromArgb(47, 49, 54);
 				InputFPS.ForeColor = Color.White;
-				InputFPS.Location = new Point(59, 38);
+				InputFPS.Location = new Point(188, 54);
 				InputFPS.Maximum = new decimal(new int[] { 420, 0, 0, 0 });
 				InputFPS.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
 				InputFPS.Name = "InputFPS";
@@ -248,7 +250,7 @@ namespace unlockfps_nc
 				// SliderFPS
 				// 
 				SliderFPS.Anchor = AnchorStyles.None;
-				SliderFPS.Location = new Point(12, 67);
+				SliderFPS.Location = new Point(141, 83);
 				SliderFPS.Maximum = 420;
 				SliderFPS.Minimum = 1;
 				SliderFPS.Name = "SliderFPS";
@@ -262,7 +264,7 @@ namespace unlockfps_nc
 				CBAutoStart.Anchor = AnchorStyles.None;
 				CBAutoStart.AutoSize = true;
 				CBAutoStart.ForeColor = Color.White;
-				CBAutoStart.Location = new Point(12, 95);
+				CBAutoStart.Location = new Point(141, 111);
 				CBAutoStart.Name = "CBAutoStart";
 				CBAutoStart.Size = new Size(158, 19);
 				CBAutoStart.TabIndex = 4;
@@ -273,9 +275,9 @@ namespace unlockfps_nc
 				// BtnStartGame
 				// 
 				BtnStartGame.Anchor = AnchorStyles.None;
-				BtnStartGame.Location = new Point(207, 93);
+				BtnStartGame.Location = new Point(331, 108);
 				BtnStartGame.Name = "BtnStartGame";
-				BtnStartGame.Size = new Size(92, 23);
+				BtnStartGame.Size = new Size(97, 23);
 				BtnStartGame.TabIndex = 5;
 				BtnStartGame.Text = "Start Game";
 				BtnStartGame.UseVisualStyleBackColor = true;
@@ -304,12 +306,23 @@ namespace unlockfps_nc
 				ExitMenuItem.Text = "Exit";
 				ExitMenuItem.Click += ExitMenuItem_Click;
 				// 
+				// pictureBox1
+				// 
+				pictureBox1.Image = Properties.Resources.fps_unlocker;
+				pictureBox1.Location = new Point(12, 36);
+				pictureBox1.Name = "pictureBox1";
+				pictureBox1.Size = new Size(113, 113);
+				pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+				pictureBox1.TabIndex = 6;
+				pictureBox1.TabStop = false;
+				// 
 				// MainForm
 				// 
 				AutoScaleDimensions = new SizeF(7F, 15F);
 				AutoScaleMode = AutoScaleMode.Font;
 				BackColor = Color.FromArgb(54, 57, 63);
-				ClientSize = new Size(311, 128);
+				ClientSize = new Size(446, 161);
+				Controls.Add(pictureBox1);
 				Controls.Add(BtnStartGame);
 				Controls.Add(CBAutoStart);
 				Controls.Add(SliderFPS);
@@ -330,6 +343,7 @@ namespace unlockfps_nc
 				((System.ComponentModel.ISupportInitialize)InputFPS).EndInit();
 				((System.ComponentModel.ISupportInitialize)SliderFPS).EndInit();
 				ContextNotify.ResumeLayout(false);
+				((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
 				ResumeLayout(false);
 				PerformLayout();
 		  }
@@ -366,5 +380,6 @@ namespace unlockfps_nc
         private ToolStripMenuItem systemInformationToolStripMenuItem;
         private ToolStripMenuItem dxDiaxToolStripMenuItem;
         private ToolStripMenuItem viewConfigToolStripMenuItem;
-    }
+		  private PictureBox pictureBox1;
+	 }
 }
