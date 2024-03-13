@@ -17,7 +17,7 @@ internal static class Program
 		Native.CreateMutex(IntPtr.Zero, true, @"GenshinFPSUnlocker");
 		if (Marshal.GetLastWin32Error() == 183)
 		{
-			MessageBox.Show(Resources.Program_AnotherUnlockerIsAlreadyRunning, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show(Resources.Program_AnotherUnlockerIsAlreadyRunning, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			return;
 		}
 
