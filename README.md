@@ -28,3 +28,6 @@
 
 ## Compiling
 Use `Visual Studio 2022 Community Edition` to compile.
+
+## Credits
+<a href="https://www.flaticon.com/free-icons/cat" title="cat icons">Cat icons created by Freepik - Flaticon</a>
