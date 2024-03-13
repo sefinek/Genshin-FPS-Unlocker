@@ -137,6 +137,24 @@ namespace unlockfps_nc.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to File not found.
+        /// </summary>
+        internal static string MainForm_ViewCfg_FileNotFound {
+            get {
+                return ResourceManager.GetString("MainForm_ViewCfg_FileNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The unlocker.config.json file was not found..
+        /// </summary>
+        internal static string MainForm_ViewCfg_TheUnlockerConfigJsonFileWasNotFound {
+            get {
+                return ResourceManager.GetString("MainForm_ViewCfg_TheUnlockerConfigJsonFileWasNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Another unlocker is already running..
         /// </summary>
         internal static string Program_AnotherUnlockerIsAlreadyRunning {

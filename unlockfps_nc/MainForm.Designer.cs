@@ -29,6 +29,7 @@ namespace unlockfps_nc
 		  private void InitializeComponent()
 		  {
 				components = new System.ComponentModel.Container();
+				System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 				OptionsMenuStrip = new MenuStrip();
 				openToolStripMenuItem = new ToolStripMenuItem();
 				stellaModLauncherToolStripMenuItem = new ToolStripMenuItem();
@@ -228,7 +229,7 @@ namespace unlockfps_nc
 				LabelFPS.Anchor = AnchorStyles.None;
 				LabelFPS.AutoSize = true;
 				LabelFPS.ForeColor = Color.White;
-				LabelFPS.Location = new Point(141, 58);
+				LabelFPS.Location = new Point(138, 57);
 				LabelFPS.Name = "LabelFPS";
 				LabelFPS.Size = new Size(29, 15);
 				LabelFPS.TabIndex = 1;
@@ -239,7 +240,7 @@ namespace unlockfps_nc
 				InputFPS.Anchor = AnchorStyles.None;
 				InputFPS.BackColor = Color.FromArgb(47, 49, 54);
 				InputFPS.ForeColor = Color.White;
-				InputFPS.Location = new Point(188, 54);
+				InputFPS.Location = new Point(188, 53);
 				InputFPS.Maximum = new decimal(new int[] { 420, 0, 0, 0 });
 				InputFPS.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
 				InputFPS.Name = "InputFPS";
@@ -250,11 +251,11 @@ namespace unlockfps_nc
 				// SliderFPS
 				// 
 				SliderFPS.Anchor = AnchorStyles.None;
-				SliderFPS.Location = new Point(141, 83);
+				SliderFPS.Location = new Point(133, 84);
 				SliderFPS.Maximum = 420;
 				SliderFPS.Minimum = 1;
 				SliderFPS.Name = "SliderFPS";
-				SliderFPS.Size = new Size(287, 45);
+				SliderFPS.Size = new Size(302, 45);
 				SliderFPS.TabIndex = 3;
 				SliderFPS.TickStyle = TickStyle.None;
 				SliderFPS.Value = 120;
@@ -264,7 +265,7 @@ namespace unlockfps_nc
 				CBAutoStart.Anchor = AnchorStyles.None;
 				CBAutoStart.AutoSize = true;
 				CBAutoStart.ForeColor = Color.White;
-				CBAutoStart.Location = new Point(141, 111);
+				CBAutoStart.Location = new Point(141, 120);
 				CBAutoStart.Name = "CBAutoStart";
 				CBAutoStart.Size = new Size(158, 19);
 				CBAutoStart.TabIndex = 4;
@@ -275,7 +276,7 @@ namespace unlockfps_nc
 				// BtnStartGame
 				// 
 				BtnStartGame.Anchor = AnchorStyles.None;
-				BtnStartGame.Location = new Point(331, 108);
+				BtnStartGame.Location = new Point(331, 117);
 				BtnStartGame.Name = "BtnStartGame";
 				BtnStartGame.Size = new Size(97, 23);
 				BtnStartGame.TabIndex = 5;
@@ -289,6 +290,7 @@ namespace unlockfps_nc
 				NotifyIconMain.BalloonTipText = "The program has been minimized to the system tray. You can change the FPS limit even during the game.";
 				NotifyIconMain.BalloonTipTitle = "Genshin FPS Unlocker";
 				NotifyIconMain.ContextMenuStrip = ContextNotify;
+				NotifyIconMain.Icon = (Icon)resources.GetObject("NotifyIconMain.Icon");
 				NotifyIconMain.Text = "FPS Unlocker";
 				NotifyIconMain.Visible = true;
 				NotifyIconMain.DoubleClick += NotifyIconMain_DoubleClick;

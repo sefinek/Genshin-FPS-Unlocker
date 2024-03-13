@@ -163,7 +163,11 @@ public partial class MainForm : Form
 
 	private void ViewCfg_Click(object sender, EventArgs e)
 	{
-		Process.Start("dxdiag.exe");
+		string appPath = AppDomain.CurrentDomain.BaseDirectory;
+		string cfgPath = Path.Combine(appPath, "unlocker.config.json");
+		if (!File.Exists(cfgPath)) MessageBox.Show(Resources.MainForm_ViewCfg_TheUnlockerConfigJsonFileWasNotFound, Resources.MainForm_ViewCfg_FileNotFound, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+		Process.Start("notepad.exe", cfgPath);
 	}
 
 
@@ -184,7 +188,7 @@ public partial class MainForm : Form
 
 	private void FpsUnlocker_Click(object sender, EventArgs e)
 	{
-		AboutForm.OpenLink("https://github.com/sefinek24/genshin-fps-unlock");
+		AboutForm.OpenLink("https://github.com/sefinek24/Genshin-FPS-Unlocker");
 	}
 
 	private void SefinGitHub_Click(object sender, EventArgs e)
