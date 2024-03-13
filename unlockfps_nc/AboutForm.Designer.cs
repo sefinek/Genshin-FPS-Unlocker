@@ -39,9 +39,9 @@ namespace unlockfps_nc
 				LabelTitle.Anchor = AnchorStyles.None;
 				LabelTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
 				LabelTitle.ForeColor = Color.White;
-				LabelTitle.Location = new Point(40, 17);
+				LabelTitle.Location = new Point(12, 20);
 				LabelTitle.Name = "LabelTitle";
-				LabelTitle.Size = new Size(366, 44);
+				LabelTitle.Size = new Size(473, 44);
 				LabelTitle.TabIndex = 0;
 				LabelTitle.Text = "Genshin FPS Unlocker\r\nv{0}";
 				LabelTitle.TextAlign = ContentAlignment.TopCenter;
@@ -50,24 +50,24 @@ namespace unlockfps_nc
 				// 
 				LabelDescription.Anchor = AnchorStyles.None;
 				LabelDescription.ForeColor = Color.White;
-				LabelDescription.Location = new Point(40, 67);
+				LabelDescription.Location = new Point(12, 81);
 				LabelDescription.Name = "LabelDescription";
-				LabelDescription.Size = new Size(366, 20);
+				LabelDescription.Size = new Size(473, 37);
 				LabelDescription.TabIndex = 1;
-				LabelDescription.Text = "This program is free and open source.";
+				LabelDescription.Text = "This program is only a fork of 34736384/genshin-fps-unlock that has been prepared for compatibility with Stella Mod.";
 				LabelDescription.TextAlign = ContentAlignment.MiddleCenter;
 				// 
 				// LinkLabelSource
 				// 
 				LinkLabelSource.Anchor = AnchorStyles.None;
 				LinkLabelSource.ForeColor = Color.White;
-				LinkLabelSource.LinkArea = new LinkArea(5, 47);
-				LinkLabelSource.Location = new Point(40, 87);
+				LinkLabelSource.LinkArea = new LinkArea(5, 49);
+				LinkLabelSource.Location = new Point(65, 116);
 				LinkLabelSource.Name = "LinkLabelSource";
 				LinkLabelSource.Size = new Size(366, 20);
 				LinkLabelSource.TabIndex = 2;
 				LinkLabelSource.TabStop = true;
-				LinkLabelSource.Text = "See: https://github.com/sefinek24/genshin-fps-unlock";
+				LinkLabelSource.Text = "See: https://github.com/sefinek24/Genshin-FPS-Unlocker";
 				LinkLabelSource.TextAlign = ContentAlignment.MiddleCenter;
 				LinkLabelSource.UseCompatibleTextRendering = true;
 				LinkLabelSource.LinkClicked += LinkLabelSource_LinkClicked;
@@ -76,27 +76,28 @@ namespace unlockfps_nc
 				// 
 				LinkLabelIssues.Anchor = AnchorStyles.None;
 				LinkLabelIssues.ForeColor = Color.White;
-				LinkLabelIssues.LinkArea = new LinkArea(84, 54);
-				LinkLabelIssues.Location = new Point(40, 117);
+				LinkLabelIssues.LinkArea = new LinkArea(84, 56);
+				LinkLabelIssues.Location = new Point(12, 149);
 				LinkLabelIssues.Name = "LinkLabelIssues";
-				LinkLabelIssues.Size = new Size(366, 67);
+				LinkLabelIssues.Size = new Size(473, 49);
 				LinkLabelIssues.TabIndex = 3;
 				LinkLabelIssues.TabStop = true;
-				LinkLabelIssues.Text = "If you encounter any problems or have a suggestion\r\nGo ahead and submit an issue at\r\n\r\nhttps://github.com/sefinek24/genshin-fps-unlock/issues\r\n\r\n";
+				LinkLabelIssues.Text = "If you encounter any problems or have a suggestion\r\nGo ahead and submit an issue at:\r\nhttps://github.com/sefinek24/Genshin-FPS-Unlocker/issues\r\n\r\n";
 				LinkLabelIssues.TextAlign = ContentAlignment.MiddleCenter;
 				LinkLabelIssues.UseCompatibleTextRendering = true;
 				LinkLabelIssues.LinkClicked += LinkLabelIssues_LinkClicked;
 				// 
 				// AboutForm
 				// 
-				AutoScaleDimensions = new SizeF(7F, 15F);
-				AutoScaleMode = AutoScaleMode.Font;
+				AutoScaleDimensions = new SizeF(96F, 96F);
+				AutoScaleMode = AutoScaleMode.Dpi;
 				BackColor = Color.FromArgb(22, 22, 22);
-				ClientSize = new Size(446, 204);
+				ClientSize = new Size(497, 217);
 				Controls.Add(LinkLabelIssues);
 				Controls.Add(LinkLabelSource);
 				Controls.Add(LabelDescription);
 				Controls.Add(LabelTitle);
+				DoubleBuffered = true;
 				ForeColor = Color.White;
 				FormBorderStyle = FormBorderStyle.FixedDialog;
 				MaximizeBox = false;

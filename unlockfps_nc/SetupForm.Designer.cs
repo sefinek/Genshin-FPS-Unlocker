@@ -122,8 +122,8 @@ namespace unlockfps_nc
 				// 
 				// SetupForm
 				// 
-				AutoScaleDimensions = new SizeF(7F, 15F);
-				AutoScaleMode = AutoScaleMode.Font;
+				AutoScaleDimensions = new SizeF(96F, 96F);
+				AutoScaleMode = AutoScaleMode.Dpi;
 				BackColor = Color.FromArgb(32, 34, 40);
 				ClientSize = new Size(459, 211);
 				Controls.Add(LabelResult);
@@ -133,6 +133,7 @@ namespace unlockfps_nc
 				Controls.Add(LabelHint);
 				Controls.Add(ComboResult);
 				Controls.Add(LabelSelect);
+				DoubleBuffered = true;
 				FormBorderStyle = FormBorderStyle.FixedDialog;
 				MaximizeBox = false;
 				MinimizeBox = false;

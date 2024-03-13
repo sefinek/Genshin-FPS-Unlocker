@@ -320,8 +320,8 @@ namespace unlockfps_nc
 				// 
 				// MainForm
 				// 
-				AutoScaleDimensions = new SizeF(7F, 15F);
-				AutoScaleMode = AutoScaleMode.Font;
+				AutoScaleDimensions = new SizeF(96F, 96F);
+				AutoScaleMode = AutoScaleMode.Dpi;
 				BackColor = Color.FromArgb(54, 57, 63);
 				ClientSize = new Size(446, 161);
 				Controls.Add(pictureBox1);
