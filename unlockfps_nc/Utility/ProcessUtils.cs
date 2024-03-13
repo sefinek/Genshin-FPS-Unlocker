@@ -7,10 +7,7 @@ internal static class ProcessUtils
 {
 	public static string GetProcessPathFromPid(uint pid, out IntPtr processHandle)
 	{
-		IntPtr hProcess = Native.OpenProcess(
-			ProcessAccess.QUERY_LIMITED_INFORMATION |
-			ProcessAccess.TERMINATE |
-			StandardAccess.SYNCHRONIZE, false, pid);
+		IntPtr hProcess = Native.OpenProcess(ProcessAccess.QUERY_LIMITED_INFORMATION | ProcessAccess.TERMINATE | StandardAccess.SYNCHRONIZE, false, pid);
 
 		processHandle = hProcess;
 
@@ -39,9 +36,9 @@ internal static class ProcessUtils
 			byte[] bytes = Encoding.Unicode.GetBytes(dllPath);
 			Marshal.FreeHGlobal(nativeString);
 
-			if (!Native.WriteProcessMemory(processHandle, remoteVa, bytes, bytes.Length, out int bytesWritten)) return false;
+			if (!Native.WriteProcessMemory(processHandle, remoteVa, bytes, bytes.Length, out int _)) return false;
 
-			IntPtr thread = Native.CreateRemoteThread(processHandle, IntPtr.Zero, 0, loadLibrary, remoteVa, 0, out uint threadId);
+			IntPtr thread = Native.CreateRemoteThread(processHandle, IntPtr.Zero, 0, loadLibrary, remoteVa, 0, out uint _);
 			if (thread == IntPtr.Zero) return false;
 
 			Native.WaitForSingleObject(thread, uint.MaxValue);
@@ -58,8 +55,10 @@ internal static class ProcessUtils
 	{
 		string[] tokens = signature.Split(' ');
 		byte[] patternBytes = tokens
-			.ToList()
 			.Select(x => x == "?" ? (byte)0xFF : Convert.ToByte(x, 16))
+			.ToArray();
+		bool[] maskBytes = tokens
+			.Select(x => x == "?")
 			.ToArray();
 
 		IMAGE_DOS_HEADER dosHeader = Marshal.PtrToStructure<IMAGE_DOS_HEADER>(module);
@@ -73,14 +72,13 @@ internal static class ProcessUtils
 		{
 			bool found = true;
 			for (int j = 0; j < s; j++)
-				if (patternBytes[j] != scanBytes[i + j] && patternBytes[j] != 0xFF)
+				if (patternBytes[j] != scanBytes[i + j] && !maskBytes[j])
 				{
 					found = false;
 					break;
 				}
 
-			if (found)
-				return (IntPtr)(module.ToInt64() + i);
+			if (found) return (IntPtr)(module.ToInt64() + i);
 		}
 
 		return IntPtr.Zero;
@@ -90,7 +88,7 @@ internal static class ProcessUtils
 	{
 		IntPtr[] modules = new IntPtr[1024];
 
-		if (!Native.EnumProcessModules(hProcess, modules, (uint)(modules.Length * IntPtr.Size), out uint bytesNeeded))
+		if (!Native.EnumProcessModules(hProcess, modules, (uint)(modules.Length * IntPtr.Size), out uint _))
 			if (Marshal.GetLastWin32Error() != 299)
 				return IntPtr.Zero;
 
