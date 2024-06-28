@@ -131,6 +131,22 @@ public partial class SetupForm : Form
 				gamePaths.Add($@"{gamePath}\{gameName}".Replace('/', '\\'));
 			}
 
+			using RegistryKey? localMachineKeyGlobal = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\HYP_1_0_global");
+			string installPath1 = localMachineKeyGlobal?.GetValue("InstallPath") as string ?? string.Empty;
+			if (!string.IsNullOrEmpty(installPath1))
+			{
+				string game = Path.Combine(installPath1, "games", "Genshin Impact game", "GenshinImpact.exe");
+				if (File.Exists(game)) gamePaths.Add(game);
+			}
+
+			using RegistryKey? localMachineKeyCn = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\HYP_1_1_cn");
+			string installPath2 = localMachineKeyCn?.GetValue("InstallPath") as string ?? string.Empty;
+			if (!string.IsNullOrEmpty(installPath2))
+			{
+				string game = Path.Combine(installPath2, "games", "Genshin Impact game", "YuanShen.exe");
+				if (File.Exists(game)) gamePaths.Add(game);
+			}
+
 			Invoke(() =>
 			{
 				LabelResult.ForeColor = gamePaths.Count > 0 ? Color.Green : Color.Red;

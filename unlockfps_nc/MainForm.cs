@@ -64,7 +64,7 @@ public partial class MainForm : Form
 		if (!File.Exists(_config!.GamePath))
 			ShowSetupForm();
 
-		if (_processService.Start())
+		if (File.Exists(_config!.GamePath) && _processService.Start())
 			WindowState = FormWindowState.Minimized;
 	}
 
