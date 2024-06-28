@@ -19,7 +19,7 @@ public class ProcessService
 		0x00000040
 	};
 
-	private readonly Config _config;
+	private readonly Config? _config;
 
 	private readonly ConfigService _configService;
 

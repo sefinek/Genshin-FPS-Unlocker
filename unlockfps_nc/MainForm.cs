@@ -1,12 +1,15 @@
+using System.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Win32;
 using unlockfps_nc.Model;
+using unlockfps_nc.Properties;
 using unlockfps_nc.Service;
 
 namespace unlockfps_nc;
 
 public partial class MainForm : Form
 {
-	private readonly Config _config;
+	private readonly Config? _config;
 
 	private readonly ConfigService _configService;
 	private readonly ProcessService _processService;
@@ -106,7 +109,92 @@ public partial class MainForm : Form
 
 	private void AboutMenuItem_Click(object sender, EventArgs e)
 	{
-		AboutForm aboutForm = new AboutForm();
+		AboutForm aboutForm = new();
 		aboutForm.ShowDialog();
+	}
+
+
+	private void OpenStella_Click(object sender, EventArgs e)
+	{
+		try
+		{
+			using RegistryKey? key = Registry.CurrentUser.OpenSubKey(Program.RegistryPath);
+
+			if (key != null)
+			{
+				object? o = key.GetValue("StellaPath");
+				if (o != null)
+				{
+					string? stellaPath = o.ToString();
+					string exePath = Path.Combine(stellaPath!, "Stella Mod Launcher.exe");
+
+					ProcessStartInfo startInfo = new()
+					{
+						FileName = exePath,
+						WorkingDirectory = stellaPath
+					};
+
+					Process.Start(startInfo);
+				}
+				else
+				{
+					MessageBox.Show(Resources.MainForm_KeyStellaPathNotFound, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
+			else
+			{
+				MessageBox.Show(string.Format(Resources.MainForm_RegistryKeySOFTWAREStellaModLauncherNotFound, Program.RegistryPath), Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+		catch (Exception ex)
+		{
+			MessageBox.Show(string.Format(Resources.MainForm_AnErrorOccurred, ex.Message), Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+	}
+
+	private void SysInf_Click(object sender, EventArgs e)
+	{
+		Process.Start("msinfo32.exe");
+	}
+
+	private void DxDiag_Click(object sender, EventArgs e)
+	{
+		Process.Start("dxdiag.exe");
+	}
+
+
+	private void ViewCfg_Click(object sender, EventArgs e)
+	{
+		string appPath = AppDomain.CurrentDomain.BaseDirectory;
+		string cfgPath = Path.Combine(appPath, "unlocker.config.json");
+		if (!File.Exists(cfgPath)) MessageBox.Show(Resources.MainForm_ViewCfg_TheUnlockerConfigJsonFileWasNotFound, Resources.MainForm_ViewCfg_FileNotFound, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+		Process.Start("notepad.exe", cfgPath);
+	}
+
+
+	private void OfficialWebsite_Click(object sender, EventArgs e)
+	{
+		AboutForm.OpenLink("https://sefinek.net");
+	}
+
+	private void YouTube_Click(object sender, EventArgs e)
+	{
+		AboutForm.OpenLink("https://www.youtube.com/channel/UClrAIcAzcqIMbvGXZqK7e0A");
+	}
+
+	private void GIReShade_Click(object sender, EventArgs e)
+	{
+		AboutForm.OpenLink("https://github.com/sefinek24/Genshin-Impact-ReShade");
+	}
+
+	private void FpsUnlocker_Click(object sender, EventArgs e)
+	{
+		AboutForm.OpenLink("https://github.com/sefinek24/Genshin-FPS-Unlocker");
+	}
+
+	private void SefinGitHub_Click(object sender, EventArgs e)
+	{
+		AboutForm.OpenLink("https://github.com/sefinek24");
 	}
 }

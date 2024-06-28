@@ -1,9 +1,9 @@
-﻿using System.Runtime.InteropServices;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace unlockfps_nc.Utility;
 
-internal class Native
+internal static class Native
 {
 	public delegate bool EnumWindowsProc(IntPtr hWnd, IntPtr lParam);
 
@@ -92,7 +92,7 @@ internal class Native
 	public static extern void FreeLibrary(IntPtr handle);
 
 	[DllImport("kernel32.dll", SetLastError = true)]
-	public static extern IntPtr GetModuleHandle(string lpModuleName);
+	private static extern IntPtr GetModuleHandle(string lpModuleName);
 
 	[DllImport("kernel32.dll")]
 	public static extern IntPtr GetProcAddress(IntPtr hModule, string procedureName);
@@ -172,7 +172,7 @@ internal static class ProcessAccess
 internal static class StandardAccess
 {
 	public const uint DELETE = 0x00010000;
-	public const uint READ_CONTROL = 0x00020000;
+	private const uint READ_CONTROL = 0x00020000;
 	public const uint WRITE_DAC = 0x00040000;
 	public const uint WRITE_OWNER = 0x00080000;
 	public const uint SYNCHRONIZE = 0x00100000;

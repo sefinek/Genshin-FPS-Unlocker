@@ -1,9 +1,9 @@
-﻿using System.Runtime.InteropServices;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace unlockfps_nc.Utility;
 
-internal class ProcessUtils
+internal static class ProcessUtils
 {
 	public static string GetProcessPathFromPid(uint pid, out IntPtr processHandle)
 	{
@@ -19,10 +19,7 @@ internal class ProcessUtils
 
 		StringBuilder sb = new(1024);
 		uint bufferSize = (uint)sb.Capacity;
-		if (!Native.QueryFullProcessImageName(hProcess, 0, sb, ref bufferSize))
-			return string.Empty;
-
-		return sb.ToString();
+		return !Native.QueryFullProcessImageName(hProcess, 0, sb, ref bufferSize) ? string.Empty : sb.ToString();
 	}
 
 	public static bool InjectDlls(IntPtr processHandle, List<string> dllPaths)
@@ -80,7 +77,6 @@ internal class ProcessUtils
 		byte* scanBytes = (byte*)module;
 
 		int s = patternBytes.Length;
-		byte[] d = patternBytes;
 
 		if (Native.IsWine())
 			/*
@@ -94,14 +90,13 @@ internal class ProcessUtils
 		{
 			bool found = true;
 			for (int j = 0; j < s; j++)
-				if (d[j] != scanBytes[i + j] && !maskBytes[j])
+				if (patternBytes[j] != scanBytes[i + j] && !maskBytes[j])
 				{
 					found = false;
 					break;
 				}
 
-			if (found)
-				return (IntPtr)(module.ToInt64() + i);
+			if (found) return (IntPtr)(module.ToInt64() + i);
 		}
 
 		return IntPtr.Zero;
@@ -117,8 +112,7 @@ internal class ProcessUtils
 			int errorCode = Marshal.GetLastWin32Error();
 			if (errorCode != 299)
 			{
-				MessageBox.Show($@"EnumProcessModulesEx failed ({errorCode}){Environment.NewLine}{Marshal.GetLastPInvokeErrorMessage()}"
-					, @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show($@"EnumProcessModulesEx failed ({errorCode}){Environment.NewLine}{Marshal.GetLastPInvokeErrorMessage()}", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return IntPtr.Zero;
 			}
 		}

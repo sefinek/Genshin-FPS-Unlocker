@@ -8,7 +8,7 @@ namespace unlockfps_nc;
 
 public partial class SetupForm : Form
 {
-	private readonly Config _config;
+	private readonly Config? _config;
 
 	private readonly ConfigService _configService;
 	private CancellationTokenSource _cts;
@@ -44,7 +44,7 @@ public partial class SetupForm : Form
 
 		while (!_cts.Token.IsCancellationRequested)
 		{
-			await Task.Delay(1000);
+			await Task.Delay(1000).ConfigureAwait(false);
 			IntPtr windowHandle = IntPtr.Zero;
 			IntPtr processHandle = IntPtr.Zero;
 			string processPath = string.Empty;
@@ -78,13 +78,11 @@ public partial class SetupForm : Form
 
 			if (string.IsNullOrEmpty(processPath))
 			{
-				MessageBox.Show(@"Failed to find process path\nPlease use ""Browse"" instead", @"Error",
-					MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Failed to find process path\nPlease use \"Browse\" instead", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 
-			MessageBox.Show($@"Game Found!{Environment.NewLine}{processPath}", @"Success", MessageBoxButtons.OK,
-				MessageBoxIcon.Information);
+			MessageBox.Show($@"Game Found!{Environment.NewLine}{processPath}", @"Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 			_config.GamePath = processPath;
 			Invoke(Close);
@@ -93,7 +91,7 @@ public partial class SetupForm : Form
 
 	private void SearchGamePath()
 	{
-		List<RegistryKey> openedSubKeys = new();
+		List<RegistryKey> openedSubKeys = [];
 
 		try
 		{
@@ -108,19 +106,19 @@ public partial class SetupForm : Form
 				.Where(key => key != null)
 				.ToList();
 
-			subKeys.ForEach(openedSubKeys.Add);
+			subKeys.ForEach(openedSubKeys.Add!);
 
 			List<string> launcherIniPaths = subKeys
-				.Select(key => (string)key.GetValue("InstallPath"))
+				.Select(key => (string)key?.GetValue("InstallPath")!)
 				.Where(path => !string.IsNullOrEmpty(path) && Directory.Exists(path))
 				.Select(launcherPath => $@"{launcherPath}\config.ini")
 				.ToList();
 
-			List<string> gamePaths = new();
+			List<string> gamePaths = [];
 			foreach (string configPath in launcherIniPaths)
 			{
 				IEnumerable<string> configLines = File.ReadLines(configPath);
-				Dictionary<string, string> ini = new();
+				Dictionary<string, string> ini = [];
 				foreach (string line in configLines)
 				{
 					string[] split = line.Split('=', StringSplitOptions.RemoveEmptyEntries);
@@ -137,6 +135,22 @@ public partial class SetupForm : Form
 					continue;
 
 				gamePaths.Add($@"{gamePath}\{gameName}".Replace('/', '\\'));
+			}
+
+			using RegistryKey? localMachineKeyGlobal = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\HYP_1_0_global");
+			string installPath1 = localMachineKeyGlobal?.GetValue("InstallPath") as string ?? string.Empty;
+			if (!string.IsNullOrEmpty(installPath1))
+			{
+				string game = Path.Combine(installPath1, "games", "Genshin Impact game", "GenshinImpact.exe");
+				if (File.Exists(game)) gamePaths.Add(game);
+			}
+
+			using RegistryKey? localMachineKeyCn = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\HYP_1_1_cn");
+			string installPath2 = localMachineKeyCn?.GetValue("InstallPath") as string ?? string.Empty;
+			if (!string.IsNullOrEmpty(installPath2))
+			{
+				string game = Path.Combine(installPath2, "games", "Genshin Impact game", "YuanShen.exe");
+				if (File.Exists(game)) gamePaths.Add(game);
 			}
 
 			Invoke(() =>
@@ -184,7 +198,7 @@ public partial class SetupForm : Form
 
 	private void BtnConfirm_Click(object sender, EventArgs e)
 	{
-		string? selectedPath = (string)ComboResult.SelectedItem;
+		string selectedPath = (string)ComboResult.SelectedItem!;
 		if (string.IsNullOrEmpty(selectedPath))
 			return;
 

@@ -1,4 +1,4 @@
-﻿using System.Reflection.PortableExecutable;
+using System.Reflection.PortableExecutable;
 using unlockfps_nc.Model;
 using unlockfps_nc.Service;
 
@@ -6,7 +6,7 @@ namespace unlockfps_nc;
 
 public partial class SettingsForm : Form
 {
-	private readonly Config _config;
+	private readonly Config? _config;
 	private readonly ConfigService _configService;
 
 	public SettingsForm(ConfigService configService)
@@ -63,7 +63,7 @@ public partial class SettingsForm : Form
 		ComboFullscreenMode.Enabled = _config is { Fullscreen: true, PopupWindow: false };
 	}
 
-	public void LaunchOptionsChanged(object sender, EventArgs e)
+	private void LaunchOptionsChanged(object sender, EventArgs e)
 	{
 		UpdateControlState();
 	}
@@ -95,7 +95,7 @@ public partial class SettingsForm : Form
 		RefreshDllList();
 	}
 
-	private bool VerifyDll(string fullPath)
+	private static bool VerifyDll(string fullPath)
 	{
 		if (!File.Exists(fullPath))
 			return false;

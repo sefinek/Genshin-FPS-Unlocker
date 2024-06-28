@@ -140,7 +140,7 @@ public class IpcService : IDisposable
 
 		string processPath = Path.GetDirectoryName(assembly.Location) ?? "";
 		string filePath = Path.Combine(processPath, "UnlockerStub.dll");
-		using FileStream fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write);
+		using FileStream fileStream = new(filePath, FileMode.Create, FileAccess.Write);
 		stream.CopyTo(fileStream);
 
 		return filePath;

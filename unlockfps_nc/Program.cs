@@ -8,6 +8,7 @@ namespace unlockfps_nc;
 internal static class Program
 {
 	private static IntPtr MutexHandle = IntPtr.Zero;
+	public static readonly string RegistryPath = @"Software\Stella Mod Launcher";
 	public static IServiceProvider ServiceProvider { get; private set; }
 
 	[STAThread]
@@ -26,7 +27,7 @@ internal static class Program
 			return;
 		}
 
-		ServiceCollection services = new ServiceCollection();
+		ServiceCollection services = new();
 		services.AddTransient<MainForm>();
 		services.AddTransient<SettingsForm>();
 		services.AddTransient<SetupForm>();
