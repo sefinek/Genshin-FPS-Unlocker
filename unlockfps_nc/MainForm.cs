@@ -16,9 +16,7 @@ public partial class MainForm : Form
 	private Point _windowLocation;
 	private Size _windowSize;
 
-	public MainForm(
-		ConfigService configService,
-		ProcessService processService)
+	public MainForm(ConfigService configService, ProcessService processService)
 	{
 		InitializeComponent();
 		_configService = configService;
@@ -29,7 +27,7 @@ public partial class MainForm : Form
 
 	private void SettingsMenuItem_Click(object sender, EventArgs e)
 	{
-		SettingsForm settingsForm = Program.ServiceProvider.GetRequiredService<SettingsForm>();
+		SettingsForm settingsForm = Program.ServiceProvider!.GetRequiredService<SettingsForm>();
 		settingsForm.ShowDialog();
 	}
 
@@ -44,15 +42,16 @@ public partial class MainForm : Form
 	{
 		_windowLocation = Location;
 		_windowSize = Size;
-		if (_config.AutoStart)
-			BtnStartGame_Click(null, null);
+		if (_config!.AutoStart) BtnStartGame_Click(null, null);
+
+		Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
 	}
 
 	private void SetupBindings()
 	{
-		InputFPS.DataBindings.Add("Value", _config, "FPSTarget", true, DataSourceUpdateMode.OnPropertyChanged);
-		SliderFPS.DataBindings.Add("Value", _config, "FPSTarget", true, DataSourceUpdateMode.OnPropertyChanged);
-		CBAutoStart.DataBindings.Add("Checked", _config, "AutoStart", true, DataSourceUpdateMode.OnPropertyChanged);
+		InputFPS.DataBindings.Add("Value", _config!, "FPSTarget", true, DataSourceUpdateMode.OnPropertyChanged);
+		SliderFPS.DataBindings.Add("Value", _config!, "FPSTarget", true, DataSourceUpdateMode.OnPropertyChanged);
+		CBAutoStart.DataBindings.Add("Checked", _config!, "AutoStart", true, DataSourceUpdateMode.OnPropertyChanged);
 	}
 
 	private void SetupMenuItem_Click(object sender, EventArgs e)
@@ -60,18 +59,18 @@ public partial class MainForm : Form
 		ShowSetupForm();
 	}
 
-	private void BtnStartGame_Click(object sender, EventArgs e)
+	private void BtnStartGame_Click(object? sender, EventArgs? e)
 	{
-		if (!File.Exists(_config.GamePath))
+		if (!File.Exists(_config!.GamePath))
 			ShowSetupForm();
 
-		if (_processService.Start())
+		if (File.Exists(_config!.GamePath) && _processService.Start())
 			WindowState = FormWindowState.Minimized;
 	}
 
-	private void ShowSetupForm()
+	private static void ShowSetupForm()
 	{
-		SetupForm setupForm = Program.ServiceProvider.GetRequiredService<SetupForm>();
+		SetupForm setupForm = Program.ServiceProvider!.GetRequiredService<SetupForm>();
 		setupForm.ShowDialog();
 	}
 
@@ -82,14 +81,13 @@ public partial class MainForm : Form
 
 	private void MainForm_Resize(object sender, EventArgs e)
 	{
-		if (WindowState == FormWindowState.Minimized)
-			NotifyAndHide();
+		if (WindowState == FormWindowState.Minimized) NotifyAndHide();
 	}
 
 	private void NotifyAndHide()
 	{
 		NotifyIconMain.Visible = true;
-		NotifyIconMain.Text = $@"FPS Unlocker (FPS: {_config.FPSTarget})";
+		NotifyIconMain.Text = string.Format(Resources.MainForm_GenshinFPSUnlocker_CurrentLimit, _config!.FPSTarget);
 		NotifyIconMain.ShowBalloonTip(500);
 
 		ShowInTaskbar = false;

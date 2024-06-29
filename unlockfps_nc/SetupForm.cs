@@ -1,6 +1,7 @@
 using System.Text;
 using Microsoft.Win32;
 using unlockfps_nc.Model;
+using unlockfps_nc.Properties;
 using unlockfps_nc.Service;
 using unlockfps_nc.Utility;
 
@@ -11,7 +12,7 @@ public partial class SetupForm : Form
 	private readonly Config? _config;
 
 	private readonly ConfigService _configService;
-	private CancellationTokenSource _cts;
+	private CancellationTokenSource? _cts;
 
 	public SetupForm(ConfigService configService)
 	{
@@ -25,15 +26,15 @@ public partial class SetupForm : Form
 		_cts = new CancellationTokenSource();
 		Task.Run(PollProcess, _cts.Token);
 
-		LabelCurrentPath.Text = $@"Current Path: {_config.GamePath}";
-		LabelResult.Text = @"Searching...";
+		LabelCurrentPath.Text = string.Format(Resources.SetupForm_CurrentPath, _config!.GamePath);
+		LabelResult.Text = Resources.SetupForm_Searching;
 		LabelResult.ForeColor = Color.Orange;
 		Task.Run(SearchGamePath, _cts.Token);
 	}
 
 	private void SetupForm_FormClosing(object sender, FormClosingEventArgs e)
 	{
-		_cts.Cancel();
+		_cts?.Cancel();
 		_configService.Save();
 	}
 
@@ -42,32 +43,25 @@ public partial class SetupForm : Form
 		// System.Diagnostics.Process will throw access denied
 		// use native win32 api instead
 
-		while (!_cts.Token.IsCancellationRequested)
+		while (!_cts!.Token.IsCancellationRequested)
 		{
 			await Task.Delay(1000).ConfigureAwait(false);
 			IntPtr windowHandle = IntPtr.Zero;
 			IntPtr processHandle = IntPtr.Zero;
 			string processPath = string.Empty;
 
-			Native.EnumWindows((hWnd, lParam) =>
+			Native.EnumWindows((hWnd, _) =>
 			{
 				const int maxCount = 256;
 				StringBuilder sb = new(maxCount);
 
 				Native.GetClassName(hWnd, sb, maxCount);
-				if (sb.ToString() == "UnityWndClass")
-				{
-					windowHandle = hWnd;
-					Native.GetWindowThreadProcessId(hWnd, out uint pid);
-					string foundPath = ProcessUtils.GetProcessPathFromPid(pid, out processHandle);
-					if (!foundPath.Contains("YuanShen.exe") && !foundPath.Contains("GenshinImpact.exe"))
-						return true;
+				if (sb.ToString() != "UnityWndClass") return true;
 
-					processPath = foundPath;
-					return false;
-				}
-
-				return true;
+				windowHandle = hWnd;
+				Native.GetWindowThreadProcessId(hWnd, out uint pid);
+				processPath = ProcessUtils.GetProcessPathFromPid(pid, out processHandle);
+				return false;
 			}, IntPtr.Zero);
 
 			if (windowHandle == IntPtr.Zero)
@@ -78,13 +72,13 @@ public partial class SetupForm : Form
 
 			if (string.IsNullOrEmpty(processPath))
 			{
-				MessageBox.Show("Failed to find process path\nPlease use \"Browse\" instead", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(Resources.SetupForm_FailedToFindProcessPath, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 
-			MessageBox.Show($@"Game Found!{Environment.NewLine}{processPath}", @"Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			MessageBox.Show(string.Format(Resources.SetupForm_GameFound, processPath), Resources.Success, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-			_config.GamePath = processPath;
+			_config!.GamePath = processPath;
 			Invoke(Close);
 		}
 	}
@@ -156,7 +150,7 @@ public partial class SetupForm : Form
 			Invoke(() =>
 			{
 				LabelResult.ForeColor = gamePaths.Count > 0 ? Color.Green : Color.Red;
-				LabelResult.Text = $@"Found {gamePaths.Count} installation of the game";
+				LabelResult.Text = string.Format(Resources.SetupForm_Found_0_installationOfTheGame, gamePaths.Count);
 				ComboResult.Items.AddRange(gamePaths.ToArray());
 				if (gamePaths.Count > 0)
 					ComboResult.SelectedIndex = 0;
@@ -170,8 +164,7 @@ public partial class SetupForm : Form
 
 	private void BtnBrowse_Click(object sender, EventArgs e)
 	{
-		if (BrowseDialog.ShowDialog() != DialogResult.OK)
-			return;
+		if (BrowseDialog.ShowDialog() != DialogResult.OK) return;
 
 		string selectedFile = BrowseDialog.FileName;
 		string fileName = Path.GetFileNameWithoutExtension(selectedFile);
@@ -179,30 +172,27 @@ public partial class SetupForm : Form
 
 		if (fileName != "GenshinImpact" && fileName != "YuanShen")
 		{
-			MessageBox.Show(
-				$@"Please select the game exe{Environment.NewLine}GenshinImpact.exe or YuanShen.exe",
-				@"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show(Resources.SetupForm_PleaseSelectTheGameExe, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return;
 		}
 
-		string unityPlayer = Path.Combine(directory, "UnityPlayer.dll");
+		string unityPlayer = Path.Combine(directory!, "UnityPlayer.dll");
 		if (!File.Exists(unityPlayer))
 		{
-			MessageBox.Show(@"That's not the right place", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show(Resources.SetupForm_ThatsNotTheRightPlace, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return;
 		}
 
-		_config.GamePath = selectedFile;
+		_config!.GamePath = selectedFile;
 		Close();
 	}
 
 	private void BtnConfirm_Click(object sender, EventArgs e)
 	{
-		string selectedPath = (string)ComboResult.SelectedItem!;
-		if (string.IsNullOrEmpty(selectedPath))
-			return;
+		string? selectedPath = (string)ComboResult.SelectedItem!;
+		if (string.IsNullOrEmpty(selectedPath)) return;
 
-		_config.GamePath = selectedPath;
+		_config!.GamePath = selectedPath;
 		Close();
 	}
 }

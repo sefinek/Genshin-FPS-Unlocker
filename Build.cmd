@@ -1,7 +1,7 @@
 @ECHO OFF
 SETLOCAL EnableDelayedExpansion
 
-SET "SOLUTION_PATH=.\Genshin FPS Unlocker.sln"
+SET "SOLUTION_PATH=.\unlockfps_nc.sln"
 SET "BIN_DIR=.\unlockfps_nc\bin"
 SET "OBJ_DIR=.\unlockfps_nc\obj"
 SET "RELEASE_DIR=.\unlockfps_nc\bin\Release"

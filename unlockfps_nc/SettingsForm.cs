@@ -1,5 +1,6 @@
 using System.Reflection.PortableExecutable;
 using unlockfps_nc.Model;
+using unlockfps_nc.Properties;
 using unlockfps_nc.Service;
 
 namespace unlockfps_nc;
@@ -53,8 +54,7 @@ public partial class SettingsForm : Form
 
 	private void UpdateControlState()
 	{
-		if (_config.PopupWindow) // they can't coexist (?) so disable the other
-			_config.Fullscreen = false;
+		if (_config!.PopupWindow) _config.Fullscreen = false; // They can't coexist (?) so disable the other
 
 		CBPopup.Enabled = !_config.Fullscreen;
 		CBFullscreen.Enabled = !_config.PopupWindow;
@@ -80,18 +80,17 @@ public partial class SettingsForm : Form
 
 	private void BtnAddDll_Click(object sender, EventArgs e)
 	{
-		if (DllAddDialog.ShowDialog() != DialogResult.OK)
-			return;
+		if (DllAddDialog.ShowDialog() != DialogResult.OK) return;
 
-		List<string> selectedFiles = DllAddDialog.FileNames.ToList();
+		List<string> selectedFiles = [.. DllAddDialog.FileNames];
 		selectedFiles = selectedFiles
 			.Where(x => VerifyDll(x) || MessageBox.Show(
-				$@"Invalid File: {Environment.NewLine}{x}{Environment.NewLine}{Environment.NewLine}Only native x64 dlls are supported",
-				@"Error", MessageBoxButtons.OK, MessageBoxIcon.Error) != DialogResult.OK)
-			.Where(x => !_config.DllList.Contains(x))
+				string.Format(Resources.SettingsForm_InvaildFile, x),
+				Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error) != DialogResult.OK)
+			.Where(x => _config!.DllList.Contains(x))
 			.ToList();
 
-		_config.DllList.AddRange(selectedFiles);
+		_config!.DllList.AddRange(selectedFiles);
 		RefreshDllList();
 	}
 
@@ -117,20 +116,18 @@ public partial class SettingsForm : Form
 	private void ListBoxDlls_MouseMove(object sender, MouseEventArgs e)
 	{
 		int index = ListBoxDlls.IndexFromPoint(e.Location);
-		if (index == -1)
-			return;
+		if (index == -1) return;
 
-		string toolTipText = _config.DllList[index];
+		string toolTipText = _config!.DllList[index];
 		ToolTipSettings.SetToolTip(ListBoxDlls, toolTipText);
 	}
 
 	private void BtnRemoveDll_Click(object sender, EventArgs e)
 	{
 		int selectedIndex = ListBoxDlls.SelectedIndex;
-		if (selectedIndex == -1)
-			return;
+		if (selectedIndex == -1) return;
 
-		_config.DllList.RemoveAt(selectedIndex);
+		_config!.DllList.RemoveAt(selectedIndex);
 		RefreshDllList();
 	}
 }
