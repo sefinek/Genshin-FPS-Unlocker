@@ -8,7 +8,7 @@ SET "OBJ_DIR=.\unlockfps_nc\obj"
 SET "RELEASE_DIR=.\unlockfps_nc\bin\Release"
 SET "UPLOAD_DIR=Upload"
 SET "ORIGINAL_ZIP=%UPLOAD_DIR%\genshin-fps-unlocker.zip"
-SET "CHECKSUM_TXT=%UPLOAD_DIR%\checksum.txt"
+SET "CHECKSUMS_TXT=%UPLOAD_DIR%\checksums.txt"
 SET "HASHES=MD2 MD4 MD5 SHA1 SHA256 SHA384 SHA512"
 
 IF EXIST "%BIN_DIR%" (
@@ -75,14 +75,14 @@ IF %ERRORLEVEL% NEQ 0 (
 )
 echo Compression completed successfully! && echo. && echo.
 
-> "%CHECKSUM_TXT%" echo ------------------ %ORIGINAL_ZIP% ------------------
+> "%CHECKSUMS_TXT%" echo ------------------ %ORIGINAL_ZIP% ------------------
 
 FOR %%H IN (%HASHES%) DO (
     echo Calculating %%H hash...
     certutil -hashfile "%ORIGINAL_ZIP%" %%H | findstr /v "CertUtil" | findstr /v ":" > "temp_hash.txt"
     SET /p HASH=<"temp_hash.txt"
     SET "HASH=!HASH:* =!"
-    echo %%H: !HASH! >> "%CHECKSUM_TXT%"
+    echo %%H: !HASH! >> "%CHECKSUMS_TXT%"
     SET "HASHED_FILE_NAME=%UPLOAD_DIR%\!HASH!.%%H"
     echo %%H: !HASH!:%ORIGINAL_ZIP% > "!HASHED_FILE_NAME!"
     IF %ERRORLEVEL% NEQ 0 (
