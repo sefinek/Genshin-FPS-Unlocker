@@ -1,4 +1,4 @@
-﻿using System.IO.MemoryMappedFiles;
+using System.IO.MemoryMappedFiles;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using unlockfps_nc.Utility;
@@ -38,6 +38,7 @@ public class IpcService : IDisposable
 		Stop();
 		_sharedMemoryAccessor?.Dispose();
 		_sharedMemory?.Dispose();
+		_stubModule.Dispose();
 	}
 
 	public void Start(int processId, IntPtr pFpsValue)
@@ -83,8 +84,7 @@ public class IpcService : IDisposable
 		int retryCount = 0;
 		while (true)
 		{
-			IpcData ipcData = new();
-			_sharedMemoryAccessor.Read(0, out ipcData);
+			_sharedMemoryAccessor.Read(0, out IpcData ipcData);
 
 			if (ipcData.Status == IpcStatus.ClientReady)
 				break;
@@ -133,33 +133,29 @@ public class IpcService : IDisposable
 		_sharedMemoryAccessor?.Write(0, ref ipcData);
 	}
 
-	private string GetUnlockerStubPath()
+	private static string GetUnlockerStubPath()
 	{
 		Assembly assembly = Assembly.GetExecutingAssembly();
 		using Stream? stream = assembly.GetManifestResourceStream("unlockfps_nc.Resources.UnlockerStub.dll");
 
-		string processPath = Path.GetDirectoryName(assembly.Location) ?? "";
-		string filePath = Path.Combine(processPath, "UnlockerStub.dll");
+		string filePath = Path.Combine(AppContext.BaseDirectory, "UnlockerStub.dll");
 		using FileStream fileStream = new(filePath, FileMode.Create, FileAccess.Write);
-		stream.CopyTo(fileStream);
+		stream?.CopyTo(fileStream);
 
 		return filePath;
 	}
 
-	private IntPtr GetWindowFromProcessId(int processId)
+	private static IntPtr GetWindowFromProcessId(int processId)
 	{
 		IntPtr windowHandle = IntPtr.Zero;
 
-		Native.EnumWindows((hWnd, lParam) =>
+		Native.EnumWindows((hWnd, _) =>
 		{
 			Native.GetWindowThreadProcessId(hWnd, out uint pid);
-			if (pid == processId)
-			{
-				windowHandle = hWnd;
-				return false;
-			}
+			if (pid != processId) return true;
 
-			return true;
+			windowHandle = hWnd;
+			return false;
 		}, IntPtr.Zero);
 
 		return windowHandle;

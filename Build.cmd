@@ -2,12 +2,13 @@
 SETLOCAL EnableDelayedExpansion
 
 SET "SOLUTION_PATH=.\unlockfps_nc.sln"
+SET "PROJECT_PATH=.\unlockfps_nc\Genshin FPS Unlocker.csproj"
 SET "BIN_DIR=.\unlockfps_nc\bin"
 SET "OBJ_DIR=.\unlockfps_nc\obj"
 SET "RELEASE_DIR=.\unlockfps_nc\bin\Release"
 SET "UPLOAD_DIR=Upload"
 SET "ORIGINAL_ZIP=%UPLOAD_DIR%\genshin-fps-unlocker.zip"
-SET "ALL_HASHES_FILE=%UPLOAD_DIR%\all-hashes.txt"
+SET "CHECKSUM_TXT=%UPLOAD_DIR%\checksum.txt"
 SET "HASHES=MD2 MD4 MD5 SHA1 SHA256 SHA384 SHA512"
 
 IF EXIST "%BIN_DIR%" (
@@ -59,7 +60,7 @@ IF %ERRORLEVEL% NEQ 0 (
 )
 echo Dotnet restore completed successfully! && echo.
 
-dotnet build "%SOLUTION_PATH%" --configuration Release --no-restore
+dotnet build "%PROJECT_PATH%" --configuration Release --no-restore
 IF %ERRORLEVEL% NEQ 0 (
     echo Error occurred during dotnet build.
     goto EndScript
@@ -67,23 +68,23 @@ IF %ERRORLEVEL% NEQ 0 (
 echo Dotnet build completed successfully! && echo.
 
 echo Compressing Release directory...
-.\Dependencies\7z.exe a -tzip "%ORIGINAL_ZIP%" "%RELEASE_DIR%\net8.0-windows\*"
+.\Dependencies\7za.exe a -tzip "%ORIGINAL_ZIP%" "%RELEASE_DIR%\net8.0-windows\*"
 IF %ERRORLEVEL% NEQ 0 (
     echo Error occurred during compression.
     goto EndScript
 )
 echo Compression completed successfully! && echo. && echo.
 
-> "%ALL_HASHES_FILE%" echo ------------------ %ORIGINAL_ZIP% ------------------
+> "%CHECKSUM_TXT%" echo ------------------ %ORIGINAL_ZIP% ------------------
 
 FOR %%H IN (%HASHES%) DO (
     echo Calculating %%H hash...
     certutil -hashfile "%ORIGINAL_ZIP%" %%H | findstr /v "CertUtil" | findstr /v ":" > "temp_hash.txt"
     SET /p HASH=<"temp_hash.txt"
     SET "HASH=!HASH:* =!"
-    echo %%H:!HASH! >> "%ALL_HASHES_FILE%"
+    echo %%H: !HASH! >> "%CHECKSUM_TXT%"
     SET "HASHED_FILE_NAME=%UPLOAD_DIR%\!HASH!.%%H"
-    echo %%H:!HASH!:%ORIGINAL_ZIP% > "!HASHED_FILE_NAME!"
+    echo %%H: !HASH!:%ORIGINAL_ZIP% > "!HASHED_FILE_NAME!"
     IF %ERRORLEVEL% NEQ 0 (
         echo Error occurred during hashing.
         goto EndScript

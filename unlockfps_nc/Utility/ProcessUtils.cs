@@ -24,8 +24,8 @@ internal static class ProcessUtils
 
 	public static bool InjectDlls(IntPtr processHandle, List<string> dllPaths)
 	{
-		if (dllPaths.Count == 0)
-			return true;
+#if !RELEASEMIN
+		if (dllPaths.Count == 0) return true;
 
 		Native.RtlAdjustPrivilege(20, true, false, out bool _);
 
@@ -43,10 +43,10 @@ internal static class ProcessUtils
 			byte[] bytes = Encoding.Unicode.GetBytes(dllPath);
 			Marshal.FreeHGlobal(nativeString);
 
-			if (!Native.WriteProcessMemory(processHandle, remoteVa, bytes, bytes.Length, out int bytesWritten))
+			if (!Native.WriteProcessMemory(processHandle, remoteVa, bytes, bytes.Length, out int _))
 				return false;
 
-			IntPtr thread = Native.CreateRemoteThread(processHandle, IntPtr.Zero, 0, loadLibrary, remoteVa, 0, out uint threadId);
+			IntPtr thread = Native.CreateRemoteThread(processHandle, IntPtr.Zero, 0, loadLibrary, remoteVa, 0, out uint _);
 			if (thread == IntPtr.Zero)
 				return false;
 
@@ -56,7 +56,7 @@ internal static class ProcessUtils
 		}
 
 		Native.VirtualFreeEx(processHandle, remoteVa, 0, FreeType.RELEASE);
-
+#endif
 		return true;
 	}
 
@@ -107,7 +107,7 @@ internal static class ProcessUtils
 		string moduleNameLower = moduleName.ToLowerInvariant();
 		IntPtr[] modules = new IntPtr[1024];
 
-		if (!Native.EnumProcessModulesEx(hProcess, modules, (uint)(modules.Length * IntPtr.Size), out uint bytesNeeded, 2))
+		if (!Native.EnumProcessModulesEx(hProcess, modules, (uint)(modules.Length * IntPtr.Size), out uint _, 2))
 		{
 			int errorCode = Marshal.GetLastWin32Error();
 			if (errorCode != 299)

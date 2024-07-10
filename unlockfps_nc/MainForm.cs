@@ -9,7 +9,7 @@ namespace unlockfps_nc;
 
 public partial class MainForm : Form
 {
-	private readonly Config? _config;
+	private readonly Config _config;
 
 	private readonly ConfigService _configService;
 	private readonly ProcessService _processService;
@@ -42,16 +42,16 @@ public partial class MainForm : Form
 	{
 		_windowLocation = Location;
 		_windowSize = Size;
-		if (_config!.AutoStart) BtnStartGame_Click(null, null);
+		if (_config.AutoStart) BtnStartGame_Click(null, null);
 
 		Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
 	}
 
 	private void SetupBindings()
 	{
-		InputFPS.DataBindings.Add("Value", _config!, "FPSTarget", true, DataSourceUpdateMode.OnPropertyChanged);
-		SliderFPS.DataBindings.Add("Value", _config!, "FPSTarget", true, DataSourceUpdateMode.OnPropertyChanged);
-		CBAutoStart.DataBindings.Add("Checked", _config!, "AutoStart", true, DataSourceUpdateMode.OnPropertyChanged);
+		InputFPS.DataBindings.Add("Value", _config, "FPSTarget", true, DataSourceUpdateMode.OnPropertyChanged);
+		SliderFPS.DataBindings.Add("Value", _config, "FPSTarget", true, DataSourceUpdateMode.OnPropertyChanged);
+		CBAutoStart.DataBindings.Add("Checked", _config, "AutoStart", true, DataSourceUpdateMode.OnPropertyChanged);
 	}
 
 	private void SetupMenuItem_Click(object sender, EventArgs e)
@@ -61,10 +61,10 @@ public partial class MainForm : Form
 
 	private void BtnStartGame_Click(object? sender, EventArgs? e)
 	{
-		if (!File.Exists(_config!.GamePath))
+		if (!File.Exists(_config.GamePath))
 			ShowSetupForm();
 
-		if (File.Exists(_config!.GamePath) && _processService.Start())
+		if (File.Exists(_config.GamePath) && _processService.Start())
 			WindowState = FormWindowState.Minimized;
 	}
 
@@ -87,7 +87,7 @@ public partial class MainForm : Form
 	private void NotifyAndHide()
 	{
 		NotifyIconMain.Visible = true;
-		NotifyIconMain.Text = string.Format(Resources.MainForm_GenshinFPSUnlocker_CurrentLimit, _config!.FPSTarget);
+		NotifyIconMain.Text = string.Format(Resources.MainForm_GenshinFPSUnlocker_CurrentLimit, _config.FPSTarget);
 		NotifyIconMain.ShowBalloonTip(500);
 
 		ShowInTaskbar = false;

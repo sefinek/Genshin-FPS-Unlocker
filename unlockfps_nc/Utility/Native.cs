@@ -1,4 +1,4 @@
-﻿using System.Runtime.InteropServices;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace unlockfps_nc.Utility;
@@ -19,7 +19,7 @@ internal static class Native
 	public static extern int GetClassName(IntPtr hWnd, StringBuilder lpClassName, int nMaxCount);
 
 	[DllImport("user32.dll", SetLastError = true)]
-	public static extern IntPtr SetWinEventHook(uint eventMin, uint eventMax, IntPtr hmodWinEventProc, WinEventProc lpfnWinEventProc, uint idProcess, uint idThread, uint dwFlags);
+	public static extern IntPtr SetWinEventHook(uint eventMin, uint eventMax, IntPtr hmodWinEventProc, WinEventProc? lpfnWinEventProc, uint idProcess, uint idThread, uint dwFlags);
 
 	[DllImport("user32.dll")]
 	public static extern bool UnhookWinEvent(IntPtr hWinEventHook);

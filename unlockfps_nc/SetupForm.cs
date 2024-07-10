@@ -189,7 +189,7 @@ public partial class SetupForm : Form
 
 	private void BtnConfirm_Click(object sender, EventArgs e)
 	{
-		string? selectedPath = (string)ComboResult.SelectedItem!;
+		string selectedPath = (string)ComboResult.SelectedItem!;
 		if (string.IsNullOrEmpty(selectedPath)) return;
 
 		_config!.GamePath = selectedPath;

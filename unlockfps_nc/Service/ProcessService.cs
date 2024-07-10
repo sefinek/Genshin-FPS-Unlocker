@@ -1,27 +1,28 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using unlockfps_nc.Model;
+using unlockfps_nc.Properties;
 using unlockfps_nc.Utility;
 
 namespace unlockfps_nc.Service;
 
 public class ProcessService
 {
-	private static Native.WinEventProc _eventCallback;
+	private static Native.WinEventProc? _eventCallback;
 
 	private static readonly uint[] PriorityClass =
-	{
+	[
 		0x00000100,
 		0x00000080,
 		0x00008000,
 		0x00000020,
 		0x00004000,
 		0x00000040
-	};
+	];
 
 	private readonly Config? _config;
 
-	private readonly ConfigService _configService;
+	private readonly ConfigService? _configService;
 
 	private readonly IpcService _ipcService;
 	private readonly IntPtr _winEventHook;
@@ -58,7 +59,7 @@ public class ProcessService
 
 	public bool Start()
 	{
-		if (!File.Exists(_config.GamePath))
+		if (!File.Exists(_config!.GamePath))
 		{
 			MessageBox.Show(@"Game path is invalid.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return false;
@@ -111,7 +112,7 @@ public class ProcessService
 		Native.GetWindowThreadProcessId(hWnd, out uint pid);
 		_gameInForeground = pid == _gamePid;
 
-		if (!_config.UsePowerSave)
+		if (!_config!.UsePowerSave)
 			return;
 
 		uint targetPriority = _gameInForeground ? PriorityClass[_config.Priority] : 0x00000040;
@@ -132,10 +133,10 @@ public class ProcessService
 	private async Task Worker()
 	{
 		STARTUPINFO si = new();
-		uint creationFlag = _config.SuspendLoad ? 4u : 0u;
+		uint creationFlag = _config!.SuspendLoad ? 4u : 0u;
 		string? gameFolder = Path.GetDirectoryName(_config.GamePath);
 
-		if (!Native.CreateProcess(_config.GamePath, BuildCommandLine(), IntPtr.Zero, IntPtr.Zero, false, creationFlag, IntPtr.Zero, gameFolder, ref si, out PROCESS_INFORMATION pi))
+		if (!Native.CreateProcess(_config.GamePath, BuildCommandLine(), IntPtr.Zero, IntPtr.Zero, false, creationFlag, IntPtr.Zero, gameFolder!, ref si, out PROCESS_INFORMATION pi))
 		{
 			MessageBox.Show(
 				$@"CreateProcess failed ({Marshal.GetLastWin32Error()}){Environment.NewLine} {Marshal.GetLastPInvokeErrorMessage()}",
@@ -156,7 +157,7 @@ public class ProcessService
 
 		Native.CloseHandle(pi.hThread);
 
-		if (!await UpdateRemoteModules())
+		if (!await UpdateRemoteModules().ConfigureAwait(false))
 			return;
 
 		if (!SetupData())
@@ -165,7 +166,7 @@ public class ProcessService
 		while (IsGameRunning() && !_cts.Token.IsCancellationRequested)
 		{
 			ApplyFpsLimit();
-			await Task.Delay(1000, _cts.Token);
+			await Task.Delay(1000, _cts.Token).ConfigureAwait(false);
 		}
 
 		if (!IsGameRunning())
@@ -177,7 +178,7 @@ public class ProcessService
 			if (_config.AutoClose)
 				_ = Task.Run(async () =>
 				{
-					await Task.Delay(2000);
+					await Task.Delay(2000).ConfigureAwait(false);
 					Application.Exit();
 				});
 		}
@@ -188,18 +189,17 @@ public class ProcessService
 		if (_pFpsValue == IntPtr.Zero)
 			return;
 
-		int fpsTarget = _gameInForeground ? _config.FPSTarget : _config.UsePowerSave ? 10 : _config.FPSTarget;
+		int fpsTarget = _gameInForeground ? _config!.FPSTarget : _config!.UsePowerSave ? 10 : _config.FPSTarget;
 
 		if (!_failover)
 		{
 			byte[] toWrite = BitConverter.GetBytes(fpsTarget);
-			if (!Native.WriteProcessMemory(_gameHandle, _pFpsValue, toWrite, 4, out _) && IsGameRunning())
-				// make sure we are actually failing to write (game is running and we are getting access denied)
-				if (Marshal.GetLastWin32Error() == 5)
-				{
-					_ipcService.Start(_gamePid, _pFpsValue);
-					_failover = true;
-				}
+			if (Native.WriteProcessMemory(_gameHandle, _pFpsValue, toWrite, 4, out _) || !IsGameRunning()) return;
+
+			// Make sure we are actually failing to write (game is running, and we are getting access denied)
+			if (Marshal.GetLastWin32Error() != 5) return;
+			_ipcService.Start(_gamePid, _pFpsValue);
+			_failover = true;
 		}
 		else
 		{
@@ -209,7 +209,7 @@ public class ProcessService
 
 	private string BuildCommandLine()
 	{
-		string commandLine = $"{_config.GamePath} ";
+		string commandLine = $"{_config!.GamePath} ";
 		if (_config.PopupWindow)
 			commandLine += "-popupwindow ";
 
@@ -229,11 +229,11 @@ public class ProcessService
 
 	private unsafe bool SetupData()
 	{
-		string? gameDir = Path.GetDirectoryName(_config.GamePath);
+		string? gameDir = Path.GetDirectoryName(_config!.GamePath);
 		string gameName = Path.GetFileNameWithoutExtension(_config.GamePath);
-		string dataDir = Path.Combine(gameDir, $"{gameName}_Data");
+		string dataDir = Path.Combine(gameDir!, $"{gameName}_Data");
 
-		string unityPlayerPath = Path.Combine(gameDir, "UnityPlayer.dll");
+		string unityPlayerPath = Path.Combine(gameDir!, "UnityPlayer.dll");
 		string userAssemblyPath = Path.Combine(dataDir, "Native", "UserAssembly.dll");
 
 		using ModuleGuard pUnityPlayer = Native.LoadLibraryEx(unityPlayerPath, IntPtr.Zero, 32);
@@ -264,7 +264,7 @@ public class ProcessService
 		}
 		else
 		{
-			byte* rip = null;
+			byte* rip;
 			if (ntHeader.FileHeader.TimeDateStamp < 0x656FFAF7U) // < 4.3
 			{
 				byte* address = (byte*)ProcessUtils.PatternScan(pUserAssembly, "E8 ? ? ? ? 85 C0 7E 07 E8 ? ? ? ? EB 05");
@@ -331,18 +331,13 @@ public class ProcessService
 			if (retries > 10)
 				break;
 
-			await Task.Delay(2000, _cts.Token);
+			await Task.Delay(2000, _cts.Token).ConfigureAwait(false);
 			retries++;
 		}
 
-		if (_remoteUnityPlayer == IntPtr.Zero || _remoteUserAssembly == IntPtr.Zero)
-		{
-			MessageBox.Show(
-				@"Failed to get remote module base address",
-				@"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			return false;
-		}
+		if (_remoteUnityPlayer != IntPtr.Zero && _remoteUserAssembly != IntPtr.Zero) return true;
 
-		return true;
+		MessageBox.Show(@"Failed to get remote module base address", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		return false;
 	}
 }
