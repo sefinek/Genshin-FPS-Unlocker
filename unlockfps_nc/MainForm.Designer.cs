@@ -293,7 +293,7 @@ namespace unlockfps_nc
 				NotifyIconMain.BalloonTipTitle = "Genshin FPS Unlocker";
 				NotifyIconMain.ContextMenuStrip = ContextNotify;
 				NotifyIconMain.Icon = (Icon)resources.GetObject("NotifyIconMain.Icon");
-				NotifyIconMain.Text = "FPS Unlocker";
+				NotifyIconMain.Text = "Genshin FPS Unlocker";
 				NotifyIconMain.Visible = true;
 				NotifyIconMain.DoubleClick += NotifyIconMain_DoubleClick;
 				// 
