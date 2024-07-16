@@ -3,7 +3,7 @@ using System.Text;
 
 namespace unlockfps_nc.Utility;
 
-internal static class ProcessUtils
+internal class ProcessUtils
 {
 	public static string GetProcessPathFromPid(uint pid, out IntPtr processHandle)
 	{
@@ -19,13 +19,36 @@ internal static class ProcessUtils
 
 		StringBuilder sb = new(1024);
 		uint bufferSize = (uint)sb.Capacity;
-		return !Native.QueryFullProcessImageName(hProcess, 0, sb, ref bufferSize) ? string.Empty : sb.ToString();
+		if (!Native.QueryFullProcessImageName(hProcess, 0, sb, ref bufferSize))
+			return string.Empty;
+
+		return sb.ToString();
+	}
+
+	public static IntPtr GetWindowFromProcessId(int processId)
+	{
+		IntPtr windowHandle = IntPtr.Zero;
+
+		Native.EnumWindows((hWnd, lParam) =>
+		{
+			Native.GetWindowThreadProcessId(hWnd, out uint pid);
+			if (pid == processId)
+			{
+				windowHandle = hWnd;
+				return false;
+			}
+
+			return true;
+		}, IntPtr.Zero);
+
+		return windowHandle;
 	}
 
 	public static bool InjectDlls(IntPtr processHandle, List<string> dllPaths)
 	{
 #if !RELEASEMIN
-		if (dllPaths.Count == 0) return true;
+		if (dllPaths.Count == 0)
+			return true;
 
 		Native.RtlAdjustPrivilege(20, true, false, out bool _);
 
@@ -43,10 +66,10 @@ internal static class ProcessUtils
 			byte[] bytes = Encoding.Unicode.GetBytes(dllPath);
 			Marshal.FreeHGlobal(nativeString);
 
-			if (!Native.WriteProcessMemory(processHandle, remoteVa, bytes, bytes.Length, out int _))
+			if (!Native.WriteProcessMemory(processHandle, remoteVa, bytes, bytes.Length, out int bytesWritten))
 				return false;
 
-			IntPtr thread = Native.CreateRemoteThread(processHandle, IntPtr.Zero, 0, loadLibrary, remoteVa, 0, out uint _);
+			IntPtr thread = Native.CreateRemoteThread(processHandle, IntPtr.Zero, 0, loadLibrary, remoteVa, 0, out uint threadId);
 			if (thread == IntPtr.Zero)
 				return false;
 
@@ -62,21 +85,10 @@ internal static class ProcessUtils
 
 	public static unsafe IntPtr PatternScan(IntPtr module, string signature)
 	{
-		string[] tokens = signature.Split(' ');
-		byte[] patternBytes = tokens
-			.Select(x => x == "?" ? (byte)0xFF : Convert.ToByte(x, 16))
-			.ToArray();
-		bool[] maskBytes = tokens
-			.Select(x => x == "?")
-			.ToArray();
+		(byte[] patternBytes, bool[] maskBytes) = ParseSignature(signature);
 
-		IMAGE_DOS_HEADER dosHeader = Marshal.PtrToStructure<IMAGE_DOS_HEADER>(module);
-		IMAGE_NT_HEADERS ntHeader = Marshal.PtrToStructure<IMAGE_NT_HEADERS>((IntPtr)(module.ToInt64() + dosHeader.e_lfanew));
-
-		uint sizeOfImage = ntHeader.OptionalHeader.SizeOfImage;
+		uint sizeOfImage = Native.GetModuleImageSize(module);
 		byte* scanBytes = (byte*)module;
-
-		int s = patternBytes.Length;
 
 		if (Native.IsWine())
 			/*
@@ -86,20 +98,80 @@ internal static class ProcessUtils
 			 */
 			Native.VirtualProtect(module, sizeOfImage, MemoryProtection.EXECUTE_READWRITE, out _);
 
-		for (uint i = 0U; i < sizeOfImage - s; i++)
+		ReadOnlySpan<byte> span = new(scanBytes, (int)sizeOfImage);
+		long offset = PatternScan(span, patternBytes, maskBytes);
+
+		if (offset != -1)
+			return (IntPtr)(module.ToInt64() + offset);
+
+
+		return IntPtr.Zero;
+	}
+
+	public static unsafe List<IntPtr> PatternScanAllOccurrences(IntPtr module, string signature)
+	{
+		(byte[] patternBytes, bool[] maskBytes) = ParseSignature(signature);
+
+		uint sizeOfImage = Native.GetModuleImageSize(module);
+		byte* scanBytes = (byte*)module;
+
+		if (Native.IsWine())
+			Native.VirtualProtect(module, sizeOfImage, MemoryProtection.EXECUTE_READWRITE, out _);
+
+		ReadOnlySpan<byte> span = new(scanBytes, (int)sizeOfImage);
+		List<IntPtr> offsets = new();
+
+		long totalProcessed = 0L;
+		while (true)
+		{
+			long offset = PatternScan(span, patternBytes, maskBytes);
+			if (offset == -1)
+				break;
+
+			offsets.Add((IntPtr)(module.ToInt64() + offset + totalProcessed));
+
+			long processedOffset = offset + patternBytes.Length;
+			totalProcessed += processedOffset;
+
+			span = span.Slice((int)processedOffset);
+		}
+
+		return offsets;
+	}
+
+	public static long PatternScan(ReadOnlySpan<byte> data, byte[] patternBytes, bool[] maskBytes)
+	{
+		int s = patternBytes.Length;
+		byte[] d = patternBytes;
+
+		for (int i = 0; i < data.Length - s; i++)
 		{
 			bool found = true;
 			for (int j = 0; j < s; j++)
-				if (patternBytes[j] != scanBytes[i + j] && !maskBytes[j])
+				if (d[j] != data[i + j] && !maskBytes[j])
 				{
 					found = false;
 					break;
 				}
 
-			if (found) return (IntPtr)(module.ToInt64() + i);
+			if (found)
+				return i;
 		}
 
-		return IntPtr.Zero;
+		return -1;
+	}
+
+	private static (byte[], bool[]) ParseSignature(string signature)
+	{
+		string[] tokens = signature.Split(' ');
+		byte[] patternBytes = tokens
+			.Select(x => x == "?" ? (byte)0xFF : Convert.ToByte(x, 16))
+			.ToArray();
+		bool[] maskBytes = tokens
+			.Select(x => x == "?")
+			.ToArray();
+
+		return (patternBytes, maskBytes);
 	}
 
 	public static IntPtr GetModuleBase(IntPtr hProcess, string moduleName)
@@ -107,12 +179,13 @@ internal static class ProcessUtils
 		string moduleNameLower = moduleName.ToLowerInvariant();
 		IntPtr[] modules = new IntPtr[1024];
 
-		if (!Native.EnumProcessModulesEx(hProcess, modules, (uint)(modules.Length * IntPtr.Size), out uint _, 2))
+		if (!Native.EnumProcessModulesEx(hProcess, modules, (uint)(modules.Length * IntPtr.Size), out uint bytesNeeded, 2))
 		{
 			int errorCode = Marshal.GetLastWin32Error();
 			if (errorCode != 299)
 			{
-				MessageBox.Show($@"EnumProcessModulesEx failed ({errorCode}){Environment.NewLine}{Marshal.GetLastPInvokeErrorMessage()}", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show($@"EnumProcessModulesEx failed ({errorCode}){Environment.NewLine}{Marshal.GetLastPInvokeErrorMessage()}"
+					, @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return IntPtr.Zero;
 			}
 		}

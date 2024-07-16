@@ -59,9 +59,12 @@ namespace unlockfps_nc
 				// 
 				// LinkLabelSource
 				// 
+				LinkLabelSource.ActiveLinkColor = Color.LightSkyBlue;
 				LinkLabelSource.Anchor = AnchorStyles.None;
 				LinkLabelSource.ForeColor = Color.White;
 				LinkLabelSource.LinkArea = new LinkArea(5, 49);
+				LinkLabelSource.LinkBehavior = LinkBehavior.HoverUnderline;
+				LinkLabelSource.LinkColor = Color.DodgerBlue;
 				LinkLabelSource.Location = new Point(65, 116);
 				LinkLabelSource.Name = "LinkLabelSource";
 				LinkLabelSource.Size = new Size(366, 20);
@@ -74,9 +77,12 @@ namespace unlockfps_nc
 				// 
 				// LinkLabelIssues
 				// 
+				LinkLabelIssues.ActiveLinkColor = Color.LightSkyBlue;
 				LinkLabelIssues.Anchor = AnchorStyles.None;
 				LinkLabelIssues.ForeColor = Color.White;
 				LinkLabelIssues.LinkArea = new LinkArea(84, 56);
+				LinkLabelIssues.LinkBehavior = LinkBehavior.HoverUnderline;
+				LinkLabelIssues.LinkColor = Color.DodgerBlue;
 				LinkLabelIssues.Location = new Point(12, 149);
 				LinkLabelIssues.Name = "LinkLabelIssues";
 				LinkLabelIssues.Size = new Size(473, 49);

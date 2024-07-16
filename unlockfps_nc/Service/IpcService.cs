@@ -63,7 +63,7 @@ public class IpcService : IDisposable
 		}
 
 		IntPtr stubWndProc = Native.GetProcAddress(_stubModule, "WndProc");
-		IntPtr targetWindow = GetWindowFromProcessId(processId);
+		IntPtr targetWindow = ProcessUtils.GetWindowFromProcessId(processId);
 		uint threadId = Native.GetWindowThreadProcessId(targetWindow, out uint _);
 
 		_wndHook = Native.SetWindowsHookEx(3, stubWndProc, _stubModule, threadId);
@@ -143,21 +143,5 @@ public class IpcService : IDisposable
 		stream?.CopyTo(fileStream);
 
 		return filePath;
-	}
-
-	private static IntPtr GetWindowFromProcessId(int processId)
-	{
-		IntPtr windowHandle = IntPtr.Zero;
-
-		Native.EnumWindows((hWnd, _) =>
-		{
-			Native.GetWindowThreadProcessId(hWnd, out uint pid);
-			if (pid != processId) return true;
-
-			windowHandle = hWnd;
-			return false;
-		}, IntPtr.Zero);
-
-		return windowHandle;
 	}
 }

@@ -122,6 +122,14 @@ internal static class Native
 
 		return ver != 0;
 	}
+
+	public static uint GetModuleImageSize(IntPtr lpBaseAddress)
+	{
+		IMAGE_DOS_HEADER dosHeader = Marshal.PtrToStructure<IMAGE_DOS_HEADER>(lpBaseAddress);
+		IMAGE_NT_HEADERS ntHeader = Marshal.PtrToStructure<IMAGE_NT_HEADERS>(lpBaseAddress + dosHeader.e_lfanew);
+
+		return ntHeader.OptionalHeader.SizeOfImage;
+	}
 }
 
 internal class ModuleGuard(IntPtr module) : IDisposable

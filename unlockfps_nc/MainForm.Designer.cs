@@ -233,20 +233,20 @@ namespace unlockfps_nc
 				LabelFPS.ForeColor = Color.White;
 				LabelFPS.Location = new Point(138, 57);
 				LabelFPS.Name = "LabelFPS";
-				LabelFPS.Size = new Size(29, 15);
+				LabelFPS.Size = new Size(53, 15);
 				LabelFPS.TabIndex = 1;
-				LabelFPS.Text = "FPS:";
+				LabelFPS.Text = "FPS limit";
 				// 
 				// InputFPS
 				// 
 				InputFPS.Anchor = AnchorStyles.None;
 				InputFPS.BackColor = Color.FromArgb(47, 49, 54);
 				InputFPS.ForeColor = Color.White;
-				InputFPS.Location = new Point(188, 53);
+				InputFPS.Location = new Point(197, 53);
 				InputFPS.Maximum = new decimal(new int[] { 420, 0, 0, 0 });
 				InputFPS.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
 				InputFPS.Name = "InputFPS";
-				InputFPS.Size = new Size(240, 23);
+				InputFPS.Size = new Size(231, 23);
 				InputFPS.TabIndex = 2;
 				InputFPS.Value = new decimal(new int[] { 144, 0, 0, 0 });
 				// 
@@ -272,7 +272,7 @@ namespace unlockfps_nc
 				CBAutoStart.Size = new Size(158, 19);
 				CBAutoStart.TabIndex = 4;
 				CBAutoStart.Text = "Start game automatically";
-				ToolTipMain.SetToolTip(CBAutoStart, "This will take effect on subsequent launch");
+				ToolTipMain.SetToolTip(CBAutoStart, "This will take effect on subsequent launch (not recommended)");
 				CBAutoStart.UseVisualStyleBackColor = true;
 				// 
 				// BtnStartGame

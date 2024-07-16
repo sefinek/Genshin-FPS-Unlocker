@@ -176,8 +176,8 @@ public partial class SetupForm : Form
 			return;
 		}
 
-		string unityPlayer = Path.Combine(directory!, "UnityPlayer.dll");
-		if (!File.Exists(unityPlayer))
+		string dataDir = Path.Combine(directory, $"{fileName}_Data");
+		if (!Directory.Exists(dataDir))
 		{
 			MessageBox.Show(Resources.SetupForm_ThatsNotTheRightPlace, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return;

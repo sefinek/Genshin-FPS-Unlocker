@@ -8,8 +8,6 @@ namespace unlockfps_nc.Service;
 
 public class ProcessService
 {
-	private static Native.WinEventProc? _eventCallback;
-
 	private static readonly uint[] PriorityClass =
 	[
 		0x00000100,
@@ -20,9 +18,9 @@ public class ProcessService
 		0x00000040
 	];
 
-	private readonly Config? _config;
+	private readonly Config _config;
 
-	private readonly ConfigService? _configService;
+	private readonly ConfigService _configService;
 
 	private readonly IpcService _ipcService;
 	private readonly IntPtr _winEventHook;
@@ -43,13 +41,13 @@ public class ProcessService
 		_configService = configService;
 		_config = _configService.Config;
 
-		_eventCallback = WinEventProc;
-		_pinnedCallback = GCHandle.Alloc(_eventCallback, GCHandleType.Normal);
+		Native.WinEventProc eventCallback = WinEventProc;
+		_pinnedCallback = GCHandle.Alloc(eventCallback, GCHandleType.Normal);
 		_winEventHook = Native.SetWinEventHook(
 			3, // EVENT_SYSTEM_FOREGROUND
 			3, // EVENT_SYSTEM_FOREGROUND
 			IntPtr.Zero,
-			_eventCallback,
+			eventCallback,
 			0,
 			0,
 			0 // WINEVENT_OUTOFCONTEXT
@@ -59,7 +57,7 @@ public class ProcessService
 
 	public bool Start()
 	{
-		if (!File.Exists(_config!.GamePath))
+		if (!File.Exists(_config.GamePath))
 		{
 			MessageBox.Show(@"Game path is invalid.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return false;
@@ -112,7 +110,7 @@ public class ProcessService
 		Native.GetWindowThreadProcessId(hWnd, out uint pid);
 		_gameInForeground = pid == _gamePid;
 
-		if (!_config!.UsePowerSave)
+		if (!_config.UsePowerSave)
 			return;
 
 		uint targetPriority = _gameInForeground ? PriorityClass[_config.Priority] : 0x00000040;
@@ -133,32 +131,26 @@ public class ProcessService
 	private async Task Worker()
 	{
 		STARTUPINFO si = new();
-		uint creationFlag = _config!.SuspendLoad ? 4u : 0u;
+		uint creationFlag = _config.SuspendLoad ? 4u : 0u;
 		string? gameFolder = Path.GetDirectoryName(_config.GamePath);
 
 		if (!Native.CreateProcess(_config.GamePath, BuildCommandLine(), IntPtr.Zero, IntPtr.Zero, false, creationFlag, IntPtr.Zero, gameFolder!, ref si, out PROCESS_INFORMATION pi))
 		{
-			MessageBox.Show(
-				$@"CreateProcess failed ({Marshal.GetLastWin32Error()}){Environment.NewLine} {Marshal.GetLastPInvokeErrorMessage()}",
-				@"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show($@"CreateProcess failed ({Marshal.GetLastWin32Error()}){Environment.NewLine} {Marshal.GetLastPInvokeErrorMessage()}", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return;
 		}
 
 		if (!ProcessUtils.InjectDlls(pi.hProcess, _config.DllList))
-			MessageBox.Show(
-				$@"Dll Injection failed ({Marshal.GetLastWin32Error()}){Environment.NewLine} {Marshal.GetLastPInvokeErrorMessage()}",
-				@"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show($@"Dll Injection failed ({Marshal.GetLastWin32Error()}){Environment.NewLine} {Marshal.GetLastPInvokeErrorMessage()}", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-		if (_config.SuspendLoad)
-			Native.ResumeThread(pi.hThread);
+		if (_config.SuspendLoad) Native.ResumeThread(pi.hThread);
 
 		_gamePid = pi.dwProcessId;
 		_gameHandle = pi.hProcess;
 
 		Native.CloseHandle(pi.hThread);
 
-		if (!await UpdateRemoteModules().ConfigureAwait(false))
-			return;
+		SpinWait.SpinUntil(() => ProcessUtils.GetWindowFromProcessId(_gamePid) != IntPtr.Zero);
 
 		if (!SetupData())
 			return;
@@ -186,17 +178,15 @@ public class ProcessService
 
 	private void ApplyFpsLimit()
 	{
-		if (_pFpsValue == IntPtr.Zero)
-			return;
+		if (_pFpsValue == IntPtr.Zero) return;
 
-		int fpsTarget = _gameInForeground ? _config!.FPSTarget : _config!.UsePowerSave ? 10 : _config.FPSTarget;
-
+		int fpsTarget = _gameInForeground ? _config.FPSTarget : _config.UsePowerSave ? 10 : _config.FPSTarget;
 		if (!_failover)
 		{
 			byte[] toWrite = BitConverter.GetBytes(fpsTarget);
 			if (Native.WriteProcessMemory(_gameHandle, _pFpsValue, toWrite, 4, out _) || !IsGameRunning()) return;
 
-			// Make sure we are actually failing to write (game is running, and we are getting access denied)
+			// Make sure we are actually failing to write (game is running and we are getting access denied)
 			if (Marshal.GetLastWin32Error() != 5) return;
 			_ipcService.Start(_gamePid, _pFpsValue);
 			_failover = true;
@@ -209,7 +199,7 @@ public class ProcessService
 
 	private string BuildCommandLine()
 	{
-		string commandLine = $"{_config!.GamePath} ";
+		string commandLine = $"{_config.GamePath} ";
 		if (_config.PopupWindow)
 			commandLine += "-popupwindow ";
 
@@ -229,7 +219,7 @@ public class ProcessService
 
 	private unsafe bool SetupData()
 	{
-		string? gameDir = Path.GetDirectoryName(_config!.GamePath);
+		string? gameDir = Path.GetDirectoryName(_config.GamePath);
 		string gameName = Path.GetFileNameWithoutExtension(_config.GamePath);
 		string dataDir = Path.Combine(gameDir!, $"{gameName}_Data");
 
@@ -241,11 +231,20 @@ public class ProcessService
 
 		if (!pUnityPlayer || !pUserAssembly)
 		{
+			if (!File.Exists(unityPlayerPath) && !File.Exists(userAssemblyPath))
+			{
+				if (SetupDataEx()) return true;
+				goto BAD_PATTERN;
+			}
+
 			MessageBox.Show(
 				@"Failed to load UnityPlayer.dll or UserAssembly.dll",
 				@"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return false;
 		}
+
+		if (!UpdateRemoteModules())
+			return false;
 
 		IMAGE_DOS_HEADER dosHeader = Marshal.PtrToStructure<IMAGE_DOS_HEADER>(pUnityPlayer);
 		IMAGE_NT_HEADERS ntHeader = Marshal.PtrToStructure<IMAGE_NT_HEADERS>((IntPtr)(pUnityPlayer.BaseAddress.ToInt64() + dosHeader.e_lfanew));
@@ -310,13 +309,40 @@ public class ProcessService
 		return true;
 
 		BAD_PATTERN:
-		MessageBox.Show(
-			@"outdated fps pattern",
-			@"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+		MessageBox.Show(@"Outdated FPS pattern.", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		return false;
 	}
 
-	private async Task<bool> UpdateRemoteModules()
+	private unsafe bool SetupDataEx()
+	{
+		string gameName = Path.GetFileNameWithoutExtension(_config.GamePath);
+		IntPtr remoteExe = ProcessUtils.GetModuleBase(_gameHandle, $"{gameName}.exe");
+		if (remoteExe == IntPtr.Zero) return false;
+
+		using ModuleGuard pGenshinImpact = Native.LoadLibraryEx(_config.GamePath, IntPtr.Zero, 32);
+		if (!pGenshinImpact) return false;
+
+		List<IntPtr> vaResults = ProcessUtils.PatternScanAllOccurrences(pGenshinImpact, "B9 3C 00 00 00 E8");
+		if (vaResults.Count == 0) return false;
+
+		byte* localVa = (byte*)vaResults
+			.Select(x => x + 5)
+			.Select(x => x + *(int*)(x + 1) + 5)
+			.FirstOrDefault(x => *(byte*)x == 0xE9);
+
+		if (localVa == null) return false;
+
+		while (localVa[0] == 0xE8 || localVa[0] == 0xE9)
+			localVa += *(int*)(localVa + 1) + 5;
+
+		localVa += *(int*)(localVa + 2) + 6;
+		byte* rva = localVa - pGenshinImpact.BaseAddress.ToInt64();
+		_pFpsValue = (IntPtr)(remoteExe + rva);
+
+		return true;
+	}
+
+	private bool UpdateRemoteModules()
 	{
 		int retries = 0;
 
@@ -331,13 +357,18 @@ public class ProcessService
 			if (retries > 10)
 				break;
 
-			await Task.Delay(2000, _cts.Token).ConfigureAwait(false);
+			Task.Delay(2000, _cts.Token).Wait();
 			retries++;
 		}
 
-		if (_remoteUnityPlayer != IntPtr.Zero && _remoteUserAssembly != IntPtr.Zero) return true;
+		if (_remoteUnityPlayer == IntPtr.Zero || _remoteUserAssembly == IntPtr.Zero)
+		{
+			MessageBox.Show(
+				@"Failed to get remote module base address",
+				@"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			return false;
+		}
 
-		MessageBox.Show(@"Failed to get remote module base address", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
-		return false;
+		return true;
 	}
 }

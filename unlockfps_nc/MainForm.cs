@@ -173,7 +173,7 @@ public partial class MainForm : Form
 
 	private void OfficialWebsite_Click(object sender, EventArgs e)
 	{
-		AboutForm.OpenLink("https://sefinek.net");
+		AboutForm.OpenLink("https://sefinek.net/genshin-stella-mod");
 	}
 
 	private void YouTube_Click(object sender, EventArgs e)
