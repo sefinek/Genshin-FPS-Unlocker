@@ -272,7 +272,7 @@ namespace unlockfps_nc
 				CBAutoStart.Size = new Size(158, 19);
 				CBAutoStart.TabIndex = 4;
 				CBAutoStart.Text = "Start game automatically";
-				ToolTipMain.SetToolTip(CBAutoStart, "This will take effect on subsequent launch (not recommended)");
+				ToolTipMain.SetToolTip(CBAutoStart, "This will take effect on subsequent launch (not recommended).");
 				CBAutoStart.UseVisualStyleBackColor = true;
 				// 
 				// BtnStartGame
