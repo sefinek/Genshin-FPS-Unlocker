@@ -176,7 +176,7 @@ public partial class SetupForm : Form
 			return;
 		}
 
-		string dataDir = Path.Combine(directory, $"{fileName}_Data");
+		string dataDir = Path.Combine(directory!, $"{fileName}_Data");
 		if (!Directory.Exists(dataDir))
 		{
 			MessageBox.Show(Resources.SetupForm_ThatsNotTheRightPlace, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
