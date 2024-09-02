@@ -50,7 +50,7 @@ namespace unlockfps_nc
 				// 
 				LabelDescription.Anchor = AnchorStyles.None;
 				LabelDescription.ForeColor = Color.White;
-				LabelDescription.Location = new Point(12, 81);
+				LabelDescription.Location = new Point(12, 83);
 				LabelDescription.Name = "LabelDescription";
 				LabelDescription.Size = new Size(473, 37);
 				LabelDescription.TabIndex = 1;
@@ -65,7 +65,7 @@ namespace unlockfps_nc
 				LinkLabelSource.LinkArea = new LinkArea(5, 49);
 				LinkLabelSource.LinkBehavior = LinkBehavior.HoverUnderline;
 				LinkLabelSource.LinkColor = Color.DodgerBlue;
-				LinkLabelSource.Location = new Point(65, 116);
+				LinkLabelSource.Location = new Point(65, 118);
 				LinkLabelSource.Name = "LinkLabelSource";
 				LinkLabelSource.Size = new Size(366, 20);
 				LinkLabelSource.TabIndex = 2;
@@ -80,15 +80,15 @@ namespace unlockfps_nc
 				LinkLabelIssues.ActiveLinkColor = Color.LightSkyBlue;
 				LinkLabelIssues.Anchor = AnchorStyles.None;
 				LinkLabelIssues.ForeColor = Color.White;
-				LinkLabelIssues.LinkArea = new LinkArea(84, 56);
+				LinkLabelIssues.LinkArea = new LinkArea(77, 26);
 				LinkLabelIssues.LinkBehavior = LinkBehavior.HoverUnderline;
 				LinkLabelIssues.LinkColor = Color.DodgerBlue;
-				LinkLabelIssues.Location = new Point(12, 149);
+				LinkLabelIssues.Location = new Point(12, 144);
 				LinkLabelIssues.Name = "LinkLabelIssues";
 				LinkLabelIssues.Size = new Size(473, 49);
 				LinkLabelIssues.TabIndex = 3;
 				LinkLabelIssues.TabStop = true;
-				LinkLabelIssues.Text = "If you encounter any problems or have a suggestion\r\nGo ahead and submit an issue at:\r\nhttps://github.com/sefinek24/Genshin-FPS-Unlocker/issues\r\n\r\n";
+				LinkLabelIssues.Text = "If you need help or have any suggestions, please visit the official website:\r\nhttps://stella.sefinek.net";
 				LinkLabelIssues.TextAlign = ContentAlignment.MiddleCenter;
 				LinkLabelIssues.UseCompatibleTextRendering = true;
 				LinkLabelIssues.LinkClicked += LinkLabelIssues_LinkClicked;
@@ -97,7 +97,7 @@ namespace unlockfps_nc
 				// 
 				AutoScaleDimensions = new SizeF(96F, 96F);
 				AutoScaleMode = AutoScaleMode.Dpi;
-				BackColor = Color.FromArgb(22, 22, 22);
+				BackColor = Color.FromArgb(19, 19, 19);
 				ClientSize = new Size(497, 217);
 				Controls.Add(LinkLabelIssues);
 				Controls.Add(LinkLabelSource);
