@@ -1,14 +1,11 @@
-using System.Runtime.InteropServices;
 using Microsoft.Extensions.DependencyInjection;
 using unlockfps_nc.Properties;
 using unlockfps_nc.Service;
-using unlockfps_nc.Utility;
 
 namespace unlockfps_nc;
 
 internal static class Program
 {
-	private static IntPtr MutexHandle = IntPtr.Zero;
 	public static readonly string RegistryPath = @"Software\Stella Mod Launcher";
 	public static IServiceProvider? ServiceProvider { get; private set; }
 
@@ -21,12 +18,8 @@ internal static class Program
 			return;
 		}
 
-		MutexHandle = Native.CreateMutex(IntPtr.Zero, true, @"GenshinFPSUnlocker");
-		if (Marshal.GetLastWin32Error() == 183)
-		{
-			MessageBox.Show(Resources.Program_AnotherUnlockerIsAlreadyRunning, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-			return;
-		}
+		using Mutex mutex = new(true, "StellaFPSUnlocker", out bool createdNew);
+		if (!createdNew) MessageBox.Show(Resources.Program_AnotherUnlockerIsAlreadyRunning, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
 		ServiceCollection services = [];
 		services.AddTransient<MainForm>();
