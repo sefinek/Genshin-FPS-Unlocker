@@ -163,8 +163,7 @@ public partial class MainForm : Form
 
 	private void ViewCfg_Click(object sender, EventArgs e)
 	{
-		string appPath = AppDomain.CurrentDomain.BaseDirectory;
-		string cfgPath = Path.Combine(appPath, "unlocker.config.json");
+		string cfgPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "unlocker.config.json");
 		if (!File.Exists(cfgPath)) MessageBox.Show(Resources.MainForm_ViewCfg_TheUnlockerConfigJsonFileWasNotFound, Resources.MainForm_ViewCfg_FileNotFound, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 		Process.Start("notepad.exe", cfgPath);
@@ -173,12 +172,12 @@ public partial class MainForm : Form
 
 	private void OfficialWebsite_Click(object sender, EventArgs e)
 	{
-		AboutForm.OpenLink("https://sefinek.net/genshin-stella-mod");
+		AboutForm.OpenLink("https://sefinek.net/genshin-stella-mod?referrer=unlockfps_nc-mainform");
 	}
 
 	private void YouTube_Click(object sender, EventArgs e)
 	{
-		AboutForm.OpenLink("https://www.youtube.com/channel/UClrAIcAzcqIMbvGXZqK7e0A");
+		AboutForm.OpenLink("https://www.youtube.com/channel/UCfPJwxVkrfcJtTDRT7peNyg");
 	}
 
 	private void GIReShade_Click(object sender, EventArgs e)

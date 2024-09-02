@@ -73,7 +73,7 @@ namespace unlockfps_nc
 				LinkLabelSource.Text = "See: https://github.com/sefinek24/Genshin-FPS-Unlocker";
 				LinkLabelSource.TextAlign = ContentAlignment.MiddleCenter;
 				LinkLabelSource.UseCompatibleTextRendering = true;
-				LinkLabelSource.LinkClicked += LinkLabelSource_LinkClicked;
+				LinkLabelSource.LinkClicked += GitHub_LinkClicked;
 				// 
 				// LinkLabelIssues
 				// 
@@ -91,7 +91,7 @@ namespace unlockfps_nc
 				LinkLabelIssues.Text = "If you need help or have any suggestions, please visit the official website:\r\nhttps://stella.sefinek.net";
 				LinkLabelIssues.TextAlign = ContentAlignment.MiddleCenter;
 				LinkLabelIssues.UseCompatibleTextRendering = true;
-				LinkLabelIssues.LinkClicked += LinkLabelIssues_LinkClicked;
+				LinkLabelIssues.LinkClicked += OfficialWebsite_LinkClicked;
 				// 
 				// AboutForm
 				// 

@@ -14,14 +14,14 @@ public partial class AboutForm : Form
 		LabelTitle.Text = string.Format(LabelTitle.Text, Application.ProductVersion);
 	}
 
-	private void LinkLabelSource_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+	private void GitHub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 	{
 		OpenLink("https://github.com/sefinek24/Genshin-FPS-Unlocker");
 	}
 
-	private void LinkLabelIssues_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+	private void OfficialWebsite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 	{
-		OpenLink("https://github.com/sefinek24/Genshin-FPS-Unlocker/issues");
+		OpenLink("https://sefinek.net/genshin-stella-mod?referrer=unlockfps_nc-about");
 	}
 
 	public static void OpenLink(string url)
