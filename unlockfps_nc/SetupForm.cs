@@ -45,7 +45,7 @@ public partial class SetupForm : Form
 
 		while (!_cts!.Token.IsCancellationRequested)
 		{
-			await Task.Delay(1000).ConfigureAwait(false);
+			await Task.Delay(1000);
 			IntPtr windowHandle = IntPtr.Zero;
 			IntPtr processHandle = IntPtr.Zero;
 			string processPath = string.Empty;

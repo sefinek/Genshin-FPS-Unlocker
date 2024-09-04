@@ -158,7 +158,7 @@ public class ProcessService
 		while (IsGameRunning() && !_cts.Token.IsCancellationRequested)
 		{
 			ApplyFpsLimit();
-			await Task.Delay(1000, _cts.Token).ConfigureAwait(false);
+			await Task.Delay(1000, _cts.Token);
 		}
 
 		if (!IsGameRunning())
@@ -170,7 +170,7 @@ public class ProcessService
 			if (_config.AutoClose)
 				_ = Task.Run(async () =>
 				{
-					await Task.Delay(2000).ConfigureAwait(false);
+					await Task.Delay(2000);
 					Application.Exit();
 				});
 		}
