@@ -16,7 +16,7 @@ public partial class AboutForm : Form
 
 	private void GitHub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 	{
-		OpenLink("https://github.com/sefinek24/Genshin-FPS-Unlocker");
+		OpenLink("https://github.com/sefinek/Genshin-FPS-Unlocker");
 	}
 
 	private void OfficialWebsite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

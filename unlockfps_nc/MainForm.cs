@@ -182,16 +182,16 @@ public partial class MainForm : Form
 
 	private void GIReShade_Click(object sender, EventArgs e)
 	{
-		AboutForm.OpenLink("https://github.com/sefinek24/Genshin-Impact-ReShade");
+		AboutForm.OpenLink("https://github.com/sefinek/Genshin-Impact-ReShade");
 	}
 
 	private void FpsUnlocker_Click(object sender, EventArgs e)
 	{
-		AboutForm.OpenLink("https://github.com/sefinek24/Genshin-FPS-Unlocker");
+		AboutForm.OpenLink("https://github.com/sefinek/Genshin-FPS-Unlocker");
 	}
 
 	private void SefinGitHub_Click(object sender, EventArgs e)
 	{
-		AboutForm.OpenLink("https://github.com/sefinek24");
+		AboutForm.OpenLink("https://github.com/sefinek");
 	}
 }

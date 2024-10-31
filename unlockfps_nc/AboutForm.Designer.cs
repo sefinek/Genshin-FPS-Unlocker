@@ -70,7 +70,7 @@ namespace unlockfps_nc
 				LinkLabelSource.Size = new Size(366, 20);
 				LinkLabelSource.TabIndex = 2;
 				LinkLabelSource.TabStop = true;
-				LinkLabelSource.Text = "See: https://github.com/sefinek24/Genshin-FPS-Unlocker";
+				LinkLabelSource.Text = "See: https://github.com/sefinek/Genshin-FPS-Unlocker";
 				LinkLabelSource.TextAlign = ContentAlignment.MiddleCenter;
 				LinkLabelSource.UseCompatibleTextRendering = true;
 				LinkLabelSource.LinkClicked += GitHub_LinkClicked;
