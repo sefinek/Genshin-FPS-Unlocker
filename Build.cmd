@@ -13,6 +13,7 @@ SET "HASHES=MD2 MD4 MD5 SHA1 SHA256 SHA384 SHA512"
 echo ============================================
 echo Cleaning up old files and directories...
 echo ============================================
+CALL :RemoveDirs "UnlockerStub\x64"
 CALL :RemoveDirs "unlockfps_nc\bin"
 CALL :RemoveDirs "unlockfps_nc\obj"
 CALL :RemoveDirs "%UPLOAD_DIR%"
