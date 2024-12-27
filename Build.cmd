@@ -39,7 +39,12 @@ dotnet build "%PROJECT_PATH%" --configuration Release --no-restore || GOTO EndSc
 echo. && echo =====================================
 echo Compressing release directory...
 echo =====================================
-7z a -tzip "%ORIGINAL_ZIP%" "%RELEASE_DIR%\net8.0-windows\*" || GOTO EndScript
+IF EXIST "%RELEASE_DIR%\net8.0-windows" (
+    7z a -tzip "%ORIGINAL_ZIP%" "%RELEASE_DIR%\net8.0-windows\*" || GOTO EndScript
+) ELSE (
+    echo ERROR: Release directory not found!
+    GOTO EndScript
+)
 
 echo. && echo =====================================
 echo Generating checksums...
@@ -60,7 +65,6 @@ echo =====================================
 :EndScript
     echo.
     del "temp_hash.txt" 2>NUL
-    echo Exiting script.
     pause
     ENDLOCAL
     GOTO :EOF
