@@ -361,14 +361,9 @@ public class ProcessService
 			retries++;
 		}
 
-		if (_remoteUnityPlayer == IntPtr.Zero || _remoteUserAssembly == IntPtr.Zero)
-		{
-			MessageBox.Show(
-				@"Failed to get remote module base address",
-				@"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			return false;
-		}
+		if (_remoteUnityPlayer != IntPtr.Zero && _remoteUserAssembly != IntPtr.Zero) return true;
 
-		return true;
+		MessageBox.Show(@"Failed to get remote module base address", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+		return false;
 	}
 }

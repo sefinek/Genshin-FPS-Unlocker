@@ -50,12 +50,6 @@ namespace unlockfps_nc
 				CBCustomRes = new CheckBox();
 				CBFullscreen = new CheckBox();
 				CBPopup = new CheckBox();
-				TabDlls = new TabPage();
-				CBSuspendLoad = new CheckBox();
-				BtnRemoveDll = new Button();
-				BtnAddDll = new Button();
-				ListBoxDlls = new ListBox();
-				label1 = new Label();
 				ToolTipSettings = new ToolTip(components);
 				DllAddDialog = new OpenFileDialog();
 				TabCtrlSettings.SuspendLayout();
@@ -64,7 +58,6 @@ namespace unlockfps_nc
 				((System.ComponentModel.ISupportInitialize)InputMonitorNum).BeginInit();
 				((System.ComponentModel.ISupportInitialize)InputResY).BeginInit();
 				((System.ComponentModel.ISupportInitialize)InputResX).BeginInit();
-				TabDlls.SuspendLayout();
 				SuspendLayout();
 				// 
 				// LabelAutoSave
@@ -84,7 +77,6 @@ namespace unlockfps_nc
 				TabCtrlSettings.Anchor = AnchorStyles.None;
 				TabCtrlSettings.Controls.Add(TabGeneral);
 				TabCtrlSettings.Controls.Add(TabLaunchOptions);
-				TabCtrlSettings.Controls.Add(TabDlls);
 				TabCtrlSettings.Location = new Point(12, 12);
 				TabCtrlSettings.Name = "TabCtrlSettings";
 				TabCtrlSettings.SelectedIndex = 0;
@@ -264,7 +256,7 @@ namespace unlockfps_nc
 				LabelX.ForeColor = Color.White;
 				LabelX.Location = new Point(200, 113);
 				LabelX.Name = "LabelX";
-				LabelX.Size = new Size(13, 15);
+				LabelX.Size = new Size(12, 15);
 				LabelX.TabIndex = 5;
 				LabelX.Text = "x";
 				// 
@@ -330,81 +322,6 @@ namespace unlockfps_nc
 				CBPopup.UseVisualStyleBackColor = true;
 				CBPopup.CheckStateChanged += LaunchOptionsChanged;
 				// 
-				// TabDlls
-				// 
-				TabDlls.BackColor = Color.FromArgb(54, 57, 60);
-				TabDlls.Controls.Add(CBSuspendLoad);
-				TabDlls.Controls.Add(BtnRemoveDll);
-				TabDlls.Controls.Add(BtnAddDll);
-				TabDlls.Controls.Add(ListBoxDlls);
-				TabDlls.Controls.Add(label1);
-				TabDlls.Location = new Point(4, 24);
-				TabDlls.Name = "TabDlls";
-				TabDlls.Padding = new Padding(3);
-				TabDlls.Size = new Size(280, 210);
-				TabDlls.TabIndex = 2;
-				TabDlls.Text = "DLLs";
-				// 
-				// CBSuspendLoad
-				// 
-				CBSuspendLoad.Anchor = AnchorStyles.None;
-				CBSuspendLoad.AutoSize = true;
-				CBSuspendLoad.ForeColor = Color.White;
-				CBSuspendLoad.Location = new Point(146, 64);
-				CBSuspendLoad.Name = "CBSuspendLoad";
-				CBSuspendLoad.Size = new Size(100, 19);
-				CBSuspendLoad.TabIndex = 4;
-				CBSuspendLoad.Text = "Suspend Load";
-				ToolTipSettings.SetToolTip(CBSuspendLoad, "This can ensure dll gets loaded before the game starts\r\nIt may not work all the times\r\nUncheck this if the game crashes");
-				CBSuspendLoad.UseVisualStyleBackColor = true;
-				// 
-				// BtnRemoveDll
-				// 
-				BtnRemoveDll.Anchor = AnchorStyles.None;
-				BtnRemoveDll.Location = new Point(146, 35);
-				BtnRemoveDll.Name = "BtnRemoveDll";
-				BtnRemoveDll.Size = new Size(128, 23);
-				BtnRemoveDll.TabIndex = 3;
-				BtnRemoveDll.Text = "Remove";
-				BtnRemoveDll.UseVisualStyleBackColor = true;
-				BtnRemoveDll.Click += BtnRemoveDll_Click;
-				// 
-				// BtnAddDll
-				// 
-				BtnAddDll.Anchor = AnchorStyles.None;
-				BtnAddDll.Location = new Point(146, 6);
-				BtnAddDll.Name = "BtnAddDll";
-				BtnAddDll.Size = new Size(128, 23);
-				BtnAddDll.TabIndex = 2;
-				BtnAddDll.Text = "Add";
-				BtnAddDll.UseVisualStyleBackColor = true;
-				BtnAddDll.Click += BtnAddDll_Click;
-				// 
-				// ListBoxDlls
-				// 
-				ListBoxDlls.Anchor = AnchorStyles.None;
-				ListBoxDlls.BackColor = Color.FromArgb(32, 34, 37);
-				ListBoxDlls.ForeColor = Color.White;
-				ListBoxDlls.FormattingEnabled = true;
-				ListBoxDlls.ItemHeight = 15;
-				ListBoxDlls.Location = new Point(6, 6);
-				ListBoxDlls.Name = "ListBoxDlls";
-				ListBoxDlls.Size = new Size(134, 169);
-				ListBoxDlls.TabIndex = 1;
-				ListBoxDlls.Format += ListBoxDlls_Format;
-				ListBoxDlls.MouseMove += ListBoxDlls_MouseMove;
-				// 
-				// label1
-				// 
-				label1.Anchor = AnchorStyles.None;
-				label1.AutoSize = true;
-				label1.ForeColor = Color.White;
-				label1.Location = new Point(23, 184);
-				label1.Name = "label1";
-				label1.Size = new Size(235, 15);
-				label1.TabIndex = 0;
-				label1.Text = "DLLs will be injected in the order of this list.";
-				// 
 				// ToolTipSettings
 				// 
 				ToolTipSettings.AutoPopDelay = 5000;
@@ -442,8 +359,6 @@ namespace unlockfps_nc
 				((System.ComponentModel.ISupportInitialize)InputMonitorNum).EndInit();
 				((System.ComponentModel.ISupportInitialize)InputResY).EndInit();
 				((System.ComponentModel.ISupportInitialize)InputResX).EndInit();
-				TabDlls.ResumeLayout(false);
-				TabDlls.PerformLayout();
 				ResumeLayout(false);
 		  }
 
@@ -453,7 +368,6 @@ namespace unlockfps_nc
         private TabControl TabCtrlSettings;
         private TabPage TabGeneral;
         private TabPage TabLaunchOptions;
-        private TabPage TabDlls;
         private ComboBox ComboPriority;
         private Label LabelPriority;
         private CheckBox CBPowerSave;
@@ -470,12 +384,7 @@ namespace unlockfps_nc
         private Label LabelMonitor;
         private ComboBox ComboFullscreenMode;
         private Label LabelWindowMode;
-        private Label label1;
-        private ListBox ListBoxDlls;
-        private Button BtnRemoveDll;
-        private Button BtnAddDll;
         private ToolTip ToolTipSettings;
-        private CheckBox CBSuspendLoad;
         private CheckBox CBUseMobileUI;
         private OpenFileDialog DllAddDialog;
     }

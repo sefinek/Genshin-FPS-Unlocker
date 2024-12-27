@@ -1,6 +1,4 @@
-using System.Reflection.PortableExecutable;
 using unlockfps_nc.Model;
-using unlockfps_nc.Properties;
 using unlockfps_nc.Service;
 
 namespace unlockfps_nc;
@@ -40,22 +38,6 @@ public partial class SettingsForm : Form
 		InputResY.DataBindings.Add("Value", _config, "CustomResY", true, DataSourceUpdateMode.OnPropertyChanged);
 		ComboFullscreenMode.DataBindings.Add("SelectedIndex", _config, "IsExclusiveFullscreen", true, DataSourceUpdateMode.OnPropertyChanged);
 		InputMonitorNum.DataBindings.Add("Value", _config, "MonitorNum", true, DataSourceUpdateMode.OnPropertyChanged);
-
-#if !RELEASEMIN
-		// DLLs
-		RefreshDllList();
-		CBSuspendLoad.DataBindings.Add("Checked", _config, "SuspendLoad", true, DataSourceUpdateMode.OnPropertyChanged);
-#endif
-	}
-
-	private void RefreshDllList()
-	{
-		_config.DllList = _config.DllList
-			.Where(VerifyDll)
-			.ToList();
-
-		ListBoxDlls.Items.Clear();
-		ListBoxDlls.Items.AddRange(_config.DllList.ToArray());
 	}
 
 	private void UpdateControlState()
@@ -82,58 +64,5 @@ public partial class SettingsForm : Form
 	private void SettingsForm_FormClosing(object sender, FormClosingEventArgs e)
 	{
 		_configService.Save();
-	}
-
-	private void BtnAddDll_Click(object sender, EventArgs e)
-	{
-		if (DllAddDialog.ShowDialog() != DialogResult.OK) return;
-
-		List<string> selectedFiles = [.. DllAddDialog.FileNames];
-		selectedFiles = selectedFiles
-			.Where(x => VerifyDll(x) || MessageBox.Show(
-				string.Format(Resources.SettingsForm_InvaildFile, x),
-				Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error) != DialogResult.OK)
-			.Where(x => _config.DllList.Contains(x))
-			.ToList();
-
-		_config.DllList.AddRange(selectedFiles);
-		RefreshDllList();
-	}
-
-	private static bool VerifyDll(string fullPath)
-	{
-		if (!File.Exists(fullPath))
-			return false;
-
-		using FileStream fs = new(fullPath, FileMode.Open, FileAccess.Read);
-		using PEReader peReader = new(fs);
-
-		if (peReader.HasMetadata)
-			return false;
-
-		return peReader.PEHeaders.CoffHeader.Machine == Machine.Amd64;
-	}
-
-	private void ListBoxDlls_Format(object sender, ListControlConvertEventArgs e)
-	{
-		e.Value = Path.GetFileName(e.Value as string);
-	}
-
-	private void ListBoxDlls_MouseMove(object sender, MouseEventArgs e)
-	{
-		int index = ListBoxDlls.IndexFromPoint(e.Location);
-		if (index == -1) return;
-
-		string toolTipText = _config.DllList[index];
-		ToolTipSettings.SetToolTip(ListBoxDlls, toolTipText);
-	}
-
-	private void BtnRemoveDll_Click(object sender, EventArgs e)
-	{
-		int selectedIndex = ListBoxDlls.SelectedIndex;
-		if (selectedIndex == -1) return;
-
-		_config.DllList.RemoveAt(selectedIndex);
-		RefreshDllList();
 	}
 }

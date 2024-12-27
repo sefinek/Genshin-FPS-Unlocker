@@ -151,7 +151,7 @@ public partial class SetupForm : Form
 			{
 				LabelResult.ForeColor = gamePaths.Count > 0 ? Color.Green : Color.Red;
 				LabelResult.Text = string.Format(Resources.SetupForm_Found_0_installationOfTheGame, gamePaths.Count);
-				ComboResult.Items.AddRange(gamePaths.ToArray());
+				ComboResult.Items.AddRange([..gamePaths]);
 				if (gamePaths.Count > 0)
 					ComboResult.SelectedIndex = 0;
 			});

@@ -3,7 +3,7 @@ using System.Text;
 
 namespace unlockfps_nc.Utility;
 
-internal class ProcessUtils
+internal static class ProcessUtils
 {
 	public static string GetProcessPathFromPid(uint pid, out IntPtr processHandle)
 	{
@@ -19,10 +19,7 @@ internal class ProcessUtils
 
 		StringBuilder sb = new(1024);
 		uint bufferSize = (uint)sb.Capacity;
-		if (!Native.QueryFullProcessImageName(hProcess, 0, sb, ref bufferSize))
-			return string.Empty;
-
-		return sb.ToString();
+		return !Native.QueryFullProcessImageName(hProcess, 0, sb, ref bufferSize) ? string.Empty : sb.ToString();
 	}
 
 	public static IntPtr GetWindowFromProcessId(int processId)
@@ -32,13 +29,9 @@ internal class ProcessUtils
 		Native.EnumWindows((hWnd, lParam) =>
 		{
 			Native.GetWindowThreadProcessId(hWnd, out uint pid);
-			if (pid == processId)
-			{
-				windowHandle = hWnd;
-				return false;
-			}
-
-			return true;
+			if (pid != processId) return true;
+			windowHandle = hWnd;
+			return false;
 		}, IntPtr.Zero);
 
 		return windowHandle;
@@ -119,7 +112,7 @@ internal class ProcessUtils
 			Native.VirtualProtect(module, sizeOfImage, MemoryProtection.EXECUTE_READWRITE, out _);
 
 		ReadOnlySpan<byte> span = new(scanBytes, (int)sizeOfImage);
-		List<IntPtr> offsets = new();
+		List<IntPtr> offsets = [];
 
 		long totalProcessed = 0L;
 		while (true)
@@ -133,22 +126,21 @@ internal class ProcessUtils
 			long processedOffset = offset + patternBytes.Length;
 			totalProcessed += processedOffset;
 
-			span = span.Slice((int)processedOffset);
+			span = span[(int)processedOffset..];
 		}
 
 		return offsets;
 	}
 
-	public static long PatternScan(ReadOnlySpan<byte> data, byte[] patternBytes, bool[] maskBytes)
+	private static long PatternScan(ReadOnlySpan<byte> data, byte[] patternBytes, bool[] maskBytes)
 	{
 		int s = patternBytes.Length;
-		byte[] d = patternBytes;
 
 		for (int i = 0; i < data.Length - s; i++)
 		{
 			bool found = true;
 			for (int j = 0; j < s; j++)
-				if (d[j] != data[i + j] && !maskBytes[j])
+				if (patternBytes[j] != data[i + j] && !maskBytes[j])
 				{
 					found = false;
 					break;

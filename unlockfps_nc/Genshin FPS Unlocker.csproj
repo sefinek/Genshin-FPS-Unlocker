@@ -3,6 +3,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
+	<EnableWindowsTargeting>true</EnableWindowsTargeting>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -15,9 +16,9 @@
     <StartupObject>unlockfps_nc.Program</StartupObject>
     <AssemblyName>gen-fps-unlocker</AssemblyName>
     <IsPublishable>False</IsPublishable>
-    <AssemblyVersion>4.0.2</AssemblyVersion>
-    <FileVersion>4.0.2</FileVersion>
-    <Version>4.0.2</Version>
+    <AssemblyVersion>4.0.3</AssemblyVersion>
+    <FileVersion>4.0.3</FileVersion>
+    <Version>4.0.3</Version>
     <SignAssembly>False</SignAssembly>
     <Company>Sefinek Inc.</Company>
     <Authors>34736384</Authors>
@@ -47,7 +48,6 @@
 
   <ItemGroup>
     <None Remove="dm34zubt.k4i~" />
-    <None Remove="Resources\UnlockerStub.dll" />
   </ItemGroup>
 
   <ItemGroup>
@@ -55,11 +55,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\UnlockerStub.dll" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
