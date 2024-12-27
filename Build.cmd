@@ -1,4 +1,4 @@
-@ECHO OFF
+@echo off
 SETLOCAL EnableDelayedExpansion
 
 SET "SOLUTION_PATH=unlockfps_nc.sln"
