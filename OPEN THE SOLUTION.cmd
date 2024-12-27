@@ -1,7 +1,7 @@
 @echo off
 setlocal
 
-set "file_path=D:\Projects\stella\vs\genshin-fps-unlock\unlockfps_nc.sln"
+set "file_path=D:\Projects\stella\Genshin-FPS-Unlocker\unlockfps_nc.sln"
 set "vs_path=C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe"
 
 echo Running Genshin Stella Mod made by Sefinek.sln file as administrator... && echo.
