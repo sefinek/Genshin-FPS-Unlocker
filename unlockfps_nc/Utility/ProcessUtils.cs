@@ -176,8 +176,7 @@ internal static class ProcessUtils
 			int errorCode = Marshal.GetLastWin32Error();
 			if (errorCode != 299)
 			{
-				MessageBox.Show($@"EnumProcessModulesEx failed ({errorCode}){Environment.NewLine}{Marshal.GetLastPInvokeErrorMessage()}"
-					, @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show($@"EnumProcessModulesEx failed ({errorCode}){Environment.NewLine}{Marshal.GetLastPInvokeErrorMessage()}", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return IntPtr.Zero;
 			}
 		}
