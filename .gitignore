@@ -3,10 +3,7 @@
 
 unlockfps_nc/bin
 unlockfps_nc/obj
-unlockfps_nc/Resources/UnlockerStub.dll
-unlockfps_nc/Resources/UnlockerStub.exp
-unlockfps_nc/Resources/UnlockerStub.lub
-unlockfps_nc/Resources/UnlockerStub.pdb
+unlockfps_nc/Resources/UnlockerStub*
 
 UnlockerStub/x64
 
