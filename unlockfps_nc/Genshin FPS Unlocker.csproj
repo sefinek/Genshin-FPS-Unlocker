@@ -47,7 +47,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="dm34zubt.k4i~" />
+    <EmbeddedResource Include="Resources\UnlockerStub.dll" />
   </ItemGroup>
 
   <ItemGroup>
