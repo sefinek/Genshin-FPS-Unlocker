@@ -43,11 +43,17 @@ dotnet build "%PROJECT_PATH%" --configuration Release --no-restore || GOTO EndSc
 echo. && echo ============================================
 echo Compressing release directory...
 echo ============================================
-IF EXIST "%RELEASE_DIR%\net8.0-windows" (
-    7z a -tzip "%ORIGINAL_ZIP%" "%RELEASE_DIR%\net8.0-windows\*" || GOTO EndScript
-) ELSE (
+IF NOT EXIST "%RELEASE_DIR%\net8.0-windows" (
     echo ERROR: Release directory not found!
     GOTO EndScript
+)
+
+pushd "%RELEASE_DIR%\net8.0-windows" && (
+    7z a -tzip "%~dp0%ORIGINAL_ZIP%" * || (
+        echo ERROR: Failed to create ZIP archive!
+        popd & GOTO EndScript
+    )
+    popd
 )
 
 
@@ -59,7 +65,7 @@ echo ## Checksums for genshin-fps-unlocker.zip > "%CHECKSUMS_MD%"
 FOR %%H IN (%HASHES%) DO (
     echo Calculating %%H hash...
     FOR /F "usebackq skip=1" %%A IN (`certutil -hashfile "%ORIGINAL_ZIP%" %%H ^| findstr /v "CertUtil"`) DO (
-        echo - **%%H:** `%%A` >> "%CHECKSUMS_MD%"
+        echo **%%H:** `%%A` >> "%CHECKSUMS_MD%"
     )
 )
 
