@@ -183,7 +183,7 @@ public class ProcessService
 			byte[] toWrite = BitConverter.GetBytes(fpsTarget);
 			if (Native.WriteProcessMemory(_gameHandle, _pFpsValue, toWrite, 4, out _) || !IsGameRunning()) return;
 
-			// Make sure we are actually failing to write (game is running and we are getting access denied)
+			// Make sure we are actually failing to write (game is running, and we are getting access denied)
 			if (Marshal.GetLastWin32Error() != 5) return;
 			_ipcService.Start(_gamePid, _pFpsValue);
 			_failover = true;
