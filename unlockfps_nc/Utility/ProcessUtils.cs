@@ -37,45 +37,6 @@ internal static class ProcessUtils
 		return windowHandle;
 	}
 
-	public static bool InjectDlls(IntPtr processHandle, List<string> dllPaths)
-	{
-#if !RELEASEMIN
-		if (dllPaths.Count == 0)
-			return true;
-
-		Native.RtlAdjustPrivilege(20, true, false, out bool _);
-
-		IntPtr kernel32 = Native.LoadLibrary("kernel32.dll");
-		IntPtr loadLibrary = Native.GetProcAddress(kernel32, "LoadLibraryW");
-
-		IntPtr remoteVa = Native.VirtualAllocEx(processHandle, IntPtr.Zero, 0x1000,
-			AllocationType.COMMIT | AllocationType.RESERVE, MemoryProtection.READWRITE);
-		if (remoteVa == IntPtr.Zero)
-			return false;
-
-		foreach (string dllPath in dllPaths)
-		{
-			IntPtr nativeString = Marshal.StringToHGlobalUni(dllPath);
-			byte[] bytes = Encoding.Unicode.GetBytes(dllPath);
-			Marshal.FreeHGlobal(nativeString);
-
-			if (!Native.WriteProcessMemory(processHandle, remoteVa, bytes, bytes.Length, out int bytesWritten))
-				return false;
-
-			IntPtr thread = Native.CreateRemoteThread(processHandle, IntPtr.Zero, 0, loadLibrary, remoteVa, 0, out uint threadId);
-			if (thread == IntPtr.Zero)
-				return false;
-
-			Native.WaitForSingleObject(thread, uint.MaxValue);
-			Native.CloseHandle(thread);
-			Native.WriteProcessMemory(processHandle, remoteVa, new byte[bytes.Length], bytes.Length, out _);
-		}
-
-		Native.VirtualFreeEx(processHandle, remoteVa, 0, FreeType.RELEASE);
-#endif
-		return true;
-	}
-
 	public static unsafe IntPtr PatternScan(IntPtr module, string signature)
 	{
 		(byte[] patternBytes, bool[] maskBytes) = ParseSignature(signature);
@@ -96,7 +57,6 @@ internal static class ProcessUtils
 
 		if (offset != -1)
 			return (IntPtr)(module.ToInt64() + offset);
-
 
 		return IntPtr.Zero;
 	}
@@ -171,7 +131,7 @@ internal static class ProcessUtils
 		string moduleNameLower = moduleName.ToLowerInvariant();
 		IntPtr[] modules = new IntPtr[1024];
 
-		if (!Native.EnumProcessModulesEx(hProcess, modules, (uint)(modules.Length * IntPtr.Size), out uint bytesNeeded, 2))
+		if (!Native.EnumProcessModulesEx(hProcess, modules, (uint)(modules.Length * IntPtr.Size), out uint _, 2))
 		{
 			int errorCode = Marshal.GetLastWin32Error();
 			if (errorCode != 299)

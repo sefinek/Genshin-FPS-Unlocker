@@ -140,9 +140,6 @@ public class ProcessService
 			return;
 		}
 
-		if (!ProcessUtils.InjectDlls(pi.hProcess, _config.DllList))
-			MessageBox.Show($@"Dll Injection failed ({Marshal.GetLastWin32Error()}){Environment.NewLine} {Marshal.GetLastPInvokeErrorMessage()}", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
-
 		if (_config.SuspendLoad) Native.ResumeThread(pi.hThread);
 
 		_gamePid = pi.dwProcessId;
@@ -214,6 +211,7 @@ public class ProcessService
 			commandLine += "use_mobile_platform -is_cloud 1 -platform_type CLOUD_THIRD_PARTY_MOBILE ";
 
 		commandLine += $"-monitor {_config.MonitorNum} ";
+		commandLine += $"{_config.AdditionalCommandLine} ";
 		return commandLine;
 	}
 
