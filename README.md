@@ -1,4 +1,4 @@
-# Genshin Impact FPS Unlocker [modified by Sefinek]
+# Genshin Impact FPS Unlocker modified by Sefinek
 > [Custom release for Genshin Stella Mod. Read more.](https://sefinek.net/genshin-stella-mod)
 
 ## Information
