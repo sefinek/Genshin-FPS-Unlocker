@@ -15,7 +15,7 @@
     <SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
     <StartupObject>unlockfps_nc.Program</StartupObject>
     <AssemblyName>gen-fps-unlocker</AssemblyName>
-    <Version>4.0.4</Version>
+    <Version>4.0.4.1</Version>
     <SignAssembly>False</SignAssembly>
     <Company>Sefinek Inc.</Company>
     <Authors>34736384</Authors>

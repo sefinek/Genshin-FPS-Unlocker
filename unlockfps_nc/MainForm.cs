@@ -27,8 +27,7 @@ public partial class MainForm : Form
 
 	private void SettingsMenuItem_Click(object sender, EventArgs e)
 	{
-		SettingsForm settingsForm = Program.ServiceProvider!.GetRequiredService<SettingsForm>();
-		settingsForm.ShowDialog();
+		Program.ServiceProvider.GetRequiredService<SettingsForm>().ShowDialog();
 	}
 
 	private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -70,8 +69,7 @@ public partial class MainForm : Form
 
 	private static void ShowSetupForm()
 	{
-		SetupForm setupForm = Program.ServiceProvider!.GetRequiredService<SetupForm>();
-		setupForm.ShowDialog();
+		Program.ServiceProvider.GetRequiredService<SetupForm>().ShowDialog();
 	}
 
 	private void ExitMenuItem_Click(object sender, EventArgs e)

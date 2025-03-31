@@ -43,12 +43,12 @@ dotnet build "%PROJECT_PATH%" --configuration Release --no-restore || GOTO EndSc
 echo. && echo ============================================
 echo Compressing release directory...
 echo ============================================
-IF NOT EXIST "%RELEASE_DIR%\net8.0-windows" (
+IF NOT EXIST "%RELEASE_DIR%\net8.0-windows10.0.26100.0" (
     echo ERROR: Release directory not found!
     GOTO EndScript
 )
 
-pushd "%RELEASE_DIR%\net8.0-windows" && (
+pushd "%RELEASE_DIR%\net8.0-windows10.0.26100.0" && (
     7z a -tzip "%~dp0%ORIGINAL_ZIP%" * || (
         echo ERROR: Failed to create ZIP archive!
         popd & GOTO EndScript

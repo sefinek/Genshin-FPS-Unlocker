@@ -7,7 +7,7 @@ namespace unlockfps_nc;
 internal static class Program
 {
 	internal const string RegistryPath = @"Software\Stella Mod Launcher";
-	internal static IServiceProvider? ServiceProvider { get; private set; }
+	internal static IServiceProvider ServiceProvider { get; private set; } = null!;
 
 	[STAThread]
 	private static void Main()
