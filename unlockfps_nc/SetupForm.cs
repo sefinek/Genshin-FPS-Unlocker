@@ -7,14 +7,14 @@ using unlockfps_nc.Utility;
 
 namespace unlockfps_nc;
 
-public partial class SetupForm : Form
+internal partial class SetupForm : Form
 {
 	private readonly Config? _config;
 
 	private readonly ConfigService _configService;
 	private CancellationTokenSource? _cts;
 
-	public SetupForm(ConfigService configService)
+	internal SetupForm(ConfigService configService)
 	{
 		InitializeComponent();
 		_configService = configService;

@@ -3,12 +3,12 @@ using unlockfps_nc.Service;
 
 namespace unlockfps_nc;
 
-public partial class SettingsForm : Form
+internal partial class SettingsForm : Form
 {
 	private readonly Config _config;
 	private readonly ConfigService _configService;
 
-	public SettingsForm(ConfigService configService)
+	internal SettingsForm(ConfigService configService)
 	{
 		InitializeComponent();
 		_configService = configService;

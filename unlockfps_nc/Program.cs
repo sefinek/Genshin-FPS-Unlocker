@@ -6,13 +6,13 @@ namespace unlockfps_nc;
 
 internal static class Program
 {
-	public const string RegistryPath = @"Software\Stella Mod Launcher";
-	public static IServiceProvider? ServiceProvider { get; private set; }
+	internal const string RegistryPath = @"Software\Stella Mod Launcher";
+	internal static IServiceProvider? ServiceProvider { get; private set; }
 
 	[STAThread]
 	private static void Main()
 	{
-		if (File.Exists("YuanShen.exe") || File.Exists("GenshinImpact.exe"))
+		if (File.Exists("GenshinImpact.exe") || File.Exists("YuanShen.exe"))
 		{
 			MessageBox.Show(@"Do not place the unlocker in the game folder!", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			return;
