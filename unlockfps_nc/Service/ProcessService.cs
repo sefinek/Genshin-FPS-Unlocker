@@ -19,7 +19,6 @@ public class ProcessService
 	];
 
 	private readonly Config _config;
-
 	private readonly ConfigService _configService;
 
 	private readonly IpcService _ipcService;
@@ -235,14 +234,11 @@ public class ProcessService
 				goto BAD_PATTERN;
 			}
 
-			MessageBox.Show(
-				@"Failed to load UnityPlayer.dll or UserAssembly.dll",
-				@"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show(@"Failed to load UnityPlayer.dll or UserAssembly.dll", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return false;
 		}
 
-		if (!UpdateRemoteModules())
-			return false;
+		if (!UpdateRemoteModules()) return false;
 
 		IMAGE_DOS_HEADER dosHeader = Marshal.PtrToStructure<IMAGE_DOS_HEADER>(pUnityPlayer);
 		IMAGE_NT_HEADERS ntHeader = Marshal.PtrToStructure<IMAGE_NT_HEADERS>((IntPtr)(pUnityPlayer.BaseAddress.ToInt64() + dosHeader.e_lfanew));
@@ -307,7 +303,7 @@ public class ProcessService
 		return true;
 
 		BAD_PATTERN:
-		MessageBox.Show(@"Outdated FPS pattern.", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		MessageBox.Show(@"Outdated FPS pattern. Please wait for an update of this tool.", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		return false;
 	}
 

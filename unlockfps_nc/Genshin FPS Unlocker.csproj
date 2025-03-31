@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows10.0.26100.0</TargetFramework>
 	<EnableWindowsTargeting>true</EnableWindowsTargeting>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
@@ -12,24 +12,18 @@
     <PlatformTarget>x64</PlatformTarget>
     <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
     <StartupObject>unlockfps_nc.Program</StartupObject>
     <AssemblyName>gen-fps-unlocker</AssemblyName>
-    <IsPublishable>False</IsPublishable>
-    <AssemblyVersion>4.0.3</AssemblyVersion>
-    <FileVersion>4.0.3</FileVersion>
     <Version>4.0.3</Version>
     <SignAssembly>False</SignAssembly>
     <Company>Sefinek Inc.</Company>
     <Authors>34736384</Authors>
     <Title>Genshin FPS Unlocker</Title>
     <Description>Genshin Impact FPS Unlocker</Description>
-    <RepositoryUrl>https://github.com/sefinek/Genshin-FPS-Unlocker</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageProjectUrl>https://stella.sefinek.net</PackageProjectUrl>
-    <Copyright>Copyright 2024 © by Sefinek. All Rights Reserved.</Copyright>
+    <Copyright>© 2022–2025 34736384, Sefinek. All rights reserved.</Copyright>
     <NeutralLanguage>en</NeutralLanguage>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
     <RootNamespace>unlockfps_nc</RootNamespace>
     <Configurations>Debug;Release;ReleaseMin</Configurations>
   </PropertyGroup>
@@ -55,7 +49,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.3" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 

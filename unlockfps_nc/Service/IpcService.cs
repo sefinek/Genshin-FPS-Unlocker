@@ -43,11 +43,9 @@ public class IpcService : IDisposable
 
 	public void Start(int processId, IntPtr pFpsValue)
 	{
-		if (_started)
-			return;
+		if (_started) return;
 
 		_pFpsValue = pFpsValue;
-
 		_sharedMemory = MemoryMappedFile.CreateOrOpen("2DE95FDC-6AB7-4593-BFE6-760DD4AB422B", 4096, MemoryMappedFileAccess.ReadWrite);
 		_sharedMemoryAccessor = _sharedMemory.CreateViewAccessor();
 
@@ -86,8 +84,7 @@ public class IpcService : IDisposable
 		{
 			_sharedMemoryAccessor.Read(0, out IpcData ipcData);
 
-			if (ipcData.Status == IpcStatus.ClientReady)
-				break;
+			if (ipcData.Status == IpcStatus.ClientReady) break;
 
 			if (retryCount >= 10)
 			{
@@ -104,9 +101,7 @@ public class IpcService : IDisposable
 
 	public void ApplyFpsLimit(int fps)
 	{
-		if (_pFpsValue == IntPtr.Zero)
-			return;
-
+		if (_pFpsValue == IntPtr.Zero) return;
 		WriteToSharedMemory(_pFpsValue, fps, IpcStatus.None);
 	}
 

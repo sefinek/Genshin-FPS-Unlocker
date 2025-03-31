@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.IO;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Win32;
 using unlockfps_nc.Model;
@@ -164,34 +165,38 @@ public partial class MainForm : Form
 	private void ViewCfg_Click(object sender, EventArgs e)
 	{
 		string cfgPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "unlocker.config.json");
-		if (!File.Exists(cfgPath)) MessageBox.Show(Resources.MainForm_ViewCfg_TheUnlockerConfigJsonFileWasNotFound, Resources.MainForm_ViewCfg_FileNotFound, MessageBoxButtons.OK, MessageBoxIcon.Information);
+		if (!File.Exists(cfgPath)) MessageBox.Show(Resources.MainForm_ViewCfg_TheUnlockerConfigJsonFileWasNotFound, Resources.MainForm_ViewCfg_FileNotFound, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-		Process.Start("notepad.exe", cfgPath);
+		Process.Start(new ProcessStartInfo
+		{
+			FileName = cfgPath,
+			UseShellExecute = true
+		});
 	}
 
 
 	private void OfficialWebsite_Click(object sender, EventArgs e)
 	{
-		AboutForm.OpenLink("https://sefinek.net/genshin-stella-mod?referrer=unlockfps_nc-mainform");
+		AboutForm.OpenLink("https://sefinek.net/genshin-stella-mod?referrer=OfficialWebsite_Click");
 	}
 
 	private void YouTube_Click(object sender, EventArgs e)
 	{
-		AboutForm.OpenLink("https://www.youtube.com/channel/UCfPJwxVkrfcJtTDRT7peNyg");
+		AboutForm.OpenLink("https://www.youtube.com/channel/UCfPJwxVkrfcJtTDRT7peNyg?referrer=YouTube_Click");
 	}
 
 	private void GIReShade_Click(object sender, EventArgs e)
 	{
-		AboutForm.OpenLink("https://github.com/sefinek/Genshin-Impact-ReShade");
+		AboutForm.OpenLink("https://github.com/sefinek/Genshin-Impact-ReShade?referrer=GIReShade_Click");
 	}
 
 	private void FpsUnlocker_Click(object sender, EventArgs e)
 	{
-		AboutForm.OpenLink("https://github.com/sefinek/Genshin-FPS-Unlocker");
+		AboutForm.OpenLink("https://github.com/sefinek/Genshin-FPS-Unlocker?referrer=FpsUnlocker_Click");
 	}
 
 	private void SefinGitHub_Click(object sender, EventArgs e)
 	{
-		AboutForm.OpenLink("https://github.com/sefinek");
+		AboutForm.OpenLink("https://github.com/sefinek?referrer=SefinGitHub_Click");
 	}
 }

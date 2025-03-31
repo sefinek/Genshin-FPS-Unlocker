@@ -6,7 +6,7 @@ namespace unlockfps_nc.Service;
 
 public class ConfigService
 {
-	private const string ConfigName = "unlocker.config.json";
+	private const string CONFIG_NAME = "unlocker.config.json";
 
 	public ConfigService()
 	{
@@ -18,18 +18,16 @@ public class ConfigService
 
 	private void Load()
 	{
-		if (!File.Exists(ConfigName))
-			return;
+		if (!File.Exists(CONFIG_NAME)) return;
 
 		try
 		{
-			string json = File.ReadAllText(ConfigName);
+			string json = File.ReadAllText(CONFIG_NAME);
 			Config = JsonConvert.DeserializeObject<Config>(json)!;
 		}
 		catch (Exception ex)
 		{
 			MessageBox.Show(string.Format(Resources.ConfigService_WeHaveDetectedErrorsInTheConfigFile, ex.Message), Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
-
 			Config = new Config();
 		}
 	}
@@ -46,6 +44,6 @@ public class ConfigService
 	public void Save()
 	{
 		string json = JsonConvert.SerializeObject(Config, Formatting.Indented);
-		File.WriteAllText(ConfigName, json);
+		File.WriteAllText(CONFIG_NAME, json);
 	}
 }

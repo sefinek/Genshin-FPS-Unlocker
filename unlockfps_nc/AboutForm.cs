@@ -2,9 +2,9 @@ using System.Diagnostics;
 
 namespace unlockfps_nc;
 
-public partial class AboutForm : Form
+internal partial class AboutForm : Form
 {
-	public AboutForm()
+	internal AboutForm()
 	{
 		InitializeComponent();
 	}
@@ -16,15 +16,15 @@ public partial class AboutForm : Form
 
 	private void GitHub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 	{
-		OpenLink("https://github.com/sefinek/Genshin-FPS-Unlocker");
+		OpenLink("https://github.com/sefinek/Genshin-FPS-Unlocker?referrer=GitHub_LinkClicked");
 	}
 
 	private void OfficialWebsite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 	{
-		OpenLink("https://sefinek.net/genshin-stella-mod?referrer=unlockfps_nc-about");
+		OpenLink("https://sefinek.net/genshin-stella-mod?referrer=OfficialWebsite_LinkClicked");
 	}
 
-	public static void OpenLink(string url)
+	internal static void OpenLink(string url)
 	{
 		ProcessStartInfo psi = new()
 		{
