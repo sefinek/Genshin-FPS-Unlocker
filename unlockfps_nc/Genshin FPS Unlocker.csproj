@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows10.0.26100.0</TargetFramework>
@@ -10,22 +9,20 @@
     <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
     <ApplicationManifest>Resources\app.manifest</ApplicationManifest>
     <PlatformTarget>x64</PlatformTarget>
-    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
     <StartupObject>unlockfps_nc.Program</StartupObject>
     <AssemblyName>gen-fps-unlocker</AssemblyName>
     <Version>4.0.4.1</Version>
-    <SignAssembly>False</SignAssembly>
     <Company>Sefinek Inc.</Company>
     <Authors>34736384</Authors>
     <Title>Genshin FPS Unlocker</Title>
-    <Description>Genshin Impact FPS Unlocker</Description>
-    <RepositoryType>git</RepositoryType>
     <Copyright>© 2022–2025 34736384, Sefinek. All rights reserved.</Copyright>
     <NeutralLanguage>en</NeutralLanguage>
     <RootNamespace>unlockfps_nc</RootNamespace>
-    <Configurations>Debug;Release;ReleaseMin</Configurations>
+    <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>D:\Projects\stella\SignAssembly\FPS-Unlocker.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -52,5 +49,4 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.3" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
-
 </Project>
