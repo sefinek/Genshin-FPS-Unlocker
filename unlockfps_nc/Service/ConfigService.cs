@@ -27,7 +27,7 @@ public class ConfigService
 		}
 		catch (Exception ex)
 		{
-			MessageBox.Show(string.Format(Resources.ConfigService_WeHaveDetectedErrorsInTheConfigFile, ex.Message), Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show(string.Format(Resources.ConfigService_TheConfigurationFileAppersToBeCorrupted, ex.Message), Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			Config = new Config();
 		}
 	}

@@ -73,11 +73,8 @@ namespace unlockfps_nc
 				// 
 				OptionsMenuStrip.BackColor = Color.FromArgb(32, 34, 37);
 				OptionsMenuStrip.Items.AddRange(new ToolStripItem[] { openToolStripMenuItem, configToolStripMenuItem, linksToolStripMenuItem, optionsToolStripMenuItem });
-				OptionsMenuStrip.Location = new Point(0, 0);
+				resources.ApplyResources(OptionsMenuStrip, "OptionsMenuStrip");
 				OptionsMenuStrip.Name = "OptionsMenuStrip";
-				OptionsMenuStrip.Size = new Size(446, 24);
-				OptionsMenuStrip.TabIndex = 0;
-				OptionsMenuStrip.Text = "menuStrip1";
 				// 
 				// openToolStripMenuItem
 				// 
@@ -85,35 +82,30 @@ namespace unlockfps_nc
 				openToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { stellaModLauncherToolStripMenuItem, checkHzOfYourMonitorToolStripMenuItem });
 				openToolStripMenuItem.ForeColor = Color.DarkGray;
 				openToolStripMenuItem.Name = "openToolStripMenuItem";
-				openToolStripMenuItem.Size = new Size(48, 20);
-				openToolStripMenuItem.Text = "Open";
+				resources.ApplyResources(openToolStripMenuItem, "openToolStripMenuItem");
 				// 
 				// stellaModLauncherToolStripMenuItem
 				// 
 				stellaModLauncherToolStripMenuItem.Name = "stellaModLauncherToolStripMenuItem";
-				stellaModLauncherToolStripMenuItem.Size = new Size(211, 22);
-				stellaModLauncherToolStripMenuItem.Text = "Stella Mod Launcher";
+				resources.ApplyResources(stellaModLauncherToolStripMenuItem, "stellaModLauncherToolStripMenuItem");
 				stellaModLauncherToolStripMenuItem.Click += OpenStella_Click;
 				// 
 				// checkHzOfYourMonitorToolStripMenuItem
 				// 
 				checkHzOfYourMonitorToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { systemInformationToolStripMenuItem, dxDiaxToolStripMenuItem });
 				checkHzOfYourMonitorToolStripMenuItem.Name = "checkHzOfYourMonitorToolStripMenuItem";
-				checkHzOfYourMonitorToolStripMenuItem.Size = new Size(211, 22);
-				checkHzOfYourMonitorToolStripMenuItem.Text = "Check Hz of your monitor";
+				resources.ApplyResources(checkHzOfYourMonitorToolStripMenuItem, "checkHzOfYourMonitorToolStripMenuItem");
 				// 
 				// systemInformationToolStripMenuItem
 				// 
 				systemInformationToolStripMenuItem.Name = "systemInformationToolStripMenuItem";
-				systemInformationToolStripMenuItem.Size = new Size(178, 22);
-				systemInformationToolStripMenuItem.Text = "System Information";
+				resources.ApplyResources(systemInformationToolStripMenuItem, "systemInformationToolStripMenuItem");
 				systemInformationToolStripMenuItem.Click += SysInf_Click;
 				// 
 				// dxDiaxToolStripMenuItem
 				// 
 				dxDiaxToolStripMenuItem.Name = "dxDiaxToolStripMenuItem";
-				dxDiaxToolStripMenuItem.Size = new Size(178, 22);
-				dxDiaxToolStripMenuItem.Text = "DxDiag";
+				resources.ApplyResources(dxDiaxToolStripMenuItem, "dxDiaxToolStripMenuItem");
 				dxDiaxToolStripMenuItem.Click += DxDiag_Click;
 				// 
 				// configToolStripMenuItem
@@ -122,14 +114,12 @@ namespace unlockfps_nc
 				configToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { viewConfigToolStripMenuItem });
 				configToolStripMenuItem.ForeColor = Color.DarkGray;
 				configToolStripMenuItem.Name = "configToolStripMenuItem";
-				configToolStripMenuItem.Size = new Size(55, 20);
-				configToolStripMenuItem.Text = "Config";
+				resources.ApplyResources(configToolStripMenuItem, "configToolStripMenuItem");
 				// 
 				// viewConfigToolStripMenuItem
 				// 
 				viewConfigToolStripMenuItem.Name = "viewConfigToolStripMenuItem";
-				viewConfigToolStripMenuItem.Size = new Size(136, 22);
-				viewConfigToolStripMenuItem.Text = "View config";
+				resources.ApplyResources(viewConfigToolStripMenuItem, "viewConfigToolStripMenuItem");
 				viewConfigToolStripMenuItem.Click += ViewCfg_Click;
 				// 
 				// linksToolStripMenuItem
@@ -138,56 +128,48 @@ namespace unlockfps_nc
 				linksToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { officialWebsiteToolStripMenuItem, youTubeToolStripMenuItem, gitHubToolStripMenuItem });
 				linksToolStripMenuItem.ForeColor = Color.DarkGray;
 				linksToolStripMenuItem.Name = "linksToolStripMenuItem";
-				linksToolStripMenuItem.Size = new Size(46, 20);
-				linksToolStripMenuItem.Text = "Links";
+				resources.ApplyResources(linksToolStripMenuItem, "linksToolStripMenuItem");
 				// 
 				// officialWebsiteToolStripMenuItem
 				// 
 				officialWebsiteToolStripMenuItem.Name = "officialWebsiteToolStripMenuItem";
-				officialWebsiteToolStripMenuItem.Size = new Size(155, 22);
-				officialWebsiteToolStripMenuItem.Text = "Official website";
+				resources.ApplyResources(officialWebsiteToolStripMenuItem, "officialWebsiteToolStripMenuItem");
 				officialWebsiteToolStripMenuItem.Click += OfficialWebsite_Click;
 				// 
 				// youTubeToolStripMenuItem
 				// 
 				youTubeToolStripMenuItem.Name = "youTubeToolStripMenuItem";
-				youTubeToolStripMenuItem.Size = new Size(155, 22);
-				youTubeToolStripMenuItem.Text = "YouTube";
+				resources.ApplyResources(youTubeToolStripMenuItem, "youTubeToolStripMenuItem");
 				youTubeToolStripMenuItem.Click += YouTube_Click;
 				// 
 				// gitHubToolStripMenuItem
 				// 
 				gitHubToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { repositoresToolStripMenuItem, sefineksProfileToolStripMenuItem });
 				gitHubToolStripMenuItem.Name = "gitHubToolStripMenuItem";
-				gitHubToolStripMenuItem.Size = new Size(155, 22);
-				gitHubToolStripMenuItem.Text = "GitHub";
+				resources.ApplyResources(gitHubToolStripMenuItem, "gitHubToolStripMenuItem");
 				// 
 				// repositoresToolStripMenuItem
 				// 
 				repositoresToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { genshinImpactReShadeToolStripMenuItem, fPSUnlockerToolStripMenuItem });
 				repositoresToolStripMenuItem.Name = "repositoresToolStripMenuItem";
-				repositoresToolStripMenuItem.Size = new Size(157, 22);
-				repositoresToolStripMenuItem.Text = "Repositories";
+				resources.ApplyResources(repositoresToolStripMenuItem, "repositoresToolStripMenuItem");
 				// 
 				// genshinImpactReShadeToolStripMenuItem
 				// 
 				genshinImpactReShadeToolStripMenuItem.Name = "genshinImpactReShadeToolStripMenuItem";
-				genshinImpactReShadeToolStripMenuItem.Size = new Size(205, 22);
-				genshinImpactReShadeToolStripMenuItem.Text = "Genshin Impact ReShade";
+				resources.ApplyResources(genshinImpactReShadeToolStripMenuItem, "genshinImpactReShadeToolStripMenuItem");
 				genshinImpactReShadeToolStripMenuItem.Click += GIReShade_Click;
 				// 
 				// fPSUnlockerToolStripMenuItem
 				// 
 				fPSUnlockerToolStripMenuItem.Name = "fPSUnlockerToolStripMenuItem";
-				fPSUnlockerToolStripMenuItem.Size = new Size(205, 22);
-				fPSUnlockerToolStripMenuItem.Text = "FPS Unlocker";
+				resources.ApplyResources(fPSUnlockerToolStripMenuItem, "fPSUnlockerToolStripMenuItem");
 				fPSUnlockerToolStripMenuItem.Click += FpsUnlocker_Click;
 				// 
 				// sefineksProfileToolStripMenuItem
 				// 
 				sefineksProfileToolStripMenuItem.Name = "sefineksProfileToolStripMenuItem";
-				sefineksProfileToolStripMenuItem.Size = new Size(157, 22);
-				sefineksProfileToolStripMenuItem.Text = "Sefinek's profile";
+				resources.ApplyResources(sefineksProfileToolStripMenuItem, "sefineksProfileToolStripMenuItem");
 				sefineksProfileToolStripMenuItem.Click += SefinGitHub_Click;
 				// 
 				// optionsToolStripMenuItem
@@ -196,132 +178,97 @@ namespace unlockfps_nc
 				optionsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { SettingsMenuItem, SetupMenuItem, AboutMenuItem });
 				optionsToolStripMenuItem.ForeColor = Color.DarkGray;
 				optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-				optionsToolStripMenuItem.Size = new Size(61, 20);
-				optionsToolStripMenuItem.Text = "Options";
+				resources.ApplyResources(optionsToolStripMenuItem, "optionsToolStripMenuItem");
 				// 
 				// SettingsMenuItem
 				// 
 				SettingsMenuItem.Name = "SettingsMenuItem";
-				SettingsMenuItem.Size = new Size(116, 22);
-				SettingsMenuItem.Text = "Settings";
+				resources.ApplyResources(SettingsMenuItem, "SettingsMenuItem");
 				SettingsMenuItem.Click += SettingsMenuItem_Click;
 				// 
 				// SetupMenuItem
 				// 
 				SetupMenuItem.Name = "SetupMenuItem";
-				SetupMenuItem.Size = new Size(116, 22);
-				SetupMenuItem.Text = "Setup";
+				resources.ApplyResources(SetupMenuItem, "SetupMenuItem");
 				SetupMenuItem.Click += SetupMenuItem_Click;
 				// 
 				// AboutMenuItem
 				// 
 				AboutMenuItem.Name = "AboutMenuItem";
-				AboutMenuItem.Size = new Size(116, 22);
-				AboutMenuItem.Text = "About";
+				resources.ApplyResources(AboutMenuItem, "AboutMenuItem");
 				AboutMenuItem.Click += AboutMenuItem_Click;
 				// 
 				// LabelFPS
 				// 
-				LabelFPS.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-				LabelFPS.AutoSize = true;
-				LabelFPS.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+				resources.ApplyResources(LabelFPS, "LabelFPS");
 				LabelFPS.ForeColor = Color.White;
-				LabelFPS.Location = new Point(137, 56);
 				LabelFPS.Name = "LabelFPS";
-				LabelFPS.Size = new Size(56, 17);
-				LabelFPS.TabIndex = 1;
-				LabelFPS.Text = "FPS limit";
 				// 
 				// InputFPS
 				// 
-				InputFPS.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+				resources.ApplyResources(InputFPS, "InputFPS");
 				InputFPS.BackColor = Color.FromArgb(47, 49, 54);
 				InputFPS.ForeColor = Color.White;
-				InputFPS.Location = new Point(197, 53);
 				InputFPS.Maximum = new decimal(new int[] { 420, 0, 0, 0 });
 				InputFPS.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
 				InputFPS.Name = "InputFPS";
-				InputFPS.Size = new Size(231, 23);
-				InputFPS.TabIndex = 2;
 				InputFPS.Value = new decimal(new int[] { 144, 0, 0, 0 });
 				// 
 				// SliderFPS
 				// 
-				SliderFPS.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-				SliderFPS.Location = new Point(133, 84);
+				resources.ApplyResources(SliderFPS, "SliderFPS");
 				SliderFPS.Maximum = 420;
 				SliderFPS.Minimum = 1;
 				SliderFPS.Name = "SliderFPS";
-				SliderFPS.Size = new Size(302, 45);
-				SliderFPS.TabIndex = 3;
 				SliderFPS.TickStyle = TickStyle.None;
 				SliderFPS.Value = 120;
 				// 
 				// CBAutoStart
 				// 
-				CBAutoStart.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-				CBAutoStart.AutoSize = true;
+				resources.ApplyResources(CBAutoStart, "CBAutoStart");
 				CBAutoStart.ForeColor = Color.White;
-				CBAutoStart.Location = new Point(141, 120);
 				CBAutoStart.Name = "CBAutoStart";
-				CBAutoStart.Size = new Size(158, 19);
-				CBAutoStart.TabIndex = 4;
-				CBAutoStart.Text = "Start game automatically";
-				ToolTipMain.SetToolTip(CBAutoStart, "This will take effect on subsequent launch. Not recommended!");
+				ToolTipMain.SetToolTip(CBAutoStart, resources.GetString("CBAutoStart.ToolTip"));
 				CBAutoStart.UseVisualStyleBackColor = true;
 				// 
 				// BtnStartGame
 				// 
-				BtnStartGame.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-				BtnStartGame.Location = new Point(331, 117);
+				resources.ApplyResources(BtnStartGame, "BtnStartGame");
 				BtnStartGame.Name = "BtnStartGame";
-				BtnStartGame.Size = new Size(97, 23);
-				BtnStartGame.TabIndex = 5;
-				BtnStartGame.Text = "Start Game";
 				BtnStartGame.UseVisualStyleBackColor = true;
 				BtnStartGame.Click += BtnStartGame_Click;
 				// 
 				// NotifyIconMain
 				// 
 				NotifyIconMain.BalloonTipIcon = ToolTipIcon.Info;
-				NotifyIconMain.BalloonTipText = "The program has been minimized to the system tray. You can change the FPS limit even during the game.";
-				NotifyIconMain.BalloonTipTitle = "Genshin FPS Unlocker";
+				resources.ApplyResources(NotifyIconMain, "NotifyIconMain");
 				NotifyIconMain.ContextMenuStrip = ContextNotify;
-				NotifyIconMain.Icon = (Icon)resources.GetObject("NotifyIconMain.Icon");
-				NotifyIconMain.Text = "Genshin FPS Unlocker";
-				NotifyIconMain.Visible = true;
 				NotifyIconMain.DoubleClick += NotifyIconMain_DoubleClick;
 				// 
 				// ContextNotify
 				// 
 				ContextNotify.Items.AddRange(new ToolStripItem[] { ExitMenuItem });
 				ContextNotify.Name = "ContextNotify";
-				ContextNotify.Size = new Size(93, 26);
+				resources.ApplyResources(ContextNotify, "ContextNotify");
 				// 
 				// ExitMenuItem
 				// 
 				ExitMenuItem.Name = "ExitMenuItem";
-				ExitMenuItem.Size = new Size(92, 22);
-				ExitMenuItem.Text = "Exit";
+				resources.ApplyResources(ExitMenuItem, "ExitMenuItem");
 				ExitMenuItem.Click += ExitMenuItem_Click;
 				// 
 				// pictureBox1
 				// 
-				pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+				resources.ApplyResources(pictureBox1, "pictureBox1");
 				pictureBox1.Image = Resources.fps_unlocker;
-				pictureBox1.Location = new Point(12, 36);
 				pictureBox1.Name = "pictureBox1";
-				pictureBox1.Size = new Size(113, 113);
-				pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-				pictureBox1.TabIndex = 6;
 				pictureBox1.TabStop = false;
 				// 
 				// MainForm
 				// 
-				AutoScaleDimensions = new SizeF(96F, 96F);
+				resources.ApplyResources(this, "$this");
 				AutoScaleMode = AutoScaleMode.Dpi;
 				BackColor = Color.FromArgb(46, 48, 51);
-				ClientSize = new Size(446, 161);
 				Controls.Add(pictureBox1);
 				Controls.Add(BtnStartGame);
 				Controls.Add(CBAutoStart);
@@ -333,8 +280,6 @@ namespace unlockfps_nc
 				MainMenuStrip = OptionsMenuStrip;
 				MaximizeBox = false;
 				Name = "MainForm";
-				StartPosition = FormStartPosition.CenterScreen;
-				Text = "Genshin FPS Unlocker";
 				FormClosing += MainForm_FormClosing;
 				Load += MainForm_Load;
 				Resize += MainForm_Resize;

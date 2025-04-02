@@ -29,6 +29,7 @@ namespace unlockfps_nc
 		  /// </summary>
 		  private void InitializeComponent()
 		  {
+				System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupForm));
 				LabelSelect = new Label();
 				ComboResult = new ComboBox();
 				LabelHint = new Label();
@@ -41,92 +42,57 @@ namespace unlockfps_nc
 				// 
 				// LabelSelect
 				// 
-				LabelSelect.Anchor = AnchorStyles.None;
-				LabelSelect.AutoSize = true;
-				LabelSelect.Location = new Point(12, 60);
+				resources.ApplyResources(LabelSelect, "LabelSelect");
 				LabelSelect.Name = "LabelSelect";
-				LabelSelect.Size = new Size(38, 15);
-				LabelSelect.TabIndex = 1;
-				LabelSelect.Text = "Select";
 				// 
 				// ComboResult
 				// 
-				ComboResult.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+				resources.ApplyResources(ComboResult, "ComboResult");
 				ComboResult.FormattingEnabled = true;
-				ComboResult.Location = new Point(15, 72);
 				ComboResult.Name = "ComboResult";
-				ComboResult.Size = new Size(435, 23);
-				ComboResult.TabIndex = 2;
 				// 
 				// LabelHint
 				// 
-				LabelHint.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-				LabelHint.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+				resources.ApplyResources(LabelHint, "LabelHint");
 				LabelHint.ForeColor = Color.White;
-				LabelHint.Location = new Point(12, 104);
 				LabelHint.Name = "LabelHint";
-				LabelHint.Size = new Size(435, 69);
-				LabelHint.TabIndex = 3;
-				LabelHint.Text = "If your game is not listed above, you can either:\r\n1. Open the game now and the unlocker will try to find it's location.\r\n2. Use the browse button below.";
 				// 
 				// BtnBrowse
 				// 
-				BtnBrowse.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-				BtnBrowse.Location = new Point(12, 176);
+				resources.ApplyResources(BtnBrowse, "BtnBrowse");
 				BtnBrowse.Name = "BtnBrowse";
-				BtnBrowse.Size = new Size(90, 23);
-				BtnBrowse.TabIndex = 4;
-				BtnBrowse.Text = "Browse";
 				BtnBrowse.UseVisualStyleBackColor = true;
 				BtnBrowse.Click += BtnBrowse_Click;
 				// 
 				// BtnConfirm
 				// 
-				BtnConfirm.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-				BtnConfirm.Location = new Point(357, 176);
+				resources.ApplyResources(BtnConfirm, "BtnConfirm");
 				BtnConfirm.Name = "BtnConfirm";
-				BtnConfirm.Size = new Size(90, 23);
-				BtnConfirm.TabIndex = 5;
-				BtnConfirm.Text = "Confirm";
 				BtnConfirm.UseVisualStyleBackColor = true;
 				BtnConfirm.Click += BtnConfirm_Click;
 				// 
 				// LabelCurrentPath
 				// 
-				LabelCurrentPath.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-				LabelCurrentPath.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+				resources.ApplyResources(LabelCurrentPath, "LabelCurrentPath");
 				LabelCurrentPath.ForeColor = Color.White;
-				LabelCurrentPath.Location = new Point(12, 9);
 				LabelCurrentPath.Name = "LabelCurrentPath";
-				LabelCurrentPath.Size = new Size(435, 39);
-				LabelCurrentPath.TabIndex = 6;
-				LabelCurrentPath.Text = "LabelCurrentPath";
-				LabelCurrentPath.TextAlign = ContentAlignment.MiddleCenter;
 				// 
 				// BrowseDialog
 				// 
-				BrowseDialog.Filter = "Executable Files (*.exe)|GenshinImpact.exe;YuanShen.exe";
+				resources.ApplyResources(BrowseDialog, "BrowseDialog");
 				BrowseDialog.RestoreDirectory = true;
-				BrowseDialog.Title = "Select GenshinImpact.exe or YuanShen.exe";
 				// 
 				// LabelResult
 				// 
-				LabelResult.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-				LabelResult.AutoSize = true;
-				LabelResult.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+				resources.ApplyResources(LabelResult, "LabelResult");
 				LabelResult.ForeColor = Color.White;
-				LabelResult.Location = new Point(12, 52);
 				LabelResult.Name = "LabelResult";
-				LabelResult.Size = new Size(74, 17);
-				LabelResult.TabIndex = 7;
-				LabelResult.Text = "LabelResult";
 				// 
 				// SetupForm
 				// 
-				AutoScaleDimensions = new SizeF(96F, 96F);
+				resources.ApplyResources(this, "$this");
 				AutoScaleMode = AutoScaleMode.Dpi;
 				BackColor = Color.FromArgb(35, 36, 38);
-				ClientSize = new Size(459, 211);
 				Controls.Add(LabelResult);
 				Controls.Add(LabelCurrentPath);
 				Controls.Add(BtnConfirm);
@@ -139,8 +105,6 @@ namespace unlockfps_nc
 				MaximizeBox = false;
 				MinimizeBox = false;
 				Name = "SetupForm";
-				StartPosition = FormStartPosition.CenterParent;
-				Text = "Setup";
 				FormClosing += SetupForm_FormClosing;
 				Load += SetupForm_Load;
 				ResumeLayout(false);

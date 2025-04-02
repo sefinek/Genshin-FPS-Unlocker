@@ -124,7 +124,7 @@
     <value>Current path: {0}</value>
   </data>
   <data name="SetupForm_FailedToFindProcessPath" xml:space="preserve">
-    <value>Failed to find process path. Please use "Browse" instead</value>
+    <value>Failed to find process path. Please use "Browse" instead.</value>
   </data>
   <data name="Error" xml:space="preserve">
     <value>Error</value>
@@ -133,7 +133,7 @@
     <value>Success</value>
   </data>
   <data name="SetupForm_GameFound" xml:space="preserve">
-    <value>Game Found!
+    <value>Game found!
 {0}</value>
   </data>
   <data name="SetupForm_Found_0_installationOfTheGame" xml:space="preserve">
@@ -147,19 +147,16 @@ GenshinImpact.exe or YuanShen.exe.</value>
     <value>That's not the right place.</value>
   </data>
   <data name="MainForm_GenshinFPSUnlocker_CurrentLimit" xml:space="preserve">
-    <value>Genshin FPS Unlocker (Current limit: {0})</value>
+    <value>Genshin FPS Unlocker (current limit: {0})</value>
   </data>
-  <data name="MainForm_KeyStellaPathNotFound" xml:space="preserve">
-    <value>Key 'StellaPath' not found. Is the Genshin Stella Mod definitely installed?</value>
-  </data>
-  <data name="MainForm_RegistryKeySOFTWAREStellaModLauncherNotFound" xml:space="preserve">
-    <value>Registry key '{0}' not found. Is the Genshin Stella Mod definitely installed?</value>
+  <data name="MainForm_TheRegistryKeyStellaPathWasNotFound" xml:space="preserve">
+    <value>The registry key 'StellaPath' was not found. Are you sure Genshin Stella Mod is installed?</value>
   </data>
   <data name="MainForm_AnErrorOccurred" xml:space="preserve">
     <value>An error occurred: {0}</value>
   </data>
-  <data name="ConfigService_WeHaveDetectedErrorsInTheConfigFile" xml:space="preserve">
-    <value>We have detected errors in the FPS Unlocker's configuration file. We will attempt its repair. If the program launches normally, this will indicate that the repair was successful. If this message keeps appearing, please delete the configuration file (unlocker.config.json) or contact the developer.
+  <data name="ConfigService_TheConfigurationFileAppearsToBeCorrupted" xml:space="preserve">
+    <value>The configuration file appears to be corrupted. We will attempt to repair it. If this message continues to appear, please delete the configuration file (unlocker.config.json).
 
 {0}</value>
   </data>

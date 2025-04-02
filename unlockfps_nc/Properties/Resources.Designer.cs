@@ -65,9 +65,10 @@ namespace unlockfps_nc.Properties {
         ///
         ///{0}.
         /// </summary>
-        internal static string ConfigService_WeHaveDetectedErrorsInTheConfigFile {
+        internal static string ConfigService_TheConfigurationFileAppersToBeCorrupted
+        {
             get {
-                return ResourceManager.GetString("ConfigService_WeHaveDetectedErrorsInTheConfigFile", resourceCulture);
+                return ResourceManager.GetString("ConfigService_TheConfigurationFileAppersToBeCorrupted", resourceCulture);
             }
         }
         
@@ -121,9 +122,9 @@ namespace unlockfps_nc.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Key &apos;StellaPath&apos; not found. Is the Genshin Stella Mod definitely installed?.
         /// </summary>
-        internal static string MainForm_KeyStellaPathNotFound {
+        internal static string MainForm_TheRegistryKeyStellaPathWasNotFound {
             get {
-                return ResourceManager.GetString("MainForm_KeyStellaPathNotFound", resourceCulture);
+                return ResourceManager.GetString("MainForm_TheRegistryKeyStellaPathWasNotFound", resourceCulture);
             }
         }
         

@@ -29,6 +29,7 @@ namespace unlockfps_nc
 		  private void InitializeComponent()
 		  {
 				components = new System.ComponentModel.Container();
+				System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
 				LabelAutoSave = new Label();
 				TabCtrlSettings = new TabControl();
 				TabGeneral = new TabPage();
@@ -62,26 +63,17 @@ namespace unlockfps_nc
 				// 
 				// LabelAutoSave
 				// 
-				LabelAutoSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-				LabelAutoSave.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+				resources.ApplyResources(LabelAutoSave, "LabelAutoSave");
 				LabelAutoSave.ForeColor = Color.MediumTurquoise;
-				LabelAutoSave.Location = new Point(12, 255);
 				LabelAutoSave.Name = "LabelAutoSave";
-				LabelAutoSave.Size = new Size(288, 15);
-				LabelAutoSave.TabIndex = 0;
-				LabelAutoSave.Text = "All settings will be saved automatically.";
-				LabelAutoSave.TextAlign = ContentAlignment.MiddleCenter;
 				// 
 				// TabCtrlSettings
 				// 
-				TabCtrlSettings.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+				resources.ApplyResources(TabCtrlSettings, "TabCtrlSettings");
 				TabCtrlSettings.Controls.Add(TabGeneral);
 				TabCtrlSettings.Controls.Add(TabLaunchOptions);
-				TabCtrlSettings.Location = new Point(12, 12);
 				TabCtrlSettings.Name = "TabCtrlSettings";
 				TabCtrlSettings.SelectedIndex = 0;
-				TabCtrlSettings.Size = new Size(288, 238);
-				TabCtrlSettings.TabIndex = 1;
 				// 
 				// TabGeneral
 				// 
@@ -91,73 +83,45 @@ namespace unlockfps_nc
 				TabGeneral.Controls.Add(CBPowerSave);
 				TabGeneral.Controls.Add(CBAutoClose);
 				TabGeneral.Controls.Add(CBStartMinimized);
-				TabGeneral.Location = new Point(4, 24);
+				resources.ApplyResources(TabGeneral, "TabGeneral");
 				TabGeneral.Name = "TabGeneral";
-				TabGeneral.Padding = new Padding(3);
-				TabGeneral.Size = new Size(280, 210);
-				TabGeneral.TabIndex = 0;
-				TabGeneral.Text = "General";
 				// 
 				// ComboPriority
 				// 
-				ComboPriority.Anchor = AnchorStyles.None;
+				resources.ApplyResources(ComboPriority, "ComboPriority");
 				ComboPriority.ForeColor = Color.Black;
 				ComboPriority.FormattingEnabled = true;
-				ComboPriority.Items.AddRange(new object[] { "Realtime", "High", "Above Normal", "Normal", "Below Normal", "Low" });
-				ComboPriority.Location = new Point(153, 82);
+				ComboPriority.Items.AddRange(new object[] { resources.GetString("ComboPriority.Items"), resources.GetString("ComboPriority.Items1"), resources.GetString("ComboPriority.Items2"), resources.GetString("ComboPriority.Items3"), resources.GetString("ComboPriority.Items4"), resources.GetString("ComboPriority.Items5") });
 				ComboPriority.Name = "ComboPriority";
-				ComboPriority.Size = new Size(121, 23);
-				ComboPriority.TabIndex = 5;
-				ComboPriority.Text = "Normal";
 				// 
 				// LabelPriority
 				// 
-				LabelPriority.Anchor = AnchorStyles.None;
-				LabelPriority.AutoSize = true;
+				resources.ApplyResources(LabelPriority, "LabelPriority");
 				LabelPriority.ForeColor = Color.White;
-				LabelPriority.Location = new Point(6, 85);
 				LabelPriority.Name = "LabelPriority";
-				LabelPriority.Size = new Size(122, 15);
-				LabelPriority.TabIndex = 4;
-				LabelPriority.Text = "Game process priority";
 				// 
 				// CBPowerSave
 				// 
-				CBPowerSave.Anchor = AnchorStyles.None;
-				CBPowerSave.AutoSize = true;
+				resources.ApplyResources(CBPowerSave, "CBPowerSave");
 				CBPowerSave.ForeColor = Color.White;
-				CBPowerSave.Location = new Point(6, 56);
 				CBPowerSave.Name = "CBPowerSave";
-				CBPowerSave.Size = new Size(97, 19);
-				CBPowerSave.TabIndex = 3;
-				CBPowerSave.Text = "Power Saving";
-				ToolTipSettings.SetToolTip(CBPowerSave, "Sets fps to 10 and low process priority upon losing focus (e.g. tabbing out of game)");
+				ToolTipSettings.SetToolTip(CBPowerSave, resources.GetString("CBPowerSave.ToolTip"));
 				CBPowerSave.UseVisualStyleBackColor = true;
 				// 
 				// CBAutoClose
 				// 
-				CBAutoClose.Anchor = AnchorStyles.None;
-				CBAutoClose.AutoSize = true;
+				resources.ApplyResources(CBAutoClose, "CBAutoClose");
 				CBAutoClose.ForeColor = Color.White;
-				CBAutoClose.Location = new Point(6, 31);
 				CBAutoClose.Name = "CBAutoClose";
-				CBAutoClose.Size = new Size(84, 19);
-				CBAutoClose.TabIndex = 2;
-				CBAutoClose.Text = "Auto Close";
-				ToolTipSettings.SetToolTip(CBAutoClose, "Unlocker will exit upon game closing");
+				ToolTipSettings.SetToolTip(CBAutoClose, resources.GetString("CBAutoClose.ToolTip"));
 				CBAutoClose.UseVisualStyleBackColor = true;
 				// 
 				// CBStartMinimized
 				// 
-				CBStartMinimized.Anchor = AnchorStyles.None;
-				CBStartMinimized.AutoSize = true;
+				resources.ApplyResources(CBStartMinimized, "CBStartMinimized");
 				CBStartMinimized.ForeColor = Color.White;
-				CBStartMinimized.Location = new Point(6, 6);
 				CBStartMinimized.Name = "CBStartMinimized";
-				CBStartMinimized.Size = new Size(167, 19);
-				CBStartMinimized.TabIndex = 1;
-				CBStartMinimized.Text = "Start Minimized (Unlocker)";
-				ToolTipSettings.SetToolTip(CBStartMinimized, "Unlocker will minimized to tray on starup");
+				ToolTipSettings.SetToolTip(CBStartMinimized, resources.GetString("CBStartMinimized.ToolTip"));
 				CBStartMinimized.UseVisualStyleBackColor = true;
 				// 
 				// TabLaunchOptions
@@ -175,150 +139,91 @@ namespace unlockfps_nc
 				TabLaunchOptions.Controls.Add(CBCustomRes);
 				TabLaunchOptions.Controls.Add(CBFullscreen);
 				TabLaunchOptions.Controls.Add(CBPopup);
-				TabLaunchOptions.Location = new Point(4, 24);
+				resources.ApplyResources(TabLaunchOptions, "TabLaunchOptions");
 				TabLaunchOptions.Name = "TabLaunchOptions";
-				TabLaunchOptions.Padding = new Padding(3);
-				TabLaunchOptions.Size = new Size(280, 210);
-				TabLaunchOptions.TabIndex = 1;
-				TabLaunchOptions.Text = "Launch options";
 				// 
 				// CBUseMobileUI
 				// 
-				CBUseMobileUI.Anchor = AnchorStyles.None;
-				CBUseMobileUI.AutoSize = true;
+				resources.ApplyResources(CBUseMobileUI, "CBUseMobileUI");
 				CBUseMobileUI.ForeColor = Color.White;
-				CBUseMobileUI.Location = new Point(6, 81);
 				CBUseMobileUI.Name = "CBUseMobileUI";
-				CBUseMobileUI.Size = new Size(99, 19);
-				CBUseMobileUI.TabIndex = 11;
-				CBUseMobileUI.Text = "Use Mobile UI";
 				CBUseMobileUI.UseVisualStyleBackColor = true;
 				// 
 				// InputMonitorNum
 				// 
-				InputMonitorNum.Anchor = AnchorStyles.None;
-				InputMonitorNum.Location = new Point(139, 168);
+				resources.ApplyResources(InputMonitorNum, "InputMonitorNum");
 				InputMonitorNum.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
 				InputMonitorNum.Name = "InputMonitorNum";
-				InputMonitorNum.Size = new Size(135, 23);
-				InputMonitorNum.TabIndex = 10;
 				InputMonitorNum.Value = new decimal(new int[] { 1, 0, 0, 0 });
 				// 
 				// LabelMonitor
 				// 
-				LabelMonitor.Anchor = AnchorStyles.None;
-				LabelMonitor.AutoSize = true;
+				resources.ApplyResources(LabelMonitor, "LabelMonitor");
 				LabelMonitor.ForeColor = Color.White;
-				LabelMonitor.Location = new Point(6, 170);
 				LabelMonitor.Name = "LabelMonitor";
-				LabelMonitor.Size = new Size(56, 15);
-				LabelMonitor.TabIndex = 9;
-				LabelMonitor.Text = "Monitor: ";
 				// 
 				// ComboFullscreenMode
 				// 
-				ComboFullscreenMode.Anchor = AnchorStyles.None;
+				resources.ApplyResources(ComboFullscreenMode, "ComboFullscreenMode");
 				ComboFullscreenMode.FormattingEnabled = true;
-				ComboFullscreenMode.Items.AddRange(new object[] { "Borderless", "Exclusive" });
-				ComboFullscreenMode.Location = new Point(139, 139);
+				ComboFullscreenMode.Items.AddRange(new object[] { resources.GetString("ComboFullscreenMode.Items"), resources.GetString("ComboFullscreenMode.Items1") });
 				ComboFullscreenMode.Name = "ComboFullscreenMode";
-				ComboFullscreenMode.Size = new Size(135, 23);
-				ComboFullscreenMode.TabIndex = 8;
-				ComboFullscreenMode.Text = "Borderless";
 				// 
 				// LabelWindowMode
 				// 
-				LabelWindowMode.Anchor = AnchorStyles.None;
-				LabelWindowMode.AutoSize = true;
+				resources.ApplyResources(LabelWindowMode, "LabelWindowMode");
 				LabelWindowMode.ForeColor = Color.White;
-				LabelWindowMode.Location = new Point(6, 142);
 				LabelWindowMode.Name = "LabelWindowMode";
-				LabelWindowMode.Size = new Size(97, 15);
-				LabelWindowMode.TabIndex = 7;
-				LabelWindowMode.Text = "Fullscreen mode:";
 				// 
 				// InputResY
 				// 
-				InputResY.Anchor = AnchorStyles.None;
-				InputResY.Location = new Point(219, 110);
+				resources.ApplyResources(InputResY, "InputResY");
 				InputResY.Maximum = new decimal(new int[] { 4320, 0, 0, 0 });
 				InputResY.Minimum = new decimal(new int[] { 200, 0, 0, 0 });
 				InputResY.Name = "InputResY";
-				InputResY.Size = new Size(55, 23);
-				InputResY.TabIndex = 6;
-				InputResY.TextAlign = HorizontalAlignment.Center;
 				InputResY.Value = new decimal(new int[] { 1080, 0, 0, 0 });
 				// 
 				// LabelX
 				// 
-				LabelX.Anchor = AnchorStyles.None;
-				LabelX.AutoSize = true;
+				resources.ApplyResources(LabelX, "LabelX");
 				LabelX.ForeColor = Color.White;
-				LabelX.Location = new Point(200, 113);
 				LabelX.Name = "LabelX";
-				LabelX.Size = new Size(12, 15);
-				LabelX.TabIndex = 5;
-				LabelX.Text = "x";
 				// 
 				// InputResX
 				// 
-				InputResX.Anchor = AnchorStyles.None;
-				InputResX.Location = new Point(139, 110);
+				resources.ApplyResources(InputResX, "InputResX");
 				InputResX.Maximum = new decimal(new int[] { 7680, 0, 0, 0 });
 				InputResX.Minimum = new decimal(new int[] { 200, 0, 0, 0 });
 				InputResX.Name = "InputResX";
-				InputResX.Size = new Size(55, 23);
-				InputResX.TabIndex = 4;
-				InputResX.TextAlign = HorizontalAlignment.Center;
 				InputResX.Value = new decimal(new int[] { 1920, 0, 0, 0 });
 				// 
 				// LabelCustomRes
 				// 
-				LabelCustomRes.Anchor = AnchorStyles.None;
-				LabelCustomRes.AutoSize = true;
+				resources.ApplyResources(LabelCustomRes, "LabelCustomRes");
 				LabelCustomRes.ForeColor = Color.White;
-				LabelCustomRes.Location = new Point(6, 113);
 				LabelCustomRes.Name = "LabelCustomRes";
-				LabelCustomRes.Size = new Size(69, 15);
-				LabelCustomRes.TabIndex = 3;
-				LabelCustomRes.Text = "Resolution: ";
 				// 
 				// CBCustomRes
 				// 
-				CBCustomRes.Anchor = AnchorStyles.None;
-				CBCustomRes.AutoSize = true;
+				resources.ApplyResources(CBCustomRes, "CBCustomRes");
 				CBCustomRes.ForeColor = Color.White;
-				CBCustomRes.Location = new Point(6, 56);
 				CBCustomRes.Name = "CBCustomRes";
-				CBCustomRes.Size = new Size(127, 19);
-				CBCustomRes.TabIndex = 2;
-				CBCustomRes.Text = "Custom Resolution";
 				CBCustomRes.UseVisualStyleBackColor = true;
 				CBCustomRes.CheckStateChanged += LaunchOptionsChanged;
 				// 
 				// CBFullscreen
 				// 
-				CBFullscreen.Anchor = AnchorStyles.None;
-				CBFullscreen.AutoSize = true;
+				resources.ApplyResources(CBFullscreen, "CBFullscreen");
 				CBFullscreen.ForeColor = Color.White;
-				CBFullscreen.Location = new Point(6, 31);
 				CBFullscreen.Name = "CBFullscreen";
-				CBFullscreen.Size = new Size(79, 19);
-				CBFullscreen.TabIndex = 1;
-				CBFullscreen.Text = "Fullscreen";
 				CBFullscreen.UseVisualStyleBackColor = true;
 				CBFullscreen.CheckStateChanged += LaunchOptionsChanged;
 				// 
 				// CBPopup
 				// 
-				CBPopup.Anchor = AnchorStyles.None;
-				CBPopup.AutoSize = true;
+				resources.ApplyResources(CBPopup, "CBPopup");
 				CBPopup.ForeColor = Color.White;
-				CBPopup.Location = new Point(6, 6);
 				CBPopup.Name = "CBPopup";
-				CBPopup.Size = new Size(127, 19);
-				CBPopup.TabIndex = 0;
-				CBPopup.Text = "Borderless Window";
 				CBPopup.UseVisualStyleBackColor = true;
 				CBPopup.CheckStateChanged += LaunchOptionsChanged;
 				// 
@@ -330,16 +235,15 @@ namespace unlockfps_nc
 				// 
 				// DllAddDialog
 				// 
-				DllAddDialog.Filter = "DLL (*.dll)|*.dll|All files (*.*)|*.*";
+				resources.ApplyResources(DllAddDialog, "DllAddDialog");
 				DllAddDialog.Multiselect = true;
 				DllAddDialog.RestoreDirectory = true;
 				// 
 				// SettingsForm
 				// 
-				AutoScaleDimensions = new SizeF(96F, 96F);
+				resources.ApplyResources(this, "$this");
 				AutoScaleMode = AutoScaleMode.Dpi;
 				BackColor = Color.FromArgb(35, 36, 38);
-				ClientSize = new Size(312, 277);
 				Controls.Add(TabCtrlSettings);
 				Controls.Add(LabelAutoSave);
 				DoubleBuffered = true;
@@ -347,8 +251,6 @@ namespace unlockfps_nc
 				MaximizeBox = false;
 				MinimizeBox = false;
 				Name = "SettingsForm";
-				StartPosition = FormStartPosition.CenterParent;
-				Text = "Settings";
 				FormClosing += SettingsForm_FormClosing;
 				Load += SettingsForm_Load;
 				TabCtrlSettings.ResumeLayout(false);

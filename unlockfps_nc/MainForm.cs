@@ -115,7 +115,6 @@ public partial class MainForm : Form
 		try
 		{
 			using RegistryKey? key = Registry.CurrentUser.OpenSubKey(Program.RegistryPath);
-
 			if (key != null)
 			{
 				object? o = key.GetValue("StellaPath");
@@ -134,12 +133,12 @@ public partial class MainForm : Form
 				}
 				else
 				{
-					MessageBox.Show(Resources.MainForm_KeyStellaPathNotFound, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show(Resources.MainForm_TheRegistryKeyStellaPathWasNotFound, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
 			else
 			{
-				MessageBox.Show(string.Format(Resources.MainForm_RegistryKeySOFTWAREStellaModLauncherNotFound, Program.RegistryPath), Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(string.Format(Resources.MainForm_TheRegistryKeyStellaPathWasNotFound, Program.RegistryPath), Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 		catch (Exception ex)
