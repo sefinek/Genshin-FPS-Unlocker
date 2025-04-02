@@ -136,7 +136,7 @@
     <value>Game found!
 {0}</value>
   </data>
-  <data name="SetupForm_Found_0_installationOfTheGame" xml:space="preserve">
+  <data name="SetupForm_Found_InstallationOfTheGame" xml:space="preserve">
     <value>Found {0} installation of the game</value>
   </data>
   <data name="SetupForm_PleaseSelectTheGameExe" xml:space="preserve">

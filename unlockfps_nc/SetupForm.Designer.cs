@@ -30,7 +30,6 @@ namespace unlockfps_nc
 		  private void InitializeComponent()
 		  {
 				System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupForm));
-				LabelSelect = new Label();
 				ComboResult = new ComboBox();
 				LabelHint = new Label();
 				BtnBrowse = new Button();
@@ -39,11 +38,6 @@ namespace unlockfps_nc
 				BrowseDialog = new OpenFileDialog();
 				LabelResult = new Label();
 				SuspendLayout();
-				// 
-				// LabelSelect
-				// 
-				resources.ApplyResources(LabelSelect, "LabelSelect");
-				LabelSelect.Name = "LabelSelect";
 				// 
 				// ComboResult
 				// 
@@ -99,7 +93,6 @@ namespace unlockfps_nc
 				Controls.Add(BtnBrowse);
 				Controls.Add(LabelHint);
 				Controls.Add(ComboResult);
-				Controls.Add(LabelSelect);
 				DoubleBuffered = true;
 				FormBorderStyle = FormBorderStyle.FixedDialog;
 				MaximizeBox = false;
@@ -112,8 +105,7 @@ namespace unlockfps_nc
 		  }
 
 		  #endregion
-		  private Label LabelSelect;
-        private ComboBox ComboResult;
+		  private ComboBox ComboResult;
         private Label LabelHint;
         private Button BtnBrowse;
         private Button BtnConfirm;
