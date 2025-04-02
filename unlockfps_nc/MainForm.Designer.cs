@@ -52,7 +52,6 @@ namespace unlockfps_nc
 				SettingsMenuItem = new ToolStripMenuItem();
 				SetupMenuItem = new ToolStripMenuItem();
 				AboutMenuItem = new ToolStripMenuItem();
-				toolStripMenuItem1 = new ToolStripMenuItem();
 				LabelFPS = new Label();
 				InputFPS = new NumericUpDown();
 				SliderFPS = new TrackBar();
@@ -73,7 +72,7 @@ namespace unlockfps_nc
 				// OptionsMenuStrip
 				// 
 				OptionsMenuStrip.BackColor = Color.FromArgb(32, 34, 37);
-				OptionsMenuStrip.Items.AddRange(new ToolStripItem[] { openToolStripMenuItem, configToolStripMenuItem, linksToolStripMenuItem, optionsToolStripMenuItem, toolStripMenuItem1 });
+				OptionsMenuStrip.Items.AddRange(new ToolStripItem[] { openToolStripMenuItem, configToolStripMenuItem, linksToolStripMenuItem, optionsToolStripMenuItem });
 				OptionsMenuStrip.Location = new Point(0, 0);
 				OptionsMenuStrip.Name = "OptionsMenuStrip";
 				OptionsMenuStrip.Size = new Size(446, 24);
@@ -221,14 +220,9 @@ namespace unlockfps_nc
 				AboutMenuItem.Text = "About";
 				AboutMenuItem.Click += AboutMenuItem_Click;
 				// 
-				// toolStripMenuItem1
-				// 
-				toolStripMenuItem1.Name = "toolStripMenuItem1";
-				toolStripMenuItem1.Size = new Size(12, 20);
-				// 
 				// LabelFPS
 				// 
-				LabelFPS.Anchor = AnchorStyles.None;
+				LabelFPS.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
 				LabelFPS.AutoSize = true;
 				LabelFPS.ForeColor = Color.White;
 				LabelFPS.Location = new Point(138, 57);
@@ -239,7 +233,7 @@ namespace unlockfps_nc
 				// 
 				// InputFPS
 				// 
-				InputFPS.Anchor = AnchorStyles.None;
+				InputFPS.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
 				InputFPS.BackColor = Color.FromArgb(47, 49, 54);
 				InputFPS.ForeColor = Color.White;
 				InputFPS.Location = new Point(197, 53);
@@ -252,7 +246,7 @@ namespace unlockfps_nc
 				// 
 				// SliderFPS
 				// 
-				SliderFPS.Anchor = AnchorStyles.None;
+				SliderFPS.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
 				SliderFPS.Location = new Point(133, 84);
 				SliderFPS.Maximum = 420;
 				SliderFPS.Minimum = 1;
@@ -264,7 +258,7 @@ namespace unlockfps_nc
 				// 
 				// CBAutoStart
 				// 
-				CBAutoStart.Anchor = AnchorStyles.None;
+				CBAutoStart.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
 				CBAutoStart.AutoSize = true;
 				CBAutoStart.ForeColor = Color.White;
 				CBAutoStart.Location = new Point(141, 120);
@@ -277,7 +271,7 @@ namespace unlockfps_nc
 				// 
 				// BtnStartGame
 				// 
-				BtnStartGame.Anchor = AnchorStyles.None;
+				BtnStartGame.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
 				BtnStartGame.Location = new Point(331, 117);
 				BtnStartGame.Name = "BtnStartGame";
 				BtnStartGame.Size = new Size(97, 23);
@@ -301,17 +295,18 @@ namespace unlockfps_nc
 				// 
 				ContextNotify.Items.AddRange(new ToolStripItem[] { ExitMenuItem });
 				ContextNotify.Name = "ContextNotify";
-				ContextNotify.Size = new Size(94, 26);
+				ContextNotify.Size = new Size(93, 26);
 				// 
 				// ExitMenuItem
 				// 
 				ExitMenuItem.Name = "ExitMenuItem";
-				ExitMenuItem.Size = new Size(93, 22);
+				ExitMenuItem.Size = new Size(92, 22);
 				ExitMenuItem.Text = "Exit";
 				ExitMenuItem.Click += ExitMenuItem_Click;
 				// 
 				// pictureBox1
 				// 
+				pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 				pictureBox1.Image = Resources.fps_unlocker;
 				pictureBox1.Location = new Point(12, 36);
 				pictureBox1.Name = "pictureBox1";
@@ -333,7 +328,6 @@ namespace unlockfps_nc
 				Controls.Add(InputFPS);
 				Controls.Add(LabelFPS);
 				Controls.Add(OptionsMenuStrip);
-				FormBorderStyle = FormBorderStyle.FixedSingle;
 				MainMenuStrip = OptionsMenuStrip;
 				MaximizeBox = false;
 				Name = "MainForm";
@@ -378,7 +372,6 @@ namespace unlockfps_nc
         private ToolStripMenuItem genshinImpactReShadeToolStripMenuItem;
         private ToolStripMenuItem fPSUnlockerToolStripMenuItem;
         private ToolStripMenuItem sefineksProfileToolStripMenuItem;
-        private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem stellaModLauncherToolStripMenuItem;
         private ToolStripMenuItem checkHzOfYourMonitorToolStripMenuItem;
         private ToolStripMenuItem systemInformationToolStripMenuItem;
