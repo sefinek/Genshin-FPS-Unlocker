@@ -146,12 +146,6 @@ GenshinImpact.exe or YuanShen.exe.</value>
   <data name="SetupForm_ThatsNotTheRightPlace" xml:space="preserve">
     <value>That's not the right place.</value>
   </data>
-  <data name="SettingsForm_InvaildFile" xml:space="preserve">
-    <value>Invalid File:
-{0}
-
-Only native x64 dlls are supported.</value>
-  </data>
   <data name="MainForm_GenshinFPSUnlocker_CurrentLimit" xml:space="preserve">
     <value>Genshin FPS Unlocker (Current limit: {0})</value>
   </data>
