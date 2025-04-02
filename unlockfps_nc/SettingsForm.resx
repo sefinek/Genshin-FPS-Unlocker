@@ -425,13 +425,13 @@
     <value>6, 170</value>
   </data>
   <data name="LabelMonitor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 15</value>
+    <value>53, 15</value>
   </data>
   <data name="LabelMonitor.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
   <data name="LabelMonitor.Text" xml:space="preserve">
-    <value>Monitor: </value>
+    <value>Monitor:</value>
   </data>
   <data name="&gt;&gt;LabelMonitor.Name" xml:space="preserve">
     <value>LabelMonitor</value>
