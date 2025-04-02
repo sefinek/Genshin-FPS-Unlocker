@@ -62,9 +62,9 @@ namespace unlockfps_nc
 				// 
 				// LabelAutoSave
 				// 
-				LabelAutoSave.Anchor = AnchorStyles.None;
+				LabelAutoSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 				LabelAutoSave.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-				LabelAutoSave.ForeColor = Color.MediumSpringGreen;
+				LabelAutoSave.ForeColor = Color.MediumTurquoise;
 				LabelAutoSave.Location = new Point(12, 255);
 				LabelAutoSave.Name = "LabelAutoSave";
 				LabelAutoSave.Size = new Size(288, 15);
@@ -74,7 +74,7 @@ namespace unlockfps_nc
 				// 
 				// TabCtrlSettings
 				// 
-				TabCtrlSettings.Anchor = AnchorStyles.None;
+				TabCtrlSettings.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 				TabCtrlSettings.Controls.Add(TabGeneral);
 				TabCtrlSettings.Controls.Add(TabLaunchOptions);
 				TabCtrlSettings.Location = new Point(12, 12);
@@ -85,7 +85,7 @@ namespace unlockfps_nc
 				// 
 				// TabGeneral
 				// 
-				TabGeneral.BackColor = Color.FromArgb(54, 57, 60);
+				TabGeneral.BackColor = Color.FromArgb(46, 48, 51);
 				TabGeneral.Controls.Add(ComboPriority);
 				TabGeneral.Controls.Add(LabelPriority);
 				TabGeneral.Controls.Add(CBPowerSave);
@@ -104,7 +104,7 @@ namespace unlockfps_nc
 				ComboPriority.ForeColor = Color.Black;
 				ComboPriority.FormattingEnabled = true;
 				ComboPriority.Items.AddRange(new object[] { "Realtime", "High", "Above Normal", "Normal", "Below Normal", "Low" });
-				ComboPriority.Location = new Point(153, 79);
+				ComboPriority.Location = new Point(153, 82);
 				ComboPriority.Name = "ComboPriority";
 				ComboPriority.Size = new Size(121, 23);
 				ComboPriority.TabIndex = 5;
@@ -115,7 +115,7 @@ namespace unlockfps_nc
 				LabelPriority.Anchor = AnchorStyles.None;
 				LabelPriority.AutoSize = true;
 				LabelPriority.ForeColor = Color.White;
-				LabelPriority.Location = new Point(6, 82);
+				LabelPriority.Location = new Point(6, 85);
 				LabelPriority.Name = "LabelPriority";
 				LabelPriority.Size = new Size(122, 15);
 				LabelPriority.TabIndex = 4;
@@ -162,7 +162,7 @@ namespace unlockfps_nc
 				// 
 				// TabLaunchOptions
 				// 
-				TabLaunchOptions.BackColor = Color.FromArgb(54, 57, 60);
+				TabLaunchOptions.BackColor = Color.FromArgb(46, 48, 51);
 				TabLaunchOptions.Controls.Add(CBUseMobileUI);
 				TabLaunchOptions.Controls.Add(InputMonitorNum);
 				TabLaunchOptions.Controls.Add(LabelMonitor);
@@ -338,7 +338,7 @@ namespace unlockfps_nc
 				// 
 				AutoScaleDimensions = new SizeF(96F, 96F);
 				AutoScaleMode = AutoScaleMode.Dpi;
-				BackColor = Color.FromArgb(32, 34, 40);
+				BackColor = Color.FromArgb(35, 36, 38);
 				ClientSize = new Size(312, 277);
 				Controls.Add(TabCtrlSettings);
 				Controls.Add(LabelAutoSave);
@@ -387,5 +387,5 @@ namespace unlockfps_nc
         private ToolTip ToolTipSettings;
         private CheckBox CBUseMobileUI;
         private OpenFileDialog DllAddDialog;
-    }
+	 }
 }
