@@ -224,10 +224,11 @@ namespace unlockfps_nc
 				// 
 				LabelFPS.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
 				LabelFPS.AutoSize = true;
+				LabelFPS.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
 				LabelFPS.ForeColor = Color.White;
-				LabelFPS.Location = new Point(138, 57);
+				LabelFPS.Location = new Point(137, 56);
 				LabelFPS.Name = "LabelFPS";
-				LabelFPS.Size = new Size(53, 15);
+				LabelFPS.Size = new Size(56, 17);
 				LabelFPS.TabIndex = 1;
 				LabelFPS.Text = "FPS limit";
 				// 
@@ -319,7 +320,7 @@ namespace unlockfps_nc
 				// 
 				AutoScaleDimensions = new SizeF(96F, 96F);
 				AutoScaleMode = AutoScaleMode.Dpi;
-				BackColor = Color.FromArgb(54, 57, 63);
+				BackColor = Color.FromArgb(46, 48, 51);
 				ClientSize = new Size(446, 161);
 				Controls.Add(pictureBox1);
 				Controls.Add(BtnStartGame);
@@ -328,6 +329,7 @@ namespace unlockfps_nc
 				Controls.Add(InputFPS);
 				Controls.Add(LabelFPS);
 				Controls.Add(OptionsMenuStrip);
+				FormBorderStyle = FormBorderStyle.FixedSingle;
 				MainMenuStrip = OptionsMenuStrip;
 				MaximizeBox = false;
 				Name = "MainForm";

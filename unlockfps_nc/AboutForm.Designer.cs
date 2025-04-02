@@ -36,7 +36,7 @@ namespace unlockfps_nc
 				// 
 				// LabelTitle
 				// 
-				LabelTitle.Anchor = AnchorStyles.None;
+				LabelTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
 				LabelTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
 				LabelTitle.ForeColor = Color.White;
 				LabelTitle.Location = new Point(12, 20);
@@ -48,11 +48,11 @@ namespace unlockfps_nc
 				// 
 				// LabelDescription
 				// 
-				LabelDescription.Anchor = AnchorStyles.None;
+				LabelDescription.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 				LabelDescription.ForeColor = Color.White;
-				LabelDescription.Location = new Point(12, 83);
+				LabelDescription.Location = new Point(12, 71);
 				LabelDescription.Name = "LabelDescription";
-				LabelDescription.Size = new Size(473, 37);
+				LabelDescription.Size = new Size(473, 36);
 				LabelDescription.TabIndex = 1;
 				LabelDescription.Text = "This program is only a fork of 34736384/genshin-fps-unlock that has been prepared for compatibility with Stella Mod.";
 				LabelDescription.TextAlign = ContentAlignment.MiddleCenter;
@@ -60,14 +60,14 @@ namespace unlockfps_nc
 				// LinkLabelSource
 				// 
 				LinkLabelSource.ActiveLinkColor = Color.LightSkyBlue;
-				LinkLabelSource.Anchor = AnchorStyles.None;
+				LinkLabelSource.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 				LinkLabelSource.ForeColor = Color.White;
 				LinkLabelSource.LinkArea = new LinkArea(5, 49);
 				LinkLabelSource.LinkBehavior = LinkBehavior.HoverUnderline;
 				LinkLabelSource.LinkColor = Color.DodgerBlue;
-				LinkLabelSource.Location = new Point(65, 118);
+				LinkLabelSource.Location = new Point(12, 108);
 				LinkLabelSource.Name = "LinkLabelSource";
-				LinkLabelSource.Size = new Size(366, 20);
+				LinkLabelSource.Size = new Size(473, 16);
 				LinkLabelSource.TabIndex = 2;
 				LinkLabelSource.TabStop = true;
 				LinkLabelSource.Text = "See: https://github.com/sefinek/Genshin-FPS-Unlocker";
@@ -78,14 +78,14 @@ namespace unlockfps_nc
 				// LinkLabelIssues
 				// 
 				LinkLabelIssues.ActiveLinkColor = Color.LightSkyBlue;
-				LinkLabelIssues.Anchor = AnchorStyles.None;
+				LinkLabelIssues.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 				LinkLabelIssues.ForeColor = Color.White;
 				LinkLabelIssues.LinkArea = new LinkArea(77, 26);
 				LinkLabelIssues.LinkBehavior = LinkBehavior.HoverUnderline;
 				LinkLabelIssues.LinkColor = Color.DodgerBlue;
-				LinkLabelIssues.Location = new Point(12, 144);
+				LinkLabelIssues.Location = new Point(12, 131);
 				LinkLabelIssues.Name = "LinkLabelIssues";
-				LinkLabelIssues.Size = new Size(473, 49);
+				LinkLabelIssues.Size = new Size(473, 41);
 				LinkLabelIssues.TabIndex = 3;
 				LinkLabelIssues.TabStop = true;
 				LinkLabelIssues.Text = "If you need help or have any suggestions, please visit the official website:\r\nhttps://stella.sefinek.net";
@@ -98,7 +98,7 @@ namespace unlockfps_nc
 				AutoScaleDimensions = new SizeF(96F, 96F);
 				AutoScaleMode = AutoScaleMode.Dpi;
 				BackColor = Color.FromArgb(19, 19, 19);
-				ClientSize = new Size(497, 217);
+				ClientSize = new Size(497, 192);
 				Controls.Add(LinkLabelIssues);
 				Controls.Add(LinkLabelSource);
 				Controls.Add(LabelDescription);

@@ -9,7 +9,7 @@ namespace unlockfps_nc;
 
 public partial class SetupForm : Form
 {
-	private readonly Config? _config;
+	private readonly Config _config;
 
 	private readonly ConfigService _configService;
 	private CancellationTokenSource? _cts;
@@ -26,7 +26,7 @@ public partial class SetupForm : Form
 		_cts = new CancellationTokenSource();
 		Task.Run(PollProcess, _cts.Token);
 
-		LabelCurrentPath.Text = string.Format(Resources.SetupForm_CurrentPath, _config!.GamePath);
+		LabelCurrentPath.Text = string.Format(Resources.SetupForm_CurrentPath, _config.GamePath);
 		LabelResult.Text = Resources.SetupForm_Searching;
 		LabelResult.ForeColor = Color.Orange;
 		Task.Run(SearchGamePath, _cts.Token);
@@ -78,7 +78,7 @@ public partial class SetupForm : Form
 
 			MessageBox.Show(string.Format(Resources.SetupForm_GameFound, processPath), Resources.Success, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-			_config!.GamePath = processPath;
+			_config.GamePath = processPath;
 			Invoke(Close);
 		}
 	}
@@ -169,7 +169,6 @@ public partial class SetupForm : Form
 		string selectedFile = BrowseDialog.FileName;
 		string fileName = Path.GetFileNameWithoutExtension(selectedFile);
 		string? directory = Path.GetDirectoryName(selectedFile);
-
 		if (fileName != "GenshinImpact" && fileName != "YuanShen")
 		{
 			MessageBox.Show(Resources.SetupForm_PleaseSelectTheGameExe, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -183,7 +182,7 @@ public partial class SetupForm : Form
 			return;
 		}
 
-		_config!.GamePath = selectedFile;
+		_config.GamePath = selectedFile;
 		Close();
 	}
 
@@ -192,7 +191,7 @@ public partial class SetupForm : Form
 		string selectedPath = (string)ComboResult.SelectedItem!;
 		if (string.IsNullOrEmpty(selectedPath)) return;
 
-		_config!.GamePath = selectedPath;
+		_config.GamePath = selectedPath;
 		Close();
 	}
 }

@@ -51,27 +51,27 @@ namespace unlockfps_nc
 				// 
 				// ComboResult
 				// 
-				ComboResult.Anchor = AnchorStyles.None;
+				ComboResult.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 				ComboResult.FormattingEnabled = true;
-				ComboResult.Location = new Point(12, 78);
+				ComboResult.Location = new Point(15, 72);
 				ComboResult.Name = "ComboResult";
 				ComboResult.Size = new Size(435, 23);
 				ComboResult.TabIndex = 2;
 				// 
 				// LabelHint
 				// 
-				LabelHint.Anchor = AnchorStyles.None;
-				LabelHint.AutoSize = true;
+				LabelHint.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+				LabelHint.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
 				LabelHint.ForeColor = Color.White;
-				LabelHint.Location = new Point(12, 114);
+				LabelHint.Location = new Point(12, 104);
 				LabelHint.Name = "LabelHint";
-				LabelHint.Size = new Size(359, 45);
+				LabelHint.Size = new Size(435, 69);
 				LabelHint.TabIndex = 3;
-				LabelHint.Text = "If your game is not listed above, you can either:\r\n1. Open the game now and the unlocker will try to find it's location\r\n2. Use the browse button below";
+				LabelHint.Text = "If your game is not listed above, you can either:\r\n1. Open the game now and the unlocker will try to find it's location.\r\n2. Use the browse button below.";
 				// 
 				// BtnBrowse
 				// 
-				BtnBrowse.Anchor = AnchorStyles.None;
+				BtnBrowse.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 				BtnBrowse.Location = new Point(12, 176);
 				BtnBrowse.Name = "BtnBrowse";
 				BtnBrowse.Size = new Size(90, 23);
@@ -82,7 +82,7 @@ namespace unlockfps_nc
 				// 
 				// BtnConfirm
 				// 
-				BtnConfirm.Anchor = AnchorStyles.None;
+				BtnConfirm.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 				BtnConfirm.Location = new Point(357, 176);
 				BtnConfirm.Name = "BtnConfirm";
 				BtnConfirm.Size = new Size(90, 23);
@@ -93,7 +93,7 @@ namespace unlockfps_nc
 				// 
 				// LabelCurrentPath
 				// 
-				LabelCurrentPath.Anchor = AnchorStyles.None;
+				LabelCurrentPath.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
 				LabelCurrentPath.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 				LabelCurrentPath.ForeColor = Color.White;
 				LabelCurrentPath.Location = new Point(12, 9);
@@ -111,12 +111,13 @@ namespace unlockfps_nc
 				// 
 				// LabelResult
 				// 
-				LabelResult.Anchor = AnchorStyles.None;
+				LabelResult.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 				LabelResult.AutoSize = true;
+				LabelResult.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
 				LabelResult.ForeColor = Color.White;
-				LabelResult.Location = new Point(9, 60);
+				LabelResult.Location = new Point(12, 52);
 				LabelResult.Name = "LabelResult";
-				LabelResult.Size = new Size(67, 15);
+				LabelResult.Size = new Size(74, 17);
 				LabelResult.TabIndex = 7;
 				LabelResult.Text = "LabelResult";
 				// 
@@ -124,7 +125,7 @@ namespace unlockfps_nc
 				// 
 				AutoScaleDimensions = new SizeF(96F, 96F);
 				AutoScaleMode = AutoScaleMode.Dpi;
-				BackColor = Color.FromArgb(32, 34, 40);
+				BackColor = Color.FromArgb(35, 36, 38);
 				ClientSize = new Size(459, 211);
 				Controls.Add(LabelResult);
 				Controls.Add(LabelCurrentPath);
