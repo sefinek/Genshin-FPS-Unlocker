@@ -59,46 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -117,11 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
   <data name="LabelAutoSave.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"/>
   <data name="LabelAutoSave.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt, style=Bold</value>
   </data>
@@ -131,12 +131,12 @@
   <data name="LabelAutoSave.Size" type="System.Drawing.Size, System.Drawing">
     <value>288, 15</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
   <data name="LabelAutoSave.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="LabelAutoSave.Text" xml:space="preserve">
-    <value>All settings will be saved automatically.</value>
+    <value>Tüm ayarlar otomatik olarak kaydedilir.</value>
   </data>
   <data name="LabelAutoSave.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -160,22 +160,22 @@
     <value>None</value>
   </data>
   <data name="ComboPriority.Items" xml:space="preserve">
-    <value>Realtime</value>
+    <value>Gerçek Zamanlı</value>
   </data>
   <data name="ComboPriority.Items1" xml:space="preserve">
-    <value>High</value>
+    <value>Yüksek</value>
   </data>
   <data name="ComboPriority.Items2" xml:space="preserve">
-    <value>Above Normal</value>
+    <value>Normalin Üzerinde</value>
   </data>
   <data name="ComboPriority.Items3" xml:space="preserve">
     <value>Normal</value>
   </data>
   <data name="ComboPriority.Items4" xml:space="preserve">
-    <value>Below Normal</value>
+    <value>Normalin Altında</value>
   </data>
   <data name="ComboPriority.Items5" xml:space="preserve">
-    <value>Low</value>
+    <value>Düşük</value>
   </data>
   <data name="ComboPriority.Location" type="System.Drawing.Point, System.Drawing">
     <value>153, 82</value>
@@ -217,7 +217,7 @@
     <value>4</value>
   </data>
   <data name="LabelPriority.Text" xml:space="preserve">
-    <value>Game process priority</value>
+    <value>Oyunun işlem önceliği</value>
   </data>
   <data name="&gt;&gt;LabelPriority.Name" xml:space="preserve">
     <value>LabelPriority</value>
@@ -247,13 +247,13 @@
     <value>3</value>
   </data>
   <data name="CBPowerSave.Text" xml:space="preserve">
-    <value>Power Saving</value>
+    <value>Güç Tasarrufu</value>
   </data>
   <metadata name="ToolTipSettings.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <data name="CBPowerSave.ToolTip" xml:space="preserve">
-    <value>Sets the FPS limit to 10 and lowers the process priority after losing focus (e.g. minimizing or leaving the game window)</value>
+    <value>Ekran Odağı kaybettikten sonra fps'yi 10'a ve düşük işlem önceliğine ayarlar (örn. oyunun penceresinden ayrılma)</value>
   </data>
   <data name="&gt;&gt;CBPowerSave.Name" xml:space="preserve">
     <value>CBPowerSave</value>
@@ -283,10 +283,10 @@
     <value>2</value>
   </data>
   <data name="CBAutoClose.Text" xml:space="preserve">
-    <value>Auto Close</value>
+    <value>Otomatik Kapanma</value>
   </data>
   <data name="CBAutoClose.ToolTip" xml:space="preserve">
-    <value>Unlocker will exit upon game closing</value>
+    <value>Sınır kaldırıcı oyun kapandığında kapanacaktır</value>
   </data>
   <data name="&gt;&gt;CBAutoClose.Name" xml:space="preserve">
     <value>CBAutoClose</value>
@@ -316,10 +316,10 @@
     <value>1</value>
   </data>
   <data name="CBStartMinimized.Text" xml:space="preserve">
-    <value>Start Minimized (Unlocker)</value>
+    <value>Küçültülmüş Olarak Başlat (Sınır kaldırıcı)</value>
   </data>
   <data name="CBStartMinimized.ToolTip" xml:space="preserve">
-    <value>Unlocker will minimized to tray on startup</value>
+    <value>Sınır kaldırıcı başlatıldığında simge durumuna küçültülecektir</value>
   </data>
   <data name="&gt;&gt;CBStartMinimized.Name" xml:space="preserve">
     <value>CBStartMinimized</value>
@@ -336,7 +336,7 @@
   <data name="TabGeneral.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 24</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
   <data name="TabGeneral.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
@@ -347,7 +347,7 @@
     <value>0</value>
   </data>
   <data name="TabGeneral.Text" xml:space="preserve">
-    <value>General</value>
+    <value>Genel</value>
   </data>
   <data name="&gt;&gt;TabGeneral.Name" xml:space="preserve">
     <value>TabGeneral</value>
@@ -377,7 +377,7 @@
     <value>11</value>
   </data>
   <data name="CBUseMobileUI.Text" xml:space="preserve">
-    <value>Use Mobile UI</value>
+    <value>Mobil Kullanıcı Arayüzünü Kullanın</value>
   </data>
   <data name="&gt;&gt;CBUseMobileUI.Name" xml:space="preserve">
     <value>CBUseMobileUI</value>
@@ -431,7 +431,7 @@
     <value>9</value>
   </data>
   <data name="LabelMonitor.Text" xml:space="preserve">
-    <value>Monitor:</value>
+    <value>Monitör:</value>
   </data>
   <data name="&gt;&gt;LabelMonitor.Name" xml:space="preserve">
     <value>LabelMonitor</value>
@@ -449,10 +449,10 @@
     <value>None</value>
   </data>
   <data name="ComboFullscreenMode.Items" xml:space="preserve">
-    <value>Borderless</value>
+    <value>Çerçevesiz</value>
   </data>
   <data name="ComboFullscreenMode.Items1" xml:space="preserve">
-    <value>Exclusive</value>
+    <value>Özel</value>
   </data>
   <data name="ComboFullscreenMode.Location" type="System.Drawing.Point, System.Drawing">
     <value>139, 139</value>
@@ -464,7 +464,7 @@
     <value>8</value>
   </data>
   <data name="ComboFullscreenMode.Text" xml:space="preserve">
-    <value>Borderless</value>
+    <value>Çerçevesiz</value>
   </data>
   <data name="&gt;&gt;ComboFullscreenMode.Name" xml:space="preserve">
     <value>ComboFullscreenMode</value>
@@ -494,7 +494,7 @@
     <value>7</value>
   </data>
   <data name="LabelWindowMode.Text" xml:space="preserve">
-    <value>Fullscreen mode:</value>
+    <value>Tam ekran modu:</value>
   </data>
   <data name="&gt;&gt;LabelWindowMode.Name" xml:space="preserve">
     <value>LabelWindowMode</value>
@@ -602,13 +602,13 @@
     <value>6, 113</value>
   </data>
   <data name="LabelCustomRes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 15</value>
+    <value>69, 15</value>
   </data>
   <data name="LabelCustomRes.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="LabelCustomRes.Text" xml:space="preserve">
-    <value>Resolution:</value>
+    <value>Çözünürlük: </value>
   </data>
   <data name="&gt;&gt;LabelCustomRes.Name" xml:space="preserve">
     <value>LabelCustomRes</value>
@@ -638,7 +638,7 @@
     <value>2</value>
   </data>
   <data name="CBCustomRes.Text" xml:space="preserve">
-    <value>Custom Resolution</value>
+    <value>Özel Çözünürlük</value>
   </data>
   <data name="&gt;&gt;CBCustomRes.Name" xml:space="preserve">
     <value>CBCustomRes</value>
@@ -668,7 +668,7 @@
     <value>1</value>
   </data>
   <data name="CBFullscreen.Text" xml:space="preserve">
-    <value>Fullscreen</value>
+    <value>Tam Ekran</value>
   </data>
   <data name="&gt;&gt;CBFullscreen.Name" xml:space="preserve">
     <value>CBFullscreen</value>
@@ -698,7 +698,7 @@
     <value>0</value>
   </data>
   <data name="CBPopup.Text" xml:space="preserve">
-    <value>Borderless Window</value>
+    <value>Çerçevesiz Pencere</value>
   </data>
   <data name="&gt;&gt;CBPopup.Name" xml:space="preserve">
     <value>CBPopup</value>
@@ -725,7 +725,7 @@
     <value>1</value>
   </data>
   <data name="TabLaunchOptions.Text" xml:space="preserve">
-    <value>Launch options</value>
+    <value>Başlatma seçenekleri</value>
   </data>
   <data name="&gt;&gt;TabLaunchOptions.Name" xml:space="preserve">
     <value>TabLaunchOptions</value>
@@ -764,7 +764,7 @@
     <value>151, 17</value>
   </metadata>
   <data name="DllAddDialog.Filter" xml:space="preserve">
-    <value>DLL (*.dll)|*.dll|All files (*.*)|*.*</value>
+    <value>DLL (*.dll)|*.dll|Tüm dosyalar (*.*)|*.*</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -779,7 +779,7 @@
     <value>CenterParent</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Settings</value>
+    <value>Ayarlar</value>
   </data>
   <data name="&gt;&gt;ToolTipSettings.Name" xml:space="preserve">
     <value>ToolTipSettings</value>

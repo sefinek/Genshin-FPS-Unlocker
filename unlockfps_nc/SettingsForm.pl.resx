@@ -208,7 +208,7 @@
     <value>True</value>
   </data>
   <data name="LabelPriority.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 85</value>
+    <value>6, 86</value>
   </data>
   <data name="LabelPriority.Size" type="System.Drawing.Size, System.Drawing">
     <value>122, 15</value>
@@ -319,7 +319,7 @@
     <value>Start Minimized (Unlocker)</value>
   </data>
   <data name="CBStartMinimized.ToolTip" xml:space="preserve">
-    <value>Unlocker will minimized to tray on starup</value>
+    <value>Unlocker will minimized to tray on startup</value>
   </data>
   <data name="&gt;&gt;CBStartMinimized.Name" xml:space="preserve">
     <value>CBStartMinimized</value>
