@@ -136,7 +136,7 @@
     <value>0</value>
   </data>
   <data name="LabelAutoSave.Text" xml:space="preserve">
-    <value>All settings will be saved automatically.</value>
+    <value>Alla inställningar sparas automatiskt.</value>
   </data>
   <data name="LabelAutoSave.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -169,13 +169,13 @@
     <value>Above Normal</value>
   </data>
   <data name="ComboPriority.Items3" xml:space="preserve">
-    <value>Normal</value>
+    <value>Normalt</value>
   </data>
   <data name="ComboPriority.Items4" xml:space="preserve">
     <value>Below Normal</value>
   </data>
   <data name="ComboPriority.Items5" xml:space="preserve">
-    <value>Low</value>
+    <value>Låg</value>
   </data>
   <data name="ComboPriority.Location" type="System.Drawing.Point, System.Drawing">
     <value>153, 82</value>
@@ -187,7 +187,7 @@
     <value>5</value>
   </data>
   <data name="ComboPriority.Text" xml:space="preserve">
-    <value>Normal</value>
+    <value>Normalt</value>
   </data>
   <data name="&gt;&gt;ComboPriority.Name" xml:space="preserve">
     <value>ComboPriority</value>

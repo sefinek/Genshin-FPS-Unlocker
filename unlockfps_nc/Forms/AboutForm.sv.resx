@@ -200,7 +200,7 @@ v{0}</value>
     <value>2</value>
   </data>
   <data name="LinkLabelSource.Text" xml:space="preserve">
-    <value>See: https://github.com/sefinek/Genshin-FPS-Unlocker</value>
+    <value>Se: https://github.com/sefinek/Genshin-FPS-Unlocker (FPS-upplåsare)</value>
   </data>
   <data name="LinkLabelSource.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -233,7 +233,7 @@ v{0}</value>
     <value>3</value>
   </data>
   <data name="LinkLabelIssues.Text" xml:space="preserve">
-    <value>If you need help or have any suggestions, please visit the official website:
+    <value>Om du behöver hjälp eller har några förslag, besök den officiella webbplatsen:
 https://stella.sefinek.net</value>
   </data>
   <data name="LinkLabelIssues.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">

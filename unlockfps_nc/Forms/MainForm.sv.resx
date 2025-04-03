@@ -149,25 +149,25 @@
     <value>48, 20</value>
   </data>
   <data name="openToolStripMenuItem.Text" xml:space="preserve">
-    <value>Open</value>
+    <value>Öppna</value>
   </data>
   <data name="viewConfigToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>136, 22</value>
   </data>
   <data name="viewConfigToolStripMenuItem.Text" xml:space="preserve">
-    <value>View config</value>
+    <value>Visa konfigurationen</value>
   </data>
   <data name="configToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 20</value>
   </data>
   <data name="configToolStripMenuItem.Text" xml:space="preserve">
-    <value>Config</value>
+    <value>Konfiguration</value>
   </data>
   <data name="officialWebsiteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>155, 22</value>
   </data>
   <data name="officialWebsiteToolStripMenuItem.Text" xml:space="preserve">
-    <value>Official website</value>
+    <value>Officiell webbplats</value>
   </data>
   <data name="youTubeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>155, 22</value>
@@ -215,7 +215,7 @@
     <value>116, 22</value>
   </data>
   <data name="SettingsMenuItem.Text" xml:space="preserve">
-    <value>Settings</value>
+    <value>Inställningar</value>
   </data>
   <data name="SetupMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>116, 22</value>
@@ -385,7 +385,7 @@
     <value>5</value>
   </data>
   <data name="BtnStartGame.Text" xml:space="preserve">
-    <value>Start Game</value>
+    <value>Starta Spelet</value>
   </data>
   <data name="&gt;&gt;BtnStartGame.Name" xml:space="preserve">
     <value>BtnStartGame</value>

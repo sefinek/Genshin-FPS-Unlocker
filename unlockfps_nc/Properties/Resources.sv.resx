@@ -118,22 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="SetupForm_Searching" xml:space="preserve">
-    <value>Searching...</value>
+    <value>Söker...</value>
   </data>
   <data name="SetupForm_CurrentPath" xml:space="preserve">
-    <value>Current path: {0}</value>
+    <value>Aktuell sökväg: {0}</value>
   </data>
   <data name="SetupForm_FailedToFindProcessPath" xml:space="preserve">
     <value>Failed to find process path. Please use "Browse" instead.</value>
   </data>
   <data name="Error" xml:space="preserve">
-    <value>Error</value>
+    <value>Fel</value>
   </data>
   <data name="Success" xml:space="preserve">
     <value>Success</value>
   </data>
   <data name="SetupForm_GameFound" xml:space="preserve">
-    <value>Game found!
+    <value>Spelet hittades!
 {0}</value>
   </data>
   <data name="SetupForm_Found_InstallationOfTheGame" xml:space="preserve">
