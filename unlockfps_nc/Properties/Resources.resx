@@ -155,11 +155,6 @@ GenshinImpact.exe or YuanShen.exe.</value>
   <data name="MainForm_AnErrorOccurred" xml:space="preserve">
     <value>An error occurred: {0}</value>
   </data>
-  <data name="ConfigService_TheConfigurationFileAppearsToBeCorrupted" xml:space="preserve">
-    <value>The configuration file appears to be corrupted. We will attempt to repair it. If this message continues to appear, please delete the configuration file (unlocker.config.json).
-
-{0}</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

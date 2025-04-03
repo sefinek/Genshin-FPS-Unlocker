@@ -271,7 +271,7 @@
     <value>Segoe UI, 9.75pt</value>
   </data>
   <data name="LabelFPS.Location" type="System.Drawing.Point, System.Drawing">
-    <value>137, 56</value>
+    <value>137, 53</value>
   </data>
   <data name="LabelFPS.Size" type="System.Drawing.Size, System.Drawing">
     <value>56, 17</value>
@@ -298,7 +298,7 @@
     <value>Top, Bottom, Right</value>
   </data>
   <data name="InputFPS.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 53</value>
+    <value>197, 50</value>
   </data>
   <data name="InputFPS.Size" type="System.Drawing.Size, System.Drawing">
     <value>231, 23</value>
@@ -322,10 +322,10 @@
     <value>Top, Bottom, Right</value>
   </data>
   <data name="SliderFPS.Location" type="System.Drawing.Point, System.Drawing">
-    <value>133, 84</value>
+    <value>131, 81</value>
   </data>
   <data name="SliderFPS.Size" type="System.Drawing.Size, System.Drawing">
-    <value>302, 45</value>
+    <value>304, 45</value>
   </data>
   <data name="SliderFPS.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -345,14 +345,11 @@
   <data name="CBAutoStart.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
-  <data name="CBAutoStart.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="CBAutoStart.Location" type="System.Drawing.Point, System.Drawing">
-    <value>141, 120</value>
+    <value>137, 117</value>
   </data>
   <data name="CBAutoStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>158, 19</value>
+    <value>188, 19</value>
   </data>
   <data name="CBAutoStart.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -382,7 +379,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="BtnStartGame.Location" type="System.Drawing.Point, System.Drawing">
-    <value>331, 117</value>
+    <value>331, 114</value>
   </data>
   <data name="BtnStartGame.Size" type="System.Drawing.Size, System.Drawing">
     <value>97, 23</value>
