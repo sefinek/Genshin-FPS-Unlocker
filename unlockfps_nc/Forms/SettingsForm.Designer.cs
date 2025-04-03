@@ -1,4 +1,4 @@
-namespace unlockfps_nc
+namespace unlockfps_nc.Forms
 {
     partial class SettingsForm
     {

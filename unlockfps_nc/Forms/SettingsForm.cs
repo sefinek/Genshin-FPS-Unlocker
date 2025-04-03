@@ -1,7 +1,7 @@
 using unlockfps_nc.Model;
 using unlockfps_nc.Service;
 
-namespace unlockfps_nc;
+namespace unlockfps_nc.Forms;
 
 public partial class SettingsForm : Form
 {

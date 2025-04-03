@@ -1,6 +1,6 @@
 using unlockfps_nc.Properties;
 
-namespace unlockfps_nc
+namespace unlockfps_nc.Forms
 {
     partial class MainForm
     {

@@ -5,7 +5,7 @@ using unlockfps_nc.Properties;
 using unlockfps_nc.Service;
 using unlockfps_nc.Utility;
 
-namespace unlockfps_nc;
+namespace unlockfps_nc.Forms;
 
 public partial class SetupForm : Form
 {

@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace unlockfps_nc;
+namespace unlockfps_nc.Forms;
 
 internal partial class AboutForm : Form
 {
