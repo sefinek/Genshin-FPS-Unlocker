@@ -160,9 +160,9 @@
     <value>3</value>
   </data>
   <data name="LabelHint.Text" xml:space="preserve">
-    <value>If your game is not listed above, you can either:
-1. Open the game now and the unlocker will try to find it's location.
-2. Use the Browse button below.</value>
+    <value>Eğer oyununuz listede yoksa, şu seçeneklerden birini seçebilirsiniz:
+1. Oyunu şimdi açın ve kilit açıcı konumunu bulmaya çalışacaktır.
+2. Aşağıdaki Gözat düğmesini kullanın.</value>
   </data>
   <data name="&gt;&gt;LabelHint.Name" xml:space="preserve">
     <value>LabelHint</value>
