@@ -167,7 +167,7 @@ v{0}</value>
     <value>1</value>
   </data>
   <data name="LabelDescription.Text" xml:space="preserve">
-    <value>This program is a fork of 3473684/genshin-fps-unlock, modified for compatibility with Stella Mod. It is distributed under the same license as the original project.</value>
+    <value>Bu yazılım 3473684/genshin-fps-unlock programının Stella Mod ile uyumluluk için değiştirilmiş halidir. Orijinal proje ile aynı lisans altında dağıtılmaktadır.</value>
   </data>
   <data name="LabelDescription.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -263,7 +263,7 @@ v{0}</value>
     <value>6</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>If you need help or have any suggestions, please visit the official website:</value>
+    <value>Yardıma ihtiyacınız varsa veya herhangi bir öneriniz varsa, lütfen resmi internet sitesini ziyaret edin:</value>
   </data>
   <data name="label1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>

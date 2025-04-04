@@ -217,7 +217,7 @@
     <value>4</value>
   </data>
   <data name="LabelPriority.Text" xml:space="preserve">
-    <value>Game Process Priority:</value>
+    <value>Приоритет процесса игры:</value>
   </data>
   <data name="&gt;&gt;LabelPriority.Name" xml:space="preserve">
     <value>LabelPriority</value>
@@ -253,7 +253,7 @@
     <value>17, 17</value>
   </metadata>
   <data name="CBPowerSave.ToolTip" xml:space="preserve">
-    <value>Limits FPS to 10 and lowers process priority when the game window loses focus (e.g. when minimized or in the background)</value>
+    <value>Ограничивает FPS до 10 и снижает приоритет процесса при неактивном окне (например, если окно свернуто или в фоне).</value>
   </data>
   <data name="&gt;&gt;CBPowerSave.Name" xml:space="preserve">
     <value>CBPowerSave</value>
@@ -286,7 +286,7 @@
     <value>Автоматическое закрытие</value>
   </data>
   <data name="CBAutoClose.ToolTip" xml:space="preserve">
-    <value>Unlocker will automatically close when the game exits</value>
+    <value>FPS Unlocker закроется автоматически при завершении игры</value>
   </data>
   <data name="&gt;&gt;CBAutoClose.Name" xml:space="preserve">
     <value>CBAutoClose</value>
@@ -316,10 +316,10 @@
     <value>1</value>
   </data>
   <data name="CBStartMinimized.Text" xml:space="preserve">
-    <value>Start the Tool Minimized</value>
+    <value>Запуск свёрнутым</value>
   </data>
   <data name="CBStartMinimized.ToolTip" xml:space="preserve">
-    <value>Unlocker will minimize to the tray on startup</value>
+    <value>FPS Unlocker автоматически сворачивается в трей при запуске</value>
   </data>
   <data name="&gt;&gt;CBStartMinimized.Name" xml:space="preserve">
     <value>CBStartMinimized</value>
@@ -494,7 +494,7 @@
     <value>7</value>
   </data>
   <data name="LabelWindowMode.Text" xml:space="preserve">
-    <value>Fullscreen Mode:</value>
+    <value>Полноэкранный режим:</value>
   </data>
   <data name="&gt;&gt;LabelWindowMode.Name" xml:space="preserve">
     <value>LabelWindowMode</value>

@@ -217,7 +217,7 @@
     <value>4</value>
   </data>
   <data name="LabelPriority.Text" xml:space="preserve">
-    <value>Game Process Priority:</value>
+    <value>Oyun İşlem Önceliği:</value>
   </data>
   <data name="&gt;&gt;LabelPriority.Name" xml:space="preserve">
     <value>LabelPriority</value>
@@ -253,7 +253,7 @@
     <value>17, 17</value>
   </metadata>
   <data name="CBPowerSave.ToolTip" xml:space="preserve">
-    <value>Limits FPS to 10 and lowers process priority when the game window loses focus (e.g. when minimized or in the background)</value>
+    <value>Oyun penceresi odağını kaybettiğinde (örneğin simge durumuna küçültüldüğünde veya arka plana atıldığında) FPS'yi 10 ile sınırlar ve işlem önceliğini düşürür</value>
   </data>
   <data name="&gt;&gt;CBPowerSave.Name" xml:space="preserve">
     <value>CBPowerSave</value>
@@ -286,7 +286,7 @@
     <value>Otomatik Kapanma</value>
   </data>
   <data name="CBAutoClose.ToolTip" xml:space="preserve">
-    <value>Unlocker will automatically close when the game exits</value>
+    <value>Oyundan çıkıldığında sınır kaldırıcı otomatik olarak kapanacaktır</value>
   </data>
   <data name="&gt;&gt;CBAutoClose.Name" xml:space="preserve">
     <value>CBAutoClose</value>
@@ -316,10 +316,10 @@
     <value>1</value>
   </data>
   <data name="CBStartMinimized.Text" xml:space="preserve">
-    <value>Start the Tool Minimized</value>
+    <value>Araç' ı Simge Durumuna Küçültülmüş Olarak Başlat</value>
   </data>
   <data name="CBStartMinimized.ToolTip" xml:space="preserve">
-    <value>Unlocker will minimize to the tray on startup</value>
+    <value>Sınır kaldırıcı başlangıçta tepsi durumuna küçültülecektir</value>
   </data>
   <data name="&gt;&gt;CBStartMinimized.Name" xml:space="preserve">
     <value>CBStartMinimized</value>
@@ -494,7 +494,7 @@
     <value>7</value>
   </data>
   <data name="LabelWindowMode.Text" xml:space="preserve">
-    <value>Fullscreen Mode:</value>
+    <value>Tam Ekran Modu:</value>
   </data>
   <data name="&gt;&gt;LabelWindowMode.Name" xml:space="preserve">
     <value>LabelWindowMode</value>

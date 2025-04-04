@@ -258,7 +258,7 @@
     <value>6</value>
   </data>
   <data name="LabelHeader.Text" xml:space="preserve">
-    <value>Select the game's EXE file</value>
+    <value>Выберите EXE-файл игры</value>
   </data>
   <data name="LabelHeader.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
