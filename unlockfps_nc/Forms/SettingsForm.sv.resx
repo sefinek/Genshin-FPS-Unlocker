@@ -178,10 +178,10 @@
     <value>Låg</value>
   </data>
   <data name="ComboPriority.Location" type="System.Drawing.Point, System.Drawing">
-    <value>153, 82</value>
+    <value>146, 81</value>
   </data>
   <data name="ComboPriority.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 23</value>
+    <value>128, 23</value>
   </data>
   <data name="ComboPriority.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -208,16 +208,16 @@
     <value>True</value>
   </data>
   <data name="LabelPriority.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 86</value>
+    <value>5, 85</value>
   </data>
   <data name="LabelPriority.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 15</value>
+    <value>125, 15</value>
   </data>
   <data name="LabelPriority.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
   <data name="LabelPriority.Text" xml:space="preserve">
-    <value>Game process priority</value>
+    <value>Game Process Priority:</value>
   </data>
   <data name="&gt;&gt;LabelPriority.Name" xml:space="preserve">
     <value>LabelPriority</value>
@@ -238,7 +238,7 @@
     <value>True</value>
   </data>
   <data name="CBPowerSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 56</value>
+    <value>6, 55</value>
   </data>
   <data name="CBPowerSave.Size" type="System.Drawing.Size, System.Drawing">
     <value>97, 19</value>
@@ -253,7 +253,7 @@
     <value>17, 17</value>
   </metadata>
   <data name="CBPowerSave.ToolTip" xml:space="preserve">
-    <value>Sets the FPS limit to 10 and lowers the process priority after losing focus (e.g. minimizing or leaving the game window)</value>
+    <value>Limits FPS to 10 and lowers process priority when the game window loses focus (e.g. when minimized or in the background)</value>
   </data>
   <data name="&gt;&gt;CBPowerSave.Name" xml:space="preserve">
     <value>CBPowerSave</value>
@@ -274,7 +274,7 @@
     <value>True</value>
   </data>
   <data name="CBAutoClose.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 31</value>
+    <value>6, 30</value>
   </data>
   <data name="CBAutoClose.Size" type="System.Drawing.Size, System.Drawing">
     <value>84, 19</value>
@@ -286,7 +286,7 @@
     <value>Auto Close</value>
   </data>
   <data name="CBAutoClose.ToolTip" xml:space="preserve">
-    <value>Unlocker will exit upon game closing</value>
+    <value>Unlocker will automatically close when the game exits</value>
   </data>
   <data name="&gt;&gt;CBAutoClose.Name" xml:space="preserve">
     <value>CBAutoClose</value>
@@ -310,16 +310,16 @@
     <value>6, 6</value>
   </data>
   <data name="CBStartMinimized.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 19</value>
+    <value>155, 19</value>
   </data>
   <data name="CBStartMinimized.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="CBStartMinimized.Text" xml:space="preserve">
-    <value>Start Minimized (Unlocker)</value>
+    <value>Start the Tool Minimized</value>
   </data>
   <data name="CBStartMinimized.ToolTip" xml:space="preserve">
-    <value>Unlocker will minimized to tray on startup</value>
+    <value>Unlocker will minimize to the tray on startup</value>
   </data>
   <data name="&gt;&gt;CBStartMinimized.Name" xml:space="preserve">
     <value>CBStartMinimized</value>
@@ -368,7 +368,7 @@
     <value>True</value>
   </data>
   <data name="CBUseMobileUI.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 81</value>
+    <value>6, 80</value>
   </data>
   <data name="CBUseMobileUI.Size" type="System.Drawing.Size, System.Drawing">
     <value>99, 19</value>
@@ -395,7 +395,7 @@
     <value>None</value>
   </data>
   <data name="InputMonitorNum.Location" type="System.Drawing.Point, System.Drawing">
-    <value>139, 168</value>
+    <value>139, 167</value>
   </data>
   <data name="InputMonitorNum.Size" type="System.Drawing.Size, System.Drawing">
     <value>135, 23</value>
@@ -422,7 +422,7 @@
     <value>True</value>
   </data>
   <data name="LabelMonitor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 170</value>
+    <value>6, 169</value>
   </data>
   <data name="LabelMonitor.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 15</value>
@@ -455,7 +455,7 @@
     <value>Exclusive</value>
   </data>
   <data name="ComboFullscreenMode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>139, 139</value>
+    <value>139, 138</value>
   </data>
   <data name="ComboFullscreenMode.Size" type="System.Drawing.Size, System.Drawing">
     <value>135, 23</value>
@@ -485,7 +485,7 @@
     <value>True</value>
   </data>
   <data name="LabelWindowMode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 142</value>
+    <value>6, 141</value>
   </data>
   <data name="LabelWindowMode.Size" type="System.Drawing.Size, System.Drawing">
     <value>97, 15</value>
@@ -494,7 +494,7 @@
     <value>7</value>
   </data>
   <data name="LabelWindowMode.Text" xml:space="preserve">
-    <value>Fullscreen mode:</value>
+    <value>Fullscreen Mode:</value>
   </data>
   <data name="&gt;&gt;LabelWindowMode.Name" xml:space="preserve">
     <value>LabelWindowMode</value>
@@ -512,7 +512,7 @@
     <value>None</value>
   </data>
   <data name="InputResY.Location" type="System.Drawing.Point, System.Drawing">
-    <value>219, 110</value>
+    <value>219, 109</value>
   </data>
   <data name="InputResY.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 23</value>
@@ -541,11 +541,14 @@
   <data name="LabelX.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="LabelX.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt</value>
+  </data>
   <data name="LabelX.Location" type="System.Drawing.Point, System.Drawing">
-    <value>200, 113</value>
+    <value>200, 110</value>
   </data>
   <data name="LabelX.Size" type="System.Drawing.Size, System.Drawing">
-    <value>12, 15</value>
+    <value>14, 17</value>
   </data>
   <data name="LabelX.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -569,7 +572,7 @@
     <value>None</value>
   </data>
   <data name="InputResX.Location" type="System.Drawing.Point, System.Drawing">
-    <value>139, 110</value>
+    <value>139, 109</value>
   </data>
   <data name="InputResX.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 23</value>
@@ -599,7 +602,7 @@
     <value>True</value>
   </data>
   <data name="LabelCustomRes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 113</value>
+    <value>6, 112</value>
   </data>
   <data name="LabelCustomRes.Size" type="System.Drawing.Size, System.Drawing">
     <value>66, 15</value>
@@ -629,7 +632,7 @@
     <value>True</value>
   </data>
   <data name="CBCustomRes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 56</value>
+    <value>6, 55</value>
   </data>
   <data name="CBCustomRes.Size" type="System.Drawing.Size, System.Drawing">
     <value>127, 19</value>
@@ -659,7 +662,7 @@
     <value>True</value>
   </data>
   <data name="CBFullscreen.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 31</value>
+    <value>6, 6</value>
   </data>
   <data name="CBFullscreen.Size" type="System.Drawing.Size, System.Drawing">
     <value>79, 19</value>
@@ -689,7 +692,7 @@
     <value>True</value>
   </data>
   <data name="CBPopup.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 6</value>
+    <value>6, 30</value>
   </data>
   <data name="CBPopup.Size" type="System.Drawing.Size, System.Drawing">
     <value>127, 19</value>
@@ -776,7 +779,7 @@
     <value>312, 277</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterParent</value>
+    <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Settings</value>

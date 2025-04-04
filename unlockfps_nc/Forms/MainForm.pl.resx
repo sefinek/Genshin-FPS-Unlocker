@@ -121,10 +121,10 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"/>
-  <data name="stellaModLauncherToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="stellaLauncherToolStrip.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 22</value>
   </data>
-  <data name="stellaModLauncherToolStripMenuItem.Text" xml:space="preserve">
+  <data name="stellaLauncherToolStrip.Text" xml:space="preserve">
     <value>Stella Mod Launcher</value>
   </data>
   <data name="systemInformationToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
@@ -139,11 +139,17 @@
   <data name="dxDiaxToolStripMenuItem.Text" xml:space="preserve">
     <value>DxDiag</value>
   </data>
-  <data name="checkHzOfYourMonitorToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="checkHzToolStrip.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 22</value>
   </data>
-  <data name="checkHzOfYourMonitorToolStripMenuItem.Text" xml:space="preserve">
+  <data name="checkHzToolStrip.Text" xml:space="preserve">
     <value>Sprawdź Hz swojego monitora</value>
+  </data>
+  <data name="configFileToolStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 22</value>
+  </data>
+  <data name="configFileToolStrip.Text" xml:space="preserve">
+    <value>Plik konfiguracyjny</value>
   </data>
   <data name="openToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 20</value>
@@ -151,26 +157,14 @@
   <data name="openToolStripMenuItem.Text" xml:space="preserve">
     <value>Otwórz</value>
   </data>
-  <data name="viewConfigToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 22</value>
-  </data>
-  <data name="viewConfigToolStripMenuItem.Text" xml:space="preserve">
-    <value>Wyświetl konfigurację</value>
-  </data>
-  <data name="configToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 20</value>
-  </data>
-  <data name="configToolStripMenuItem.Text" xml:space="preserve">
-    <value>Konfiguracja</value>
-  </data>
   <data name="officialWebsiteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="officialWebsiteToolStripMenuItem.Text" xml:space="preserve">
     <value>Oficjalna strona www</value>
   </data>
   <data name="youTubeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="youTubeToolStripMenuItem.Text" xml:space="preserve">
     <value>YouTube</value>
@@ -200,7 +194,7 @@
     <value>Profil Sefinka</value>
   </data>
   <data name="gitHubToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="gitHubToolStripMenuItem.Text" xml:space="preserve">
     <value>GitHub</value>
@@ -223,17 +217,17 @@
   <data name="SetupMenuItem.Text" xml:space="preserve">
     <value>Konfiguracja</value>
   </data>
-  <data name="AboutMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>116, 22</value>
-  </data>
-  <data name="AboutMenuItem.Text" xml:space="preserve">
-    <value>O programie</value>
-  </data>
   <data name="optionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 20</value>
   </data>
   <data name="optionsToolStripMenuItem.Text" xml:space="preserve">
     <value>Opcje</value>
+  </data>
+  <data name="aboutToolStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 20</value>
+  </data>
+  <data name="aboutToolStrip.Text" xml:space="preserve">
+    <value>O programie</value>
   </data>
   <data name="OptionsMenuStrip.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -767,16 +761,16 @@
   <data name="&gt;&gt;openToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;stellaModLauncherToolStripMenuItem.Name" xml:space="preserve">
-    <value>stellaModLauncherToolStripMenuItem</value>
+  <data name="&gt;&gt;stellaLauncherToolStrip.Name" xml:space="preserve">
+    <value>stellaLauncherToolStrip</value>
   </data>
-  <data name="&gt;&gt;stellaModLauncherToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;stellaLauncherToolStrip.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;checkHzOfYourMonitorToolStripMenuItem.Name" xml:space="preserve">
-    <value>checkHzOfYourMonitorToolStripMenuItem</value>
+  <data name="&gt;&gt;checkHzToolStrip.Name" xml:space="preserve">
+    <value>checkHzToolStrip</value>
   </data>
-  <data name="&gt;&gt;checkHzOfYourMonitorToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;checkHzToolStrip.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;systemInformationToolStripMenuItem.Name" xml:space="preserve">
@@ -791,16 +785,10 @@
   <data name="&gt;&gt;dxDiaxToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;configToolStripMenuItem.Name" xml:space="preserve">
-    <value>configToolStripMenuItem</value>
+  <data name="&gt;&gt;configFileToolStrip.Name" xml:space="preserve">
+    <value>configFileToolStrip</value>
   </data>
-  <data name="&gt;&gt;configToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;viewConfigToolStripMenuItem.Name" xml:space="preserve">
-    <value>viewConfigToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;viewConfigToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;configFileToolStrip.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;linksToolStripMenuItem.Name" xml:space="preserve">
@@ -869,10 +857,10 @@
   <data name="&gt;&gt;SetupMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;AboutMenuItem.Name" xml:space="preserve">
-    <value>AboutMenuItem</value>
+  <data name="&gt;&gt;aboutToolStrip.Name" xml:space="preserve">
+    <value>aboutToolStrip</value>
   </data>
-  <data name="&gt;&gt;AboutMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;aboutToolStrip.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ToolTipMain.Name" xml:space="preserve">

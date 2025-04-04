@@ -123,10 +123,10 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"/>
   <data name="ComboResult.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 72</value>
+    <value>12, 76</value>
   </data>
   <data name="ComboResult.Size" type="System.Drawing.Size, System.Drawing">
-    <value>435, 23</value>
+    <value>465, 23</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
   <data name="ComboResult.TabIndex" type="System.Int32, mscorlib">
@@ -145,16 +145,19 @@
     <value>5</value>
   </data>
   <data name="LabelHint.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
+    <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="LabelHint.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9.75pt</value>
   </data>
+  <data name="LabelHint.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="LabelHint.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 104</value>
+    <value>12, 103</value>
   </data>
   <data name="LabelHint.Size" type="System.Drawing.Size, System.Drawing">
-    <value>435, 69</value>
+    <value>462, 70</value>
   </data>
   <data name="LabelHint.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -177,13 +180,16 @@
     <value>4</value>
   </data>
   <data name="BtnBrowse.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
+    <value>Bottom, Left</value>
+  </data>
+  <data name="BtnBrowse.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="BtnBrowse.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 176</value>
   </data>
   <data name="BtnBrowse.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 23</value>
+    <value>117, 23</value>
   </data>
   <data name="BtnBrowse.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -204,13 +210,16 @@
     <value>3</value>
   </data>
   <data name="BtnConfirm.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
+    <value>Bottom, Right</value>
+  </data>
+  <data name="BtnConfirm.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="BtnConfirm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>357, 176</value>
+    <value>360, 176</value>
   </data>
   <data name="BtnConfirm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 23</value>
+    <value>117, 23</value>
   </data>
   <data name="BtnConfirm.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -230,34 +239,40 @@
   <data name="&gt;&gt;BtnConfirm.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="LabelCurrentPath.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="LabelHeader.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <data name="LabelCurrentPath.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11.25pt</value>
+  <data name="LabelHeader.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 15.75pt</value>
   </data>
-  <data name="LabelCurrentPath.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="LabelHeader.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LabelHeader.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 9</value>
   </data>
-  <data name="LabelCurrentPath.Size" type="System.Drawing.Size, System.Drawing">
-    <value>435, 39</value>
+  <data name="LabelHeader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>465, 42</value>
   </data>
-  <data name="LabelCurrentPath.TabIndex" type="System.Int32, mscorlib">
+  <data name="LabelHeader.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="LabelCurrentPath.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="LabelHeader.Text" xml:space="preserve">
+    <value>Select the game's EXE file</value>
+  </data>
+  <data name="LabelHeader.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
-  <data name="&gt;&gt;LabelCurrentPath.Name" xml:space="preserve">
-    <value>LabelCurrentPath</value>
+  <data name="&gt;&gt;LabelHeader.Name" xml:space="preserve">
+    <value>LabelHeader</value>
   </data>
-  <data name="&gt;&gt;LabelCurrentPath.Type" xml:space="preserve">
+  <data name="&gt;&gt;LabelHeader.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;LabelCurrentPath.Parent" xml:space="preserve">
+  <data name="&gt;&gt;LabelHeader.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;LabelCurrentPath.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;LabelHeader.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <metadata name="BrowseDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -279,7 +294,7 @@
     <value>Segoe UI, 9.75pt</value>
   </data>
   <data name="LabelResult.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 51</value>
+    <value>11, 57</value>
   </data>
   <data name="LabelResult.Size" type="System.Drawing.Size, System.Drawing">
     <value>0, 17</value>
@@ -309,7 +324,7 @@
     <value>96, 96</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>459, 211</value>
+    <value>486, 211</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>
