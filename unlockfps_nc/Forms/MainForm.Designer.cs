@@ -301,7 +301,6 @@ namespace unlockfps_nc.Forms
         private ContextMenuStrip ContextNotify;
         private ToolStripMenuItem ExitMenuItem;
         private ToolStripMenuItem openToolStripMenuItem;
-        private ToolStripMenuItem configToolStrip;
         private ToolStripMenuItem linksToolStripMenuItem;
         private ToolStripMenuItem officialWebsiteToolStripMenuItem;
         private ToolStripMenuItem youTubeToolStripMenuItem;
@@ -314,7 +313,6 @@ namespace unlockfps_nc.Forms
         private ToolStripMenuItem checkHzToolStrip;
         private ToolStripMenuItem systemInformationToolStripMenuItem;
         private ToolStripMenuItem dxDiaxToolStripMenuItem;
-        private ToolStripMenuItem viewConfigToolStrip;
 		  private PictureBox pictureBox1;
 		private ToolStripMenuItem aboutToolStrip;
 		private ToolStripMenuItem configFileToolStrip;
