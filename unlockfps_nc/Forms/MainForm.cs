@@ -158,7 +158,7 @@ public partial class MainForm : Form
 	}
 
 
-	private void ViewCfg_Click(object sender, EventArgs e)
+	private void ViewConfig_Click(object sender, EventArgs e)
 	{
 		string cfgPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "unlocker.config.json");
 		if (!File.Exists(cfgPath)) MessageBox.Show(Resources.MainForm_ViewCfg_TheUnlockerConfigJsonFileWasNotFound, Resources.MainForm_ViewCfg_FileNotFound, MessageBoxButtons.OK, MessageBoxIcon.Warning);

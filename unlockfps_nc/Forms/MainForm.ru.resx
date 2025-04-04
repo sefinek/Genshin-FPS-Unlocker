@@ -125,13 +125,13 @@
     <value>211, 22</value>
   </data>
   <data name="stellaModLauncherToolStripMenuItem.Text" xml:space="preserve">
-    <value>Stella Mod Launcher</value>
+    <value>Лаунчер Stella Mod</value>
   </data>
   <data name="systemInformationToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>178, 22</value>
   </data>
   <data name="systemInformationToolStripMenuItem.Text" xml:space="preserve">
-    <value>System Information</value>
+    <value>Сведения о системе</value>
   </data>
   <data name="dxDiaxToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>178, 22</value>
@@ -143,31 +143,31 @@
     <value>211, 22</value>
   </data>
   <data name="checkHzOfYourMonitorToolStripMenuItem.Text" xml:space="preserve">
-    <value>Check Hz of your monitor</value>
+    <value>Проверка частоты монитора (Гц)</value>
   </data>
   <data name="openToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 20</value>
   </data>
   <data name="openToolStripMenuItem.Text" xml:space="preserve">
-    <value>Open</value>
+    <value>Открыть</value>
   </data>
   <data name="viewConfigToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>136, 22</value>
   </data>
   <data name="viewConfigToolStripMenuItem.Text" xml:space="preserve">
-    <value>View config</value>
+    <value>Просмотр конфигурации</value>
   </data>
   <data name="configToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 20</value>
   </data>
   <data name="configToolStripMenuItem.Text" xml:space="preserve">
-    <value>Config</value>
+    <value>Конфигурация</value>
   </data>
   <data name="officialWebsiteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>155, 22</value>
   </data>
   <data name="officialWebsiteToolStripMenuItem.Text" xml:space="preserve">
-    <value>Official website</value>
+    <value>Официальный сайт</value>
   </data>
   <data name="youTubeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>155, 22</value>
@@ -191,13 +191,13 @@
     <value>157, 22</value>
   </data>
   <data name="repositoresToolStripMenuItem.Text" xml:space="preserve">
-    <value>Repositories</value>
+    <value>Репозитории</value>
   </data>
   <data name="sefineksProfileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>157, 22</value>
   </data>
   <data name="sefineksProfileToolStripMenuItem.Text" xml:space="preserve">
-    <value>Sefinek's profile</value>
+    <value>Профиль Sefinek</value>
   </data>
   <data name="gitHubToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>155, 22</value>
@@ -209,31 +209,31 @@
     <value>46, 20</value>
   </data>
   <data name="linksToolStripMenuItem.Text" xml:space="preserve">
-    <value>Links</value>
+    <value>Ссылки</value>
   </data>
   <data name="SettingsMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>116, 22</value>
   </data>
   <data name="SettingsMenuItem.Text" xml:space="preserve">
-    <value>Settings</value>
+    <value>Настройки</value>
   </data>
   <data name="SetupMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>116, 22</value>
   </data>
   <data name="SetupMenuItem.Text" xml:space="preserve">
-    <value>Setup</value>
+    <value>Установка</value>
   </data>
   <data name="AboutMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>116, 22</value>
   </data>
   <data name="AboutMenuItem.Text" xml:space="preserve">
-    <value>About</value>
+    <value>О программе</value>
   </data>
   <data name="optionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 20</value>
   </data>
   <data name="optionsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Options</value>
+    <value>Опции</value>
   </data>
   <data name="OptionsMenuStrip.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -277,7 +277,7 @@
     <value>1</value>
   </data>
   <data name="LabelFPS.Text" xml:space="preserve">
-    <value>FPS limit</value>
+    <value>Ограничение FPS</value>
   </data>
   <data name="&gt;&gt;LabelFPS.Name" xml:space="preserve">
     <value>LabelFPS</value>
@@ -352,13 +352,13 @@
     <value>4</value>
   </data>
   <data name="CBAutoStart.Text" xml:space="preserve">
-    <value>Start game automatically</value>
+    <value>Автоматически запустить игру</value>
   </data>
   <metadata name="ToolTipMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>168, 17</value>
   </metadata>
   <data name="CBAutoStart.ToolTip" xml:space="preserve">
-    <value>This will take effect on subsequent launch. Not recommended!</value>
+    <value>Вступит в силу при следующем запуске. Не рекомендуется!</value>
   </data>
   <data name="&gt;&gt;CBAutoStart.Name" xml:space="preserve">
     <value>CBAutoStart</value>
@@ -385,7 +385,7 @@
     <value>5</value>
   </data>
   <data name="BtnStartGame.Text" xml:space="preserve">
-    <value>Start Game</value>
+    <value>Начать игру</value>
   </data>
   <data name="&gt;&gt;BtnStartGame.Name" xml:space="preserve">
     <value>BtnStartGame</value>
@@ -403,7 +403,7 @@
     <value>287, 17</value>
   </metadata>
   <data name="NotifyIconMain.BalloonTipText" xml:space="preserve">
-    <value>The program has been minimized to the system tray. You can change the FPS limit even during the game.</value>
+    <value>Программа свёрнута в трей. Вы можете менять лимит FPS прямо во время игры.</value>
   </data>
   <data name="NotifyIconMain.BalloonTipTitle" xml:space="preserve">
     <value>Genshin FPS Unlocker</value>
@@ -415,7 +415,7 @@
     <value>92, 22</value>
   </data>
   <data name="ExitMenuItem.Text" xml:space="preserve">
-    <value>Exit</value>
+    <value>Выход</value>
   </data>
   <data name="ContextNotify.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 26</value>

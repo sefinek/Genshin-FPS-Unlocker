@@ -167,7 +167,7 @@ v{0}</value>
     <value>1</value>
   </data>
   <data name="LabelDescription.Text" xml:space="preserve">
-    <value>This program is only a fork of 34736384/genshin-fps-unlock that has been prepared for compatibility with Stella Mod.</value>
+    <value>Эта программа - лишь форк 34736384/genshin-fps-unlock, который был подготовлен для совместимости с Stella Mod.</value>
   </data>
   <data name="LabelDescription.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -200,7 +200,7 @@ v{0}</value>
     <value>2</value>
   </data>
   <data name="LinkLabelSource.Text" xml:space="preserve">
-    <value>See: https://github.com/sefinek/Genshin-FPS-Unlocker</value>
+    <value>См.: https://github.com/sefinek/Genshin-FPS-Unlocker</value>
   </data>
   <data name="LinkLabelSource.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -233,7 +233,7 @@ v{0}</value>
     <value>3</value>
   </data>
   <data name="LinkLabelIssues.Text" xml:space="preserve">
-    <value>If you need help or have any suggestions, please visit the official website:
+    <value>Если вам нужна помощь или есть предложения — посетите наш сайт:
 https://stella.sefinek.net</value>
   </data>
   <data name="LinkLabelIssues.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
@@ -264,7 +264,7 @@ https://stella.sefinek.net</value>
     <value>CenterParent</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>About</value>
+    <value>О программе</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>AboutForm</value>

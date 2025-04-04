@@ -160,9 +160,9 @@
     <value>3</value>
   </data>
   <data name="LabelHint.Text" xml:space="preserve">
-    <value>If your game is not listed above, you can either:
-1. Open the game now and the unlocker will try to find it's location.
-2. Use the Browse button below.</value>
+    <value>Если вашей игры нет в списке, вы можете:
+1. Запустить игру сейчас — FPS Unlocker попытается определить её расположение.
+2. Использовать кнопку «Обзор» ниже.</value>
   </data>
   <data name="&gt;&gt;LabelHint.Name" xml:space="preserve">
     <value>LabelHint</value>
@@ -189,7 +189,7 @@
     <value>4</value>
   </data>
   <data name="BtnBrowse.Text" xml:space="preserve">
-    <value>Browse</value>
+    <value>Обзор</value>
   </data>
   <data name="&gt;&gt;BtnBrowse.Name" xml:space="preserve">
     <value>BtnBrowse</value>
@@ -216,7 +216,7 @@
     <value>5</value>
   </data>
   <data name="BtnConfirm.Text" xml:space="preserve">
-    <value>Confirm</value>
+    <value>Подтвердить</value>
   </data>
   <data name="&gt;&gt;BtnConfirm.Name" xml:space="preserve">
     <value>BtnConfirm</value>
@@ -264,10 +264,10 @@
     <value>17, 17</value>
   </metadata>
   <data name="BrowseDialog.Filter" xml:space="preserve">
-    <value>Executable Files (*.exe)|GenshinImpact.exe;YuanShen.exe</value>
+    <value>Исполняемые файлы (*.exe)|GenshinImpact.exe;YuanShen.exe</value>
   </data>
   <data name="BrowseDialog.Title" xml:space="preserve">
-    <value>Select GenshinImpact.exe or YuanShen.exe</value>
+    <value>Выберите GenshinImpact.exe или YuanShen.exe</value>
   </data>
   <data name="LabelResult.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -315,7 +315,7 @@
     <value>CenterParent</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Setup</value>
+    <value>Установка</value>
   </data>
   <data name="&gt;&gt;BrowseDialog.Name" xml:space="preserve">
     <value>BrowseDialog</value>

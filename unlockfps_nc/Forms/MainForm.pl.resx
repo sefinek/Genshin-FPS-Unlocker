@@ -385,7 +385,7 @@
     <value>5</value>
   </data>
   <data name="BtnStartGame.Text" xml:space="preserve">
-    <value>Rozpocznij grę</value>
+    <value>Rozpocznij</value>
   </data>
   <data name="&gt;&gt;BtnStartGame.Name" xml:space="preserve">
     <value>BtnStartGame</value>

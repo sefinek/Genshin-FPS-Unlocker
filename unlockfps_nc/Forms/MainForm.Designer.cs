@@ -34,12 +34,11 @@ namespace unlockfps_nc.Forms
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			OptionsMenuStrip = new MenuStrip();
 			openToolStripMenuItem = new ToolStripMenuItem();
-			stellaModLauncherToolStripMenuItem = new ToolStripMenuItem();
-			checkHzOfYourMonitorToolStripMenuItem = new ToolStripMenuItem();
+			stellaLauncherToolStrip = new ToolStripMenuItem();
+			checkHzToolStrip = new ToolStripMenuItem();
 			systemInformationToolStripMenuItem = new ToolStripMenuItem();
 			dxDiaxToolStripMenuItem = new ToolStripMenuItem();
-			configToolStripMenuItem = new ToolStripMenuItem();
-			viewConfigToolStripMenuItem = new ToolStripMenuItem();
+			configFileToolStrip = new ToolStripMenuItem();
 			linksToolStripMenuItem = new ToolStripMenuItem();
 			officialWebsiteToolStripMenuItem = new ToolStripMenuItem();
 			youTubeToolStripMenuItem = new ToolStripMenuItem();
@@ -51,7 +50,7 @@ namespace unlockfps_nc.Forms
 			optionsToolStripMenuItem = new ToolStripMenuItem();
 			SettingsMenuItem = new ToolStripMenuItem();
 			SetupMenuItem = new ToolStripMenuItem();
-			AboutMenuItem = new ToolStripMenuItem();
+			aboutToolStrip = new ToolStripMenuItem();
 			LabelFPS = new Label();
 			InputFPS = new NumericUpDown();
 			SliderFPS = new TrackBar();
@@ -72,29 +71,29 @@ namespace unlockfps_nc.Forms
 			// OptionsMenuStrip
 			// 
 			OptionsMenuStrip.BackColor = Color.FromArgb(32, 34, 37);
-			OptionsMenuStrip.Items.AddRange(new ToolStripItem[] { openToolStripMenuItem, configToolStripMenuItem, linksToolStripMenuItem, optionsToolStripMenuItem });
+			OptionsMenuStrip.Items.AddRange(new ToolStripItem[] { openToolStripMenuItem, linksToolStripMenuItem, optionsToolStripMenuItem, aboutToolStrip });
 			resources.ApplyResources(OptionsMenuStrip, "OptionsMenuStrip");
 			OptionsMenuStrip.Name = "OptionsMenuStrip";
 			// 
 			// openToolStripMenuItem
 			// 
 			openToolStripMenuItem.BackColor = Color.Transparent;
-			openToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { stellaModLauncherToolStripMenuItem, checkHzOfYourMonitorToolStripMenuItem });
+			openToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { stellaLauncherToolStrip, checkHzToolStrip, configFileToolStrip });
 			openToolStripMenuItem.ForeColor = Color.DarkGray;
 			openToolStripMenuItem.Name = "openToolStripMenuItem";
 			resources.ApplyResources(openToolStripMenuItem, "openToolStripMenuItem");
 			// 
-			// stellaModLauncherToolStripMenuItem
+			// stellaLauncherToolStrip
 			// 
-			stellaModLauncherToolStripMenuItem.Name = "stellaModLauncherToolStripMenuItem";
-			resources.ApplyResources(stellaModLauncherToolStripMenuItem, "stellaModLauncherToolStripMenuItem");
-			stellaModLauncherToolStripMenuItem.Click += OpenStella_Click;
+			stellaLauncherToolStrip.Name = "stellaLauncherToolStrip";
+			resources.ApplyResources(stellaLauncherToolStrip, "stellaLauncherToolStrip");
+			stellaLauncherToolStrip.Click += OpenStella_Click;
 			// 
-			// checkHzOfYourMonitorToolStripMenuItem
+			// checkHzToolStrip
 			// 
-			checkHzOfYourMonitorToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { systemInformationToolStripMenuItem, dxDiaxToolStripMenuItem });
-			checkHzOfYourMonitorToolStripMenuItem.Name = "checkHzOfYourMonitorToolStripMenuItem";
-			resources.ApplyResources(checkHzOfYourMonitorToolStripMenuItem, "checkHzOfYourMonitorToolStripMenuItem");
+			checkHzToolStrip.DropDownItems.AddRange(new ToolStripItem[] { systemInformationToolStripMenuItem, dxDiaxToolStripMenuItem });
+			checkHzToolStrip.Name = "checkHzToolStrip";
+			resources.ApplyResources(checkHzToolStrip, "checkHzToolStrip");
 			// 
 			// systemInformationToolStripMenuItem
 			// 
@@ -108,19 +107,11 @@ namespace unlockfps_nc.Forms
 			resources.ApplyResources(dxDiaxToolStripMenuItem, "dxDiaxToolStripMenuItem");
 			dxDiaxToolStripMenuItem.Click += DxDiag_Click;
 			// 
-			// configToolStripMenuItem
+			// configFileToolStrip
 			// 
-			configToolStripMenuItem.BackColor = Color.Transparent;
-			configToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { viewConfigToolStripMenuItem });
-			configToolStripMenuItem.ForeColor = Color.DarkGray;
-			configToolStripMenuItem.Name = "configToolStripMenuItem";
-			resources.ApplyResources(configToolStripMenuItem, "configToolStripMenuItem");
-			// 
-			// viewConfigToolStripMenuItem
-			// 
-			viewConfigToolStripMenuItem.Name = "viewConfigToolStripMenuItem";
-			resources.ApplyResources(viewConfigToolStripMenuItem, "viewConfigToolStripMenuItem");
-			viewConfigToolStripMenuItem.Click += ViewCfg_Click;
+			configFileToolStrip.Name = "configFileToolStrip";
+			resources.ApplyResources(configFileToolStrip, "configFileToolStrip");
+			configFileToolStrip.Click += ViewConfig_Click;
 			// 
 			// linksToolStripMenuItem
 			// 
@@ -175,7 +166,7 @@ namespace unlockfps_nc.Forms
 			// optionsToolStripMenuItem
 			// 
 			optionsToolStripMenuItem.BackColor = Color.Transparent;
-			optionsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { SettingsMenuItem, SetupMenuItem, AboutMenuItem });
+			optionsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { SettingsMenuItem, SetupMenuItem });
 			optionsToolStripMenuItem.ForeColor = Color.DarkGray;
 			optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
 			resources.ApplyResources(optionsToolStripMenuItem, "optionsToolStripMenuItem");
@@ -192,11 +183,12 @@ namespace unlockfps_nc.Forms
 			resources.ApplyResources(SetupMenuItem, "SetupMenuItem");
 			SetupMenuItem.Click += SetupMenuItem_Click;
 			// 
-			// AboutMenuItem
+			// aboutToolStrip
 			// 
-			AboutMenuItem.Name = "AboutMenuItem";
-			resources.ApplyResources(AboutMenuItem, "AboutMenuItem");
-			AboutMenuItem.Click += AboutMenuItem_Click;
+			aboutToolStrip.ForeColor = Color.DarkGray;
+			aboutToolStrip.Name = "aboutToolStrip";
+			resources.ApplyResources(aboutToolStrip, "aboutToolStrip");
+			aboutToolStrip.Click += AboutMenuItem_Click;
 			// 
 			// LabelFPS
 			// 
@@ -299,7 +291,6 @@ namespace unlockfps_nc.Forms
         private ToolStripMenuItem optionsToolStripMenuItem;
         private ToolStripMenuItem SettingsMenuItem;
         private ToolStripMenuItem SetupMenuItem;
-        private ToolStripMenuItem AboutMenuItem;
         private Label LabelFPS;
         private NumericUpDown InputFPS;
         private TrackBar SliderFPS;
@@ -310,7 +301,7 @@ namespace unlockfps_nc.Forms
         private ContextMenuStrip ContextNotify;
         private ToolStripMenuItem ExitMenuItem;
         private ToolStripMenuItem openToolStripMenuItem;
-        private ToolStripMenuItem configToolStripMenuItem;
+        private ToolStripMenuItem configToolStrip;
         private ToolStripMenuItem linksToolStripMenuItem;
         private ToolStripMenuItem officialWebsiteToolStripMenuItem;
         private ToolStripMenuItem youTubeToolStripMenuItem;
@@ -319,11 +310,13 @@ namespace unlockfps_nc.Forms
         private ToolStripMenuItem genshinImpactReShadeToolStripMenuItem;
         private ToolStripMenuItem fPSUnlockerToolStripMenuItem;
         private ToolStripMenuItem sefineksProfileToolStripMenuItem;
-        private ToolStripMenuItem stellaModLauncherToolStripMenuItem;
-        private ToolStripMenuItem checkHzOfYourMonitorToolStripMenuItem;
+        private ToolStripMenuItem stellaLauncherToolStrip;
+        private ToolStripMenuItem checkHzToolStrip;
         private ToolStripMenuItem systemInformationToolStripMenuItem;
         private ToolStripMenuItem dxDiaxToolStripMenuItem;
-        private ToolStripMenuItem viewConfigToolStripMenuItem;
+        private ToolStripMenuItem viewConfigToolStrip;
 		  private PictureBox pictureBox1;
-	 }
+		private ToolStripMenuItem aboutToolStrip;
+		private ToolStripMenuItem configFileToolStrip;
+	}
 }

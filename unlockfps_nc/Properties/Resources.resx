@@ -120,9 +120,6 @@
   <data name="SetupForm_Searching" xml:space="preserve">
     <value>Searching...</value>
   </data>
-  <data name="SetupForm_CurrentPath" xml:space="preserve">
-    <value>Current path: {0}</value>
-  </data>
   <data name="SetupForm_FailedToFindProcessPath" xml:space="preserve">
     <value>Failed to find process path. Please use "Browse" instead.</value>
   </data>

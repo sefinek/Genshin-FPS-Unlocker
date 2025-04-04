@@ -10,7 +10,6 @@ namespace unlockfps_nc.Forms;
 public partial class SetupForm : Form
 {
 	private readonly Config _config;
-
 	private readonly ConfigService _configService;
 	private CancellationTokenSource? _cts;
 
@@ -26,7 +25,6 @@ public partial class SetupForm : Form
 		_cts = new CancellationTokenSource();
 		Task.Run(PollProcess, _cts.Token);
 
-		LabelCurrentPath.Text = string.Format(Resources.SetupForm_CurrentPath, _config.GamePath);
 		LabelResult.Text = Resources.SetupForm_Searching;
 		LabelResult.ForeColor = Color.Orange;
 		Task.Run(SearchGamePath, _cts.Token);

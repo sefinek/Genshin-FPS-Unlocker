@@ -253,7 +253,7 @@
     <value>17, 17</value>
   </metadata>
   <data name="CBPowerSave.ToolTip" xml:space="preserve">
-    <value>Sets the FPS limit to 10 and lowers the process priority after losing focus (e.g. minimizing or leaving the game window)</value>
+    <value>FPS sınırını 10 olarak ayarlar ve odağı kaybettikten sonra işlem önceliğini düşürür (örn. oyun penceresini simge durumuna küçültme veya pencereden çıkma)</value>
   </data>
   <data name="&gt;&gt;CBPowerSave.Name" xml:space="preserve">
     <value>CBPowerSave</value>
@@ -319,7 +319,7 @@
     <value>Küçültülmüş Olarak Başlat (Sınır kaldırıcı)</value>
   </data>
   <data name="CBStartMinimized.ToolTip" xml:space="preserve">
-    <value>Unlocker will minimized to tray on startup</value>
+    <value>Sınır kaldırıcı açılışta simge durumuna küçültülecektir</value>
   </data>
   <data name="&gt;&gt;CBStartMinimized.Name" xml:space="preserve">
     <value>CBStartMinimized</value>
@@ -608,7 +608,7 @@
     <value>3</value>
   </data>
   <data name="LabelCustomRes.Text" xml:space="preserve">
-    <value>Resolution:</value>
+    <value>Çözünürlük:</value>
   </data>
   <data name="&gt;&gt;LabelCustomRes.Name" xml:space="preserve">
     <value>LabelCustomRes</value>

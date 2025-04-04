@@ -136,7 +136,7 @@
     <value>0</value>
   </data>
   <data name="LabelAutoSave.Text" xml:space="preserve">
-    <value>Wszystkie ustawienia zostaną automatycznie zapisane.</value>
+    <value>Ustawienia zostaną automatycznie zapisane.</value>
   </data>
   <data name="LabelAutoSave.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -160,10 +160,10 @@
     <value>None</value>
   </data>
   <data name="ComboPriority.Items" xml:space="preserve">
-    <value>W czasie rzeczywistym</value>
+    <value>Czas rzeczywisty</value>
   </data>
   <data name="ComboPriority.Items1" xml:space="preserve">
-    <value>Wysoka</value>
+    <value>Wysoki</value>
   </data>
   <data name="ComboPriority.Items2" xml:space="preserve">
     <value>Powyżej normalnego</value>
