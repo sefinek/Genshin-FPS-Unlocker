@@ -143,13 +143,13 @@
     <value>211, 22</value>
   </data>
   <data name="checkHzToolStrip.Text" xml:space="preserve">
-    <value>Check Hz of your monitor</value>
+    <value>Kontrollera Hz på din bildskärm</value>
   </data>
   <data name="configFileToolStrip.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 22</value>
   </data>
   <data name="configFileToolStrip.Text" xml:space="preserve">
-    <value>Configuration file</value>
+    <value>Konfigurationsfil</value>
   </data>
   <data name="openToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 20</value>
@@ -179,7 +179,7 @@
     <value>205, 22</value>
   </data>
   <data name="fPSUnlockerToolStripMenuItem.Text" xml:space="preserve">
-    <value>FPS Unlocker</value>
+    <value>FPS-upplåsaren</value>
   </data>
   <data name="repositoresToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>157, 22</value>
@@ -215,7 +215,7 @@
     <value>116, 22</value>
   </data>
   <data name="SetupMenuItem.Text" xml:space="preserve">
-    <value>Setup</value>
+    <value>Konfiguration</value>
   </data>
   <data name="optionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 20</value>
@@ -227,7 +227,7 @@
     <value>52, 20</value>
   </data>
   <data name="aboutToolStrip.Text" xml:space="preserve">
-    <value>About</value>
+    <value>Beträffande pogramet</value>
   </data>
   <data name="OptionsMenuStrip.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -271,7 +271,7 @@
     <value>1</value>
   </data>
   <data name="LabelFPS.Text" xml:space="preserve">
-    <value>FPS limit</value>
+    <value>FPS-begränsning</value>
   </data>
   <data name="&gt;&gt;LabelFPS.Name" xml:space="preserve">
     <value>LabelFPS</value>
@@ -346,13 +346,13 @@
     <value>4</value>
   </data>
   <data name="CBAutoStart.Text" xml:space="preserve">
-    <value>Start game automatically</value>
+    <value>Starta spelet automatiskt</value>
   </data>
   <metadata name="ToolTipMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>168, 17</value>
   </metadata>
   <data name="CBAutoStart.ToolTip" xml:space="preserve">
-    <value>This will take effect on subsequent launch. Not recommended!</value>
+    <value>Detta kommer att träda i kraft vid nästa start. Inte rekommenderat!</value>
   </data>
   <data name="&gt;&gt;CBAutoStart.Name" xml:space="preserve">
     <value>CBAutoStart</value>
@@ -397,10 +397,10 @@
     <value>287, 17</value>
   </metadata>
   <data name="NotifyIconMain.BalloonTipText" xml:space="preserve">
-    <value>The program has been minimized to the system tray. You can change the FPS limit even during the game.</value>
+    <value>Programmet har minimerats till systemfältet. Du kan ändra FPS gränsen även under spelet.</value>
   </data>
   <data name="NotifyIconMain.BalloonTipTitle" xml:space="preserve">
-    <value>Genshin FPS Unlocker</value>
+    <value>Genshin FPS-upplåsare</value>
   </data>
   <metadata name="ContextNotify.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>424, 17</value>
@@ -409,7 +409,7 @@
     <value>92, 22</value>
   </data>
   <data name="ExitMenuItem.Text" xml:space="preserve">
-    <value>Exit</value>
+    <value>Avsluta</value>
   </data>
   <data name="ContextNotify.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 26</value>
@@ -708,7 +708,7 @@
 </value>
   </data>
   <data name="NotifyIconMain.Text" xml:space="preserve">
-    <value>Genshin FPS Unlocker</value>
+    <value>Genshin FPS-upplåsare</value>
   </data>
   <data name="NotifyIconMain.Visible" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -753,7 +753,7 @@
     <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Genshin FPS Unlocker</value>
+    <value>Genshin FPS-upplåsare</value>
   </data>
   <data name="&gt;&gt;openToolStripMenuItem.Name" xml:space="preserve">
     <value>openToolStripMenuItem</value>

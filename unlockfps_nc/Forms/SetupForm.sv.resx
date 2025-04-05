@@ -163,9 +163,9 @@
     <value>3</value>
   </data>
   <data name="LabelHint.Text" xml:space="preserve">
-    <value>If your game is not listed above, you can either:
-1. Open the game now and the unlocker will try to find it's location.
-2. Use the Browse button below.</value>
+    <value>Om ditt spel inte finns med i listan ovan kan du antingen:
+1. Öppna spelet nu så försöker upplåsaren hitta dess plats.
+2. Använd knappen "Bläddra" nedan.</value>
   </data>
   <data name="&gt;&gt;LabelHint.Name" xml:space="preserve">
     <value>LabelHint</value>
@@ -225,7 +225,7 @@
     <value>5</value>
   </data>
   <data name="BtnConfirm.Text" xml:space="preserve">
-    <value>Confirm</value>
+    <value>Bekräfta</value>
   </data>
   <data name="&gt;&gt;BtnConfirm.Name" xml:space="preserve">
     <value>BtnConfirm</value>
@@ -258,7 +258,7 @@
     <value>6</value>
   </data>
   <data name="LabelHeader.Text" xml:space="preserve">
-    <value>Select the game's EXE file</value>
+    <value>Välj spelets EXE-fil</value>
   </data>
   <data name="LabelHeader.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -282,7 +282,7 @@
     <value>Executable Files (*.exe)|GenshinImpact.exe;YuanShen.exe</value>
   </data>
   <data name="BrowseDialog.Title" xml:space="preserve">
-    <value>Select GenshinImpact.exe or YuanShen.exe</value>
+    <value>Välj GenshinImpact.exe eller YuanShen.exe</value>
   </data>
   <data name="LabelResult.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -330,7 +330,7 @@
     <value>CenterParent</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Setup</value>
+    <value>Konfiguration</value>
   </data>
   <data name="&gt;&gt;BrowseDialog.Name" xml:space="preserve">
     <value>BrowseDialog</value>

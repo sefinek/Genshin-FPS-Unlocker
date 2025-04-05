@@ -136,7 +136,7 @@
     <value>0</value>
   </data>
   <data name="LabelTitle.Text" xml:space="preserve">
-    <value>Genshin FPS Unlocker
+    <value>Genshin FPS-upplåsare
 v{0}</value>
   </data>
   <data name="LabelTitle.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
@@ -167,7 +167,7 @@ v{0}</value>
     <value>1</value>
   </data>
   <data name="LabelDescription.Text" xml:space="preserve">
-    <value>This program is a fork of 3473684/genshin-fps-unlock, modified for compatibility with Stella Mod. It is distributed under the same license as the original project.</value>
+    <value>Detta program är en förgrening av 3473684/genshin-fps-unlock, modifierat för kompatibilitet med Stella Mod. Det distribueras under samma licens som originalprojektet.</value>
   </data>
   <data name="LabelDescription.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -197,7 +197,7 @@ v{0}</value>
     <value>4</value>
   </data>
   <data name="linkLabel1.Text" xml:space="preserve">
-    <value>https://github.com/sefinek/Genshin-FPS-Unlocker</value>
+    <value>https://github.com/sefinek/Genshin-FPS-Unlocker (FPS-upplåsare)</value>
   </data>
   <data name="linkLabel1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -263,7 +263,7 @@ v{0}</value>
     <value>6</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>If you need help or have any suggestions, please visit the official website:</value>
+    <value>Om du behöver hjälp eller har några förslag, vänligen besök den officiella webbplatsen:</value>
   </data>
   <data name="label1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -293,7 +293,7 @@ v{0}</value>
     <value>CenterParent</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>About</value>
+    <value>Beträffande pogramet</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>AboutForm</value>

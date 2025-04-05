@@ -160,19 +160,19 @@
     <value>None</value>
   </data>
   <data name="ComboPriority.Items" xml:space="preserve">
-    <value>Realtime</value>
+    <value>Realtid</value>
   </data>
   <data name="ComboPriority.Items1" xml:space="preserve">
-    <value>High</value>
+    <value>Hög</value>
   </data>
   <data name="ComboPriority.Items2" xml:space="preserve">
-    <value>Above Normal</value>
+    <value>Över normala</value>
   </data>
   <data name="ComboPriority.Items3" xml:space="preserve">
     <value>Normalt</value>
   </data>
   <data name="ComboPriority.Items4" xml:space="preserve">
-    <value>Below Normal</value>
+    <value>Under normal</value>
   </data>
   <data name="ComboPriority.Items5" xml:space="preserve">
     <value>Låg</value>
@@ -247,13 +247,13 @@
     <value>3</value>
   </data>
   <data name="CBPowerSave.Text" xml:space="preserve">
-    <value>Power Saving</value>
+    <value>Strömsparläge</value>
   </data>
   <metadata name="ToolTipSettings.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <data name="CBPowerSave.ToolTip" xml:space="preserve">
-    <value>Limits FPS to 10 and lowers process priority when the game window loses focus (e.g. when minimized or in the background)</value>
+    <value>Begränsar FPS till 10 och sänker processprioritet när spelvinderingen förlorar fokus (t.ex. när den är minimerad eller i bakgrunden)</value>
   </data>
   <data name="&gt;&gt;CBPowerSave.Name" xml:space="preserve">
     <value>CBPowerSave</value>
@@ -283,7 +283,7 @@
     <value>2</value>
   </data>
   <data name="CBAutoClose.Text" xml:space="preserve">
-    <value>Auto Close</value>
+    <value>Automatisk avstängning</value>
   </data>
   <data name="CBAutoClose.ToolTip" xml:space="preserve">
     <value>Unlocker will automatically close when the game exits</value>
@@ -377,7 +377,7 @@
     <value>11</value>
   </data>
   <data name="CBUseMobileUI.Text" xml:space="preserve">
-    <value>Use Mobile UI</value>
+    <value>Använd mobilt UI</value>
   </data>
   <data name="&gt;&gt;CBUseMobileUI.Name" xml:space="preserve">
     <value>CBUseMobileUI</value>
@@ -464,7 +464,7 @@
     <value>8</value>
   </data>
   <data name="ComboFullscreenMode.Text" xml:space="preserve">
-    <value>Borderless</value>
+    <value>Kantlöst läge</value>
   </data>
   <data name="&gt;&gt;ComboFullscreenMode.Name" xml:space="preserve">
     <value>ComboFullscreenMode</value>
@@ -494,7 +494,7 @@
     <value>7</value>
   </data>
   <data name="LabelWindowMode.Text" xml:space="preserve">
-    <value>Fullscreen Mode:</value>
+    <value>Fullskärmsläge:</value>
   </data>
   <data name="&gt;&gt;LabelWindowMode.Name" xml:space="preserve">
     <value>LabelWindowMode</value>
@@ -611,7 +611,7 @@
     <value>3</value>
   </data>
   <data name="LabelCustomRes.Text" xml:space="preserve">
-    <value>Resolution:</value>
+    <value>Upplösning:</value>
   </data>
   <data name="&gt;&gt;LabelCustomRes.Name" xml:space="preserve">
     <value>LabelCustomRes</value>
@@ -641,7 +641,7 @@
     <value>2</value>
   </data>
   <data name="CBCustomRes.Text" xml:space="preserve">
-    <value>Custom Resolution</value>
+    <value>Anpassad upplösning</value>
   </data>
   <data name="&gt;&gt;CBCustomRes.Name" xml:space="preserve">
     <value>CBCustomRes</value>
@@ -671,7 +671,7 @@
     <value>1</value>
   </data>
   <data name="CBFullscreen.Text" xml:space="preserve">
-    <value>Fullscreen</value>
+    <value>Fullskärm/helskärm</value>
   </data>
   <data name="&gt;&gt;CBFullscreen.Name" xml:space="preserve">
     <value>CBFullscreen</value>
@@ -701,7 +701,7 @@
     <value>0</value>
   </data>
   <data name="CBPopup.Text" xml:space="preserve">
-    <value>Borderless Window</value>
+    <value>Kantlöst fönsterläge</value>
   </data>
   <data name="&gt;&gt;CBPopup.Name" xml:space="preserve">
     <value>CBPopup</value>
@@ -728,7 +728,7 @@
     <value>1</value>
   </data>
   <data name="TabLaunchOptions.Text" xml:space="preserve">
-    <value>Launch options</value>
+    <value>Launcheralternativ</value>
   </data>
   <data name="&gt;&gt;TabLaunchOptions.Name" xml:space="preserve">
     <value>TabLaunchOptions</value>
@@ -767,7 +767,7 @@
     <value>151, 17</value>
   </metadata>
   <data name="DllAddDialog.Filter" xml:space="preserve">
-    <value>DLL (*.dll)|*.dll|All files (*.*)|*.*</value>
+    <value>DLL (*.dll)|*.dll|Alla filer (*.*)|*.*</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -782,7 +782,7 @@
     <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Settings</value>
+    <value>Inställningar</value>
   </data>
   <data name="&gt;&gt;ToolTipSettings.Name" xml:space="preserve">
     <value>ToolTipSettings</value>
