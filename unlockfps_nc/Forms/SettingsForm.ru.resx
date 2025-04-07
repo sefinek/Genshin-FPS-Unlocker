@@ -253,7 +253,7 @@
     <value>17, 17</value>
   </metadata>
   <data name="CBPowerSave.ToolTip" xml:space="preserve">
-    <value>Ограничивает FPS до 10 и снижает приоритет процесса при неактивном окне (например, если окно свернуто или в фоне).</value>
+    <value>Ограничивает FPS до 10 и снижает приоритет процесса при неактивном окне (например, если окно свернуто или в фоне)</value>
   </data>
   <data name="&gt;&gt;CBPowerSave.Name" xml:space="preserve">
     <value>CBPowerSave</value>

@@ -157,7 +157,7 @@ GenshinImpact.exe или YuanShen.exe.</value>
     <value>..\Resources\icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Program_AnotherUnlockerIsAlreadyRunning" xml:space="preserve">
-    <value>Уже работает другой FPS Unlocker!</value>
+    <value>Уже работает другой FPS Unlocker.</value>
   </data>
   <data name="MainForm_ViewCfg_TheUnlockerConfigJsonFileWasNotFound" xml:space="preserve">
     <value>Файл unlocker.config.json не найден.</value>
