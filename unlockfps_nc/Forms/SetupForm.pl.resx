@@ -279,7 +279,7 @@
     <value>17, 17</value>
   </metadata>
   <data name="BrowseDialog.Filter" xml:space="preserve">
-    <value>Pliki wykonywalne (*.exe)|GenshinImpact.exe;YuanShen.exe</value>
+    <value>Plik Genshina (*.exe)|GenshinImpact.exe;YuanShen.exe</value>
   </data>
   <data name="BrowseDialog.Title" xml:space="preserve">
     <value>Wybierz GenshinImpact.exe lub YuanShen.exe</value>
