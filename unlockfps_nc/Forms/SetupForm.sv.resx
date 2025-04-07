@@ -195,7 +195,7 @@
     <value>4</value>
   </data>
   <data name="BtnBrowse.Text" xml:space="preserve">
-    <value>Browse</value>
+    <value>Bläddra</value>
   </data>
   <data name="&gt;&gt;BtnBrowse.Name" xml:space="preserve">
     <value>BtnBrowse</value>
@@ -279,7 +279,7 @@
     <value>17, 17</value>
   </metadata>
   <data name="BrowseDialog.Filter" xml:space="preserve">
-    <value>Executable Files (*.exe)|GenshinImpact.exe;YuanShen.exe</value>
+    <value>Körbara filer (*.exe)|GenshinImpact.exe;YuanShen.exe</value>
   </data>
   <data name="BrowseDialog.Title" xml:space="preserve">
     <value>Välj GenshinImpact.exe eller YuanShen.exe</value>

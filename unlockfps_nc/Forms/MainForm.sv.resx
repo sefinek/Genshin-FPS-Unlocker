@@ -125,13 +125,13 @@
     <value>211, 22</value>
   </data>
   <data name="stellaLauncherToolStrip.Text" xml:space="preserve">
-    <value>Stella Mod Launcher</value>
+    <value>Stella Mod Launchen</value>
   </data>
   <data name="systemInformationToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>178, 22</value>
   </data>
   <data name="systemInformationToolStripMenuItem.Text" xml:space="preserve">
-    <value>System Information</value>
+    <value>Systeminformation</value>
   </data>
   <data name="dxDiaxToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>178, 22</value>
@@ -185,13 +185,13 @@
     <value>157, 22</value>
   </data>
   <data name="repositoresToolStripMenuItem.Text" xml:space="preserve">
-    <value>Repositories</value>
+    <value>Repositorier</value>
   </data>
   <data name="sefineksProfileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>157, 22</value>
   </data>
   <data name="sefineksProfileToolStripMenuItem.Text" xml:space="preserve">
-    <value>Sefinek's profile</value>
+    <value>Sefineks profil</value>
   </data>
   <data name="gitHubToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 22</value>
@@ -203,7 +203,7 @@
     <value>46, 20</value>
   </data>
   <data name="linksToolStripMenuItem.Text" xml:space="preserve">
-    <value>Links</value>
+    <value>Länkar</value>
   </data>
   <data name="SettingsMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>116, 22</value>
@@ -221,7 +221,7 @@
     <value>61, 20</value>
   </data>
   <data name="optionsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Options</value>
+    <value>Inställningar</value>
   </data>
   <data name="aboutToolStrip.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 20</value>

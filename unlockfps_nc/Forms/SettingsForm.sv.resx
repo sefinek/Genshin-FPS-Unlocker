@@ -217,7 +217,7 @@
     <value>4</value>
   </data>
   <data name="LabelPriority.Text" xml:space="preserve">
-    <value>Game Process Priority:</value>
+    <value>Prioritering av spelprocessen:</value>
   </data>
   <data name="&gt;&gt;LabelPriority.Name" xml:space="preserve">
     <value>LabelPriority</value>
@@ -286,7 +286,7 @@
     <value>Automatisk avstängning</value>
   </data>
   <data name="CBAutoClose.ToolTip" xml:space="preserve">
-    <value>Unlocker will automatically close when the game exits</value>
+    <value>Fps-upplåsaren stängs automatiskt när spelet avslutas</value>
   </data>
   <data name="&gt;&gt;CBAutoClose.Name" xml:space="preserve">
     <value>CBAutoClose</value>
@@ -316,10 +316,10 @@
     <value>1</value>
   </data>
   <data name="CBStartMinimized.Text" xml:space="preserve">
-    <value>Start the Tool Minimized</value>
+    <value>Starta i minimerat lägeinimerat</value>
   </data>
   <data name="CBStartMinimized.ToolTip" xml:space="preserve">
-    <value>Unlocker will minimize to the tray on startup</value>
+    <value>Uplåsaren kommer att minimeras till systemfältet vid start</value>
   </data>
   <data name="&gt;&gt;CBStartMinimized.Name" xml:space="preserve">
     <value>CBStartMinimized</value>
@@ -347,7 +347,7 @@
     <value>0</value>
   </data>
   <data name="TabGeneral.Text" xml:space="preserve">
-    <value>General</value>
+    <value>Allmänt</value>
   </data>
   <data name="&gt;&gt;TabGeneral.Name" xml:space="preserve">
     <value>TabGeneral</value>
@@ -431,7 +431,7 @@
     <value>9</value>
   </data>
   <data name="LabelMonitor.Text" xml:space="preserve">
-    <value>Monitor:</value>
+    <value>Bildskärm:</value>
   </data>
   <data name="&gt;&gt;LabelMonitor.Name" xml:space="preserve">
     <value>LabelMonitor</value>
@@ -449,10 +449,10 @@
     <value>None</value>
   </data>
   <data name="ComboFullscreenMode.Items" xml:space="preserve">
-    <value>Borderless</value>
+    <value>Kantlöst läge</value>
   </data>
   <data name="ComboFullscreenMode.Items1" xml:space="preserve">
-    <value>Exclusive</value>
+    <value>Exklusiv</value>
   </data>
   <data name="ComboFullscreenMode.Location" type="System.Drawing.Point, System.Drawing">
     <value>139, 138</value>

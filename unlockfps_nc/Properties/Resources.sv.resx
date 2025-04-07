@@ -127,14 +127,14 @@
     <value>Fel</value>
   </data>
   <data name="Success" xml:space="preserve">
-    <value>Success</value>
+    <value>Succé</value>
   </data>
   <data name="SetupForm_GameFound" xml:space="preserve">
     <value>Spelet hittades!
 {0}</value>
   </data>
   <data name="SetupForm_Found_InstallationOfTheGame" xml:space="preserve">
-    <value>Found {0} installation of the game</value>
+    <value>Hittade {0} installationer av spelet</value>
   </data>
   <data name="SetupForm_PleaseSelectTheGameExe" xml:space="preserve">
     <value>Vänligen välj spelets exe-fill.
@@ -144,7 +144,7 @@ GenshinImpact.exe eller YuanShen.exe.</value>
     <value>Det är inte rätt plats.</value>
   </data>
   <data name="MainForm_GenshinFPSUnlocker_CurrentLimit" xml:space="preserve">
-    <value>Genshin FPS Unlocker (current limit: {0})</value>
+    <value>Genshin FPS Upplåsare (nuvarande gräns: {0})</value>
   </data>
   <data name="MainForm_TheRegistryKeyStellaPathWasNotFound" xml:space="preserve">
     <value>Registreringsnyckeln 'StellaPath' hittades inte. Är du säker på att Genshin Stella Mod är installerad?</value>
