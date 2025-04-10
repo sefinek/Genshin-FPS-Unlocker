@@ -123,13 +123,13 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"/>
   <data name="LabelTitle.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt, style=Bold</value>
+    <value>Segoe UI, 12.75pt, style=Bold</value>
   </data>
   <data name="LabelTitle.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 9</value>
   </data>
   <data name="LabelTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>486, 44</value>
+    <value>513, 46</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
   <data name="LabelTitle.TabIndex" type="System.Int32, mscorlib">
@@ -157,11 +157,14 @@ v{0}</value>
   <data name="LabelDescription.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
+  <data name="LabelDescription.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt</value>
+  </data>
   <data name="LabelDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 74</value>
+    <value>12, 59</value>
   </data>
   <data name="LabelDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>486, 34</value>
+    <value>513, 61</value>
   </data>
   <data name="LabelDescription.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -170,7 +173,7 @@ v{0}</value>
     <value>Ten program jest forkiem projektu 3473684/genshin-fps-unlock, zmodyfikowanym w celu zapewnienia kompatybilności ze Stella Mod. Jest rozpowszechniany na tej samej licencji co oryginalny projekt.</value>
   </data>
   <data name="LabelDescription.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
+    <value>BottomCenter</value>
   </data>
   <data name="&gt;&gt;LabelDescription.Name" xml:space="preserve">
     <value>LabelDescription</value>
@@ -187,11 +190,14 @@ v{0}</value>
   <data name="linkLabel1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
+  <data name="linkLabel1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt</value>
+  </data>
   <data name="linkLabel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 108</value>
+    <value>12, 123</value>
   </data>
   <data name="linkLabel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>486, 16</value>
+    <value>513, 17</value>
   </data>
   <data name="linkLabel1.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -217,14 +223,17 @@ v{0}</value>
   <data name="linkLabel2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
   </data>
+  <data name="linkLabel2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt</value>
+  </data>
   <data name="linkLabel2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="linkLabel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 163</value>
+    <value>12, 187</value>
   </data>
   <data name="linkLabel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>486, 17</value>
+    <value>513, 17</value>
   </data>
   <data name="linkLabel2.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -250,14 +259,17 @@ v{0}</value>
   <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
   </data>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt</value>
+  </data>
   <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 148</value>
+    <value>12, 168</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>486, 15</value>
+    <value>513, 17</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -287,7 +299,7 @@ v{0}</value>
     <value>96, 96</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>510, 189</value>
+    <value>537, 213</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>

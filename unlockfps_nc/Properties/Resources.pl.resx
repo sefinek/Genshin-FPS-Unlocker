@@ -165,7 +165,7 @@ GenshinImpact.exe lub YuanShen.exe.</value>
   <data name="MainForm_ViewCfg_FileNotFound" xml:space="preserve">
     <value>Plik nie został znaleziony</value>
   </data>
-  <data name="fps_unlocker" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fps_unlocker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Program_DoNotPlaceThisToolInTheGameFolder" xml:space="preserve">
+    <value>Nie umieszczaj tego narzędzia w folderze gry!</value>
   </data>
 </root>

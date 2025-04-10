@@ -158,13 +158,13 @@
     <value>Aç</value>
   </data>
   <data name="officialWebsiteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>155, 22</value>
   </data>
   <data name="officialWebsiteToolStripMenuItem.Text" xml:space="preserve">
     <value>Resmi internet sitesi</value>
   </data>
   <data name="youTubeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>155, 22</value>
   </data>
   <data name="youTubeToolStripMenuItem.Text" xml:space="preserve">
     <value>YouTube</value>
@@ -194,7 +194,7 @@
     <value>Sefinek'in profili</value>
   </data>
   <data name="gitHubToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>155, 22</value>
   </data>
   <data name="gitHubToolStripMenuItem.Text" xml:space="preserve">
     <value>GitHub</value>
