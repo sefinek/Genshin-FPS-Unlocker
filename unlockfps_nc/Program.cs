@@ -42,7 +42,7 @@ internal static class Program
 
 		if (File.Exists("GenshinImpact.exe") || File.Exists("YuanShen.exe"))
 		{
-			MessageBox.Show(@"Do not place the unlocker in the game folder!", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			MessageBox.Show(Resources.Program_DoNotPlaceThisToolInTheGameFolder, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			return;
 		}
 

@@ -252,7 +252,7 @@ namespace unlockfps_nc.Forms
 			// pictureBox1
 			// 
 			resources.ApplyResources(pictureBox1, "pictureBox1");
-			pictureBox1.Image = Resources.fps_unlocker;
+			pictureBox1.Image = ImageResources.fps_unlocker;
 			pictureBox1.Name = "pictureBox1";
 			pictureBox1.TabStop = false;
 			// 

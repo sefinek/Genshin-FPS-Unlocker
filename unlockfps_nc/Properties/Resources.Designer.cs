@@ -65,10 +65,10 @@ namespace unlockfps_nc.Properties {
         ///
         ///{0}.
         /// </summary>
-        internal static string ConfigService_TheConfigurationFileAppersToBeCorrupted
+        internal static string ConfigService_TheConfigurationFileAppearsToBeCorrupted
         {
             get {
-                return ResourceManager.GetString("ConfigService_TheConfigurationFileAppersToBeCorrupted", resourceCulture);
+                return ResourceManager.GetString("ConfigService_TheConfigurationFileAppearsToBeCorrupted", resourceCulture);
             }
         }
         
@@ -129,15 +129,6 @@ namespace unlockfps_nc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Registry key &apos;{0}&apos; not found. Is the Genshin Stella Mod definitely installed?.
-        /// </summary>
-        internal static string MainForm_RegistryKeySOFTWAREStellaModLauncherNotFound {
-            get {
-                return ResourceManager.GetString("MainForm_RegistryKeySOFTWAREStellaModLauncherNotFound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to File not found.
         /// </summary>
         internal static string MainForm_ViewCfg_FileNotFound {
@@ -163,28 +154,7 @@ namespace unlockfps_nc.Properties {
                 return ResourceManager.GetString("Program_AnotherUnlockerIsAlreadyRunning", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Invalid File:
-        ///{0}
-        ///
-        ///Only native x64 dlls are supported..
-        /// </summary>
-        internal static string SettingsForm_InvaildFile {
-            get {
-                return ResourceManager.GetString("SettingsForm_InvaildFile", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Current path: {0}.
-        /// </summary>
-        internal static string SetupForm_CurrentPath {
-            get {
-                return ResourceManager.GetString("SetupForm_CurrentPath", resourceCulture);
-            }
-        }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Failed to find process path. Please use &quot;Browse&quot; instead.
         /// </summary>
@@ -247,6 +217,15 @@ namespace unlockfps_nc.Properties {
         internal static string Success {
             get {
                 return ResourceManager.GetString("Success", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Do not place this tool in the game folder!.
+        /// </summary>
+        internal static string Program_DoNotPlaceThisToolInTheGameFolder {
+            get {
+                return ResourceManager.GetString("Program_DoNotPlaceThisToolInTheGameFolder", resourceCulture);
             }
         }
     }
