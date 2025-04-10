@@ -279,7 +279,7 @@
     <value>17, 17</value>
   </metadata>
   <data name="BrowseDialog.Filter" xml:space="preserve">
-    <value>Genshin file (*.exe)|GenshinImpact.exe;YuanShen.exe</value>
+    <value>Genshin dosyası (*.exe)|GenshinImpact.exe;YuanShen.exe</value>
   </data>
   <data name="BrowseDialog.Title" xml:space="preserve">
     <value>GenshinImpact.exe veya YuanShen.exe'yi seçin</value>
