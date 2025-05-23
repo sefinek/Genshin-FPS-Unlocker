@@ -118,54 +118,54 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="SetupForm_Searching" xml:space="preserve">
-    <value>Поиск...</value>
+    <value>Searching...</value>
   </data>
   <data name="SetupForm_FailedToFindProcessPath" xml:space="preserve">
-    <value>Не удалось определить путь к процессу. Воспользуйтесь кнопкой «Обзор».</value>
+    <value>Failed to find process path. Please use "Browse" instead.</value>
   </data>
   <data name="Error" xml:space="preserve">
-    <value>Ошибка</value>
+    <value>Error</value>
   </data>
   <data name="Success" xml:space="preserve">
-    <value>Успех</value>
+    <value>Success</value>
   </data>
   <data name="SetupForm_GameFound" xml:space="preserve">
-    <value>Игра найдена!
+    <value>Game found!
 {0}</value>
   </data>
   <data name="SetupForm_Found_InstallationOfTheGame" xml:space="preserve">
-    <value>Найдено {0} установок игры</value>
+    <value>Found {0} installation of the game</value>
   </data>
   <data name="SetupForm_PleaseSelectTheGameExe" xml:space="preserve">
-    <value>Пожалуйста, выберите exe-файл игры.
-GenshinImpact.exe или YuanShen.exe.</value>
+    <value>Please select the game exe.
+GenshinImpact.exe or YuanShen.exe.</value>
   </data>
   <data name="SetupForm_ThatsNotTheRightPlace" xml:space="preserve">
-    <value>Это неверный путь.</value>
+    <value>That's not the right place.</value>
   </data>
   <data name="MainForm_GenshinFPSUnlocker_CurrentLimit" xml:space="preserve">
-    <value>Genshin FPS Unlocker (текущий лимит: {0})</value>
+    <value>Genshin FPS Unlocker (current limit: {0})</value>
   </data>
   <data name="MainForm_TheRegistryKeyStellaPathWasNotFound" xml:space="preserve">
-    <value>Ключ реестра 'StellaPath' не найден. Вы уверены, что Genshin Stella Mod установлен?</value>
+    <value>The registry key 'StellaPath' was not found. Are you sure Genshin Stella Mod is installed?</value>
   </data>
   <data name="MainForm_AnErrorOccurred" xml:space="preserve">
-    <value>Произошла ошибка: {0}</value>
+    <value>An error occurred: {0}</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
   <data name="icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Program_AnotherUnlockerIsAlreadyRunning" xml:space="preserve">
-    <value>Уже работает другой FPS Unlocker.</value>
+    <value>Another unlocker is already running.</value>
   </data>
   <data name="MainForm_ViewCfg_TheUnlockerConfigJsonFileWasNotFound" xml:space="preserve">
-    <value>Файл unlocker.config.json не найден.</value>
+    <value>The unlocker.config.json file was not found.</value>
   </data>
   <data name="MainForm_ViewCfg_FileNotFound" xml:space="preserve">
-    <value>Файл не найден</value>
+    <value>File not found</value>
   </data>
   <data name="Program_DoNotPlaceThisToolInTheGameFolder" xml:space="preserve">
-    <value>Не помещайте этот инструмент в папку с игрой!</value>
+    <value>Do not place this tool in the game folder!</value>
   </data>
 </root>
