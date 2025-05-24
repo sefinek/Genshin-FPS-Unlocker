@@ -7,7 +7,7 @@ SET "RELEASE_DIR=unlockfps_nc\bin\Release"
 SET "UPLOAD_DIR=Upload"
 SET "ORIGINAL_ZIP=%UPLOAD_DIR%\genshin-fps-unlocker.zip"
 SET "CHECKSUMS_MD=%UPLOAD_DIR%\CHECKSUMS.md"
-SET "HASHES=MD2 MD4 MD5 SHA1 SHA256 SHA384 SHA512"
+SET "HASHES=SHA256 SHA384 SHA512"
 
 
 echo ============================================
