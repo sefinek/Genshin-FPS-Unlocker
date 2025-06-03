@@ -55,31 +55,31 @@ public class IpcService : IDisposable
 		_stubModule = Native.LoadLibrary(_stubPath);
 		if (_stubModule == IntPtr.Zero)
 		{
-			string errorMessage = $@"Failed to load stub module: {Marshal.GetLastWin32Error()}{Environment.NewLine}{Marshal.GetLastPInvokeErrorMessage()}";
+			var errorMessage = $"Failed to load stub module: {Marshal.GetLastWin32Error()}{Environment.NewLine}{Marshal.GetLastPInvokeErrorMessage()}";
 			MessageBox.Show(errorMessage, @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return;
 		}
 
-		IntPtr stubWndProc = Native.GetProcAddress(_stubModule, "WndProc");
-		IntPtr targetWindow = ProcessUtils.GetWindowFromProcessId(processId);
-		uint threadId = Native.GetWindowThreadProcessId(targetWindow, out uint _);
+		var stubWndProc = Native.GetProcAddress(_stubModule, "WndProc");
+		var targetWindow = ProcessUtils.GetWindowFromProcessId(processId);
+		var threadId = Native.GetWindowThreadProcessId(targetWindow, out _);
 
 		_wndHook = Native.SetWindowsHookEx(3, stubWndProc, _stubModule, threadId);
 		if (_wndHook == IntPtr.Zero)
 		{
-			string errorMessage = $@"Failed to set window hook: {Marshal.GetLastWin32Error()}{Environment.NewLine}{Marshal.GetLastPInvokeErrorMessage()}";
+			var errorMessage = $"Failed to set window hook: {Marshal.GetLastWin32Error()}{Environment.NewLine}{Marshal.GetLastPInvokeErrorMessage()}";
 			MessageBox.Show(errorMessage, @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return;
 		}
 
 		if (!Native.PostThreadMessage(threadId, 0, IntPtr.Zero, IntPtr.Zero))
 		{
-			string errorMessage = $@"Failed to post thread message: {Marshal.GetLastWin32Error()}{Environment.NewLine}{Marshal.GetLastPInvokeErrorMessage()}";
+			var errorMessage = $"Failed to post thread message: {Marshal.GetLastWin32Error()}{Environment.NewLine}{Marshal.GetLastPInvokeErrorMessage()}";
 			MessageBox.Show(errorMessage, @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return;
 		}
 
-		int retryCount = 0;
+		var retryCount = 0;
 		while (true)
 		{
 			_sharedMemoryAccessor.Read(0, out IpcData ipcData);
@@ -88,7 +88,7 @@ public class IpcService : IDisposable
 
 			if (retryCount >= 10)
 			{
-				MessageBox.Show(@"Failed to start the unlocker.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Failed to start the unlocker.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 
@@ -130,10 +130,10 @@ public class IpcService : IDisposable
 
 	private static string GetUnlockerStubPath()
 	{
-		Assembly assembly = Assembly.GetExecutingAssembly();
+		var assembly = Assembly.GetExecutingAssembly();
 		using Stream? stream = assembly.GetManifestResourceStream("unlockfps_nc.Resources.UnlockerStub.dll");
 
-		string filePath = Path.Combine(AppContext.BaseDirectory, "UnlockerStub.dll");
+		var filePath = Path.Combine(AppContext.BaseDirectory, "UnlockerStub.dll");
 		using FileStream fileStream = new(filePath, FileMode.Create, FileAccess.Write);
 		stream?.CopyTo(fileStream);
 

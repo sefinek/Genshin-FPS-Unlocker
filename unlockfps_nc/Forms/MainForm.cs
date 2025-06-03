@@ -84,12 +84,17 @@ public partial class MainForm : Form
 
 	private void NotifyAndHide()
 	{
+		var showNotify = Program.Settings.ReadInt("FPSUnlocker", "ShowNotify", 1);
+		if (showNotify != 1) return;
+
+		NotifyIconMain.Icon = ImageResources.cat;
 		NotifyIconMain.Visible = true;
 		NotifyIconMain.Text = string.Format(Resources.MainForm_GenshinFPSUnlocker_CurrentLimit, _config.FPSTarget);
 		NotifyIconMain.ShowBalloonTip(500);
 
 		ShowInTaskbar = false;
 		Hide();
+		Program.Settings.WriteInt("FPSUnlocker", "ShowNotify", 0);
 	}
 
 	private void NotifyIconMain_DoubleClick(object sender, EventArgs e)
@@ -117,11 +122,11 @@ public partial class MainForm : Form
 			using RegistryKey? key = Registry.CurrentUser.OpenSubKey(Program.RegistryPath);
 			if (key != null)
 			{
-				object? o = key.GetValue("StellaPath");
+				var o = key.GetValue("StellaPath");
 				if (o != null)
 				{
-					string? stellaPath = o.ToString();
-					string exePath = Path.Combine(stellaPath!, "Stella Mod Launcher.exe");
+					var stellaPath = o.ToString();
+					var exePath = Path.Combine(stellaPath!, "Stella Mod Launcher.exe");
 
 					ProcessStartInfo startInfo = new()
 					{
@@ -160,7 +165,7 @@ public partial class MainForm : Form
 
 	private void ViewConfig_Click(object sender, EventArgs e)
 	{
-		string cfgPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "unlocker.config.json");
+		var cfgPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "unlocker.config.json");
 		if (!File.Exists(cfgPath)) MessageBox.Show(Resources.MainForm_ViewCfg_TheUnlockerConfigJsonFileWasNotFound, Resources.MainForm_ViewCfg_FileNotFound, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
 		Process.Start(new ProcessStartInfo

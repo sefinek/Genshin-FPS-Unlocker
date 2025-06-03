@@ -20,8 +20,8 @@ public class IniFile(string path)
 
 	public int ReadInt(string section, string key, int defaultValue)
 	{
-		string result = ReadString(section, key, defaultValue.ToString());
-		return int.TryParse(result, out int value) ? value : defaultValue;
+		var result = ReadString(section, key, defaultValue.ToString());
+		return int.TryParse(result, out var value) ? value : defaultValue;
 	}
 
 	public bool WriteString(string section, string key, string value)

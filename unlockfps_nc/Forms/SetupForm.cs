@@ -44,9 +44,9 @@ public partial class SetupForm : Form
 		while (!_cts!.Token.IsCancellationRequested)
 		{
 			await Task.Delay(1000);
-			IntPtr windowHandle = IntPtr.Zero;
-			IntPtr processHandle = IntPtr.Zero;
-			string processPath = string.Empty;
+			var windowHandle = IntPtr.Zero;
+			var processHandle = IntPtr.Zero;
+			var processPath = string.Empty;
 
 			Native.EnumWindows((hWnd, _) =>
 			{
@@ -57,7 +57,7 @@ public partial class SetupForm : Form
 				if (sb.ToString() != "UnityWndClass") return true;
 
 				windowHandle = hWnd;
-				Native.GetWindowThreadProcessId(hWnd, out uint pid);
+				Native.GetWindowThreadProcessId(hWnd, out var pid);
 				processPath = ProcessUtils.GetProcessPathFromPid(pid, out processHandle);
 				return false;
 			}, IntPtr.Zero);
@@ -107,41 +107,41 @@ public partial class SetupForm : Form
 				.ToList();
 
 			List<string> gamePaths = [];
-			foreach (string configPath in launcherIniPaths)
+			foreach (var configPath in launcherIniPaths)
 			{
 				IEnumerable<string> configLines = File.ReadLines(configPath);
 				Dictionary<string, string> ini = [];
-				foreach (string line in configLines)
+				foreach (var line in configLines)
 				{
-					string[] split = line.Split('=', StringSplitOptions.RemoveEmptyEntries);
+					var split = line.Split('=', StringSplitOptions.RemoveEmptyEntries);
 					if (split.Length < 2)
 						continue;
 
 					ini[split[0]] = split[1];
 				}
 
-				if (!ini.TryGetValue("game_install_path", out string? gamePath))
+				if (!ini.TryGetValue("game_install_path", out var gamePath))
 					continue;
 
-				if (!ini.TryGetValue("game_start_name", out string? gameName))
+				if (!ini.TryGetValue("game_start_name", out var gameName))
 					continue;
 
 				gamePaths.Add($@"{gamePath}\{gameName}".Replace('/', '\\'));
 			}
 
 			using RegistryKey? localMachineKeyGlobal = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\HYP_1_0_global");
-			string installPath1 = localMachineKeyGlobal?.GetValue("InstallPath") as string ?? string.Empty;
+			var installPath1 = localMachineKeyGlobal?.GetValue("InstallPath") as string ?? string.Empty;
 			if (!string.IsNullOrEmpty(installPath1))
 			{
-				string game = Path.Combine(installPath1, "games", "Genshin Impact game", "GenshinImpact.exe");
+				var game = Path.Combine(installPath1, "games", "Genshin Impact game", "GenshinImpact.exe");
 				if (File.Exists(game)) gamePaths.Add(game);
 			}
 
 			using RegistryKey? localMachineKeyCn = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\HYP_1_1_cn");
-			string installPath2 = localMachineKeyCn?.GetValue("InstallPath") as string ?? string.Empty;
+			var installPath2 = localMachineKeyCn?.GetValue("InstallPath") as string ?? string.Empty;
 			if (!string.IsNullOrEmpty(installPath2))
 			{
-				string game = Path.Combine(installPath2, "games", "Genshin Impact game", "YuanShen.exe");
+				var game = Path.Combine(installPath2, "games", "Genshin Impact game", "YuanShen.exe");
 				if (File.Exists(game)) gamePaths.Add(game);
 			}
 
@@ -164,16 +164,16 @@ public partial class SetupForm : Form
 	{
 		if (BrowseDialog.ShowDialog() != DialogResult.OK) return;
 
-		string selectedFile = BrowseDialog.FileName;
-		string fileName = Path.GetFileNameWithoutExtension(selectedFile);
-		string? directory = Path.GetDirectoryName(selectedFile);
+		var selectedFile = BrowseDialog.FileName;
+		var fileName = Path.GetFileNameWithoutExtension(selectedFile);
+		var directory = Path.GetDirectoryName(selectedFile);
 		if (fileName != "GenshinImpact" && fileName != "YuanShen")
 		{
 			MessageBox.Show(Resources.SetupForm_PleaseSelectTheGameExe, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return;
 		}
 
-		string dataDir = Path.Combine(directory!, $"{fileName}_Data");
+		var dataDir = Path.Combine(directory!, $"{fileName}_Data");
 		if (!Directory.Exists(dataDir))
 		{
 			MessageBox.Show(Resources.SetupForm_ThatsNotTheRightPlace, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -186,7 +186,7 @@ public partial class SetupForm : Form
 
 	private void BtnConfirm_Click(object sender, EventArgs e)
 	{
-		string selectedPath = (string)ComboResult.SelectedItem!;
+		var selectedPath = (string)ComboResult.SelectedItem!;
 		if (string.IsNullOrEmpty(selectedPath)) return;
 
 		_config.GamePath = selectedPath;

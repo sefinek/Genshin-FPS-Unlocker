@@ -13,17 +13,17 @@ internal static class Program
 
 	// Files and folders
 	private static readonly string AppData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Genshin Stella Mod");
-	private static readonly IniFile Settings = new(Path.Combine(AppData, "settings.ini"));
+	internal static readonly IniFile Settings = new(Path.Combine(AppData, "settings.ini"));
 	internal static IServiceProvider ServiceProvider { get; private set; } = null!;
 
 	[STAThread]
 	private static void Main()
 	{
 		// Set the correct language
-		string currentLang = Settings.ReadString("Language", "UI");
+		var currentLang = Settings.ReadString("Language", "UI");
 		if (!SupportedLangs.Contains(currentLang))
 		{
-			string sysLang = CultureInfo.InstalledUICulture.TwoLetterISOLanguageName;
+			var sysLang = CultureInfo.InstalledUICulture.TwoLetterISOLanguageName;
 			currentLang = Array.Find(SupportedLangs, lang => lang == sysLang) ?? "en";
 			Settings.WriteString("Language", "UI", currentLang);
 		}
@@ -46,7 +46,7 @@ internal static class Program
 			return;
 		}
 
-		using Mutex mutex = new(true, "StellaFPSUnlocker", out bool createdNew);
+		using Mutex mutex = new(true, "StellaFPSUnlocker", out var createdNew);
 		if (!createdNew)
 		{
 			MessageBox.Show(Resources.Program_AnotherUnlockerIsAlreadyRunning, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Warning);

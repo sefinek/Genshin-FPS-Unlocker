@@ -117,16 +117,16 @@ internal static class Native
 
 	public static bool IsWine()
 	{
-		IntPtr ntdll = GetModuleHandle("ntdll.dll");
-		IntPtr ver = GetProcAddress(ntdll, "wine_get_version");
+		var ntdll = GetModuleHandle("ntdll.dll");
+		var ver = GetProcAddress(ntdll, "wine_get_version");
 
 		return ver != 0;
 	}
 
 	public static uint GetModuleImageSize(IntPtr lpBaseAddress)
 	{
-		IMAGE_DOS_HEADER dosHeader = Marshal.PtrToStructure<IMAGE_DOS_HEADER>(lpBaseAddress);
-		IMAGE_NT_HEADERS ntHeader = Marshal.PtrToStructure<IMAGE_NT_HEADERS>(lpBaseAddress + dosHeader.e_lfanew);
+		var dosHeader = Marshal.PtrToStructure<IMAGE_DOS_HEADER>(lpBaseAddress);
+		var ntHeader = Marshal.PtrToStructure<IMAGE_NT_HEADERS>(lpBaseAddress + dosHeader.e_lfanew);
 
 		return ntHeader.OptionalHeader.SizeOfImage;
 	}

@@ -13,11 +13,11 @@
     <SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
     <StartupObject>unlockfps_nc.Program</StartupObject>
     <AssemblyName>gen-fps-unlocker</AssemblyName>
-    <Version>4.0.7.0</Version>
+    <Version>4.0.8.0</Version>
     <Company>Sefinek Inc.</Company>
     <Authors>34736384</Authors>
     <Title>Genshin FPS Unlocker</Title>
-    <Copyright>© 2022–2025 34736384, Sefinek. All rights reserved.</Copyright>
+    <Copyright>© 2022–2025 Sefinek, 34736384. All rights reserved.</Copyright>
     <NeutralLanguage>en</NeutralLanguage>
     <RootNamespace>unlockfps_nc</RootNamespace>
     <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
