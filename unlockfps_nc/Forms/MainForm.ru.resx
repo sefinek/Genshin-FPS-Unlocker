@@ -397,7 +397,7 @@
     <value>287, 17</value>
   </metadata>
   <data name="NotifyIconMain.BalloonTipText" xml:space="preserve">
-    <value>The tool has been minimized to the system tray. You can change the FPS limit even during gameplay.</value>
+    <value>Инструмент был свернут в системном трее. Вы можете изменять ограничение FPS даже во время игры.</value>
   </data>
   <data name="NotifyIconMain.BalloonTipTitle" xml:space="preserve">
     <value>Genshin FPS Unlocker</value>

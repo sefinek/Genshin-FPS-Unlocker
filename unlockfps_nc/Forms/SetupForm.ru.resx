@@ -164,7 +164,7 @@
   </data>
   <data name="LabelHint.Text" xml:space="preserve">
     <value>Если вашей игры нет в списке, вы можете:
-1. Запустить игру сейчас — FPS Unlocker попытается определить её расположение.
+1. Запустить игру сейчас - FPS Unlocker попытается определить её расположение.
 2. Использовать кнопку «Обзор» ниже.</value>
   </data>
   <data name="&gt;&gt;LabelHint.Name" xml:space="preserve">
