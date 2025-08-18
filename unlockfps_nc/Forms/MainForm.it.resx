@@ -131,7 +131,7 @@
     <value>178, 22</value>
   </data>
   <data name="systemInformationToolStripMenuItem.Text" xml:space="preserve">
-    <value>System Information</value>
+    <value>Informazioni di Sistema</value>
   </data>
   <data name="dxDiaxToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>178, 22</value>
@@ -143,25 +143,25 @@
     <value>211, 22</value>
   </data>
   <data name="checkHzToolStrip.Text" xml:space="preserve">
-    <value>Check Hz of your monitor</value>
+    <value>Controlla la frequenza del tuo monitor</value>
   </data>
   <data name="configFileToolStrip.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 22</value>
   </data>
   <data name="configFileToolStrip.Text" xml:space="preserve">
-    <value>Configuration file</value>
+    <value>File di configurazione</value>
   </data>
   <data name="openToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 20</value>
   </data>
   <data name="openToolStripMenuItem.Text" xml:space="preserve">
-    <value>Open</value>
+    <value>Apri</value>
   </data>
   <data name="officialWebsiteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>155, 22</value>
   </data>
   <data name="officialWebsiteToolStripMenuItem.Text" xml:space="preserve">
-    <value>Official website</value>
+    <value>Sito Ufficiale</value>
   </data>
   <data name="youTubeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>155, 22</value>
@@ -185,13 +185,13 @@
     <value>157, 22</value>
   </data>
   <data name="repositoresToolStripMenuItem.Text" xml:space="preserve">
-    <value>Repositories</value>
+    <value>Repository</value>
   </data>
   <data name="sefineksProfileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>157, 22</value>
   </data>
   <data name="sefineksProfileToolStripMenuItem.Text" xml:space="preserve">
-    <value>Sefinek's profile</value>
+    <value>Profilo di Sefinek</value>
   </data>
   <data name="gitHubToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>155, 22</value>
@@ -203,31 +203,31 @@
     <value>46, 20</value>
   </data>
   <data name="linksToolStripMenuItem.Text" xml:space="preserve">
-    <value>Links</value>
+    <value>Collegamenti</value>
   </data>
   <data name="SettingsMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>116, 22</value>
   </data>
   <data name="SettingsMenuItem.Text" xml:space="preserve">
-    <value>Settings</value>
+    <value>Impostazioni</value>
   </data>
   <data name="SetupMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>116, 22</value>
   </data>
   <data name="SetupMenuItem.Text" xml:space="preserve">
-    <value>Setup</value>
+    <value>Configurazione</value>
   </data>
   <data name="optionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 20</value>
   </data>
   <data name="optionsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Options</value>
+    <value>Opzioni</value>
   </data>
   <data name="aboutToolStrip.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 20</value>
   </data>
   <data name="aboutToolStrip.Text" xml:space="preserve">
-    <value>About</value>
+    <value>Info</value>
   </data>
   <data name="OptionsMenuStrip.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -271,7 +271,7 @@
     <value>1</value>
   </data>
   <data name="LabelFPS.Text" xml:space="preserve">
-    <value>FPS limit</value>
+    <value>Limite FPS</value>
   </data>
   <data name="&gt;&gt;LabelFPS.Name" xml:space="preserve">
     <value>LabelFPS</value>
@@ -346,13 +346,13 @@
     <value>4</value>
   </data>
   <data name="CBAutoStart.Text" xml:space="preserve">
-    <value>Start game automatically</value>
+    <value>Avvia il gioco automaticamente</value>
   </data>
   <metadata name="ToolTipMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>168, 17</value>
   </metadata>
   <data name="CBAutoStart.ToolTip" xml:space="preserve">
-    <value>This will take effect on subsequent launch. Not recommended!</value>
+    <value>Questo avrà effetto al prossimo avvio. Non è consigliato!</value>
   </data>
   <data name="&gt;&gt;CBAutoStart.Name" xml:space="preserve">
     <value>CBAutoStart</value>
@@ -379,7 +379,7 @@
     <value>5</value>
   </data>
   <data name="BtnStartGame.Text" xml:space="preserve">
-    <value>Start Game</value>
+    <value>Avvia il gioco</value>
   </data>
   <data name="&gt;&gt;BtnStartGame.Name" xml:space="preserve">
     <value>BtnStartGame</value>
@@ -397,7 +397,7 @@
     <value>287, 17</value>
   </metadata>
   <data name="NotifyIconMain.BalloonTipText" xml:space="preserve">
-    <value>The tool has been minimized to the system tray. You can change the FPS limit even during gameplay.</value>
+    <value>Lo strumento è stato ridotto a icona nell'area di notifica. Puoi modificare il limite di FPS anche durante il gioco.</value>
   </data>
   <data name="NotifyIconMain.BalloonTipTitle" xml:space="preserve">
     <value>Genshin FPS Unlocker</value>
@@ -409,7 +409,7 @@
     <value>92, 22</value>
   </data>
   <data name="ExitMenuItem.Text" xml:space="preserve">
-    <value>Exit</value>
+    <value>Esci</value>
   </data>
   <data name="ContextNotify.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 26</value>
