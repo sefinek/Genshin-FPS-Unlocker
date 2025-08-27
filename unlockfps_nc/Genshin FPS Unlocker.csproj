@@ -13,7 +13,7 @@
     <SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
     <StartupObject>unlockfps_nc.Program</StartupObject>
     <AssemblyName>gen-fps-unlocker</AssemblyName>
-    <Version>4.0.10</Version>
+    <Version>4.1.0</Version>
     <Company>Sefinek Inc.</Company>
     <Authors>34736384</Authors>
     <Title>Genshin FPS Unlocker</Title>
@@ -23,6 +23,8 @@
     <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>D:\Projects\stella\SignAssembly\FPS-Unlocker.snk</AssemblyOriginatorKeyFile>
+  	<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+  	<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -56,12 +58,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ImageResources.resx</DependentUpon>
     </Compile>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Update="Properties\ImageResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ImageResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 </Project>
