@@ -35,21 +35,21 @@ namespace unlockfps_nc.Forms
 			linkLabel2 = new LinkLabel();
 			label1 = new Label();
 			SuspendLayout();
-			// 
+			//
 			// LabelTitle
-			// 
+			//
 			resources.ApplyResources(LabelTitle, "LabelTitle");
 			LabelTitle.ForeColor = Color.White;
 			LabelTitle.Name = "LabelTitle";
-			// 
+			//
 			// LabelDescription
-			// 
+			//
 			resources.ApplyResources(LabelDescription, "LabelDescription");
 			LabelDescription.ForeColor = Color.White;
 			LabelDescription.Name = "LabelDescription";
-			// 
+			//
 			// linkLabel1
-			// 
+			//
 			linkLabel1.ActiveLinkColor = Color.LightSkyBlue;
 			resources.ApplyResources(linkLabel1, "linkLabel1");
 			linkLabel1.LinkBehavior = LinkBehavior.HoverUnderline;
@@ -57,9 +57,9 @@ namespace unlockfps_nc.Forms
 			linkLabel1.Name = "linkLabel1";
 			linkLabel1.TabStop = true;
 			linkLabel1.LinkClicked += GitHub_LinkClicked;
-			// 
+			//
 			// linkLabel2
-			// 
+			//
 			linkLabel2.ActiveLinkColor = Color.LightSkyBlue;
 			resources.ApplyResources(linkLabel2, "linkLabel2");
 			linkLabel2.LinkBehavior = LinkBehavior.HoverUnderline;
@@ -67,15 +67,15 @@ namespace unlockfps_nc.Forms
 			linkLabel2.Name = "linkLabel2";
 			linkLabel2.TabStop = true;
 			linkLabel2.LinkClicked += Website_LinkClicked;
-			// 
+			//
 			// label1
-			// 
+			//
 			resources.ApplyResources(label1, "label1");
 			label1.ForeColor = Color.White;
 			label1.Name = "label1";
-			// 
+			//
 			// AboutForm
-			// 
+			//
 			resources.ApplyResources(this, "$this");
 			AutoScaleMode = AutoScaleMode.Dpi;
 			BackColor = Color.FromArgb(19, 19, 19);
