@@ -36,19 +36,18 @@ IF NOT EXIST "%UPLOAD_DIR%" (
 echo. && echo ============================================
 echo Building the project...
 echo ============================================
-dotnet restore "%SOLUTION_PATH%" || GOTO EndScript
-dotnet build "%PROJECT_PATH%" --configuration Release --no-restore || GOTO EndScript
+dotnet build "%PROJECT_PATH%" -c Release -r win-x64 --self-contained || GOTO EndScript
 
 
 echo. && echo ============================================
 echo Compressing release directory...
 echo ============================================
-IF NOT EXIST "%RELEASE_DIR%\net8.0-windows10.0.26100.0" (
+IF NOT EXIST "%RELEASE_DIR%" (
     echo ERROR: Release directory not found!
     GOTO EndScript
 )
 
-pushd "%RELEASE_DIR%\net8.0-windows10.0.26100.0" && (
+pushd "%RELEASE_DIR%" && (
     7z a -tzip "%~dp0%ORIGINAL_ZIP%" * || (
         echo ERROR: Failed to create ZIP archive!
         popd & GOTO EndScript
