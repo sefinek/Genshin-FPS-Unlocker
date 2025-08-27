@@ -143,9 +143,6 @@ GenshinImpact.exe eller YuanShen.exe.</value>
   <data name="MainForm_GenshinFPSUnlocker_CurrentLimit" xml:space="preserve">
     <value>Genshin FPS Upplåsare (nuvarande gräns: {0})</value>
   </data>
-  <data name="MainForm_TheRegistryKeyStellaPathWasNotFound" xml:space="preserve">
-    <value>Registreringsnyckeln 'StellaPath' hittades inte. Är du säker på att Genshin Stella Mod är installerad?</value>
-  </data>
   <data name="MainForm_AnErrorOccurred" xml:space="preserve">
     <value>Ett fel uppstod: {0}</value>
   </data>

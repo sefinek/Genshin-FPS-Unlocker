@@ -143,9 +143,6 @@ GenshinImpact.exe veya YuanShen.exe.</value>
   <data name="MainForm_GenshinFPSUnlocker_CurrentLimit" xml:space="preserve">
     <value>Genshin FPS Sınır kaldırıcı (geçerli limit: {0})</value>
   </data>
-  <data name="MainForm_TheRegistryKeyStellaPathWasNotFound" xml:space="preserve">
-    <value>'StellaPath' kayıt defteri anahtarı bulunamadı. Genshin Stella Mod'un yüklü olduğundan emin misiniz?</value>
-  </data>
   <data name="MainForm_AnErrorOccurred" xml:space="preserve">
     <value>Bir hata oluştu: {0}</value>
   </data>

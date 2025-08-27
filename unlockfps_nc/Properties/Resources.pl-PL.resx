@@ -143,9 +143,6 @@ GenshinImpact.exe lub YuanShen.exe.</value>
   <data name="MainForm_GenshinFPSUnlocker_CurrentLimit" xml:space="preserve">
     <value>Genshin FPS Unlocker (aktualny limit: {0})</value>
   </data>
-  <data name="MainForm_TheRegistryKeyStellaPathWasNotFound" xml:space="preserve">
-    <value>Nie znaleziono klucza rejestru 'StellaPath'. Czy na pewno Genshin Stella Mod jest zainstalowany?</value>
-  </data>
   <data name="MainForm_AnErrorOccurred" xml:space="preserve">
     <value>Wystąpił błąd: {0}</value>
   </data>
