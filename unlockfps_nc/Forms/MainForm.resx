@@ -121,114 +121,6 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="stellaLauncherToolStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 22</value>
-  </data>
-  <data name="stellaLauncherToolStrip.Text" xml:space="preserve">
-    <value>Stella Mod Launcher</value>
-  </data>
-  <data name="systemInformationToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>178, 22</value>
-  </data>
-  <data name="systemInformationToolStripMenuItem.Text" xml:space="preserve">
-    <value>System Information</value>
-  </data>
-  <data name="dxDiaxToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>178, 22</value>
-  </data>
-  <data name="dxDiaxToolStripMenuItem.Text" xml:space="preserve">
-    <value>DxDiag</value>
-  </data>
-  <data name="checkHzToolStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 22</value>
-  </data>
-  <data name="checkHzToolStrip.Text" xml:space="preserve">
-    <value>Check Hz of your monitor</value>
-  </data>
-  <data name="configFileToolStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 22</value>
-  </data>
-  <data name="configFileToolStrip.Text" xml:space="preserve">
-    <value>Configuration file</value>
-  </data>
-  <data name="openToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 20</value>
-  </data>
-  <data name="openToolStripMenuItem.Text" xml:space="preserve">
-    <value>Open</value>
-  </data>
-  <data name="officialWebsiteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
-  </data>
-  <data name="officialWebsiteToolStripMenuItem.Text" xml:space="preserve">
-    <value>Official website</value>
-  </data>
-  <data name="youTubeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
-  </data>
-  <data name="youTubeToolStripMenuItem.Text" xml:space="preserve">
-    <value>YouTube</value>
-  </data>
-  <data name="genshinImpactReShadeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 22</value>
-  </data>
-  <data name="genshinImpactReShadeToolStripMenuItem.Text" xml:space="preserve">
-    <value>Genshin Impact ReShade</value>
-  </data>
-  <data name="fPSUnlockerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 22</value>
-  </data>
-  <data name="fPSUnlockerToolStripMenuItem.Text" xml:space="preserve">
-    <value>FPS Unlocker</value>
-  </data>
-  <data name="repositoresToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 22</value>
-  </data>
-  <data name="repositoresToolStripMenuItem.Text" xml:space="preserve">
-    <value>Repositories</value>
-  </data>
-  <data name="sefineksProfileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 22</value>
-  </data>
-  <data name="sefineksProfileToolStripMenuItem.Text" xml:space="preserve">
-    <value>Sefinek's profile</value>
-  </data>
-  <data name="gitHubToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
-  </data>
-  <data name="gitHubToolStripMenuItem.Text" xml:space="preserve">
-    <value>GitHub</value>
-  </data>
-  <data name="linksToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 20</value>
-  </data>
-  <data name="linksToolStripMenuItem.Text" xml:space="preserve">
-    <value>Links</value>
-  </data>
-  <data name="SettingsMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>116, 22</value>
-  </data>
-  <data name="SettingsMenuItem.Text" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="SetupMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>116, 22</value>
-  </data>
-  <data name="SetupMenuItem.Text" xml:space="preserve">
-    <value>Setup</value>
-  </data>
-  <data name="optionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 20</value>
-  </data>
-  <data name="optionsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Options</value>
-  </data>
-  <data name="aboutToolStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 20</value>
-  </data>
-  <data name="aboutToolStrip.Text" xml:space="preserve">
-    <value>About</value>
-  </data>
   <data name="OptionsMenuStrip.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -250,6 +142,114 @@
   </data>
   <data name="&gt;&gt;OptionsMenuStrip.ZOrder" xml:space="preserve">
     <value>7</value>
+  </data>
+  <data name="openToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 20</value>
+  </data>
+  <data name="openToolStripMenuItem.Text" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="stellaLauncherToolStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 22</value>
+  </data>
+  <data name="stellaLauncherToolStrip.Text" xml:space="preserve">
+    <value>Stella Mod Launcher</value>
+  </data>
+  <data name="checkHzToolStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 22</value>
+  </data>
+  <data name="checkHzToolStrip.Text" xml:space="preserve">
+    <value>Check Hz of your monitor</value>
+  </data>
+  <data name="systemInformationToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>178, 22</value>
+  </data>
+  <data name="systemInformationToolStripMenuItem.Text" xml:space="preserve">
+    <value>System Information</value>
+  </data>
+  <data name="dxDiaxToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>178, 22</value>
+  </data>
+  <data name="dxDiaxToolStripMenuItem.Text" xml:space="preserve">
+    <value>DxDiag</value>
+  </data>
+  <data name="configFileToolStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 22</value>
+  </data>
+  <data name="configFileToolStrip.Text" xml:space="preserve">
+    <value>Configuration file</value>
+  </data>
+  <data name="linksToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 20</value>
+  </data>
+  <data name="linksToolStripMenuItem.Text" xml:space="preserve">
+    <value>Links</value>
+  </data>
+  <data name="officialWebsiteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="officialWebsiteToolStripMenuItem.Text" xml:space="preserve">
+    <value>Official website</value>
+  </data>
+  <data name="youTubeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="youTubeToolStripMenuItem.Text" xml:space="preserve">
+    <value>YouTube</value>
+  </data>
+  <data name="gitHubToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="gitHubToolStripMenuItem.Text" xml:space="preserve">
+    <value>GitHub</value>
+  </data>
+  <data name="repositoresToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 22</value>
+  </data>
+  <data name="repositoresToolStripMenuItem.Text" xml:space="preserve">
+    <value>Repositories</value>
+  </data>
+  <data name="genshinImpactReShadeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>205, 22</value>
+  </data>
+  <data name="genshinImpactReShadeToolStripMenuItem.Text" xml:space="preserve">
+    <value>Genshin Impact ReShade</value>
+  </data>
+  <data name="fPSUnlockerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>205, 22</value>
+  </data>
+  <data name="fPSUnlockerToolStripMenuItem.Text" xml:space="preserve">
+    <value>FPS Unlocker</value>
+  </data>
+  <data name="sefineksProfileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 22</value>
+  </data>
+  <data name="sefineksProfileToolStripMenuItem.Text" xml:space="preserve">
+    <value>Sefinek's profile</value>
+  </data>
+  <data name="optionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 20</value>
+  </data>
+  <data name="optionsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="SettingsMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 22</value>
+  </data>
+  <data name="SettingsMenuItem.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="SetupMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 22</value>
+  </data>
+  <data name="SetupMenuItem.Text" xml:space="preserve">
+    <value>Setup</value>
+  </data>
+  <data name="aboutToolStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 20</value>
+  </data>
+  <data name="aboutToolStrip.Text" xml:space="preserve">
+    <value>About</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="LabelFPS.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -333,6 +333,9 @@
   <data name="&gt;&gt;SliderFPS.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <metadata name="ToolTipMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>168, 17</value>
+  </metadata>
   <data name="CBAutoStart.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
@@ -348,9 +351,6 @@
   <data name="CBAutoStart.Text" xml:space="preserve">
     <value>Start game automatically</value>
   </data>
-  <metadata name="ToolTipMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>168, 17</value>
-  </metadata>
   <data name="CBAutoStart.ToolTip" xml:space="preserve">
     <value>This will take effect on subsequent launch. Not recommended!</value>
   </data>
@@ -393,6 +393,9 @@
   <data name="&gt;&gt;BtnStartGame.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <metadata name="ToolTipMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>168, 17</value>
+  </metadata>
   <metadata name="NotifyIconMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>287, 17</value>
   </metadata>
@@ -405,12 +408,6 @@
   <metadata name="ContextNotify.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>424, 17</value>
   </metadata>
-  <data name="ExitMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 22</value>
-  </data>
-  <data name="ExitMenuItem.Text" xml:space="preserve">
-    <value>Exit</value>
-  </data>
   <data name="ContextNotify.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 26</value>
   </data>
@@ -425,6 +422,12 @@
   </data>
   <data name="NotifyIconMain.Visible" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="ExitMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 22</value>
+  </data>
+  <data name="ExitMenuItem.Text" xml:space="preserve">
+    <value>Exit</value>
   </data>
   <data name="pictureBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>

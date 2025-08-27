@@ -120,31 +120,8 @@
   <data name="SetupForm_Searching" xml:space="preserve">
     <value>Searching...</value>
   </data>
-  <data name="SetupForm_FailedToFindProcessPath" xml:space="preserve">
-    <value>Failed to find process path. Please use "Browse" instead.</value>
-  </data>
   <data name="Error" xml:space="preserve">
     <value>Error</value>
-  </data>
-  <data name="Success" xml:space="preserve">
-    <value>Success</value>
-  </data>
-  <data name="SetupForm_GameFound" xml:space="preserve">
-    <value>Game found!
-{0}</value>
-  </data>
-  <data name="SetupForm_Found_InstallationOfTheGame" xml:space="preserve">
-    <value>Found {0} installation of the game</value>
-  </data>
-  <data name="SetupForm_PleaseSelectTheGameExe" xml:space="preserve">
-    <value>Please select the game exe.
-GenshinImpact.exe or YuanShen.exe.</value>
-  </data>
-  <data name="SetupForm_ThatsNotTheRightPlace" xml:space="preserve">
-    <value>That's not the right place.</value>
-  </data>
-  <data name="MainForm_GenshinFPSUnlocker_CurrentLimit" xml:space="preserve">
-    <value>Genshin FPS Unlocker (current limit: {0})</value>
   </data>
   <data name="MainForm_TheRegistryKeyStellaPathWasNotFound" xml:space="preserve">
     <value>The registry key 'StellaPath' was not found. Are you sure Genshin Stella Mod is installed?</value>
@@ -156,16 +133,10 @@ GenshinImpact.exe or YuanShen.exe.</value>
   <data name="icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Program_AnotherUnlockerIsAlreadyRunning" xml:space="preserve">
-    <value>Another unlocker is already running.</value>
-  </data>
   <data name="MainForm_ViewCfg_TheUnlockerConfigJsonFileWasNotFound" xml:space="preserve">
     <value>The unlocker.config.json file was not found.</value>
   </data>
   <data name="MainForm_ViewCfg_FileNotFound" xml:space="preserve">
     <value>File not found</value>
   </data>
-  <data name="Program_DoNotPlaceThisToolInTheGameFolder" xml:space="preserve">
-    <value>Do not place this tool in the game folder!</value>
-  </data>
-</root>
+  </root>

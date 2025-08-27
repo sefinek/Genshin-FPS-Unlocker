@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!--
-    Microsoft ResX Schema
-
+  <!-- 
+    Microsoft ResX Schema 
+    
     Version 2.0
-
-    The primary goals of this format is to allow a simple XML format
-    that is mostly human readable. The generation and parsing of the
-    various data types are done through the TypeConverter classes
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
     associated with the data types.
-
+    
     Example:
-
+    
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -26,79 +26,79 @@
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-
-    There are any number of "resheader" rows that contain simple
+                
+    There are any number of "resheader" rows that contain simple 
     name/value pairs.
-
-    Each data row contains a name, and value. The row also contains a
-    type or mimetype. Type corresponds to a .NET class that support
-    text/value conversion through the TypeConverter architecture.
-    Classes that don't support this are serialized and stored with the
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
     mimetype set.
-
-    The mimetype is used for serialized objects, and tells the
-    ResXResourceReader how to depersist the object. This is currently not
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
     extensible. For a given mimetype the value must be set accordingly:
-
-    Note - application/x-microsoft.net.object.binary.base64 is the format
-    that the ResXResourceWriter will generate, however the reader can
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
     read any of the formats listed below.
-
+    
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-
+    
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array
+    value   : The object must be serialized into a byte array 
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string"/>
-              <xsd:attribute name="type" type="xsd:string"/>
-              <xsd:attribute name="mimetype" type="xsd:string"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string"/>
-              <xsd:attribute name="name" type="xsd:string"/>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -117,11 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
-  <data name="LabelAutoSave.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"/>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="LabelAutoSave.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt, style=Bold</value>
   </data>
@@ -131,7 +127,7 @@
   <data name="LabelAutoSave.Size" type="System.Drawing.Size, System.Drawing">
     <value>288, 15</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="LabelAutoSave.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -141,23 +137,27 @@
   <data name="LabelAutoSave.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
-  <data name="&gt;&gt;LabelAutoSave.Name" xml:space="preserve">
-    <value>LabelAutoSave</value>
-  </data>
-  <data name="&gt;&gt;LabelAutoSave.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LabelAutoSave.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;LabelAutoSave.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="TabCtrlSettings.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="ComboPriority.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="CBHdr.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
+  </data>
+  <data name="CBHdr.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="CBHdr.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="CBHdr.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 80</value>
+  </data>
+  <data name="CBHdr.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 19</value>
+  </data>
+  <data name="CBHdr.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="CBHdr.Text" xml:space="preserve">
+    <value>Enable HDR</value>
   </data>
   <data name="ComboPriority.Items" xml:space="preserve">
     <value>В реальном времени</value>
@@ -178,7 +178,7 @@
     <value>Низкий</value>
   </data>
   <data name="ComboPriority.Location" type="System.Drawing.Point, System.Drawing">
-    <value>146, 81</value>
+    <value>146, 104</value>
   </data>
   <data name="ComboPriority.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 23</value>
@@ -189,26 +189,11 @@
   <data name="ComboPriority.Text" xml:space="preserve">
     <value>Средний</value>
   </data>
-  <data name="&gt;&gt;ComboPriority.Name" xml:space="preserve">
-    <value>ComboPriority</value>
-  </data>
-  <data name="&gt;&gt;ComboPriority.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ComboPriority.Parent" xml:space="preserve">
-    <value>TabGeneral</value>
-  </data>
-  <data name="&gt;&gt;ComboPriority.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="LabelPriority.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
-  </data>
   <data name="LabelPriority.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="LabelPriority.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 85</value>
+    <value>5, 108</value>
   </data>
   <data name="LabelPriority.Size" type="System.Drawing.Size, System.Drawing">
     <value>125, 15</value>
@@ -219,17 +204,8 @@
   <data name="LabelPriority.Text" xml:space="preserve">
     <value>Приоритет процесса игры:</value>
   </data>
-  <data name="&gt;&gt;LabelPriority.Name" xml:space="preserve">
-    <value>LabelPriority</value>
-  </data>
-  <data name="&gt;&gt;LabelPriority.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LabelPriority.Parent" xml:space="preserve">
-    <value>TabGeneral</value>
-  </data>
-  <data name="&gt;&gt;LabelPriority.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="ToolTipSettings.TrayLocation" type="System.Drawing.Point, System.Drawing">
+    <value>17, 17</value>
   </data>
   <data name="CBPowerSave.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -249,26 +225,8 @@
   <data name="CBPowerSave.Text" xml:space="preserve">
     <value>Энергосберегающий режим</value>
   </data>
-  <metadata name="ToolTipSettings.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="CBPowerSave.ToolTip" xml:space="preserve">
     <value>Ограничивает кадры/сек. до 10 и снижает приоритет процесса при неактивном окне (например, если окно свёрнуто или в фоне)</value>
-  </data>
-  <data name="&gt;&gt;CBPowerSave.Name" xml:space="preserve">
-    <value>CBPowerSave</value>
-  </data>
-  <data name="&gt;&gt;CBPowerSave.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CBPowerSave.Parent" xml:space="preserve">
-    <value>TabGeneral</value>
-  </data>
-  <data name="&gt;&gt;CBPowerSave.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="CBAutoClose.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
   </data>
   <data name="CBAutoClose.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -287,18 +245,6 @@
   </data>
   <data name="CBAutoClose.ToolTip" xml:space="preserve">
     <value>FPS Unlocker закроется автоматически при завершении игры</value>
-  </data>
-  <data name="&gt;&gt;CBAutoClose.Name" xml:space="preserve">
-    <value>CBAutoClose</value>
-  </data>
-  <data name="&gt;&gt;CBAutoClose.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CBAutoClose.Parent" xml:space="preserve">
-    <value>TabGeneral</value>
-  </data>
-  <data name="&gt;&gt;CBAutoClose.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="CBStartMinimized.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -321,22 +267,10 @@
   <data name="CBStartMinimized.ToolTip" xml:space="preserve">
     <value>FPS Unlocker автоматически сворачивается в трей при запуске</value>
   </data>
-  <data name="&gt;&gt;CBStartMinimized.Name" xml:space="preserve">
-    <value>CBStartMinimized</value>
-  </data>
-  <data name="&gt;&gt;CBStartMinimized.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CBStartMinimized.Parent" xml:space="preserve">
-    <value>TabGeneral</value>
-  </data>
-  <data name="&gt;&gt;CBStartMinimized.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="TabGeneral.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 24</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="TabGeneral.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
@@ -349,17 +283,29 @@
   <data name="TabGeneral.Text" xml:space="preserve">
     <value>Общие</value>
   </data>
-  <data name="&gt;&gt;TabGeneral.Name" xml:space="preserve">
-    <value>TabGeneral</value>
+  <data name="TabLaunchOptions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 24</value>
   </data>
-  <data name="&gt;&gt;TabGeneral.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="TabLaunchOptions.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
   </data>
-  <data name="&gt;&gt;TabGeneral.Parent" xml:space="preserve">
-    <value>TabCtrlSettings</value>
+  <data name="TabLaunchOptions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 210</value>
   </data>
-  <data name="&gt;&gt;TabGeneral.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="TabLaunchOptions.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="TabLaunchOptions.Text" xml:space="preserve">
+    <value>Параметры запуска</value>
+  </data>
+  <data name="TabCtrlSettings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="TabCtrlSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>288, 238</value>
+  </data>
+  <data name="TabCtrlSettings.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="CBUseMobileUI.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -379,18 +325,6 @@
   <data name="CBUseMobileUI.Text" xml:space="preserve">
     <value>Использовать мобильный интерфейс</value>
   </data>
-  <data name="&gt;&gt;CBUseMobileUI.Name" xml:space="preserve">
-    <value>CBUseMobileUI</value>
-  </data>
-  <data name="&gt;&gt;CBUseMobileUI.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CBUseMobileUI.Parent" xml:space="preserve">
-    <value>TabLaunchOptions</value>
-  </data>
-  <data name="&gt;&gt;CBUseMobileUI.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="InputMonitorNum.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
   </data>
@@ -402,18 +336,6 @@
   </data>
   <data name="InputMonitorNum.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
-  </data>
-  <data name="&gt;&gt;InputMonitorNum.Name" xml:space="preserve">
-    <value>InputMonitorNum</value>
-  </data>
-  <data name="&gt;&gt;InputMonitorNum.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;InputMonitorNum.Parent" xml:space="preserve">
-    <value>TabLaunchOptions</value>
-  </data>
-  <data name="&gt;&gt;InputMonitorNum.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="LabelMonitor.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -432,18 +354,6 @@
   </data>
   <data name="LabelMonitor.Text" xml:space="preserve">
     <value>Монитор:</value>
-  </data>
-  <data name="&gt;&gt;LabelMonitor.Name" xml:space="preserve">
-    <value>LabelMonitor</value>
-  </data>
-  <data name="&gt;&gt;LabelMonitor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LabelMonitor.Parent" xml:space="preserve">
-    <value>TabLaunchOptions</value>
-  </data>
-  <data name="&gt;&gt;LabelMonitor.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="ComboFullscreenMode.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -466,18 +376,6 @@
   <data name="ComboFullscreenMode.Text" xml:space="preserve">
     <value>Оконный без рамки</value>
   </data>
-  <data name="&gt;&gt;ComboFullscreenMode.Name" xml:space="preserve">
-    <value>ComboFullscreenMode</value>
-  </data>
-  <data name="&gt;&gt;ComboFullscreenMode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ComboFullscreenMode.Parent" xml:space="preserve">
-    <value>TabLaunchOptions</value>
-  </data>
-  <data name="&gt;&gt;ComboFullscreenMode.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <data name="LabelWindowMode.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
   </data>
@@ -496,18 +394,6 @@
   <data name="LabelWindowMode.Text" xml:space="preserve">
     <value>Полноэкранный режим:</value>
   </data>
-  <data name="&gt;&gt;LabelWindowMode.Name" xml:space="preserve">
-    <value>LabelWindowMode</value>
-  </data>
-  <data name="&gt;&gt;LabelWindowMode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LabelWindowMode.Parent" xml:space="preserve">
-    <value>TabLaunchOptions</value>
-  </data>
-  <data name="&gt;&gt;LabelWindowMode.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="InputResY.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
   </data>
@@ -522,18 +408,6 @@
   </data>
   <data name="InputResY.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
-  </data>
-  <data name="&gt;&gt;InputResY.Name" xml:space="preserve">
-    <value>InputResY</value>
-  </data>
-  <data name="&gt;&gt;InputResY.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;InputResY.Parent" xml:space="preserve">
-    <value>TabLaunchOptions</value>
-  </data>
-  <data name="&gt;&gt;InputResY.ZOrder" xml:space="preserve">
-    <value>5</value>
   </data>
   <data name="LabelX.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -556,18 +430,6 @@
   <data name="LabelX.Text" xml:space="preserve">
     <value>x</value>
   </data>
-  <data name="&gt;&gt;LabelX.Name" xml:space="preserve">
-    <value>LabelX</value>
-  </data>
-  <data name="&gt;&gt;LabelX.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LabelX.Parent" xml:space="preserve">
-    <value>TabLaunchOptions</value>
-  </data>
-  <data name="&gt;&gt;LabelX.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
   <data name="InputResX.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
   </data>
@@ -582,18 +444,6 @@
   </data>
   <data name="InputResX.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
-  </data>
-  <data name="&gt;&gt;InputResX.Name" xml:space="preserve">
-    <value>InputResX</value>
-  </data>
-  <data name="&gt;&gt;InputResX.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;InputResX.Parent" xml:space="preserve">
-    <value>TabLaunchOptions</value>
-  </data>
-  <data name="&gt;&gt;InputResX.ZOrder" xml:space="preserve">
-    <value>7</value>
   </data>
   <data name="LabelCustomRes.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -613,18 +463,6 @@
   <data name="LabelCustomRes.Text" xml:space="preserve">
     <value>Разрешение экрана:</value>
   </data>
-  <data name="&gt;&gt;LabelCustomRes.Name" xml:space="preserve">
-    <value>LabelCustomRes</value>
-  </data>
-  <data name="&gt;&gt;LabelCustomRes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LabelCustomRes.Parent" xml:space="preserve">
-    <value>TabLaunchOptions</value>
-  </data>
-  <data name="&gt;&gt;LabelCustomRes.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
   <data name="CBCustomRes.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
   </data>
@@ -642,18 +480,6 @@
   </data>
   <data name="CBCustomRes.Text" xml:space="preserve">
     <value>Пользовательское разрешение экрана</value>
-  </data>
-  <data name="&gt;&gt;CBCustomRes.Name" xml:space="preserve">
-    <value>CBCustomRes</value>
-  </data>
-  <data name="&gt;&gt;CBCustomRes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CBCustomRes.Parent" xml:space="preserve">
-    <value>TabLaunchOptions</value>
-  </data>
-  <data name="&gt;&gt;CBCustomRes.ZOrder" xml:space="preserve">
-    <value>9</value>
   </data>
   <data name="CBFullscreen.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -673,18 +499,6 @@
   <data name="CBFullscreen.Text" xml:space="preserve">
     <value>Полный экран</value>
   </data>
-  <data name="&gt;&gt;CBFullscreen.Name" xml:space="preserve">
-    <value>CBFullscreen</value>
-  </data>
-  <data name="&gt;&gt;CBFullscreen.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CBFullscreen.Parent" xml:space="preserve">
-    <value>TabLaunchOptions</value>
-  </data>
-  <data name="&gt;&gt;CBFullscreen.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
   <data name="CBPopup.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
   </data>
@@ -703,75 +517,15 @@
   <data name="CBPopup.Text" xml:space="preserve">
     <value>Оконный без рамки</value>
   </data>
-  <data name="&gt;&gt;CBPopup.Name" xml:space="preserve">
-    <value>CBPopup</value>
-  </data>
-  <data name="&gt;&gt;CBPopup.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CBPopup.Parent" xml:space="preserve">
-    <value>TabLaunchOptions</value>
-  </data>
-  <data name="&gt;&gt;CBPopup.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="TabLaunchOptions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 24</value>
-  </data>
-  <data name="TabLaunchOptions.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="TabLaunchOptions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 210</value>
-  </data>
-  <data name="TabLaunchOptions.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="TabLaunchOptions.Text" xml:space="preserve">
-    <value>Параметры запуска</value>
-  </data>
-  <data name="&gt;&gt;TabLaunchOptions.Name" xml:space="preserve">
-    <value>TabLaunchOptions</value>
-  </data>
-  <data name="&gt;&gt;TabLaunchOptions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabLaunchOptions.Parent" xml:space="preserve">
-    <value>TabCtrlSettings</value>
-  </data>
-  <data name="&gt;&gt;TabLaunchOptions.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="TabCtrlSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
-  </data>
-  <data name="TabCtrlSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>288, 238</value>
-  </data>
-  <data name="TabCtrlSettings.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;TabCtrlSettings.Name" xml:space="preserve">
-    <value>TabCtrlSettings</value>
-  </data>
-  <data name="&gt;&gt;TabCtrlSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabCtrlSettings.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;TabCtrlSettings.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="DllAddDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <data name="DllAddDialog.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>151, 17</value>
-  </metadata>
+  </data>
   <data name="DllAddDialog.Filter" xml:space="preserve">
     <value>DLL (*.dll)|*.dll|Все файлы (*.*)|*.*</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>96, 96</value>
   </data>
@@ -783,23 +537,5 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Настройки</value>
-  </data>
-  <data name="&gt;&gt;ToolTipSettings.Name" xml:space="preserve">
-    <value>ToolTipSettings</value>
-  </data>
-  <data name="&gt;&gt;ToolTipSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;DllAddDialog.Name" xml:space="preserve">
-    <value>DllAddDialog</value>
-  </data>
-  <data name="&gt;&gt;DllAddDialog.Type" xml:space="preserve">
-    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>SettingsForm</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
