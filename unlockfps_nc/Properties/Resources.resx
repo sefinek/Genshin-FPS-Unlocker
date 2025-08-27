@@ -139,4 +139,13 @@
   <data name="MainForm_ViewCfg_FileNotFound" xml:space="preserve">
     <value>File not found</value>
   </data>
-  </root>
+  <data name="SetupForm_UpdateGamePathUi_Found0InstallationOfTheGame" xml:space="preserve">
+    <value>Found {0} installation of the game</value>
+  </data>
+  <data name="SetupForm_UpdateGamePathUi_NoGameInstallationsFound" xml:space="preserve">
+    <value>No game installations found!</value>
+  </data>
+  <data name="MainForm_NotifyAndHide_GenshinFPSUnlockerCurrentLimit_" xml:space="preserve">
+    <value>Genshin FPS Unlocker (current limit: {0})</value>
+  </data>
+</root>
