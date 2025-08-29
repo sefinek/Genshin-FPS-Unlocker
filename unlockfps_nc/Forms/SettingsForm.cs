@@ -17,7 +17,7 @@ public partial class SettingsForm : Form
 		SetupBindings();
 
 #if RELEASEMIN
-	TabCtrlSettings.Controls.Remove(TabDlls);
+        TabCtrlSettings.Controls.Remove(TabDlls);
 #endif
 	}
 
@@ -27,6 +27,7 @@ public partial class SettingsForm : Form
 		CBStartMinimized.DataBindings.Add("Checked", _config, "StartMinimized", true, DataSourceUpdateMode.OnPropertyChanged);
 		CBAutoClose.DataBindings.Add("Checked", _config, "AutoClose", true, DataSourceUpdateMode.OnPropertyChanged);
 		CBPowerSave.DataBindings.Add("Checked", _config, "UsePowerSave", true, DataSourceUpdateMode.OnPropertyChanged);
+		CBHdr.DataBindings.Add("Checked", _config, "UseHDR", true, DataSourceUpdateMode.OnPropertyChanged);
 		ComboPriority.DataBindings.Add("SelectedIndex", _config, "Priority", true, DataSourceUpdateMode.OnPropertyChanged);
 
 		// Launch Options
@@ -51,7 +52,7 @@ public partial class SettingsForm : Form
 		ComboFullscreenMode.Enabled = _config is { Fullscreen: true, PopupWindow: false };
 	}
 
-	private void LaunchOptionsChanged(object sender, EventArgs e)
+	public void LaunchOptionsChanged(object sender, EventArgs e)
 	{
 		UpdateControlState();
 	}

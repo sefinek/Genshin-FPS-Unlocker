@@ -1,12 +1,13 @@
-using Newtonsoft.Json;
+using System.Text;
+using System.Text.Json;
 using unlockfps_nc.Model;
-using unlockfps_nc.Properties;
 
 namespace unlockfps_nc.Service;
 
 public class ConfigService
 {
 	private const string ConfigName = "unlocker.config.json";
+	private readonly Lock _lock = new();
 
 	public ConfigService()
 	{
@@ -18,18 +19,12 @@ public class ConfigService
 
 	private void Load()
 	{
-		if (!File.Exists(ConfigName)) return;
+		var configPath = GetFullPath();
+		if (!File.Exists(configPath)) return;
 
-		try
-		{
-			var json = File.ReadAllText(ConfigName);
-			Config = JsonConvert.DeserializeObject<Config>(json)!;
-		}
-		catch (Exception ex)
-		{
-			MessageBox.Show(string.Format(Resources.ConfigService_TheConfigurationFileAppearsToBeCorrupted, ex.Message), Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
-			Config = new Config();
-		}
+		var json = File.ReadAllText(configPath);
+		var config = JsonSerializer.Deserialize<Config>(json);
+		if (config != null) Config = config;
 	}
 
 	private void Sanitize()
@@ -41,9 +36,22 @@ public class ConfigService
 		Config.MonitorNum = Math.Clamp(Config.MonitorNum, 1, 100);
 	}
 
+	private static string GetFullPath()
+	{
+		var currentPath = AppContext.BaseDirectory;
+		return Path.Combine(currentPath, ConfigName);
+	}
+
 	public void Save()
 	{
-		var json = JsonConvert.SerializeObject(Config, Formatting.Indented);
-		File.WriteAllText(ConfigName, json);
+		lock (_lock)
+		{
+			var configPath = GetFullPath();
+			var json = JsonSerializer.Serialize(Config, new JsonSerializerOptions { WriteIndented = true });
+
+			using var fs = new FileStream(configPath, FileMode.Create, FileAccess.Write, FileShare.None, 4096, FileOptions.WriteThrough);
+			using var sw = new StreamWriter(fs, Encoding.UTF8);
+			sw.Write(json);
+		}
 	}
 }

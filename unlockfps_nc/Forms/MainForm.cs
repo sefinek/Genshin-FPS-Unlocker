@@ -10,8 +10,8 @@ namespace unlockfps_nc.Forms;
 public partial class MainForm : Form
 {
 	private readonly Config _config;
-
 	private readonly ConfigService _configService;
+
 	private readonly ProcessService _processService;
 	private Point _windowLocation;
 	private Size _windowSize;
@@ -63,7 +63,7 @@ public partial class MainForm : Form
 		if (!File.Exists(_config.GamePath))
 			ShowSetupForm();
 
-		if (File.Exists(_config.GamePath) && _processService.Start())
+		if (_processService.StartGame())
 			WindowState = FormWindowState.Minimized;
 	}
 
@@ -79,30 +79,45 @@ public partial class MainForm : Form
 
 	private void MainForm_Resize(object sender, EventArgs e)
 	{
-		if (WindowState == FormWindowState.Minimized) NotifyAndHide();
+		if (WindowState == FormWindowState.Minimized && _processService.IsGameRunning()) NotifyAndHide();
 	}
 
 	private void NotifyAndHide()
 	{
 		var showNotify = Program.Settings.ReadInt("FPSUnlocker", "ShowNotify", 1);
-		if (showNotify != 1) return;
 
 		NotifyIconMain.Icon = ImageResources.cat;
 		NotifyIconMain.Visible = true;
-		NotifyIconMain.Text = string.Format(Resources.MainForm_GenshinFPSUnlocker_CurrentLimit, _config.FPSTarget);
-		NotifyIconMain.ShowBalloonTip(500);
+		NotifyIconMain.Text = string.Format(Resources.MainForm_NotifyAndHide_GenshinFPSUnlockerCurrentLimit_, _config.FPSTarget);
+		if (showNotify == 1)
+		{
+			NotifyIconMain.ShowBalloonTip(500);
+			Program.Settings.WriteInt("FPSUnlocker", "ShowNotify", 0);
+		}
 
 		ShowInTaskbar = false;
 		Hide();
-		Program.Settings.WriteInt("FPSUnlocker", "ShowNotify", 0);
 	}
 
 	private void NotifyIconMain_DoubleClick(object sender, EventArgs e)
 	{
+		RestoreFromTray();
+	}
+
+	public void RestoreFromTray()
+	{
+		if (InvokeRequired)
+		{
+			Invoke(RestoreFromTray);
+			return;
+		}
+
 		WindowState = FormWindowState.Normal;
 		ShowInTaskbar = true;
+		TopMost = true;
 		Show();
 		Activate();
+		TopMost = false;
 
 		Location = _windowLocation;
 		Size = _windowSize;
@@ -117,38 +132,30 @@ public partial class MainForm : Form
 
 	private void OpenStella_Click(object sender, EventArgs e)
 	{
-		try
+		using RegistryKey? key = Registry.CurrentUser.OpenSubKey(Program.REGISTRY_PATH);
+		if (key != null)
 		{
-			using RegistryKey? key = Registry.CurrentUser.OpenSubKey(Program.RegistryPath);
-			if (key != null)
+			var o = key.GetValue("StellaPath");
+			if (o != null)
 			{
-				var o = key.GetValue("StellaPath");
-				if (o != null)
-				{
-					var stellaPath = o.ToString();
-					var exePath = Path.Combine(stellaPath!, "Stella Mod Launcher.exe");
+				var stellaPath = o.ToString();
+				var exePath = Path.Combine(stellaPath!, "Stella Mod Launcher.exe");
 
-					ProcessStartInfo startInfo = new()
-					{
-						FileName = exePath,
-						WorkingDirectory = stellaPath
-					};
-
-					Process.Start(startInfo);
-				}
-				else
+				ProcessStartInfo startInfo = new()
 				{
-					MessageBox.Show(Resources.MainForm_TheRegistryKeyStellaPathWasNotFound, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
-				}
+					FileName = exePath,
+					WorkingDirectory = stellaPath
+				};
+				Process.Start(startInfo);
 			}
 			else
 			{
-				MessageBox.Show(string.Format(Resources.MainForm_TheRegistryKeyStellaPathWasNotFound, Program.RegistryPath), Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(Resources.MainForm_OpenStella_Click_TheRegistryKeyStellaPathWasNotFoundAreYouSureGenshinStellaModIsInstalled, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
-		catch (Exception ex)
+		else
 		{
-			MessageBox.Show(string.Format(Resources.MainForm_AnErrorOccurred, ex.Message), Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show(Resources.MainForm_OpenStella_Click_TheRegistryKeyStellaPathWasNotFoundAreYouSureGenshinStellaModIsInstalled, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 	}
 

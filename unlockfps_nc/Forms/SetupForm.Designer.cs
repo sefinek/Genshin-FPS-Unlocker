@@ -29,34 +29,26 @@ namespace unlockfps_nc.Forms
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupForm));
-			ComboResult = new ComboBox();
-			LabelHint = new Label();
-			BtnBrowse = new Button();
-			BtnConfirm = new Button();
-			LabelHeader = new Label();
+			var resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupForm));
 			BrowseDialog = new OpenFileDialog();
+			LabelHeader = new Label();
+			BtnConfirm = new Button();
+			BtnBrowse = new Button();
+			LabelHint = new Label();
+			ComboResult = new ComboBox();
 			LabelResult = new Label();
 			SuspendLayout();
 			// 
-			// ComboResult
+			// BrowseDialog
 			// 
-			resources.ApplyResources(ComboResult, "ComboResult");
-			ComboResult.FormattingEnabled = true;
-			ComboResult.Name = "ComboResult";
+			resources.ApplyResources(BrowseDialog, "BrowseDialog");
+			BrowseDialog.RestoreDirectory = true;
 			// 
-			// LabelHint
+			// LabelHeader
 			// 
-			resources.ApplyResources(LabelHint, "LabelHint");
-			LabelHint.ForeColor = Color.White;
-			LabelHint.Name = "LabelHint";
-			// 
-			// BtnBrowse
-			// 
-			resources.ApplyResources(BtnBrowse, "BtnBrowse");
-			BtnBrowse.Name = "BtnBrowse";
-			BtnBrowse.UseVisualStyleBackColor = true;
-			BtnBrowse.Click += BtnBrowse_Click;
+			resources.ApplyResources(LabelHeader, "LabelHeader");
+			LabelHeader.ForeColor = Color.White;
+			LabelHeader.Name = "LabelHeader";
 			// 
 			// BtnConfirm
 			// 
@@ -65,16 +57,24 @@ namespace unlockfps_nc.Forms
 			BtnConfirm.UseVisualStyleBackColor = true;
 			BtnConfirm.Click += BtnConfirm_Click;
 			// 
-			// LabelHeader
+			// BtnBrowse
 			// 
-			resources.ApplyResources(LabelHeader, "LabelHeader");
-			LabelHeader.ForeColor = Color.White;
-			LabelHeader.Name = "LabelHeader";
+			resources.ApplyResources(BtnBrowse, "BtnBrowse");
+			BtnBrowse.Name = "BtnBrowse";
+			BtnBrowse.UseVisualStyleBackColor = true;
+			BtnBrowse.Click += BtnBrowse_Click;
 			// 
-			// BrowseDialog
+			// LabelHint
 			// 
-			resources.ApplyResources(BrowseDialog, "BrowseDialog");
-			BrowseDialog.RestoreDirectory = true;
+			resources.ApplyResources(LabelHint, "LabelHint");
+			LabelHint.ForeColor = Color.White;
+			LabelHint.Name = "LabelHint";
+			// 
+			// ComboResult
+			// 
+			resources.ApplyResources(ComboResult, "ComboResult");
+			ComboResult.FormattingEnabled = true;
+			ComboResult.Name = "ComboResult";
 			// 
 			// LabelResult
 			// 
@@ -87,12 +87,12 @@ namespace unlockfps_nc.Forms
 			resources.ApplyResources(this, "$this");
 			AutoScaleMode = AutoScaleMode.Dpi;
 			BackColor = Color.FromArgb(35, 36, 38);
-			Controls.Add(LabelResult);
 			Controls.Add(LabelHeader);
 			Controls.Add(BtnConfirm);
 			Controls.Add(BtnBrowse);
 			Controls.Add(LabelHint);
 			Controls.Add(ComboResult);
+			Controls.Add(LabelResult);
 			DoubleBuffered = true;
 			FormBorderStyle = FormBorderStyle.FixedDialog;
 			MaximizeBox = false;
@@ -101,16 +101,16 @@ namespace unlockfps_nc.Forms
 			FormClosing += SetupForm_FormClosing;
 			Load += SetupForm_Load;
 			ResumeLayout(false);
-			PerformLayout();
 		}
 
 		#endregion
+
+		private OpenFileDialog BrowseDialog;
+		private Label LabelHeader;
+		private Button BtnConfirm;
+		private Button BtnBrowse;
+		private Label LabelHint;
 		private ComboBox ComboResult;
-        private Label LabelHint;
-        private Button BtnBrowse;
-        private Button BtnConfirm;
-        private Label LabelHeader;
-        private OpenFileDialog BrowseDialog;
-        private Label LabelResult;
-    }
+		private Label LabelResult;
+	}
 }

@@ -1,63 +1,69 @@
 using System.IO.MemoryMappedFiles;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using unlockfps_nc.Properties;
 using unlockfps_nc.Utility;
 
 namespace unlockfps_nc.Service;
 
 public enum IpcStatus
 {
-	Error = -1,
 	None = 0,
-	HostAwaiting = 1,
-	ClientReady = 2,
-	ClientExit = 3,
-	HostExit = 4
+	Error,
+	Ready
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = 8)]
 public struct IpcData
 {
-	public ulong Address;
-	public int Value;
 	public IpcStatus Status;
+	public int FrameRate;
+	public bool PowerSave;
 }
 
-public class IpcService : IDisposable
+public class IpcService(ConfigService configService) : IDisposable
 {
-	private IntPtr _pFpsValue = IntPtr.Zero;
 	private MemoryMappedFile? _sharedMemory;
 	private MemoryMappedViewAccessor? _sharedMemoryAccessor;
-	private bool _started;
 	private ModuleGuard _stubModule = IntPtr.Zero;
 	private string _stubPath = string.Empty;
 	private IntPtr _wndHook = IntPtr.Zero;
 
 	public void Dispose()
 	{
-		Stop();
 		_sharedMemoryAccessor?.Dispose();
 		_sharedMemory?.Dispose();
 		_stubModule.Dispose();
 	}
 
-	public void Start(int processId, IntPtr pFpsValue)
+	public bool Start(int processId)
 	{
-		if (_started) return;
+		_sharedMemory ??= MemoryMappedFile.CreateOrOpen(@"Global\2DE95FDC-6AB7-4593-BFE6-760DD4AB422B", 4096, MemoryMappedFileAccess.ReadWrite);
+		_sharedMemoryAccessor ??= _sharedMemory.CreateViewAccessor();
+		if (_sharedMemoryAccessor == null)
+		{
+			MessageBox.Show(@"Failed to create shared memory.", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			return false;
+		}
 
-		_pFpsValue = pFpsValue;
-		_sharedMemory = MemoryMappedFile.CreateOrOpen("2DE95FDC-6AB7-4593-BFE6-760DD4AB422B", 4096, MemoryMappedFileAccess.ReadWrite);
-		_sharedMemoryAccessor = _sharedMemory.CreateViewAccessor();
+		Update();
 
-		WriteToSharedMemory(_pFpsValue, 60, IpcStatus.HostAwaiting);
+		_sharedMemoryAccessor.Read(0, out IpcData ipcData);
+		switch (ipcData.Status)
+		{
+			case IpcStatus.Ready:
+				return true;
+			case IpcStatus.Error:
+				return false;
+		}
 
 		_stubPath = GetUnlockerStubPath();
 		_stubModule = Native.LoadLibrary(_stubPath);
 		if (_stubModule == IntPtr.Zero)
 		{
-			var errorMessage = $"Failed to load stub module: {Marshal.GetLastWin32Error()}{Environment.NewLine}{Marshal.GetLastPInvokeErrorMessage()}";
-			MessageBox.Show(errorMessage, @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			return;
+			var errorMessage = $@"Failed to load stub module: {Marshal.GetLastWin32Error()}{Environment.NewLine}{Marshal.GetLastPInvokeErrorMessage()}";
+			MessageBox.Show(errorMessage, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			return false;
 		}
 
 		var stubWndProc = Native.GetProcAddress(_stubModule, "WndProc");
@@ -67,62 +73,58 @@ public class IpcService : IDisposable
 		_wndHook = Native.SetWindowsHookEx(3, stubWndProc, _stubModule, threadId);
 		if (_wndHook == IntPtr.Zero)
 		{
-			var errorMessage = $"Failed to set window hook: {Marshal.GetLastWin32Error()}{Environment.NewLine}{Marshal.GetLastPInvokeErrorMessage()}";
-			MessageBox.Show(errorMessage, @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			return;
+			var errorMessage = $@"Failed to set window hook: {Marshal.GetLastWin32Error()}{Environment.NewLine}{Marshal.GetLastPInvokeErrorMessage()}";
+			MessageBox.Show(errorMessage, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			return false;
 		}
 
 		if (!Native.PostThreadMessage(threadId, 0, IntPtr.Zero, IntPtr.Zero))
 		{
-			var errorMessage = $"Failed to post thread message: {Marshal.GetLastWin32Error()}{Environment.NewLine}{Marshal.GetLastPInvokeErrorMessage()}";
-			MessageBox.Show(errorMessage, @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			return;
+			var errorMessage = $@"Failed to post thread message: {Marshal.GetLastWin32Error()}{Environment.NewLine}{Marshal.GetLastPInvokeErrorMessage()}";
+			MessageBox.Show(errorMessage, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			return false;
 		}
 
 		var retryCount = 0;
 		while (true)
 		{
-			_sharedMemoryAccessor.Read(0, out IpcData ipcData);
+			_sharedMemoryAccessor.Read(0, out ipcData);
 
-			if (ipcData.Status == IpcStatus.ClientReady) break;
+			if (ipcData.Status == IpcStatus.Ready)
+				break;
+
+			if (ipcData.Status == IpcStatus.Error)
+				return false;
 
 			if (retryCount >= 10)
 			{
-				MessageBox.Show("Failed to start the unlocker.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
+				MessageBox.Show(@"Failed to start the unlocker.", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
 			}
 
 			retryCount++;
 			Task.Delay(1000).Wait();
 		}
 
-		_started = true;
+		return true;
 	}
 
-	public void ApplyFpsLimit(int fps)
+	public void OnGameExit()
 	{
-		if (_pFpsValue == IntPtr.Zero) return;
-		WriteToSharedMemory(_pFpsValue, fps, IpcStatus.None);
-	}
-
-	public void Stop()
-	{
-		_started = false;
-		_pFpsValue = IntPtr.Zero;
-
-		WriteToSharedMemory(IntPtr.Zero, 0, IpcStatus.HostExit);
-		Task.Delay(200).Wait();
-		Native.UnhookWindowsHookEx(_wndHook);
-		Native.FreeLibrary(_stubModule);
-	}
-
-	private void WriteToSharedMemory(IntPtr address, int fps, IpcStatus status)
-	{
-		IpcData ipcData = new()
+		var ipcData = new IpcData
 		{
-			Address = (ulong)address,
-			Value = fps,
-			Status = status
+			Status = IpcStatus.None
+		};
+
+		_sharedMemoryAccessor?.Write(0, ref ipcData);
+	}
+
+	public void Update()
+	{
+		var ipcData = new IpcData
+		{
+			FrameRate = configService.Config.FPSTarget,
+			PowerSave = configService.Config.UsePowerSave
 		};
 
 		_sharedMemoryAccessor?.Write(0, ref ipcData);
@@ -131,11 +133,19 @@ public class IpcService : IDisposable
 	private static string GetUnlockerStubPath()
 	{
 		var assembly = Assembly.GetExecutingAssembly();
-		using Stream? stream = assembly.GetManifestResourceStream("unlockfps_nc.Resources.UnlockerStub.dll");
+		using Stream stream = assembly.GetManifestResourceStream("unlockfps_nc.Resources.UnlockerStub.dll")!;
 
 		var filePath = Path.Combine(AppContext.BaseDirectory, "UnlockerStub.dll");
-		using FileStream fileStream = new(filePath, FileMode.Create, FileAccess.Write);
-		stream?.CopyTo(fileStream);
+
+		try
+		{
+			using var fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write);
+			stream.CopyTo(fileStream);
+		}
+		catch (Exception)
+		{
+			// . . .
+		}
 
 		return filePath;
 	}

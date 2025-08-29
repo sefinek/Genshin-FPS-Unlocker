@@ -11,6 +11,16 @@ public partial class SetupForm : Form
 {
 	private readonly Config _config;
 	private readonly ConfigService _configService;
+
+	private readonly string[] _executableNames = ["GenshinImpact.exe", "YuanShen.exe"];
+
+	private readonly string[] _registryPaths =
+	[
+		@"SOFTWARE\Cognosphere\HYP\1_0\hk4e_global",
+		@"SOFTWARE\Cognosphere\HYP\1_1\hk4e_global",
+		@"SOFTWARE\miHoYo\HYP\1_1\hk4e_cn"
+	];
+
 	private CancellationTokenSource? _cts;
 
 	public SetupForm(ConfigService configService)
@@ -27,7 +37,7 @@ public partial class SetupForm : Form
 
 		LabelResult.Text = Resources.SetupForm_Searching;
 		LabelResult.ForeColor = Color.Orange;
-		Task.Run(SearchGamePath, _cts.Token);
+		SearchGamePath();
 	}
 
 	private void SetupForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -51,14 +61,22 @@ public partial class SetupForm : Form
 			Native.EnumWindows((hWnd, _) =>
 			{
 				const int maxCount = 256;
-				StringBuilder sb = new(maxCount);
+				var sb = new StringBuilder(maxCount);
 
 				Native.GetClassName(hWnd, sb, maxCount);
 				if (sb.ToString() != "UnityWndClass") return true;
 
-				windowHandle = hWnd;
 				Native.GetWindowThreadProcessId(hWnd, out var pid);
-				processPath = ProcessUtils.GetProcessPathFromPid(pid, out processHandle);
+				processHandle = Native.OpenProcess(
+					ProcessAccess.QUERY_LIMITED_INFORMATION |
+					ProcessAccess.TERMINATE |
+					StandardAccess.SYNCHRONIZE, false, pid);
+
+				var foundPath = ProcessUtils.GetProcessPath(processHandle);
+				if (!foundPath.Contains("YuanShen.exe") && !foundPath.Contains("GenshinImpact.exe")) return true;
+
+				windowHandle = hWnd;
+				processPath = foundPath;
 				return false;
 			}, IntPtr.Zero);
 
@@ -70,11 +88,11 @@ public partial class SetupForm : Form
 
 			if (string.IsNullOrEmpty(processPath))
 			{
-				MessageBox.Show(Resources.SetupForm_FailedToFindProcessPath, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(Resources.SetupForm_PollProcess_FailedToFindProcessPathPleaseUseBrowseInstead, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 
-			MessageBox.Show(string.Format(Resources.SetupForm_GameFound, processPath), Resources.Success, MessageBoxButtons.OK, MessageBoxIcon.Information);
+			MessageBox.Show(string.Format(Resources.SetupForm_PollProcess_GameFound_, processPath), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 			_config.GamePath = processPath;
 			Invoke(Close);
@@ -83,81 +101,50 @@ public partial class SetupForm : Form
 
 	private void SearchGamePath()
 	{
-		List<RegistryKey> openedSubKeys = [];
-
 		try
 		{
-			using RegistryKey? uninstallKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall");
-			if (uninstallKey == null)
-				return;
-
-			List<RegistryKey?> subKeys = uninstallKey.GetSubKeyNames()
-				.ToList()
-				.Where(keyName => keyName is "Genshin Impact" or "原神")
-				.Select(uninstallKey.OpenSubKey)
-				.Where(key => key != null)
-				.ToList();
-
-			subKeys.ForEach(openedSubKeys.Add!);
-
-			List<string> launcherIniPaths = subKeys
-				.Select(key => (string)key?.GetValue("InstallPath")!)
-				.Where(path => !string.IsNullOrEmpty(path) && Directory.Exists(path))
-				.Select(launcherPath => $@"{launcherPath}\config.ini")
-				.ToList();
-
-			List<string> gamePaths = [];
-			foreach (var configPath in launcherIniPaths)
-			{
-				IEnumerable<string> configLines = File.ReadLines(configPath);
-				Dictionary<string, string> ini = [];
-				foreach (var line in configLines)
-				{
-					var split = line.Split('=', StringSplitOptions.RemoveEmptyEntries);
-					if (split.Length < 2)
-						continue;
-
-					ini[split[0]] = split[1];
-				}
-
-				if (!ini.TryGetValue("game_install_path", out var gamePath))
-					continue;
-
-				if (!ini.TryGetValue("game_start_name", out var gameName))
-					continue;
-
-				gamePaths.Add($@"{gamePath}\{gameName}".Replace('/', '\\'));
-			}
-
-			using RegistryKey? localMachineKeyGlobal = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\HYP_1_0_global");
-			var installPath1 = localMachineKeyGlobal?.GetValue("InstallPath") as string ?? string.Empty;
-			if (!string.IsNullOrEmpty(installPath1))
-			{
-				var game = Path.Combine(installPath1, "games", "Genshin Impact game", "GenshinImpact.exe");
-				if (File.Exists(game)) gamePaths.Add(game);
-			}
-
-			using RegistryKey? localMachineKeyCn = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\HYP_1_1_cn");
-			var installPath2 = localMachineKeyCn?.GetValue("InstallPath") as string ?? string.Empty;
-			if (!string.IsNullOrEmpty(installPath2))
-			{
-				var game = Path.Combine(installPath2, "games", "Genshin Impact game", "YuanShen.exe");
-				if (File.Exists(game)) gamePaths.Add(game);
-			}
-
-			Invoke(() =>
-			{
-				LabelResult.ForeColor = gamePaths.Count > 0 ? Color.Green : Color.Red;
-				LabelResult.Text = string.Format(Resources.SetupForm_Found_InstallationOfTheGame, gamePaths.Count);
-				ComboResult.Items.AddRange([..gamePaths]);
-				if (gamePaths.Count > 0)
-					ComboResult.SelectedIndex = 0;
-			});
+			List<string> gamePaths = GetGamePathsFromRegistry();
+			UpdateGamePathUi(gamePaths);
 		}
-		finally
+		catch (Exception ex)
 		{
-			openedSubKeys.ForEach(x => x.Close());
+			LabelResult.ForeColor = Color.Red;
+			LabelResult.Text = string.Format(Resources.SetupForm_SearchGamePath_SomethingWentWrong_ExMessage, ex.Message);
 		}
+	}
+
+	private List<string> GetGamePathsFromRegistry()
+	{
+		var paths = new HashSet<string>();
+		foreach (var regPath in _registryPaths)
+		{
+			using RegistryKey? key = Registry.CurrentUser.OpenSubKey(regPath);
+			if (key?.GetValue("GameInstallPath") is not string installPath) continue;
+
+			foreach (var exeName in _executableNames)
+			{
+				var fullPath = Path.Combine(installPath, exeName).Replace('/', '\\');
+				if (File.Exists(fullPath)) paths.Add(fullPath);
+			}
+		}
+
+		return paths.ToList();
+	}
+
+	private void UpdateGamePathUi(IReadOnlyCollection<string> gamePaths)
+	{
+		var hasGames = gamePaths.Count > 0;
+
+		LabelResult.ForeColor = hasGames ? Color.Green : Color.Orange;
+		LabelResult.Text = hasGames
+			? string.Format(Resources.SetupForm_UpdateGamePathUi_Found0InstallationOfTheGame, gamePaths.Count)
+			: Resources.SetupForm_UpdateGamePathUi_NoGameInstallationsFound;
+
+		ComboResult.Items.Clear();
+
+		if (!hasGames) return;
+		ComboResult.Items.AddRange(gamePaths.ToArray<object>());
+		ComboResult.SelectedIndex = 0;
 	}
 
 	private void BtnBrowse_Click(object sender, EventArgs e)
@@ -169,14 +156,14 @@ public partial class SetupForm : Form
 		var directory = Path.GetDirectoryName(selectedFile);
 		if (fileName != "GenshinImpact" && fileName != "YuanShen")
 		{
-			MessageBox.Show(Resources.SetupForm_PleaseSelectTheGameExe, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show(Resources.SetupForm_BtnBrowse_Click_PleaseSelectTheGameExe_GenshinImpactExeOrYuanShenExe, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return;
 		}
 
 		var dataDir = Path.Combine(directory!, $"{fileName}_Data");
 		if (!Directory.Exists(dataDir))
 		{
-			MessageBox.Show(Resources.SetupForm_ThatsNotTheRightPlace, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show(Resources.SetupForm_BtnBrowse_Click_ThatSNotTheRightPlace, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return;
 		}
 

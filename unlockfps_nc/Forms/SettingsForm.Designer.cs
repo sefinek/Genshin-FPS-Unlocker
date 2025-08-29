@@ -29,17 +29,14 @@ namespace unlockfps_nc.Forms
 		private void InitializeComponent()
 		{
 			components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
-			LabelAutoSave = new Label();
-			TabCtrlSettings = new TabControl();
-			TabGeneral = new TabPage();
-			ComboPriority = new ComboBox();
-			LabelPriority = new Label();
-			CBPowerSave = new CheckBox();
+			var resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
+			DllAddDialog = new OpenFileDialog();
+			ToolTipSettings = new ToolTip(components);
 			CBAutoClose = new CheckBox();
 			CBStartMinimized = new CheckBox();
-			TabLaunchOptions = new TabPage();
+			CBPowerSave = new CheckBox();
 			CBUseMobileUI = new CheckBox();
+			TabLaunchOptions = new TabPage();
 			InputMonitorNum = new NumericUpDown();
 			LabelMonitor = new Label();
 			ComboFullscreenMode = new ComboBox();
@@ -51,62 +48,31 @@ namespace unlockfps_nc.Forms
 			CBCustomRes = new CheckBox();
 			CBFullscreen = new CheckBox();
 			CBPopup = new CheckBox();
-			ToolTipSettings = new ToolTip(components);
-			DllAddDialog = new OpenFileDialog();
-			TabCtrlSettings.SuspendLayout();
-			TabGeneral.SuspendLayout();
+			TabGeneral = new TabPage();
+			CBHdr = new CheckBox();
+			ComboPriority = new ComboBox();
+			LabelPriority = new Label();
+			TabCtrlSettings = new TabControl();
+			LabelAutoSave = new Label();
 			TabLaunchOptions.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)InputMonitorNum).BeginInit();
 			((System.ComponentModel.ISupportInitialize)InputResY).BeginInit();
 			((System.ComponentModel.ISupportInitialize)InputResX).BeginInit();
+			TabGeneral.SuspendLayout();
+			TabCtrlSettings.SuspendLayout();
 			SuspendLayout();
 			// 
-			// LabelAutoSave
+			// DllAddDialog
 			// 
-			resources.ApplyResources(LabelAutoSave, "LabelAutoSave");
-			LabelAutoSave.ForeColor = Color.MediumTurquoise;
-			LabelAutoSave.Name = "LabelAutoSave";
+			resources.ApplyResources(DllAddDialog, "DllAddDialog");
+			DllAddDialog.Multiselect = true;
+			DllAddDialog.RestoreDirectory = true;
 			// 
-			// TabCtrlSettings
+			// ToolTipSettings
 			// 
-			resources.ApplyResources(TabCtrlSettings, "TabCtrlSettings");
-			TabCtrlSettings.Controls.Add(TabGeneral);
-			TabCtrlSettings.Controls.Add(TabLaunchOptions);
-			TabCtrlSettings.Name = "TabCtrlSettings";
-			TabCtrlSettings.SelectedIndex = 0;
-			// 
-			// TabGeneral
-			// 
-			TabGeneral.BackColor = Color.FromArgb(46, 48, 51);
-			TabGeneral.Controls.Add(ComboPriority);
-			TabGeneral.Controls.Add(LabelPriority);
-			TabGeneral.Controls.Add(CBPowerSave);
-			TabGeneral.Controls.Add(CBAutoClose);
-			TabGeneral.Controls.Add(CBStartMinimized);
-			resources.ApplyResources(TabGeneral, "TabGeneral");
-			TabGeneral.Name = "TabGeneral";
-			// 
-			// ComboPriority
-			// 
-			resources.ApplyResources(ComboPriority, "ComboPriority");
-			ComboPriority.ForeColor = Color.Black;
-			ComboPriority.FormattingEnabled = true;
-			ComboPriority.Items.AddRange(new object[] { resources.GetString("ComboPriority.Items"), resources.GetString("ComboPriority.Items1"), resources.GetString("ComboPriority.Items2"), resources.GetString("ComboPriority.Items3"), resources.GetString("ComboPriority.Items4"), resources.GetString("ComboPriority.Items5") });
-			ComboPriority.Name = "ComboPriority";
-			// 
-			// LabelPriority
-			// 
-			resources.ApplyResources(LabelPriority, "LabelPriority");
-			LabelPriority.ForeColor = Color.White;
-			LabelPriority.Name = "LabelPriority";
-			// 
-			// CBPowerSave
-			// 
-			resources.ApplyResources(CBPowerSave, "CBPowerSave");
-			CBPowerSave.ForeColor = Color.White;
-			CBPowerSave.Name = "CBPowerSave";
-			ToolTipSettings.SetToolTip(CBPowerSave, resources.GetString("CBPowerSave.ToolTip"));
-			CBPowerSave.UseVisualStyleBackColor = true;
+			ToolTipSettings.AutoPopDelay = 5000;
+			ToolTipSettings.InitialDelay = 500;
+			ToolTipSettings.ReshowDelay = 500;
 			// 
 			// CBAutoClose
 			// 
@@ -123,6 +89,21 @@ namespace unlockfps_nc.Forms
 			CBStartMinimized.Name = "CBStartMinimized";
 			ToolTipSettings.SetToolTip(CBStartMinimized, resources.GetString("CBStartMinimized.ToolTip"));
 			CBStartMinimized.UseVisualStyleBackColor = true;
+			// 
+			// CBPowerSave
+			// 
+			resources.ApplyResources(CBPowerSave, "CBPowerSave");
+			CBPowerSave.ForeColor = Color.White;
+			CBPowerSave.Name = "CBPowerSave";
+			ToolTipSettings.SetToolTip(CBPowerSave, resources.GetString("CBPowerSave.ToolTip"));
+			CBPowerSave.UseVisualStyleBackColor = true;
+			// 
+			// CBUseMobileUI
+			// 
+			resources.ApplyResources(CBUseMobileUI, "CBUseMobileUI");
+			CBUseMobileUI.ForeColor = Color.White;
+			CBUseMobileUI.Name = "CBUseMobileUI";
+			CBUseMobileUI.UseVisualStyleBackColor = true;
 			// 
 			// TabLaunchOptions
 			// 
@@ -141,13 +122,6 @@ namespace unlockfps_nc.Forms
 			TabLaunchOptions.Controls.Add(CBPopup);
 			resources.ApplyResources(TabLaunchOptions, "TabLaunchOptions");
 			TabLaunchOptions.Name = "TabLaunchOptions";
-			// 
-			// CBUseMobileUI
-			// 
-			resources.ApplyResources(CBUseMobileUI, "CBUseMobileUI");
-			CBUseMobileUI.ForeColor = Color.White;
-			CBUseMobileUI.Name = "CBUseMobileUI";
-			CBUseMobileUI.UseVisualStyleBackColor = true;
 			// 
 			// InputMonitorNum
 			// 
@@ -209,7 +183,6 @@ namespace unlockfps_nc.Forms
 			CBCustomRes.ForeColor = Color.White;
 			CBCustomRes.Name = "CBCustomRes";
 			CBCustomRes.UseVisualStyleBackColor = true;
-			CBCustomRes.CheckStateChanged += LaunchOptionsChanged;
 			// 
 			// CBFullscreen
 			// 
@@ -217,7 +190,6 @@ namespace unlockfps_nc.Forms
 			CBFullscreen.ForeColor = Color.White;
 			CBFullscreen.Name = "CBFullscreen";
 			CBFullscreen.UseVisualStyleBackColor = true;
-			CBFullscreen.CheckStateChanged += LaunchOptionsChanged;
 			// 
 			// CBPopup
 			// 
@@ -225,19 +197,53 @@ namespace unlockfps_nc.Forms
 			CBPopup.ForeColor = Color.White;
 			CBPopup.Name = "CBPopup";
 			CBPopup.UseVisualStyleBackColor = true;
-			CBPopup.CheckStateChanged += LaunchOptionsChanged;
 			// 
-			// ToolTipSettings
+			// TabGeneral
 			// 
-			ToolTipSettings.AutoPopDelay = 5000;
-			ToolTipSettings.InitialDelay = 500;
-			ToolTipSettings.ReshowDelay = 500;
+			TabGeneral.BackColor = Color.FromArgb(46, 48, 51);
+			TabGeneral.Controls.Add(CBHdr);
+			TabGeneral.Controls.Add(ComboPriority);
+			TabGeneral.Controls.Add(LabelPriority);
+			TabGeneral.Controls.Add(CBPowerSave);
+			TabGeneral.Controls.Add(CBAutoClose);
+			TabGeneral.Controls.Add(CBStartMinimized);
+			resources.ApplyResources(TabGeneral, "TabGeneral");
+			TabGeneral.Name = "TabGeneral";
 			// 
-			// DllAddDialog
+			// CBHdr
 			// 
-			resources.ApplyResources(DllAddDialog, "DllAddDialog");
-			DllAddDialog.Multiselect = true;
-			DllAddDialog.RestoreDirectory = true;
+			resources.ApplyResources(CBHdr, "CBHdr");
+			CBHdr.ForeColor = Color.White;
+			CBHdr.Name = "CBHdr";
+			CBHdr.UseVisualStyleBackColor = true;
+			// 
+			// ComboPriority
+			// 
+			ComboPriority.ForeColor = Color.Black;
+			ComboPriority.FormattingEnabled = true;
+			ComboPriority.Items.AddRange(new object[] { resources.GetString("ComboPriority.Items"), resources.GetString("ComboPriority.Items1"), resources.GetString("ComboPriority.Items2"), resources.GetString("ComboPriority.Items3"), resources.GetString("ComboPriority.Items4"), resources.GetString("ComboPriority.Items5") });
+			resources.ApplyResources(ComboPriority, "ComboPriority");
+			ComboPriority.Name = "ComboPriority";
+			// 
+			// LabelPriority
+			// 
+			resources.ApplyResources(LabelPriority, "LabelPriority");
+			LabelPriority.ForeColor = Color.White;
+			LabelPriority.Name = "LabelPriority";
+			// 
+			// TabCtrlSettings
+			// 
+			TabCtrlSettings.Controls.Add(TabGeneral);
+			TabCtrlSettings.Controls.Add(TabLaunchOptions);
+			resources.ApplyResources(TabCtrlSettings, "TabCtrlSettings");
+			TabCtrlSettings.Name = "TabCtrlSettings";
+			TabCtrlSettings.SelectedIndex = 0;
+			// 
+			// LabelAutoSave
+			// 
+			resources.ApplyResources(LabelAutoSave, "LabelAutoSave");
+			LabelAutoSave.ForeColor = Color.MediumTurquoise;
+			LabelAutoSave.Name = "LabelAutoSave";
 			// 
 			// SettingsForm
 			// 
@@ -253,41 +259,42 @@ namespace unlockfps_nc.Forms
 			Name = "SettingsForm";
 			FormClosing += SettingsForm_FormClosing;
 			Load += SettingsForm_Load;
-			TabCtrlSettings.ResumeLayout(false);
-			TabGeneral.ResumeLayout(false);
-			TabGeneral.PerformLayout();
 			TabLaunchOptions.ResumeLayout(false);
 			TabLaunchOptions.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)InputMonitorNum).EndInit();
 			((System.ComponentModel.ISupportInitialize)InputResY).EndInit();
 			((System.ComponentModel.ISupportInitialize)InputResX).EndInit();
+			TabGeneral.ResumeLayout(false);
+			TabGeneral.PerformLayout();
+			TabCtrlSettings.ResumeLayout(false);
 			ResumeLayout(false);
 		}
 
 		#endregion
 
+		private OpenFileDialog DllAddDialog;
+		private ToolTip ToolTipSettings;
+		private CheckBox CBUseMobileUI;
+		private TabPage TabLaunchOptions;
+		private NumericUpDown InputMonitorNum;
+		private Label LabelMonitor;
+		private ComboBox ComboFullscreenMode;
+		private Label LabelWindowMode;
+		private NumericUpDown InputResY;
+		private Label LabelX;
+		private NumericUpDown InputResX;
+		private Label LabelCustomRes;
+		private CheckBox CBCustomRes;
+		private CheckBox CBFullscreen;
+		private CheckBox CBPopup;
+		private CheckBox CBAutoClose;
+		private CheckBox CBStartMinimized;
+		private TabPage TabGeneral;
+		private CheckBox CBHdr;
+		private ComboBox ComboPriority;
+		private Label LabelPriority;
+		private CheckBox CBPowerSave;
+		private TabControl TabCtrlSettings;
 		private Label LabelAutoSave;
-        private TabControl TabCtrlSettings;
-        private TabPage TabGeneral;
-        private TabPage TabLaunchOptions;
-        private ComboBox ComboPriority;
-        private Label LabelPriority;
-        private CheckBox CBPowerSave;
-        private CheckBox CBAutoClose;
-        private CheckBox CBStartMinimized;
-        private NumericUpDown InputResY;
-        private Label LabelX;
-        private NumericUpDown InputResX;
-        private Label LabelCustomRes;
-        private CheckBox CBCustomRes;
-        private CheckBox CBFullscreen;
-        private CheckBox CBPopup;
-        private NumericUpDown InputMonitorNum;
-        private Label LabelMonitor;
-        private ComboBox ComboFullscreenMode;
-        private Label LabelWindowMode;
-        private ToolTip ToolTipSettings;
-        private CheckBox CBUseMobileUI;
-        private OpenFileDialog DllAddDialog;
-	 }
+	}
 }

@@ -653,7 +653,7 @@
     <value>6</value>
   </data>
   <data name="CBHdr.Text" xml:space="preserve">
-    <value>Enable HDR</value>
+    <value>HDR'yi Etkinleştir</value>
   </data>
   <data name="&gt;&gt;CBHdr.Name" xml:space="preserve">
     <value>CBHdr</value>

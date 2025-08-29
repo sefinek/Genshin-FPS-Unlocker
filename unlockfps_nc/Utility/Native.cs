@@ -3,7 +3,7 @@ using System.Text;
 
 namespace unlockfps_nc.Utility;
 
-internal static class Native
+internal class Native
 {
 	public delegate bool EnumWindowsProc(IntPtr hWnd, IntPtr lParam);
 
@@ -19,7 +19,7 @@ internal static class Native
 	public static extern int GetClassName(IntPtr hWnd, StringBuilder lpClassName, int nMaxCount);
 
 	[DllImport("user32.dll", SetLastError = true)]
-	public static extern IntPtr SetWinEventHook(uint eventMin, uint eventMax, IntPtr hmodWinEventProc, WinEventProc? lpfnWinEventProc, uint idProcess, uint idThread, uint dwFlags);
+	public static extern IntPtr SetWinEventHook(uint eventMin, uint eventMax, IntPtr hmodWinEventProc, WinEventProc lpfnWinEventProc, uint idProcess, uint idThread, uint dwFlags);
 
 	[DllImport("user32.dll")]
 	public static extern bool UnhookWinEvent(IntPtr hWinEventHook);
@@ -33,8 +33,32 @@ internal static class Native
 	[DllImport("user32.dll")]
 	public static extern bool UnhookWindowsHookEx(IntPtr hhk);
 
-	[DllImport("user32.dll")]
+	[DllImport("user32.dll", SetLastError = true)]
 	public static extern bool PostThreadMessage(uint idThread, uint Msg, IntPtr wParam, IntPtr lParam);
+
+	[DllImport("user32.dll")]
+	public static extern IntPtr GetForegroundWindow();
+
+	[DllImport("user32.dll")]
+	public static extern bool SetForegroundWindow(IntPtr hWnd);
+
+	[DllImport("user32.dll")]
+	public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
+	[DllImport("user32.dll")]
+	public static extern bool IsWindowVisible(IntPtr hWnd);
+
+	[DllImport("user32.dll")]
+	public static extern bool RedrawWindow(IntPtr hWnd, IntPtr lprcUpdate, IntPtr hrgnUpdate, uint flags);
+
+	[DllImport("user32.dll")]
+	public static extern bool UpdateWindow(IntPtr hWnd);
+
+	[DllImport("user32.dll")]
+	public static extern IntPtr GetDC(IntPtr hWnd);
+
+	[DllImport("user32.dll")]
+	public static extern int ReleaseDC(IntPtr hWnd, IntPtr hDC);
 
 	[DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
 	public static extern IntPtr CreateMutex(IntPtr lpMutexAttributes, bool bInitialOwner, string lpName);
@@ -55,8 +79,7 @@ internal static class Native
 	public static extern bool GetExitCodeProcess(IntPtr hProcess, out uint lpExitCode);
 
 	[DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
-	public static extern bool CreateProcess(string lpApplicationName, string lpCommandLine, IntPtr lpProcessAttributes, IntPtr lpThreadAttributes, bool bInheritHandles, uint dwCreationFlags, IntPtr lpEnvironment, string lpCurrentDirectory,
-		[In] ref STARTUPINFO lpStartupInfo, out PROCESS_INFORMATION lpProcessInformation);
+	public static extern bool CreateProcess(string lpApplicationName, string lpCommandLine, IntPtr lpProcessAttributes, IntPtr lpThreadAttributes, bool bInheritHandles, uint dwCreationFlags, IntPtr lpEnvironment, string? lpCurrentDirectory, [In] ref STARTUPINFO lpStartupInfo, out PROCESS_INFORMATION lpProcessInformation);
 
 	[DllImport("kernel32.dll", SetLastError = true)]
 	public static extern uint ResumeThread(IntPtr hThread);
@@ -92,7 +115,7 @@ internal static class Native
 	public static extern void FreeLibrary(IntPtr handle);
 
 	[DllImport("kernel32.dll", SetLastError = true)]
-	private static extern IntPtr GetModuleHandle(string lpModuleName);
+	public static extern IntPtr GetModuleHandle(string lpModuleName);
 
 	[DllImport("kernel32.dll")]
 	public static extern IntPtr GetProcAddress(IntPtr hModule, string procedureName);
@@ -180,7 +203,7 @@ internal static class ProcessAccess
 internal static class StandardAccess
 {
 	public const uint DELETE = 0x00010000;
-	private const uint READ_CONTROL = 0x00020000;
+	public const uint READ_CONTROL = 0x00020000;
 	public const uint WRITE_DAC = 0x00040000;
 	public const uint WRITE_OWNER = 0x00080000;
 	public const uint SYNCHRONIZE = 0x00100000;
