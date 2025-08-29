@@ -23,11 +23,19 @@ public partial class MainForm : Form
 		_config = _configService.Config;
 		_processService = processService;
 		SetupBindings();
+		RefreshFPSControls();
 	}
 
 	private void SettingsMenuItem_Click(object sender, EventArgs e)
 	{
 		Program.ServiceProvider.GetRequiredService<SettingsForm>().ShowDialog();
+		RefreshFPSControls();
+	}
+
+	private void RefreshFPSControls()
+	{
+		InputFPS.Value = _config.FPSTarget;
+		SliderFPS.Value = _config.FPSTarget;
 	}
 
 	private void MainForm_FormClosing(object sender, FormClosingEventArgs e)

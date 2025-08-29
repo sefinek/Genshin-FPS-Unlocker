@@ -1,6 +1,7 @@
 using System.Text;
 using System.Text.Json;
 using unlockfps_nc.Model;
+using unlockfps_nc.Utility;
 
 namespace unlockfps_nc.Service;
 
@@ -11,8 +12,10 @@ public class ConfigService
 
 	public ConfigService()
 	{
+		var isFirstRun = !File.Exists(GetFullPath());
 		Load();
 		Sanitize();
+		if (isFirstRun) InitializePrimaryMonitor();
 	}
 
 	public Config Config { get; private set; } = new();
@@ -34,6 +37,41 @@ public class ConfigService
 		Config.CustomResX = Math.Clamp(Config.CustomResX, 200, 7680);
 		Config.CustomResY = Math.Clamp(Config.CustomResY, 200, 4320);
 		Config.MonitorNum = Math.Clamp(Config.MonitorNum, 1, 100);
+	}
+
+	private void InitializePrimaryMonitor()
+	{
+		var primaryMonitorIndex = FindPrimaryMonitorIndex();
+		
+		if (primaryMonitorIndex != -1)
+		{
+			Config.MonitorNum = primaryMonitorIndex + 1;
+			UpdateMonitorSettings(primaryMonitorIndex);
+		}
+	}
+
+	private int FindPrimaryMonitorIndex()
+	{
+		for (var i = 0; i < 10; i++)
+			try
+			{
+				var (_, _, _, _, isPrimary) = MonitorUtils.GetMonitorInfo(i);
+				if (isPrimary) return i;
+			}
+			catch
+			{
+				break;
+			}
+
+		return -1;
+	}
+
+	public void UpdateMonitorSettings(int monitorIndex)
+	{
+		var (_, width, height, refreshRate, _) = MonitorUtils.GetMonitorInfo(monitorIndex);
+		Config.FPSTarget = refreshRate > 0 ? refreshRate : 60;
+		Config.CustomResX = width > 0 ? width : 1920;
+		Config.CustomResY = height > 0 ? height : 1080;
 	}
 
 	private static string GetFullPath()

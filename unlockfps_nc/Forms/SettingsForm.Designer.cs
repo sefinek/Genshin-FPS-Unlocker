@@ -1,24 +1,24 @@
 namespace unlockfps_nc.Forms
 {
-    partial class SettingsForm
-    {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+	partial class SettingsForm
+	{
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing && (components != null))
+			{
+				components.Dispose();
+			}
+			base.Dispose(disposing);
+		}
 
 		#region Windows Form Designer generated code
 
@@ -37,14 +37,12 @@ namespace unlockfps_nc.Forms
 			CBPowerSave = new CheckBox();
 			CBUseMobileUI = new CheckBox();
 			TabLaunchOptions = new TabPage();
-			InputMonitorNum = new NumericUpDown();
+			ComboMonitor = new ComboBox();
 			LabelMonitor = new Label();
 			ComboFullscreenMode = new ComboBox();
-			LabelWindowMode = new Label();
 			InputResY = new NumericUpDown();
 			LabelX = new Label();
 			InputResX = new NumericUpDown();
-			LabelCustomRes = new Label();
 			CBCustomRes = new CheckBox();
 			CBFullscreen = new CheckBox();
 			CBPopup = new CheckBox();
@@ -55,7 +53,6 @@ namespace unlockfps_nc.Forms
 			TabCtrlSettings = new TabControl();
 			LabelAutoSave = new Label();
 			TabLaunchOptions.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)InputMonitorNum).BeginInit();
 			((System.ComponentModel.ISupportInitialize)InputResY).BeginInit();
 			((System.ComponentModel.ISupportInitialize)InputResX).BeginInit();
 			TabGeneral.SuspendLayout();
@@ -109,26 +106,24 @@ namespace unlockfps_nc.Forms
 			// 
 			TabLaunchOptions.BackColor = Color.FromArgb(46, 48, 51);
 			TabLaunchOptions.Controls.Add(CBUseMobileUI);
-			TabLaunchOptions.Controls.Add(InputMonitorNum);
+			TabLaunchOptions.Controls.Add(ComboMonitor);
 			TabLaunchOptions.Controls.Add(LabelMonitor);
 			TabLaunchOptions.Controls.Add(ComboFullscreenMode);
-			TabLaunchOptions.Controls.Add(LabelWindowMode);
 			TabLaunchOptions.Controls.Add(InputResY);
 			TabLaunchOptions.Controls.Add(LabelX);
 			TabLaunchOptions.Controls.Add(InputResX);
-			TabLaunchOptions.Controls.Add(LabelCustomRes);
 			TabLaunchOptions.Controls.Add(CBCustomRes);
 			TabLaunchOptions.Controls.Add(CBFullscreen);
 			TabLaunchOptions.Controls.Add(CBPopup);
 			resources.ApplyResources(TabLaunchOptions, "TabLaunchOptions");
 			TabLaunchOptions.Name = "TabLaunchOptions";
 			// 
-			// InputMonitorNum
+			// ComboMonitor
 			// 
-			resources.ApplyResources(InputMonitorNum, "InputMonitorNum");
-			InputMonitorNum.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-			InputMonitorNum.Name = "InputMonitorNum";
-			InputMonitorNum.Value = new decimal(new int[] { 1, 0, 0, 0 });
+			ComboMonitor.DropDownStyle = ComboBoxStyle.DropDownList;
+			resources.ApplyResources(ComboMonitor, "ComboMonitor");
+			ComboMonitor.FormattingEnabled = true;
+			ComboMonitor.Name = "ComboMonitor";
 			// 
 			// LabelMonitor
 			// 
@@ -142,12 +137,6 @@ namespace unlockfps_nc.Forms
 			ComboFullscreenMode.FormattingEnabled = true;
 			ComboFullscreenMode.Items.AddRange(new object[] { resources.GetString("ComboFullscreenMode.Items"), resources.GetString("ComboFullscreenMode.Items1") });
 			ComboFullscreenMode.Name = "ComboFullscreenMode";
-			// 
-			// LabelWindowMode
-			// 
-			resources.ApplyResources(LabelWindowMode, "LabelWindowMode");
-			LabelWindowMode.ForeColor = Color.White;
-			LabelWindowMode.Name = "LabelWindowMode";
 			// 
 			// InputResY
 			// 
@@ -171,18 +160,13 @@ namespace unlockfps_nc.Forms
 			InputResX.Name = "InputResX";
 			InputResX.Value = new decimal(new int[] { 1920, 0, 0, 0 });
 			// 
-			// LabelCustomRes
-			// 
-			resources.ApplyResources(LabelCustomRes, "LabelCustomRes");
-			LabelCustomRes.ForeColor = Color.White;
-			LabelCustomRes.Name = "LabelCustomRes";
-			// 
 			// CBCustomRes
 			// 
 			resources.ApplyResources(CBCustomRes, "CBCustomRes");
 			CBCustomRes.ForeColor = Color.White;
 			CBCustomRes.Name = "CBCustomRes";
 			CBCustomRes.UseVisualStyleBackColor = true;
+			CBCustomRes.CheckedChanged += CBCustomRes_CheckedChanged;
 			// 
 			// CBFullscreen
 			// 
@@ -190,6 +174,7 @@ namespace unlockfps_nc.Forms
 			CBFullscreen.ForeColor = Color.White;
 			CBFullscreen.Name = "CBFullscreen";
 			CBFullscreen.UseVisualStyleBackColor = true;
+			CBFullscreen.CheckedChanged += CBFullscreen_CheckedChanged;
 			// 
 			// CBPopup
 			// 
@@ -197,6 +182,7 @@ namespace unlockfps_nc.Forms
 			CBPopup.ForeColor = Color.White;
 			CBPopup.Name = "CBPopup";
 			CBPopup.UseVisualStyleBackColor = true;
+			CBPopup.CheckedChanged += CBPopup_CheckedChanged;
 			// 
 			// TabGeneral
 			// 
@@ -219,6 +205,7 @@ namespace unlockfps_nc.Forms
 			// 
 			// ComboPriority
 			// 
+			ComboPriority.DropDownStyle = ComboBoxStyle.DropDownList;
 			ComboPriority.ForeColor = Color.Black;
 			ComboPriority.FormattingEnabled = true;
 			ComboPriority.Items.AddRange(new object[] { resources.GetString("ComboPriority.Items"), resources.GetString("ComboPriority.Items1"), resources.GetString("ComboPriority.Items2"), resources.GetString("ComboPriority.Items3"), resources.GetString("ComboPriority.Items4"), resources.GetString("ComboPriority.Items5") });
@@ -261,7 +248,6 @@ namespace unlockfps_nc.Forms
 			Load += SettingsForm_Load;
 			TabLaunchOptions.ResumeLayout(false);
 			TabLaunchOptions.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)InputMonitorNum).EndInit();
 			((System.ComponentModel.ISupportInitialize)InputResY).EndInit();
 			((System.ComponentModel.ISupportInitialize)InputResX).EndInit();
 			TabGeneral.ResumeLayout(false);
@@ -276,14 +262,12 @@ namespace unlockfps_nc.Forms
 		private ToolTip ToolTipSettings;
 		private CheckBox CBUseMobileUI;
 		private TabPage TabLaunchOptions;
-		private NumericUpDown InputMonitorNum;
+		private ComboBox ComboMonitor;
 		private Label LabelMonitor;
 		private ComboBox ComboFullscreenMode;
-		private Label LabelWindowMode;
 		private NumericUpDown InputResY;
 		private Label LabelX;
 		private NumericUpDown InputResX;
-		private Label LabelCustomRes;
 		private CheckBox CBCustomRes;
 		private CheckBox CBFullscreen;
 		private CheckBox CBPopup;
