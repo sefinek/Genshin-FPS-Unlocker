@@ -203,7 +203,7 @@ v{0}</value>
     <value>4</value>
   </data>
   <data name="linkLabel1.Text" xml:space="preserve">
-    <value>https://github.com/sefinek/Genshin-FPS-Unlocker</value>
+    <value>https://github.com/sefinek/Genshin-FPS-Unlocker (FPS-upplåsare)</value>
   </data>
   <data name="linkLabel1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>

@@ -264,28 +264,28 @@
   <data name="&gt;&gt;CBUseMobileUI.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="InputMonitorNum.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="ComboMonitor.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
   </data>
-  <data name="InputMonitorNum.Location" type="System.Drawing.Point, System.Drawing">
-    <value>139, 167</value>
+  <data name="ComboMonitor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 127</value>
   </data>
-  <data name="InputMonitorNum.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 23</value>
+  <data name="ComboMonitor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>267, 23</value>
   </data>
-  <data name="InputMonitorNum.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+  <data name="ComboMonitor.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
   </data>
-  <data name="&gt;&gt;InputMonitorNum.Name" xml:space="preserve">
-    <value>InputMonitorNum</value>
+  <data name="&gt;&gt;ComboMonitor.Name" xml:space="preserve">
+    <value>ComboMonitor</value>
   </data>
-  <data name="&gt;&gt;InputMonitorNum.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;ComboMonitor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;InputMonitorNum.Parent" xml:space="preserve">
+  <data name="&gt;&gt;ComboMonitor.Parent" xml:space="preserve">
     <value>TabLaunchOptions</value>
   </data>
-  <data name="&gt;&gt;InputMonitorNum.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;ComboMonitor.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="LabelMonitor.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -298,7 +298,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelMonitor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 169</value>
+    <value>4, 108</value>
   </data>
   <data name="LabelMonitor.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 15</value>
@@ -331,7 +331,7 @@
     <value>Exclusive</value>
   </data>
   <data name="ComboFullscreenMode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>139, 138</value>
+    <value>139, 5</value>
   </data>
   <data name="ComboFullscreenMode.Size" type="System.Drawing.Size, System.Drawing">
     <value>135, 23</value>
@@ -354,44 +354,11 @@
   <data name="&gt;&gt;ComboFullscreenMode.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="LabelWindowMode.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="LabelWindowMode.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="LabelWindowMode.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="LabelWindowMode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 141</value>
-  </data>
-  <data name="LabelWindowMode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 15</value>
-  </data>
-  <data name="LabelWindowMode.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="LabelWindowMode.Text" xml:space="preserve">
-    <value>Fullscreen Mode:</value>
-  </data>
-  <data name="&gt;&gt;LabelWindowMode.Name" xml:space="preserve">
-    <value>LabelWindowMode</value>
-  </data>
-  <data name="&gt;&gt;LabelWindowMode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LabelWindowMode.Parent" xml:space="preserve">
-    <value>TabLaunchOptions</value>
-  </data>
-  <data name="&gt;&gt;LabelWindowMode.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="InputResY.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
   </data>
   <data name="InputResY.Location" type="System.Drawing.Point, System.Drawing">
-    <value>219, 109</value>
+    <value>219, 52</value>
   </data>
   <data name="InputResY.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 23</value>
@@ -412,7 +379,7 @@
     <value>TabLaunchOptions</value>
   </data>
   <data name="&gt;&gt;InputResY.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="LabelX.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -427,7 +394,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelX.Location" type="System.Drawing.Point, System.Drawing">
-    <value>200, 110</value>
+    <value>200, 53</value>
   </data>
   <data name="LabelX.Size" type="System.Drawing.Size, System.Drawing">
     <value>14, 17</value>
@@ -448,13 +415,13 @@
     <value>TabLaunchOptions</value>
   </data>
   <data name="&gt;&gt;LabelX.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="InputResX.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
   </data>
   <data name="InputResX.Location" type="System.Drawing.Point, System.Drawing">
-    <value>139, 109</value>
+    <value>139, 53</value>
   </data>
   <data name="InputResX.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 23</value>
@@ -475,40 +442,7 @@
     <value>TabLaunchOptions</value>
   </data>
   <data name="&gt;&gt;InputResX.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="LabelCustomRes.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="LabelCustomRes.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="LabelCustomRes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="LabelCustomRes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 112</value>
-  </data>
-  <data name="LabelCustomRes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 15</value>
-  </data>
-  <data name="LabelCustomRes.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="LabelCustomRes.Text" xml:space="preserve">
-    <value>Resolution:</value>
-  </data>
-  <data name="&gt;&gt;LabelCustomRes.Name" xml:space="preserve">
-    <value>LabelCustomRes</value>
-  </data>
-  <data name="&gt;&gt;LabelCustomRes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LabelCustomRes.Parent" xml:space="preserve">
-    <value>TabLaunchOptions</value>
-  </data>
-  <data name="&gt;&gt;LabelCustomRes.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>6</value>
   </data>
   <data name="CBCustomRes.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -523,13 +457,13 @@
     <value>6, 55</value>
   </data>
   <data name="CBCustomRes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 19</value>
+    <value>130, 19</value>
   </data>
   <data name="CBCustomRes.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="CBCustomRes.Text" xml:space="preserve">
-    <value>Custom Resolution</value>
+    <value>Custom Resolution:</value>
   </data>
   <data name="&gt;&gt;CBCustomRes.Name" xml:space="preserve">
     <value>CBCustomRes</value>
@@ -541,7 +475,7 @@
     <value>TabLaunchOptions</value>
   </data>
   <data name="&gt;&gt;CBCustomRes.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>7</value>
   </data>
   <data name="CBFullscreen.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -556,13 +490,13 @@
     <value>6, 6</value>
   </data>
   <data name="CBFullscreen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 19</value>
+    <value>82, 19</value>
   </data>
   <data name="CBFullscreen.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="CBFullscreen.Text" xml:space="preserve">
-    <value>Fullscreen</value>
+    <value>Fullscreen:</value>
   </data>
   <data name="&gt;&gt;CBFullscreen.Name" xml:space="preserve">
     <value>CBFullscreen</value>
@@ -574,7 +508,7 @@
     <value>TabLaunchOptions</value>
   </data>
   <data name="&gt;&gt;CBFullscreen.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>8</value>
   </data>
   <data name="CBPopup.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -607,7 +541,7 @@
     <value>TabLaunchOptions</value>
   </data>
   <data name="&gt;&gt;CBPopup.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>9</value>
   </data>
   <data name="TabLaunchOptions.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 24</value>
@@ -716,7 +650,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelPriority.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 108</value>
+    <value>4, 108</value>
   </data>
   <data name="LabelPriority.Size" type="System.Drawing.Size, System.Drawing">
     <value>125, 15</value>

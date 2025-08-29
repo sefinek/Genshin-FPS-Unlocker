@@ -134,36 +134,36 @@
     <value>Fil hittades inte</value>
   </data>
   <data name="SetupForm_UpdateGamePathUi_Found0InstallationOfTheGame" xml:space="preserve">
-    <value>Found {0} installation of the game</value>
+    <value>Hittade {0} installationer av spelet</value>
   </data>
   <data name="SetupForm_UpdateGamePathUi_NoGameInstallationsFound" xml:space="preserve">
-    <value>No game installations found!</value>
+    <value>Inga spelinstallationer hittades!</value>
   </data>
   <data name="MainForm_NotifyAndHide_GenshinFPSUnlockerCurrentLimit_" xml:space="preserve">
-    <value>Genshin FPS Unlocker (current limit: {0})</value>
+    <value>Genshin FPS Upplåsare (nuvarande gräns: {0})</value>
   </data>
   <data name="SetupForm_BtnBrowse_Click_ThatSNotTheRightPlace" xml:space="preserve">
-    <value>That's not the right place.</value>
+    <value>Det är inte rätt plats.</value>
   </data>
   <data name="SetupForm_BtnBrowse_Click_PleaseSelectTheGameExe_GenshinImpactExeOrYuanShenExe" xml:space="preserve">
-    <value>Please select the game exe:
-GenshinImpact.exe or YuanShen.exe</value>
+    <value>Vänligen välj spelets exe-fill.
+GenshinImpact.exe eller YuanShen.exe</value>
   </data>
   <data name="SetupForm_PollProcess_FailedToFindProcessPathPleaseUseBrowseInstead" xml:space="preserve">
-    <value>Failed to find process path. Please use "Browse" instead.</value>
+    <value>Kunde inte hitta processens sökväg. Vänligen använd "Bläddra" istället.</value>
   </data>
   <data name="SetupForm_PollProcess_GameFound_" xml:space="preserve">
-    <value>Game found!
+    <value>Spelet hittades!
 {0}</value>
   </data>
   <data name="SetupForm_SearchGamePath_SomethingWentWrong_ExMessage" xml:space="preserve">
-    <value>Something went wrong:
+    <value>Något gick fel:
 {0}</value>
   </data>
   <data name="Program_Main_DoNotPlaceThisToolInTheGameFolder" xml:space="preserve">
-    <value>Do not place this tool in the game folder!</value>
+    <value>Placera inte detta verktyg i spelmappen!</value>
   </data>
   <data name="MainForm_OpenStella_Click_TheRegistryKeyStellaPathWasNotFoundAreYouSureGenshinStellaModIsInstalled" xml:space="preserve">
-    <value>The registry key "StellaPath" was not found. Are you sure Genshin Stella Mod is installed?</value>
+    <value>Registreringsnyckeln 'StellaPath' hittades inte. Är du säker på att Genshin Stella Mod är installerad?</value>
   </data>
 </root>
