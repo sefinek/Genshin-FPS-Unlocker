@@ -16,7 +16,7 @@ public class Config
 	public bool UseMobileUI { get; set; }
 	public bool UseHDR { get; set; }
 
-	public int FPSTarget { get; set; } = 144;
+	public int FPSTarget { get; set; } = 60;
 	public int CustomResX { get; set; } = 1920;
 	public int CustomResY { get; set; } = 1080;
 	public int MonitorNum { get; set; } = 1;
