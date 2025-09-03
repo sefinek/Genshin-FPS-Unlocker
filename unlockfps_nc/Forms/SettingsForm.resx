@@ -551,7 +551,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="TabLaunchOptions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 210</value>
+    <value>280, 252</value>
   </data>
   <data name="TabLaunchOptions.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -628,9 +628,6 @@
   <data name="ComboPriority.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="ComboPriority.Text" xml:space="preserve">
-    <value>Normal</value>
-  </data>
   <data name="&gt;&gt;ComboPriority.Name" xml:space="preserve">
     <value>ComboPriority</value>
   </data>
@@ -699,6 +696,300 @@
   </data>
   <data name="&gt;&gt;TabGeneral.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="CBEnableHotkeys.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="CBEnableHotkeys.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 20</value>
+  </data>
+  <data name="CBEnableHotkeys.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 19</value>
+  </data>
+  <data name="CBEnableHotkeys.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="CBEnableHotkeys.Text" xml:space="preserve">
+    <value>Enable Hotkeys</value>
+  </data>
+  <data name="&gt;&gt;CBEnableHotkeys.Name" xml:space="preserve">
+    <value>CBEnableHotkeys</value>
+  </data>
+  <data name="&gt;&gt;CBEnableHotkeys.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CBEnableHotkeys.Parent" xml:space="preserve">
+    <value>TabHotkeys</value>
+  </data>
+  <data name="&gt;&gt;CBEnableHotkeys.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="LabelHotkey30.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LabelHotkey30.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 60</value>
+  </data>
+  <data name="LabelHotkey30.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 15</value>
+  </data>
+  <data name="LabelHotkey30.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="LabelHotkey30.Text" xml:space="preserve">
+    <value>30 FPS:</value>
+  </data>
+  <data name="&gt;&gt;LabelHotkey30.Name" xml:space="preserve">
+    <value>LabelHotkey30</value>
+  </data>
+  <data name="&gt;&gt;LabelHotkey30.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LabelHotkey30.Parent" xml:space="preserve">
+    <value>TabHotkeys</value>
+  </data>
+  <data name="&gt;&gt;LabelHotkey30.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ComboHotkey30.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 57</value>
+  </data>
+  <data name="ComboHotkey30.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 23</value>
+  </data>
+  <data name="ComboHotkey30.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;ComboHotkey30.Name" xml:space="preserve">
+    <value>ComboHotkey30</value>
+  </data>
+  <data name="&gt;&gt;ComboHotkey30.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ComboHotkey30.Parent" xml:space="preserve">
+    <value>TabHotkeys</value>
+  </data>
+  <data name="&gt;&gt;ComboHotkey30.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="LabelHotkey60.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LabelHotkey60.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 100</value>
+  </data>
+  <data name="LabelHotkey60.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 15</value>
+  </data>
+  <data name="LabelHotkey60.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="LabelHotkey60.Text" xml:space="preserve">
+    <value>60 FPS:</value>
+  </data>
+  <data name="&gt;&gt;LabelHotkey60.Name" xml:space="preserve">
+    <value>LabelHotkey60</value>
+  </data>
+  <data name="&gt;&gt;LabelHotkey60.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LabelHotkey60.Parent" xml:space="preserve">
+    <value>TabHotkeys</value>
+  </data>
+  <data name="&gt;&gt;LabelHotkey60.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="ComboHotkey60.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 97</value>
+  </data>
+  <data name="ComboHotkey60.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 23</value>
+  </data>
+  <data name="ComboHotkey60.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;ComboHotkey60.Name" xml:space="preserve">
+    <value>ComboHotkey60</value>
+  </data>
+  <data name="&gt;&gt;ComboHotkey60.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ComboHotkey60.Parent" xml:space="preserve">
+    <value>TabHotkeys</value>
+  </data>
+  <data name="&gt;&gt;ComboHotkey60.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="LabelHotkey120.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LabelHotkey120.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 140</value>
+  </data>
+  <data name="LabelHotkey120.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 15</value>
+  </data>
+  <data name="LabelHotkey120.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="LabelHotkey120.Text" xml:space="preserve">
+    <value>120 FPS:</value>
+  </data>
+  <data name="&gt;&gt;LabelHotkey120.Name" xml:space="preserve">
+    <value>LabelHotkey120</value>
+  </data>
+  <data name="&gt;&gt;LabelHotkey120.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LabelHotkey120.Parent" xml:space="preserve">
+    <value>TabHotkeys</value>
+  </data>
+  <data name="&gt;&gt;LabelHotkey120.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="ComboHotkey120.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 137</value>
+  </data>
+  <data name="ComboHotkey120.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 23</value>
+  </data>
+  <data name="ComboHotkey120.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;ComboHotkey120.Name" xml:space="preserve">
+    <value>ComboHotkey120</value>
+  </data>
+  <data name="&gt;&gt;ComboHotkey120.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ComboHotkey120.Parent" xml:space="preserve">
+    <value>TabHotkeys</value>
+  </data>
+  <data name="&gt;&gt;ComboHotkey120.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="LabelHotkey144.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LabelHotkey144.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 180</value>
+  </data>
+  <data name="LabelHotkey144.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 15</value>
+  </data>
+  <data name="LabelHotkey144.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="LabelHotkey144.Text" xml:space="preserve">
+    <value>144 FPS:</value>
+  </data>
+  <data name="&gt;&gt;LabelHotkey144.Name" xml:space="preserve">
+    <value>LabelHotkey144</value>
+  </data>
+  <data name="&gt;&gt;LabelHotkey144.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LabelHotkey144.Parent" xml:space="preserve">
+    <value>TabHotkeys</value>
+  </data>
+  <data name="&gt;&gt;LabelHotkey144.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="ComboHotkey144.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 177</value>
+  </data>
+  <data name="ComboHotkey144.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 23</value>
+  </data>
+  <data name="ComboHotkey144.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;ComboHotkey144.Name" xml:space="preserve">
+    <value>ComboHotkey144</value>
+  </data>
+  <data name="&gt;&gt;ComboHotkey144.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ComboHotkey144.Parent" xml:space="preserve">
+    <value>TabHotkeys</value>
+  </data>
+  <data name="&gt;&gt;ComboHotkey144.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="LabelHotkeyCustom.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LabelHotkeyCustom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 220</value>
+  </data>
+  <data name="LabelHotkeyCustom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 15</value>
+  </data>
+  <data name="LabelHotkeyCustom.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="LabelHotkeyCustom.Text" xml:space="preserve">
+    <value>Custom:</value>
+  </data>
+  <data name="&gt;&gt;LabelHotkeyCustom.Name" xml:space="preserve">
+    <value>LabelHotkeyCustom</value>
+  </data>
+  <data name="&gt;&gt;LabelHotkeyCustom.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LabelHotkeyCustom.Parent" xml:space="preserve">
+    <value>TabHotkeys</value>
+  </data>
+  <data name="&gt;&gt;LabelHotkeyCustom.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="ComboHotkeyCustom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 217</value>
+  </data>
+  <data name="ComboHotkeyCustom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 23</value>
+  </data>
+  <data name="ComboHotkeyCustom.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;ComboHotkeyCustom.Name" xml:space="preserve">
+    <value>ComboHotkeyCustom</value>
+  </data>
+  <data name="&gt;&gt;ComboHotkeyCustom.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ComboHotkeyCustom.Parent" xml:space="preserve">
+    <value>TabHotkeys</value>
+  </data>
+  <data name="&gt;&gt;ComboHotkeyCustom.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="TabHotkeys.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 24</value>
+  </data>
+  <data name="TabHotkeys.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="TabHotkeys.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 210</value>
+  </data>
+  <data name="TabHotkeys.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="TabHotkeys.Text" xml:space="preserve">
+    <value>Hotkeys</value>
+  </data>
+  <data name="&gt;&gt;TabHotkeys.Name" xml:space="preserve">
+    <value>TabHotkeys</value>
+  </data>
+  <data name="&gt;&gt;TabHotkeys.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabHotkeys.Parent" xml:space="preserve">
+    <value>TabCtrlSettings</value>
+  </data>
+  <data name="&gt;&gt;TabHotkeys.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="TabCtrlSettings.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 12</value>

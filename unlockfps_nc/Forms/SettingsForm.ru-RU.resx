@@ -728,7 +728,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelAutoSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 253</value>
+    <value>12, 255</value>
   </data>
   <data name="LabelAutoSave.Size" type="System.Drawing.Size, System.Drawing">
     <value>288, 19</value>

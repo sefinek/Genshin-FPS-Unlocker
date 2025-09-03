@@ -463,7 +463,7 @@
     <value>2</value>
   </data>
   <data name="CBCustomRes.Text" xml:space="preserve">
-    <value>Custom Resolution:</value>
+    <value>Özel Çözünürlük:</value>
   </data>
   <data name="&gt;&gt;CBCustomRes.Name" xml:space="preserve">
     <value>CBCustomRes</value>
@@ -496,7 +496,7 @@
     <value>1</value>
   </data>
   <data name="CBFullscreen.Text" xml:space="preserve">
-    <value>Fullscreen:</value>
+    <value>Tam ekran:</value>
   </data>
   <data name="&gt;&gt;CBFullscreen.Name" xml:space="preserve">
     <value>CBFullscreen</value>
@@ -728,7 +728,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelAutoSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 253</value>
+    <value>12, 255</value>
   </data>
   <data name="LabelAutoSave.Size" type="System.Drawing.Size, System.Drawing">
     <value>288, 19</value>
