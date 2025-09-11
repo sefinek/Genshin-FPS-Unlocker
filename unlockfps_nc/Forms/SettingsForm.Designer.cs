@@ -30,7 +30,6 @@ namespace unlockfps_nc.Forms
 		{
 			components = new System.ComponentModel.Container();
 			var resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
-			DllAddDialog = new OpenFileDialog();
 			ToolTipSettings = new ToolTip(components);
 			CBAutoClose = new CheckBox();
 			CBStartMinimized = new CheckBox();
@@ -58,12 +57,6 @@ namespace unlockfps_nc.Forms
 			TabGeneral.SuspendLayout();
 			TabCtrlSettings.SuspendLayout();
 			SuspendLayout();
-			// 
-			// DllAddDialog
-			// 
-			resources.ApplyResources(DllAddDialog, "DllAddDialog");
-			DllAddDialog.Multiselect = true;
-			DllAddDialog.RestoreDirectory = true;
 			// 
 			// ToolTipSettings
 			// 
@@ -257,8 +250,6 @@ namespace unlockfps_nc.Forms
 		}
 
 		#endregion
-
-		private OpenFileDialog DllAddDialog;
 		private ToolTip ToolTipSettings;
 		private CheckBox CBUseMobileUI;
 		private TabPage TabLaunchOptions;

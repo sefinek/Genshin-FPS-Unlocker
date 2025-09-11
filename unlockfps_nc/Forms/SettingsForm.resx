@@ -117,12 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="DllAddDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>151, 17</value>
-  </metadata>
-  <data name="DllAddDialog.Filter" xml:space="preserve">
-    <value>DLL (*.dll)|*.dll|All files (*.*)|*.*</value>
-  </data>
   <metadata name="ToolTipSettings.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -263,142 +257,6 @@
   </data>
   <data name="&gt;&gt;CBUseMobileUI.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="&gt;&gt;ComboMonitor.Name" xml:space="preserve">
-    <value>ComboMonitor</value>
-  </data>
-  <data name="&gt;&gt;ComboMonitor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ComboMonitor.Parent" xml:space="preserve">
-    <value>TabLaunchOptions</value>
-  </data>
-  <data name="&gt;&gt;ComboMonitor.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;LabelMonitor.Name" xml:space="preserve">
-    <value>LabelMonitor</value>
-  </data>
-  <data name="&gt;&gt;LabelMonitor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LabelMonitor.Parent" xml:space="preserve">
-    <value>TabLaunchOptions</value>
-  </data>
-  <data name="&gt;&gt;LabelMonitor.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;ComboFullscreenMode.Name" xml:space="preserve">
-    <value>ComboFullscreenMode</value>
-  </data>
-  <data name="&gt;&gt;ComboFullscreenMode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ComboFullscreenMode.Parent" xml:space="preserve">
-    <value>TabLaunchOptions</value>
-  </data>
-  <data name="&gt;&gt;ComboFullscreenMode.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;InputResY.Name" xml:space="preserve">
-    <value>InputResY</value>
-  </data>
-  <data name="&gt;&gt;InputResY.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;InputResY.Parent" xml:space="preserve">
-    <value>TabLaunchOptions</value>
-  </data>
-  <data name="&gt;&gt;InputResY.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;LabelX.Name" xml:space="preserve">
-    <value>LabelX</value>
-  </data>
-  <data name="&gt;&gt;LabelX.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LabelX.Parent" xml:space="preserve">
-    <value>TabLaunchOptions</value>
-  </data>
-  <data name="&gt;&gt;LabelX.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;InputResX.Name" xml:space="preserve">
-    <value>InputResX</value>
-  </data>
-  <data name="&gt;&gt;InputResX.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;InputResX.Parent" xml:space="preserve">
-    <value>TabLaunchOptions</value>
-  </data>
-  <data name="&gt;&gt;InputResX.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;CBCustomRes.Name" xml:space="preserve">
-    <value>CBCustomRes</value>
-  </data>
-  <data name="&gt;&gt;CBCustomRes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CBCustomRes.Parent" xml:space="preserve">
-    <value>TabLaunchOptions</value>
-  </data>
-  <data name="&gt;&gt;CBCustomRes.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;CBFullscreen.Name" xml:space="preserve">
-    <value>CBFullscreen</value>
-  </data>
-  <data name="&gt;&gt;CBFullscreen.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CBFullscreen.Parent" xml:space="preserve">
-    <value>TabLaunchOptions</value>
-  </data>
-  <data name="&gt;&gt;CBFullscreen.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;CBPopup.Name" xml:space="preserve">
-    <value>CBPopup</value>
-  </data>
-  <data name="&gt;&gt;CBPopup.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CBPopup.Parent" xml:space="preserve">
-    <value>TabLaunchOptions</value>
-  </data>
-  <data name="&gt;&gt;CBPopup.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="TabLaunchOptions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 24</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="TabLaunchOptions.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="TabLaunchOptions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 210</value>
-  </data>
-  <data name="TabLaunchOptions.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="TabLaunchOptions.Text" xml:space="preserve">
-    <value>Launch options</value>
-  </data>
-  <data name="&gt;&gt;TabLaunchOptions.Name" xml:space="preserve">
-    <value>TabLaunchOptions</value>
-  </data>
-  <data name="&gt;&gt;TabLaunchOptions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabLaunchOptions.Parent" xml:space="preserve">
-    <value>TabCtrlSettings</value>
-  </data>
-  <data name="&gt;&gt;TabLaunchOptions.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="ComboMonitor.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -679,6 +537,34 @@
   <data name="&gt;&gt;CBPopup.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
+  <data name="TabLaunchOptions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 24</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="TabLaunchOptions.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="TabLaunchOptions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 210</value>
+  </data>
+  <data name="TabLaunchOptions.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="TabLaunchOptions.Text" xml:space="preserve">
+    <value>Launch options</value>
+  </data>
+  <data name="&gt;&gt;TabLaunchOptions.Name" xml:space="preserve">
+    <value>TabLaunchOptions</value>
+  </data>
+  <data name="&gt;&gt;TabLaunchOptions.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabLaunchOptions.Parent" xml:space="preserve">
+    <value>TabCtrlSettings</value>
+  </data>
+  <data name="&gt;&gt;TabLaunchOptions.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="CBHdr.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -873,12 +759,6 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Settings</value>
-  </data>
-  <data name="&gt;&gt;DllAddDialog.Name" xml:space="preserve">
-    <value>DllAddDialog</value>
-  </data>
-  <data name="&gt;&gt;DllAddDialog.Type" xml:space="preserve">
-    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ToolTipSettings.Name" xml:space="preserve">
     <value>ToolTipSettings</value>
