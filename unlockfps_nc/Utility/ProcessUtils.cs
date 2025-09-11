@@ -98,7 +98,6 @@ internal class ProcessUtils
 		if (offset != -1)
 			return (IntPtr)(module.ToInt64() + offset);
 
-
 		return IntPtr.Zero;
 	}
 

@@ -44,7 +44,6 @@ internal static class Program
 			CultureInfo.DefaultThreadCurrentCulture = CultureInfo.DefaultThreadCurrentUICulture = fallback;
 		}
 
-
 		if (File.Exists("GenshinImpact.exe") || File.Exists("YuanShen.exe"))
 		{
 			MessageBox.Show(Resources.Program_Main_DoNotPlaceThisToolInTheGameFolder, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Warning);

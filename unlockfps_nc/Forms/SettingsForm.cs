@@ -36,10 +36,10 @@ public partial class SettingsForm : Form
 		CBPowerSave.DataBindings.Add("Checked", _config, nameof(_config.UsePowerSave), true, DataSourceUpdateMode.OnPropertyChanged);
 		CBHdr.DataBindings.Add("Checked", _config, nameof(_config.UseHDR), true, DataSourceUpdateMode.OnPropertyChanged);
 		CBUseMobileUI.DataBindings.Add("Checked", _config, nameof(_config.UseMobileUI), true, DataSourceUpdateMode.OnPropertyChanged);
-		
+
 		ComboPriority.DataBindings.Add("SelectedIndex", _config, nameof(_config.Priority), true, DataSourceUpdateMode.OnPropertyChanged);
 		ComboFullscreenMode.DataBindings.Add("SelectedIndex", _config, nameof(_config.IsExclusiveFullscreen), true, DataSourceUpdateMode.OnPropertyChanged);
-		
+
 		InputResX.DataBindings.Add("Value", _config, nameof(_config.CustomResX), true, DataSourceUpdateMode.OnPropertyChanged);
 		InputResY.DataBindings.Add("Value", _config, nameof(_config.CustomResY), true, DataSourceUpdateMode.OnPropertyChanged);
 	}
@@ -56,7 +56,7 @@ public partial class SettingsForm : Form
 		CBPopup.Enabled = !_config.Fullscreen;
 		CBFullscreen.Enabled = !_config.PopupWindow;
 		ComboFullscreenMode.Enabled = _config.Fullscreen && !_config.PopupWindow;
-		
+
 		InputResX.Enabled = _config.UseCustomRes;
 		InputResY.Enabled = _config.UseCustomRes;
 	}
@@ -80,6 +80,7 @@ public partial class SettingsForm : Form
 			_config.Fullscreen = false;
 			CBFullscreen.Checked = false;
 		}
+
 		UpdateControlState();
 	}
 
@@ -91,6 +92,7 @@ public partial class SettingsForm : Form
 			_config.PopupWindow = false;
 			CBPopup.Checked = false;
 		}
+
 		UpdateControlState();
 	}
 
@@ -115,11 +117,10 @@ public partial class SettingsForm : Form
 		var monitorIndex = ComboMonitor.SelectedIndex;
 		_config.MonitorNum = monitorIndex + 1;
 		_configService.UpdateMonitorSettings(monitorIndex);
-		
+
 		InputResX.Value = _config.CustomResX;
 		InputResY.Value = _config.CustomResY;
 	}
-
 
 	private void SettingsForm_FormClosing(object sender, FormClosingEventArgs e)
 	{

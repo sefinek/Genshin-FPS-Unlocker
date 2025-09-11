@@ -120,8 +120,8 @@ namespace unlockfps_nc.Forms
 			// 
 			// ComboMonitor
 			// 
-			ComboMonitor.DropDownStyle = ComboBoxStyle.DropDownList;
 			resources.ApplyResources(ComboMonitor, "ComboMonitor");
+			ComboMonitor.DropDownStyle = ComboBoxStyle.DropDownList;
 			ComboMonitor.FormattingEnabled = true;
 			ComboMonitor.Name = "ComboMonitor";
 			// 

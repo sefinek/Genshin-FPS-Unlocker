@@ -137,7 +137,6 @@ public partial class MainForm : Form
 		aboutForm.ShowDialog();
 	}
 
-
 	private void OpenStella_Click(object sender, EventArgs e)
 	{
 		using RegistryKey? key = Registry.CurrentUser.OpenSubKey(Program.REGISTRY_PATH);
@@ -177,7 +176,6 @@ public partial class MainForm : Form
 		Process.Start("dxdiag.exe");
 	}
 
-
 	private void ViewConfig_Click(object sender, EventArgs e)
 	{
 		var cfgPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "unlocker.config.json");
@@ -189,7 +187,6 @@ public partial class MainForm : Form
 			UseShellExecute = true
 		});
 	}
-
 
 	private void OfficialWebsite_Click(object sender, EventArgs e)
 	{

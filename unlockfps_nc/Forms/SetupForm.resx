@@ -126,16 +126,9 @@
   <data name="BrowseDialog.Title" xml:space="preserve">
     <value>Select GenshinImpact.exe or YuanShen.exe</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="LabelHeader.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="LabelHeader.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 15.75pt</value>
-  </data>
-  <data name="LabelHeader.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="LabelHeader.Location" type="System.Drawing.Point, System.Drawing">
     <value>31, 9</value>
@@ -165,12 +158,6 @@
   <data name="&gt;&gt;LabelHeader.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="BtnConfirm.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="BtnConfirm.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="BtnConfirm.Location" type="System.Drawing.Point, System.Drawing">
     <value>356, 187</value>
   </data>
@@ -194,12 +181,6 @@
   </data>
   <data name="&gt;&gt;BtnConfirm.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="BtnBrowse.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="BtnBrowse.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="BtnBrowse.Location" type="System.Drawing.Point, System.Drawing">
     <value>31, 187</value>
@@ -225,14 +206,8 @@
   <data name="&gt;&gt;BtnBrowse.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="LabelHint.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
   <data name="LabelHint.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9.75pt</value>
-  </data>
-  <data name="LabelHint.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="LabelHint.Location" type="System.Drawing.Point, System.Drawing">
     <value>31, 108</value>
@@ -260,9 +235,6 @@
   <data name="&gt;&gt;LabelHint.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="ComboResult.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
   <data name="ComboResult.Location" type="System.Drawing.Point, System.Drawing">
     <value>31, 79</value>
   </data>
@@ -284,14 +256,8 @@
   <data name="&gt;&gt;ComboResult.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="LabelResult.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
   <data name="LabelResult.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9.75pt</value>
-  </data>
-  <data name="LabelResult.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="LabelResult.Location" type="System.Drawing.Point, System.Drawing">
     <value>30, 53</value>
@@ -325,9 +291,6 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>504, 223</value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterParent</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Setup</value>

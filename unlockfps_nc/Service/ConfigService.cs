@@ -42,7 +42,7 @@ public class ConfigService
 	private void InitializePrimaryMonitor()
 	{
 		var primaryMonitorIndex = FindPrimaryMonitorIndex();
-		
+
 		if (primaryMonitorIndex != -1)
 		{
 			Config.MonitorNum = primaryMonitorIndex + 1;
