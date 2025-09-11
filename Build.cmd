@@ -5,7 +5,8 @@ SET "SOLUTION_PATH=unlockfps_nc.sln"
 SET "PROJECT_PATH=unlockfps_nc\Genshin FPS Unlocker.csproj"
 SET "RELEASE_DIR=unlockfps_nc\bin\Release"
 SET "UPLOAD_DIR=Upload"
-SET "ORIGINAL_ZIP=%UPLOAD_DIR%\genshin-fps-unlocker.zip"
+SET "ZIP_SELF=%UPLOAD_DIR%\genshin-fps-unlocker.selfcontained.zip"
+SET "ZIP_NORMAL=%UPLOAD_DIR%\genshin-fps-unlocker.zip"
 SET "CHECKSUMS_MD=%UPLOAD_DIR%\CHECKSUMS.md"
 SET "HASHES=SHA256 SHA384 SHA512"
 
@@ -33,40 +34,79 @@ IF NOT EXIST "%UPLOAD_DIR%" (
 )
 
 
+REM ====================================================================================================================
+REM BUILD SELF-CONTAINED
 echo. && echo ============================================
-echo Building the project...
+echo Building self-contained...
 echo ============================================
-dotnet build "%PROJECT_PATH%" -c Release -r win-x64 --self-contained || GOTO EndScript
-
+dotnet publish "%PROJECT_PATH%" -c Release -r win-x64 --self-contained true -o "%RELEASE_DIR%\self" || GOTO EndScript
 
 echo. && echo ============================================
-echo Compressing release directory...
+echo Compressing self-contained build...
 echo ============================================
-IF NOT EXIST "%RELEASE_DIR%" (
-    echo ERROR: Release directory not found!
-    GOTO EndScript
-)
-
-pushd "%RELEASE_DIR%" && (
-    7z a -tzip "%~dp0%ORIGINAL_ZIP%" * || (
-        echo ERROR: Failed to create ZIP archive!
+pushd "%RELEASE_DIR%\self" && (
+    7z a -tzip "%~dp0%ZIP_SELF%" * || (
+        echo ERROR: Failed to create self-contained ZIP archive!
         popd & GOTO EndScript
     )
     popd
 )
 
 
+REM ====================================================================================================================
+REM BUILD NORMAL
+echo. && echo ============================================
+echo Building framework-dependent...
+echo ============================================
+dotnet publish "%PROJECT_PATH%" -c Release -r win-x64 --self-contained false -o "%RELEASE_DIR%\normal" || GOTO EndScript
+
+echo. && echo ============================================
+echo Compressing framework-dependent build...
+echo ============================================
+pushd "%RELEASE_DIR%\normal" && (
+    7z a -tzip "%~dp0%ZIP_NORMAL%" * || (
+        echo ERROR: Failed to create framework-dependent ZIP archive!
+        popd & GOTO EndScript
+    )
+    popd
+)
+
+
+REM ====================================================================================================================
+REM GENERATE CHECKSUMS
 echo. && echo ============================================
 echo Generating checksums...
 echo ============================================
-echo ## Checksums for genshin-fps-unlocker.zip > "%CHECKSUMS_MD%"
-
-FOR %%H IN (%HASHES%) DO (
-    echo Calculating %%H hash...
-    FOR /F "usebackq skip=1" %%A IN (`certutil -hashfile "%ORIGINAL_ZIP%" %%H ^| findstr /v "CertUtil"`) DO (
-        echo **%%H:** `%%A` >> "%CHECKSUMS_MD%"
+(
+    echo ## Information
+    echo This fork is dedicated to the Stella Mod application. If you want to use this tool, consider installing ^[Genshin Stella Mod^]^(https://stella.sefinek.net^).
+    echo.
+    echo ## Checksums
+    echo.
+    echo ### genshin-fps-unlocker.selfcontained.zip
+    echo *If you don't have ^[.NET 9^]^(https://dotnet.microsoft.com/en-us/download/dotnet/9.0^) installed, recommended for Linux, larger size due to the built-in .NET Runtime.*
+    FOR %%H IN (%HASHES%) DO (
+        echo.
+        echo ^<details^>
+        echo     ^<summary^>%%H^</summary^>
+        FOR /F "usebackq skip=1" %%A IN (`certutil -hashfile "%ZIP_SELF%" %%H ^| findstr /v "CertUtil"`) DO (
+            echo     ^<code^>%%A^</code^>
+        )
+        echo ^</details^>
     )
-)
+    echo.
+    echo ### genshin-fps-unlocker.zip
+    echo *If you have ^[.NET 9^]^(https://dotnet.microsoft.com/en-us/download/dotnet/9.0^) installed, smaller size.*
+    FOR %%H IN (%HASHES%) DO (
+        echo.
+        echo ^<details^>
+        echo     ^<summary^>%%H^</summary^>
+        FOR /F "usebackq skip=1" %%A IN (`certutil -hashfile "%ZIP_NORMAL%" %%H ^| findstr /v "CertUtil"`) DO (
+            echo     ^<code^>%%A^</code^>
+        )
+        echo ^</details^>
+    )
+) > "%CHECKSUMS_MD%"
 
 echo. && echo ============================================
 echo Process completed successfully!
