@@ -12,7 +12,14 @@ public class ConfigService
 
 	public ConfigService()
 	{
-		var isFirstRun = !File.Exists(GetFullPath());
+		var configPath = GetFullPath();
+		var isFirstRun = !File.Exists(configPath);
+		
+		if (isFirstRun)
+			Program.Logger.Info($"First run detected, creating new config at: {configPath}");
+		else
+			Program.Logger.Info($"Loading existing config from: {configPath}");
+		
 		Load();
 		Sanitize();
 		if (isFirstRun) InitializePrimaryMonitor();
@@ -25,9 +32,20 @@ public class ConfigService
 		var configPath = GetFullPath();
 		if (!File.Exists(configPath)) return;
 
-		var json = File.ReadAllText(configPath);
-		var config = JsonSerializer.Deserialize<Config>(json);
-		if (config != null) Config = config;
+		try
+		{
+			var json = File.ReadAllText(configPath);
+			var config = JsonSerializer.Deserialize<Config>(json);
+			if (config != null) 
+			{
+				Config = config;
+				Program.Logger.Info("Configuration loaded successfully");
+			}
+		}
+		catch (Exception e)
+		{
+			Program.Logger.Error(e, "Failed to load configuration file, using defaults");
+		}
 	}
 
 	private void Sanitize()
@@ -47,6 +65,11 @@ public class ConfigService
 		{
 			Config.MonitorNum = primaryMonitorIndex + 1;
 			UpdateMonitorSettings(primaryMonitorIndex);
+			Program.Logger.Info($"Initialized primary monitor settings: {Config.CustomResX}x{Config.CustomResY} @{Config.FPSTarget}Hz");
+		}
+		else
+		{
+			Program.Logger.Warn("Could not detect primary monitor, using default settings");
 		}
 	}
 
@@ -84,12 +107,21 @@ public class ConfigService
 	{
 		lock (_lock)
 		{
-			var configPath = GetFullPath();
-			var json = JsonSerializer.Serialize(Config, new JsonSerializerOptions { WriteIndented = true });
+			try
+			{
+				var configPath = GetFullPath();
+				var json = JsonSerializer.Serialize(Config, new JsonSerializerOptions { WriteIndented = true });
 
-			using var fs = new FileStream(configPath, FileMode.Create, FileAccess.Write, FileShare.None, 4096, FileOptions.WriteThrough);
-			using var sw = new StreamWriter(fs, Encoding.UTF8);
-			sw.Write(json);
+				using var fs = new FileStream(configPath, FileMode.Create, FileAccess.Write, FileShare.None, 4096, FileOptions.WriteThrough);
+				using var sw = new StreamWriter(fs, Encoding.UTF8);
+				sw.Write(json);
+				
+				Program.Logger.Info("Configuration saved successfully");
+			}
+			catch (Exception e)
+			{
+				Program.Logger.Error(e, "Failed to save configuration file");
+			}
 		}
 	}
 }

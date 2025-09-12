@@ -28,6 +28,7 @@ public partial class MainForm : Form
 
 	private void SettingsMenuItem_Click(object sender, EventArgs e)
 	{
+		Program.Logger.Info("Opening settings dialog");
 		Program.ServiceProvider.GetRequiredService<SettingsForm>().ShowDialog();
 		RefreshFPSControls();
 	}
@@ -40,6 +41,7 @@ public partial class MainForm : Form
 
 	private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
 	{
+		Program.Logger.Info("Application closing, saving configuration and cleaning up");
 		_configService.Save();
 		_processService.OnFormClosing();
 		NotifyIconMain.Visible = false;
@@ -47,9 +49,14 @@ public partial class MainForm : Form
 
 	private void MainForm_Load(object sender, EventArgs e)
 	{
+		Program.Logger.Info("MainForm loaded");
 		_windowLocation = Location;
 		_windowSize = Size;
-		if (_config.AutoStart) BtnStartGame_Click(null, null);
+		if (_config.AutoStart) 
+		{
+			Program.Logger.Info("Auto-start enabled, starting game automatically");
+			BtnStartGame_Click(null, null);
+		}
 
 		Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
 	}
@@ -63,16 +70,29 @@ public partial class MainForm : Form
 
 	private void SetupMenuItem_Click(object sender, EventArgs e)
 	{
+		Program.Logger.Info("Opening setup dialog");
 		ShowSetupForm();
 	}
 
 	private void BtnStartGame_Click(object? sender, EventArgs? e)
 	{
+		Program.Logger.Info("User clicked Start Game button");
+		
 		if (!File.Exists(_config.GamePath))
+		{
+			Program.Logger.Info("Game path not configured, opening setup dialog");
 			ShowSetupForm();
+		}
 
 		if (_processService.StartGame())
+		{
+			Program.Logger.Info("Game started successfully, minimizing to tray");
 			WindowState = FormWindowState.Minimized;
+		}
+		else
+		{
+			Program.Logger.Warn("Game failed to start");
+		}
 	}
 
 	private static void ShowSetupForm()

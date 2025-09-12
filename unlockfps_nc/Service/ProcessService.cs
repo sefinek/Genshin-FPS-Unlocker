@@ -25,14 +25,18 @@ public class ProcessService
 
 	public bool StartGame()
 	{
+		Program.Logger.Info($"Starting game from path: {_config.GamePath}");
+		
 		if (!File.Exists(_config.GamePath))
 		{
+			Program.Logger.Error($"Game executable not found at path: {_config.GamePath}");
 			MessageBox.Show("Game path is invalid.", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return false;
 		}
 
 		if (IsGameRunning())
 		{
+			Program.Logger.Warn("Attempted to start game while another instance is already running");
 			MessageBox.Show("An instance of the game is already running.", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return false;
 		}
@@ -46,13 +50,16 @@ public class ProcessService
 		if (_config.UseHDR)
 		{
 			var subKeyName = Path.GetFileName(_config.GamePath) == "YuanShen.exe" ? "原神" : "Genshin Impact";
+			Program.Logger.Info($"Enabling HDR mode for {subKeyName}");
 			try
 			{
 				using RegistryKey key = Registry.CurrentUser.CreateSubKey($@"Software\miHoYo\{subKeyName}");
 				key.SetValue("WINDOWS_HDR_ON_h3132281285", 1);
+				Program.Logger.Info("HDR registry setting applied successfully");
 			}
 			catch (Exception e)
 			{
+				Program.Logger.Error(e, "Failed to enable HDR registry setting");
 				MessageBox.Show($@"Failed to enable HDR: {e.Message}", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
@@ -61,15 +68,25 @@ public class ProcessService
 		var creationFlag = _config.SuspendLoad ? 4u : 0u;
 		var gameFolder = Path.GetDirectoryName(_config.GamePath);
 
-		if (!Native.CreateProcess(_config.GamePath, BuildCommandLine(), IntPtr.Zero, IntPtr.Zero, false, creationFlag, IntPtr.Zero, gameFolder, ref si, out PROCESS_INFORMATION pi))
+		var commandLine = BuildCommandLine();
+		Program.Logger.Info($"Launching game with command line: {commandLine}");
+		
+		if (!Native.CreateProcess(_config.GamePath, commandLine, IntPtr.Zero, IntPtr.Zero, false, creationFlag, IntPtr.Zero, gameFolder, ref si, out PROCESS_INFORMATION pi))
 		{
-			MessageBox.Show($@"CreateProcess failed ({Marshal.GetLastWin32Error()}){Environment.NewLine} {Marshal.GetLastPInvokeErrorMessage()}", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			var error = Marshal.GetLastWin32Error();
+			Program.Logger.Error($"CreateProcess failed with error code {error}: {Marshal.GetLastPInvokeErrorMessage()}");
+			MessageBox.Show($@"CreateProcess failed ({error}){Environment.NewLine} {Marshal.GetLastPInvokeErrorMessage()}", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return false;
 		}
 
-		if (_config.SuspendLoad) Native.ResumeThread(pi.hThread);
+		if (_config.SuspendLoad) 
+		{
+			Program.Logger.Info("Resuming suspended game thread");
+			Native.ResumeThread(pi.hThread);
+		}
 
 		_gameHandle = pi.hProcess;
+		Program.Logger.Info($"Game process started successfully with PID: {pi.dwProcessId}");
 
 		Native.CloseHandle(pi.hThread);
 		return true;
@@ -77,6 +94,7 @@ public class ProcessService
 
 	public void OnFormClosing()
 	{
+		Program.Logger.Info("ProcessService shutting down");
 		_cts.Cancel();
 		Native.CloseHandle(_gameHandle);
 	}
@@ -97,16 +115,23 @@ public class ProcessService
 		while (!_cts.IsCancellationRequested)
 		{
 			await Task.Delay(1000, _cts.Token);
-			using Process? process = Process.GetProcesses()
+				using Process? process = Process.GetProcesses()
 				.FirstOrDefault(x => x is { ProcessName: "GenshinImpact" } or { ProcessName: "YuanShen" });
 			if (process == null)
 				continue;
+
+			Program.Logger.Info($"Game process detected: {process.ProcessName} (PID: {process.Id})");
 
 			while (!ProcessUtils.IsWindowDrawing(process.MainWindowHandle) && !_cts.IsCancellationRequested)
 				await Task.Delay(1000, _cts.Token);
 
 			if (!_ipcService.Start(process.Id))
+			{
+				Program.Logger.Error("Failed to start IPC service, terminating unlocker poll");
 				return;
+			}
+
+			Program.Logger.Info("FPS unlocker successfully attached to game process");
 
 			while (!process.HasExited && !_cts.IsCancellationRequested)
 			{
@@ -114,9 +139,14 @@ public class ProcessService
 				await Task.Delay(62, _cts.Token);
 			}
 
-			if (_gameHandle != IntPtr.Zero && _config.AutoClose) Application.Exit();
+			if (_gameHandle != IntPtr.Zero && _config.AutoClose)
+			{
+				Program.Logger.Info("Game exited, auto-closing application");
+				Application.Exit();
+			}
 
 			_ipcService.OnGameExit();
+			Program.Logger.Info("Game process terminated, waiting for restart");
 			await Task.Delay(5000, _cts.Token);
 		}
 	}
