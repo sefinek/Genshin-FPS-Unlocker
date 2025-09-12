@@ -1,7 +1,7 @@
 using NLog;
 using NLog.Config;
 
-namespace StellaUtils;
+namespace unlockfps_nc;
 
 public static class LogManagerHelper
 {
