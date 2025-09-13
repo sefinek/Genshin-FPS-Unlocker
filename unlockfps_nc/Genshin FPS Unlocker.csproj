@@ -13,7 +13,7 @@
     <SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
     <StartupObject>unlockfps_nc.Program</StartupObject>
     <AssemblyName>Genshin FPS Unlock</AssemblyName>
-    <Version>4.1.0</Version>
+    <Version>4.1.0.1</Version>
     <Company>Sefinek Inc.</Company>
     <Authors>34736384</Authors>
     <Title>Genshin FPS Unlock</Title>
