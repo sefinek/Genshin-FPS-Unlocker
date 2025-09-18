@@ -134,7 +134,7 @@
     <value>Dosya bulunamadı</value>
   </data>
   <data name="SetupForm_UpdateGamePathUi_Found0InstallationOfTheGame" xml:space="preserve">
-    <value>Found {0} installation of the game</value>
+    <value>{0} oyun yüklemesi bulundu</value>
   </data>
   <data name="SetupForm_UpdateGamePathUi_NoGameInstallationsFound" xml:space="preserve">
     <value>Hiçbir oyun kurulumu bulunamadı!</value>
