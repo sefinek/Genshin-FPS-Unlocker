@@ -1,92 +1,107 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net9.0-windows10.0.26100.0</TargetFramework>
-	<EnableWindowsTargeting>true</EnableWindowsTargeting>
-    <Nullable>enable</Nullable>
-    <UseWindowsForms>true</UseWindowsForms>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
-    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
-    <PlatformTarget>x64</PlatformTarget>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
-    <StartupObject>unlockfps_nc.Program</StartupObject>
-    <AssemblyName>Genshin FPS Unlock</AssemblyName>
-    <Version>4.1.0.1</Version>
-    <Company>Sefinek Inc.</Company>
-    <Authors>34736384</Authors>
-    <Title>Genshin FPS Unlock</Title>
-	<Copyright>Copyright (c) 2021-Present 34736384, 2022-Present Sefinek. Licensed under the MIT License.</Copyright>
-	<Description>Safe tool that allows you to unlock the 60 FPS limit in Genshin Impact.</Description>
-	<Product>Genshin Impact FPS Unlock</Product>
-	<NeutralLanguage>en</NeutralLanguage>
-    <RootNamespace>unlockfps_nc</RootNamespace>
-    <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>D:\Projects\stella\SignAssembly\FPS-Unlocker.snk</AssemblyOriginatorKeyFile>
-  	<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-  	<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net9.0-windows10.0.26100.0</TargetFramework>
+		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+		<UseWindowsForms>true</UseWindowsForms>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DebugType>none</DebugType>
-  </PropertyGroup>
+		<AssemblyName>Genshin FPS Unlock</AssemblyName>
+		<RootNamespace>unlockfps_nc</RootNamespace>
+		<StartupObject>unlockfps_nc.Program</StartupObject>
+		<ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+		<ApplicationIcon>Resources\icon.ico</ApplicationIcon>
+		<ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DebugType>none</DebugType>
-  </PropertyGroup>
+		<Company>Sefinek</Company>
+		<Product>Genshin Impact FPS Unlock</Product>
+		<Title>Genshin FPS Unlock</Title>
+		<FileDescription>Safe tool that allows you to unlock the 60 FPS limit in Genshin Impact.</FileDescription>
+		<Copyright>© 2021–Present 34736384, 2022–2025 Sefinek. Licensed under MIT</Copyright>
+		<Authors>Sefinek;34736384</Authors>
+		<NeutralLanguage>en-US</NeutralLanguage>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseMin|AnyCPU'">
-    <DebugType>none</DebugType>
-  </PropertyGroup>
+		<Version>4.1.0.1</Version>
+		<AssemblyVersion>$(Version)</AssemblyVersion>
+		<FileVersion>$(Version)</FileVersion>
 
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\UnlockerStub.dll" />
-  </ItemGroup>
+		<PlatformTarget>x64</PlatformTarget>
+		<SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
+		<Prefer32Bit>false</Prefer32Bit>
 
-  <ItemGroup>
-    <Content Include="Resources\icon.ico" />
-  </ItemGroup>
+		<SignAssembly>true</SignAssembly>
+		<AssemblyOriginatorKeyFile>D:\Projects\stella\SignAssembly\FPS-Unlocker.snk</AssemblyOriginatorKeyFile>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.9" />
-    <PackageReference Include="NLog" Version="6.0.4" />
-  </ItemGroup>
+		<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 
-  <ItemGroup>
-    <Compile Update="Properties\ImageResources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ImageResources.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Properties\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\ImageResources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ImageResources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<IsPublishable>false</IsPublishable>
+		<DebugType>none</DebugType>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <None Include="../LICENSE" Link="LICENSE">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-	<None Include="Genshin Stella Mod - The best and safest mod for Genshin Impact.url">
-	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	</None>
-	<None Update="NLog.config">
-	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	</None>
-  </ItemGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<IsPublishable>false</IsPublishable>
+		<DebugType>none</DebugType>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseMin|AnyCPU'">
+		<IsPublishable>false</IsPublishable>
+		<DebugType>none</DebugType>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.9" />
+		<PackageReference Include="NLog" Version="6.0.4" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="Resources\icon.ico" />
+		<EmbeddedResource Include="Resources\UnlockerStub.dll" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="../LICENSE" Link="LICENSE">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="../README.md" Link="README.md">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="Genshin Stella Mod - The best and safest mod for Genshin Impact.url">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="NLog.config">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Properties\ImageResources.Designer.cs">
+			<AutoGen>True</AutoGen>
+			<DesignTime>True</DesignTime>
+			<DependentUpon>ImageResources.resx</DependentUpon>
+		</Compile>
+		<Compile Update="Properties\Resources.Designer.cs">
+			<AutoGen>True</AutoGen>
+			<DesignTime>True</DesignTime>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="Properties\ImageResources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>ImageResources.Designer.cs</LastGenOutput>
+			<SubType>Designer</SubType>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Properties\Resources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+			<SubType>Designer</SubType>
+		</EmbeddedResource>
+	</ItemGroup>
 </Project>
