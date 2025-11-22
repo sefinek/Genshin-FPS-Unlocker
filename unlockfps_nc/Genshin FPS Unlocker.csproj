@@ -22,7 +22,7 @@
 		<Authors>Sefinek;34736384</Authors>
 		<NeutralLanguage>en-US</NeutralLanguage>
 
-		<Version>4.1.1.0</Version>
+		<Version>4.1.1.1</Version>
 		<AssemblyVersion>$(Version)</AssemblyVersion>
 		<FileVersion>$(Version)</FileVersion>
 
