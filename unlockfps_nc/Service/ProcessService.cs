@@ -26,7 +26,7 @@ public class ProcessService
 	public bool StartGame()
 	{
 		Program.Logger.Info($"Starting game from path: {_config.GamePath}");
-		
+
 		if (!File.Exists(_config.GamePath))
 		{
 			Program.Logger.Error($"Game executable not found at path: {_config.GamePath}");
@@ -70,7 +70,7 @@ public class ProcessService
 
 		var commandLine = BuildCommandLine();
 		Program.Logger.Info($"Launching game with command line: {commandLine}");
-		
+
 		if (!Native.CreateProcess(_config.GamePath, commandLine, IntPtr.Zero, IntPtr.Zero, false, creationFlag, IntPtr.Zero, gameFolder, ref si, out PROCESS_INFORMATION pi))
 		{
 			var error = Marshal.GetLastWin32Error();
@@ -79,7 +79,7 @@ public class ProcessService
 			return false;
 		}
 
-		if (_config.SuspendLoad) 
+		if (_config.SuspendLoad)
 		{
 			Program.Logger.Info("Resuming suspended game thread");
 			Native.ResumeThread(pi.hThread);
@@ -115,7 +115,7 @@ public class ProcessService
 		while (!_cts.IsCancellationRequested)
 		{
 			await Task.Delay(1000, _cts.Token);
-				using Process? process = Process.GetProcesses()
+			using Process? process = Process.GetProcesses()
 				.FirstOrDefault(x => x is { ProcessName: "GenshinImpact" } or { ProcessName: "YuanShen" });
 			if (process == null)
 				continue;

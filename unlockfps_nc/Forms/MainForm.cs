@@ -52,7 +52,7 @@ public partial class MainForm : Form
 		Program.Logger.Info("MainForm loaded");
 		_windowLocation = Location;
 		_windowSize = Size;
-		if (_config.AutoStart) 
+		if (_config.AutoStart)
 		{
 			Program.Logger.Info("Auto-start enabled, starting game automatically");
 			BtnStartGame_Click(null, null);
@@ -77,7 +77,7 @@ public partial class MainForm : Form
 	private void BtnStartGame_Click(object? sender, EventArgs? e)
 	{
 		Program.Logger.Info("User clicked Start Game button");
-		
+
 		if (!File.Exists(_config.GamePath))
 		{
 			Program.Logger.Info("Game path not configured, opening setup dialog");

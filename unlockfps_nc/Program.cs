@@ -1,9 +1,9 @@
-using Microsoft.Extensions.DependencyInjection;
-using NLog;
 using System.Diagnostics;
 using System.Globalization;
 using System.Reflection;
 using System.Security.Principal;
+using Microsoft.Extensions.DependencyInjection;
+using NLog;
 using unlockfps_nc.Forms;
 using unlockfps_nc.Properties;
 using unlockfps_nc.Service;

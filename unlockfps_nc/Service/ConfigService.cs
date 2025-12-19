@@ -14,12 +14,12 @@ public class ConfigService
 	{
 		var configPath = GetFullPath();
 		var isFirstRun = !File.Exists(configPath);
-		
+
 		if (isFirstRun)
 			Program.Logger.Info($"First run detected, creating new config at: {configPath}");
 		else
 			Program.Logger.Info($"Loading existing config from: {configPath}");
-		
+
 		Load();
 		Sanitize();
 		if (isFirstRun) InitializePrimaryMonitor();
@@ -36,7 +36,7 @@ public class ConfigService
 		{
 			var json = File.ReadAllText(configPath);
 			var config = JsonSerializer.Deserialize<Config>(json);
-			if (config != null) 
+			if (config != null)
 			{
 				Config = config;
 				Program.Logger.Info("Configuration loaded successfully");
@@ -112,27 +112,32 @@ public class ConfigService
 				var configPath = GetFullPath();
 				var json = JsonSerializer.Serialize(Config, new JsonSerializerOptions { WriteIndented = true });
 
-                bool wasHidden = false;
-                if (File.Exists(configPath)) {
-                    var attributes = File.GetAttributes(configPath);
-                    if ((attributes & FileAttributes.Hidden) != 0) {
-                        wasHidden = true;
-                        File.SetAttributes(configPath, attributes & ~FileAttributes.Hidden);
-                    }
-                }
+				var wasHidden = false;
+				if (File.Exists(configPath))
+				{
+					FileAttributes attributes = File.GetAttributes(configPath);
+					if ((attributes & FileAttributes.Hidden) != 0)
+					{
+						wasHidden = true;
+						File.SetAttributes(configPath, attributes & ~FileAttributes.Hidden);
+					}
+				}
 
-                try {
-                    using var fs = new FileStream(configPath, FileMode.Create, FileAccess.Write, FileShare.None, 4096, FileOptions.WriteThrough);
-                    using var sw = new StreamWriter(fs, Encoding.UTF8);
-                    sw.Write(json);
-                }
-                finally {
-                    if (wasHidden && File.Exists(configPath)) {
-                        var attributes = File.GetAttributes(configPath);
-                        File.SetAttributes(configPath, attributes | FileAttributes.Hidden);
-                    }
-                }
-				
+				try
+				{
+					using var fs = new FileStream(configPath, FileMode.Create, FileAccess.Write, FileShare.None, 4096, FileOptions.WriteThrough);
+					using var sw = new StreamWriter(fs, Encoding.UTF8);
+					sw.Write(json);
+				}
+				finally
+				{
+					if (wasHidden && File.Exists(configPath))
+					{
+						FileAttributes attributes = File.GetAttributes(configPath);
+						File.SetAttributes(configPath, attributes | FileAttributes.Hidden);
+					}
+				}
+
 				Program.Logger.Info("Configuration saved successfully");
 			}
 			catch (Exception e)

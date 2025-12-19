@@ -39,7 +39,7 @@ public class IpcService(ConfigService configService) : IDisposable
 	public bool Start(int processId)
 	{
 		Program.Logger.Info($"Starting IPC service for process ID: {processId}");
-		
+
 		_sharedMemory ??= MemoryMappedFile.CreateOrOpen(@"Global\2DE95FDC-6AB7-4593-BFE6-760DD4AB422B", 4096, MemoryMappedFileAccess.ReadWrite);
 		_sharedMemoryAccessor ??= _sharedMemory.CreateViewAccessor();
 		if (_sharedMemoryAccessor == null)

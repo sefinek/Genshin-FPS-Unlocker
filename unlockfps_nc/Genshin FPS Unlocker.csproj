@@ -22,7 +22,7 @@
 		<Authors>Sefinek;34736384</Authors>
 		<NeutralLanguage>en-US</NeutralLanguage>
 
-		<Version>4.1.1.1</Version>
+		<Version>4.1.1.2</Version>
 		<AssemblyVersion>$(Version)</AssemblyVersion>
 		<FileVersion>$(Version)</FileVersion>
 
@@ -55,7 +55,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.11" />
-		<PackageReference Include="NLog" Version="6.0.6" />
+		<PackageReference Include="NLog" Version="6.0.7" />
 	</ItemGroup>
 
 	<ItemGroup>
