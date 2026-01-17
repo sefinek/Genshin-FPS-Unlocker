@@ -56,9 +56,7 @@ internal class ProcessUtils
 
 		foreach (var dllPath in dllPaths)
 		{
-			var nativeString = Marshal.StringToHGlobalUni(dllPath);
 			var bytes = Encoding.Unicode.GetBytes(dllPath);
-			Marshal.FreeHGlobal(nativeString);
 
 			if (!Native.WriteProcessMemory(processHandle, remoteVa, bytes, bytes.Length, out var bytesWritten))
 				return false;

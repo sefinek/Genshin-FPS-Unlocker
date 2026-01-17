@@ -67,14 +67,19 @@ public partial class SetupForm : Form
 				if (sb.ToString() != "UnityWndClass") return true;
 
 				Native.GetWindowThreadProcessId(hWnd, out var pid);
-				processHandle = Native.OpenProcess(
+				var handle = Native.OpenProcess(
 					ProcessAccess.QUERY_LIMITED_INFORMATION |
 					ProcessAccess.TERMINATE |
 					StandardAccess.SYNCHRONIZE, false, pid);
 
-				var foundPath = ProcessUtils.GetProcessPath(processHandle);
-				if (!foundPath.Contains("YuanShen.exe") && !foundPath.Contains("GenshinImpact.exe")) return true;
+				var foundPath = ProcessUtils.GetProcessPath(handle);
+				if (!foundPath.Contains("YuanShen.exe") && !foundPath.Contains("GenshinImpact.exe"))
+				{
+					Native.CloseHandle(handle);
+					return true;
+				}
 
+				processHandle = handle;
 				windowHandle = hWnd;
 				processPath = foundPath;
 				return false;
