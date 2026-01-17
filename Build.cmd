@@ -84,7 +84,7 @@ echo ============================================
     echo ## Checksums
     echo.
     echo ### genshin-fps-unlocker.selfcontained.zip
-    echo *If you don't have ^[.NET 9^]^(https://dotnet.microsoft.com/en-us/download/dotnet/9.0^) installed, recommended for Linux, larger size due to the built-in .NET Runtime.*
+    echo *If you don't have ^[.NET 10^]^(https://dotnet.microsoft.com/en-us/download/dotnet/10.0^) installed, recommended for Linux, larger size due to the built-in .NET Runtime.*
     FOR %%H IN (%HASHES%) DO (
         echo.
         echo ^<details^>
@@ -96,7 +96,7 @@ echo ============================================
     )
     echo.
     echo ### genshin-fps-unlocker.zip
-    echo *If you have ^[.NET 9^]^(https://dotnet.microsoft.com/en-us/download/dotnet/9.0^) installed, smaller size.*
+    echo *If you have ^[.NET 10^]^(https://dotnet.microsoft.com/en-us/download/dotnet/10.0^) installed, smaller size.*
     FOR %%H IN (%HASHES%) DO (
         echo.
         echo ^<details^>
