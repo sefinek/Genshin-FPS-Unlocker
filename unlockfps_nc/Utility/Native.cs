@@ -5,9 +5,6 @@ namespace unlockfps_nc.Utility;
 
 internal static class Native
 {
-	internal delegate bool EnumWindowsProc(IntPtr hWnd, IntPtr lParam);
-
-	internal delegate void WinEventProc(IntPtr hWinEventHook, uint eventType, IntPtr hwnd, int idObject, int idChild, uint dwEventThread, uint dwmsEventTime);
 
 	[DllImport("user32.dll", CharSet = CharSet.Unicode)]
 	internal static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
@@ -153,6 +150,10 @@ internal static class Native
 
 		return ntHeader.OptionalHeader.SizeOfImage;
 	}
+
+	internal delegate bool EnumWindowsProc(IntPtr hWnd, IntPtr lParam);
+
+	internal delegate void WinEventProc(IntPtr hWinEventHook, uint eventType, IntPtr hwnd, int idObject, int idChild, uint dwEventThread, uint dwmsEventTime);
 }
 
 internal class ModuleGuard(IntPtr module) : IDisposable
