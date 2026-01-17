@@ -3,12 +3,12 @@ using Microsoft.Win32;
 
 namespace unlockfps_nc.Utility;
 
-public static class MonitorUtils
+internal static class MonitorUtils
 {
 	[DllImport("user32.dll")]
 	private static extern bool EnumDisplayDevices(string? lpDevice, uint iDevNum, ref DisplayDevice lpDisplayDevice, uint dwFlags);
 
-	public static (string Name, int Width, int Height, int RefreshRate, bool IsPrimary) GetMonitorInfo(int monitorIndex)
+	internal static (string Name, int Width, int Height, int RefreshRate, bool IsPrimary) GetMonitorInfo(int monitorIndex)
 	{
 		var device = new DisplayDevice { cb = Marshal.SizeOf<DisplayDevice>() };
 
@@ -36,11 +36,6 @@ public static class MonitorUtils
 		return ($"Monitor {monitorIndex + 1}", 0, 0, 60, false);
 	}
 
-	public static string GetMonitorFriendlyName(int monitorIndex)
-	{
-		return GetMonitorInfo(monitorIndex).Name;
-	}
-
 	[DllImport("user32.dll")]
 	private static extern bool EnumDisplaySettings(string? deviceName, int modeNum, ref DevMode devMode);
 
@@ -57,25 +52,23 @@ public static class MonitorUtils
 			var parts = deviceId.Split('\\');
 			if (parts.Length < 2) return null;
 
-			var keyPath = $@"SYSTEM\CurrentControlSet\Enum\DISPLAY\{parts[1]}";
-
-			using RegistryKey? key = Registry.LocalMachine.OpenSubKey(keyPath);
+			using RegistryKey? key = Registry.LocalMachine.OpenSubKey($@"SYSTEM\CurrentControlSet\Enum\DISPLAY\{parts[1]}");
 			if (key == null) return null;
 
 			foreach (var subKeyName in key.GetSubKeyNames())
 			{
 				using RegistryKey? subKey = key.OpenSubKey(subKeyName);
 				var friendlyName = subKey?.GetValue("FriendlyName")?.ToString();
-				if (!string.IsNullOrEmpty(friendlyName))
-				{
-					var cleanName = CleanMonitorName(friendlyName);
-					if (!string.IsNullOrEmpty(cleanName) && !cleanName.Contains("Generic"))
-						return cleanName;
-				}
+				if (string.IsNullOrEmpty(friendlyName)) continue;
+
+				var cleanName = CleanMonitorName(friendlyName);
+				if (!string.IsNullOrEmpty(cleanName) && !cleanName.Contains("Generic"))
+					return cleanName;
 			}
 		}
-		catch
+		catch (Exception ex)
 		{
+			Program.Logger.Error(ex);
 		}
 
 		return null;
@@ -91,12 +84,11 @@ public static class MonitorUtils
 				return lastPart.Trim('(', ')');
 		}
 
-		if (rawName.StartsWith('@'))
-		{
-			var index = rawName.IndexOf(';');
-			if (index > 0 && index < rawName.Length - 1)
-				return rawName.Substring(index + 1);
-		}
+		if (!rawName.StartsWith('@')) return rawName;
+
+		var index = rawName.IndexOf(';');
+		if (index > 0 && index < rawName.Length - 1)
+			return rawName[(index + 1)..];
 
 		return rawName;
 	}
@@ -104,44 +96,44 @@ public static class MonitorUtils
 	[StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
 	private struct DisplayDevice
 	{
-		[MarshalAs(UnmanagedType.U4)] public int cb;
+		[MarshalAs(UnmanagedType.U4)] internal int cb;
 		[MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)]
-		public string DeviceName;
+		internal string DeviceName;
 		[MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)]
-		public string DeviceString;
-		[MarshalAs(UnmanagedType.U4)] public uint StateFlags;
+		internal string DeviceString;
+		[MarshalAs(UnmanagedType.U4)] internal uint StateFlags;
 		[MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)]
-		public string DeviceID;
+		internal string DeviceID;
 		[MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)]
-		public string DeviceKey;
+		internal string DeviceKey;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
 	private struct DevMode
 	{
 		[MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)]
-		public string dmDeviceName;
-		public short dmSpecVersion;
-		public short dmDriverVersion;
-		public short dmSize;
-		public short dmDriverExtra;
-		public int dmFields;
-		public int dmPositionX;
-		public int dmPositionY;
-		public int dmDisplayOrientation;
-		public int dmDisplayFixedOutput;
-		public short dmColor;
-		public short dmDuplex;
-		public short dmYResolution;
-		public short dmTTOption;
-		public short dmCollate;
+		internal string dmDeviceName;
+		internal short dmSpecVersion;
+		internal short dmDriverVersion;
+		internal short dmSize;
+		internal short dmDriverExtra;
+		internal int dmFields;
+		internal int dmPositionX;
+		internal int dmPositionY;
+		internal int dmDisplayOrientation;
+		internal int dmDisplayFixedOutput;
+		internal short dmColor;
+		internal short dmDuplex;
+		internal short dmYResolution;
+		internal short dmTTOption;
+		internal short dmCollate;
 		[MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)]
-		public string dmFormName;
-		public short dmLogPixels;
-		public int dmBitsPerPel;
-		public int dmPelsWidth;
-		public int dmPelsHeight;
-		public int dmDisplayFlags;
-		public int dmDisplayFrequency;
+		internal string dmFormName;
+		internal short dmLogPixels;
+		internal int dmBitsPerPel;
+		internal int dmPelsWidth;
+		internal int dmPelsHeight;
+		internal int dmDisplayFlags;
+		internal int dmDisplayFrequency;
 	}
 }

@@ -1,6 +1,6 @@
 namespace unlockfps_nc.Model;
 
-public class Config
+internal class Config
 {
 	public string GamePath { get; set; } = "";
 

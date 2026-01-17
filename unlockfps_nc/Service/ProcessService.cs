@@ -23,7 +23,7 @@ public class ProcessService
 		_ = Task.Run(UnlockerPoll, _cts.Token);
 	}
 
-	public bool StartGame()
+	internal bool StartGame()
 	{
 		Program.Logger.Info($"Starting game from path: {_config.GamePath}");
 
@@ -92,7 +92,7 @@ public class ProcessService
 		return true;
 	}
 
-	public void OnFormClosing()
+	internal void OnFormClosing()
 	{
 		Program.Logger.Info("ProcessService shutting down");
 		_cts.Cancel();

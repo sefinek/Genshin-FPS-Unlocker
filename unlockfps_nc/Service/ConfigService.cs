@@ -15,18 +15,15 @@ public class ConfigService
 		var configPath = GetFullPath();
 		IsFirstRun = !File.Exists(configPath);
 
-		if (IsFirstRun)
-			Program.Logger.Info($"First run detected, creating new config at: {configPath}");
-		else
-			Program.Logger.Info($"Loading existing config from: {configPath}");
+		Program.Logger.Info(IsFirstRun ? $"First run detected, creating new config at: {configPath}" : $"Loading existing config from: {configPath}");
 
 		Load();
 		Sanitize();
 		if (IsFirstRun) InitializePrimaryMonitor();
 	}
 
-	public bool IsFirstRun { get; }
-	public Config Config { get; private set; } = new();
+	internal bool IsFirstRun { get; }
+	internal Config Config { get; private set; } = new();
 
 	private void Load()
 	{
@@ -37,11 +34,10 @@ public class ConfigService
 		{
 			var json = File.ReadAllText(configPath);
 			var config = JsonSerializer.Deserialize<Config>(json);
-			if (config != null)
-			{
-				Config = config;
-				Program.Logger.Info("Configuration loaded successfully");
-			}
+			if (config == null) return;
+
+			Config = config;
+			Program.Logger.Info("Configuration loaded successfully");
 		}
 		catch (Exception e)
 		{
@@ -74,7 +70,7 @@ public class ConfigService
 		}
 	}
 
-	private int FindPrimaryMonitorIndex()
+	private static int FindPrimaryMonitorIndex()
 	{
 		for (var i = 0; i < 10; i++)
 			try
@@ -90,7 +86,7 @@ public class ConfigService
 		return -1;
 	}
 
-	public void UpdateMonitorSettings(int monitorIndex)
+	internal void UpdateMonitorSettings(int monitorIndex)
 	{
 		var (_, width, height, refreshRate, _) = MonitorUtils.GetMonitorInfo(monitorIndex);
 		Config.FPSTarget = refreshRate > 0 ? refreshRate : 60;
@@ -104,7 +100,7 @@ public class ConfigService
 		return Path.Combine(currentPath, ConfigName);
 	}
 
-	public void Save()
+	internal void Save()
 	{
 		lock (_lock)
 		{

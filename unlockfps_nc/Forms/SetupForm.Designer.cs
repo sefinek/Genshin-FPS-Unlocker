@@ -72,8 +72,8 @@ namespace unlockfps_nc.Forms
 			// 
 			// ComboResult
 			// 
-			ComboResult.FormattingEnabled = true;
 			resources.ApplyResources(ComboResult, "ComboResult");
+			ComboResult.FormattingEnabled = true;
 			ComboResult.Name = "ComboResult";
 			// 
 			// LabelResult

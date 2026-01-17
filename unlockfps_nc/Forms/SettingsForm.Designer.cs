@@ -199,11 +199,11 @@ namespace unlockfps_nc.Forms
 			// 
 			// ComboPriority
 			// 
+			resources.ApplyResources(ComboPriority, "ComboPriority");
 			ComboPriority.DropDownStyle = ComboBoxStyle.DropDownList;
 			ComboPriority.ForeColor = Color.Black;
 			ComboPriority.FormattingEnabled = true;
 			ComboPriority.Items.AddRange(new object[] { resources.GetString("ComboPriority.Items"), resources.GetString("ComboPriority.Items1"), resources.GetString("ComboPriority.Items2"), resources.GetString("ComboPriority.Items3"), resources.GetString("ComboPriority.Items4"), resources.GetString("ComboPriority.Items5") });
-			resources.ApplyResources(ComboPriority, "ComboPriority");
 			ComboPriority.Name = "ComboPriority";
 			// 
 			// LabelPriority
@@ -214,9 +214,9 @@ namespace unlockfps_nc.Forms
 			// 
 			// TabCtrlSettings
 			// 
+			resources.ApplyResources(TabCtrlSettings, "TabCtrlSettings");
 			TabCtrlSettings.Controls.Add(TabGeneral);
 			TabCtrlSettings.Controls.Add(TabLaunchOptions);
-			resources.ApplyResources(TabCtrlSettings, "TabCtrlSettings");
 			TabCtrlSettings.Name = "TabCtrlSettings";
 			TabCtrlSettings.SelectedIndex = 0;
 			// 

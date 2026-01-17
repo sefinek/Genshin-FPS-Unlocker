@@ -22,7 +22,7 @@ internal static class Program
 	private static readonly string[] SupportedLangs = ["en", "pl-PL", "fr-FR", "tr-TR", "ru-RU", "sv-SE", "es-ES", "pt-BR", "it-IT"];
 	private static readonly string MutexName = "286B345F-A2EB-4FF3-83E9-2DD83B87694A";
 	private static readonly string EventName = "B2ABB8F2-E6B2-4E31-8A11-15F969ADF755";
-	internal static readonly IniFile Settings = new(Path.Combine(AppData, "settings.ini"));
+	private static readonly IniFile Settings = new(Path.Combine(AppData, "settings.ini"));
 	internal static Logger Logger = null!;
 	public static IServiceProvider ServiceProvider { get; private set; } = null!;
 

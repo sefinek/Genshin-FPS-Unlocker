@@ -6,7 +6,7 @@ using unlockfps_nc.Utility;
 
 namespace unlockfps_nc.Service;
 
-public enum IpcStatus : sbyte
+internal enum IpcStatus : sbyte
 {
 	None = 0,
 	Error,
@@ -14,12 +14,12 @@ public enum IpcStatus : sbyte
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = 8)]
-public struct IpcData
+internal struct IpcData
 {
-	public IpcStatus Status;
-	public int FrameRate;
-	public bool PowerSave;
-	public bool UseMobileUI;
+	internal IpcStatus Status;
+	internal int FrameRate;
+	internal bool PowerSave;
+	internal bool UseMobileUI;
 }
 
 public class IpcService(ConfigService configService) : IDisposable
@@ -37,7 +37,7 @@ public class IpcService(ConfigService configService) : IDisposable
 		_stubModule.Dispose();
 	}
 
-	public bool Start(int processId)
+	internal bool Start(int processId)
 	{
 		Program.Logger.Info($"Starting IPC service for process ID: {processId}");
 
@@ -126,7 +126,7 @@ public class IpcService(ConfigService configService) : IDisposable
 		return true;
 	}
 
-	public void OnGameExit()
+	internal void OnGameExit()
 	{
 		Program.Logger.Info("Game exit detected, cleaning up IPC service");
 		var ipcData = new IpcData
@@ -137,7 +137,7 @@ public class IpcService(ConfigService configService) : IDisposable
 		_sharedMemoryAccessor?.Write(0, ref ipcData);
 	}
 
-	public void Update()
+	internal void Update()
 	{
 		var ipcData = new IpcData
 		{
@@ -161,9 +161,9 @@ public class IpcService(ConfigService configService) : IDisposable
 			using var fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write);
 			stream.CopyTo(fileStream);
 		}
-		catch (Exception)
+		catch (Exception ex)
 		{
-			// . . .
+			Program.Logger.Error(ex);
 		}
 
 		return filePath;
