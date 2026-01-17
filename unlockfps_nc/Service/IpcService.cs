@@ -146,7 +146,7 @@ public class IpcService(ConfigService configService) : IDisposable
 		{
 			FrameRate = configService.Config.FPSTarget,
 			PowerSave = configService.Config.UsePowerSave,
-			UseMobileUI = configService.Config.UseMobileUI,
+			UseMobileUI = configService.Config.UseMobileUI
 		};
 
 		_sharedMemoryAccessor?.Write(0, ref ipcData);

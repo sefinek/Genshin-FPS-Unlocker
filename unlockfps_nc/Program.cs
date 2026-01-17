@@ -12,27 +12,19 @@ namespace unlockfps_nc;
 
 internal static class Program
 {
-	// App
+
+	internal const string REGISTRY_PATH = @"Software\Stella Mod Launcher";
 	private static readonly string AppName = Assembly.GetExecutingAssembly().GetName().Name!;
 	private static readonly string AppVersion = Assembly.GetExecutingAssembly().GetName().Version?.ToString()!;
 	private static readonly string AppFullVersion = Application.ProductVersion;
-
-	// Files and folders
 	private static readonly string AppPath = AppDomain.CurrentDomain.BaseDirectory;
 	private static readonly string AppData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Genshin Stella Mod");
-
-	internal const string REGISTRY_PATH = @"Software\Stella Mod Launcher";
 	private static readonly string[] SupportedLangs = ["en", "pl-PL", "fr-FR", "tr-TR", "ru-RU", "sv-SE", "es-ES", "pt-BR", "it-IT"];
-
 	private static readonly string MutexName = "286B345F-A2EB-4FF3-83E9-2DD83B87694A";
 	private static readonly string EventName = "B2ABB8F2-E6B2-4E31-8A11-15F969ADF755";
-
-	// Misc
 	internal static readonly IniFile Settings = new(Path.Combine(AppData, "settings.ini"));
-	public static IServiceProvider ServiceProvider { get; private set; } = null!;
-
-	// Logger
 	internal static Logger Logger = null!;
+	public static IServiceProvider ServiceProvider { get; private set; } = null!;
 
 	[STAThread]
 	private static void Main()

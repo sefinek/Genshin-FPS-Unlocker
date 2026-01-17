@@ -58,7 +58,9 @@ public partial class MainForm : Form
 			BtnStartGame_Click(null, null);
 		}
 		else if (_config.StartMinimized)
+		{
 			WindowState = FormWindowState.Minimized;
+		}
 
 		Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
 	}

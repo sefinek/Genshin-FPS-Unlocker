@@ -116,7 +116,7 @@ public class ProcessService
 		{
 			await Task.Delay(1000, _cts.Token);
 			using Process? process = Process.GetProcessesByName("GenshinImpact").FirstOrDefault()
-				?? Process.GetProcessesByName("YuanShen").FirstOrDefault();
+			                         ?? Process.GetProcessesByName("YuanShen").FirstOrDefault();
 			if (process == null)
 				continue;
 
