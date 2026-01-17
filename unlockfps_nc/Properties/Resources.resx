@@ -206,8 +206,4 @@ Please configure the correct path in Setup.</value>
   <data name="IpcService_Start_FailedToStartUnlocker" xml:space="preserve">
     <value>Failed to start the unlocker.</value>
   </data>
-  <data name="ProcessUtils_GetModuleBase_EnumProcessModulesExFailed" xml:space="preserve">
-    <value>EnumProcessModulesEx failed ({0})
-{1}</value>
-  </data>
-</root>
+  </root>

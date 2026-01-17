@@ -146,7 +146,7 @@
     <value>To nie jest właściwe miejsce.</value>
   </data>
   <data name="SetupForm_BtnBrowse_Click_PleaseSelectTheGameExe_GenshinImpactExeOrYuanShenExe" xml:space="preserve">
-    <value>Proszę wybrać plik wykonywany (exe) gry.
+    <value>Wybierz plik EXE gry:
 GenshinImpact.exe lub YuanShen.exe</value>
   </data>
   <data name="SetupForm_PollProcess_FailedToFindProcessPathPleaseUseBrowseInstead" xml:space="preserve">
@@ -165,5 +165,45 @@ GenshinImpact.exe lub YuanShen.exe</value>
   </data>
   <data name="MainForm_OpenStella_Click_TheRegistryKeyStellaPathWasNotFoundAreYouSureGenshinStellaModIsInstalled" xml:space="preserve">
     <value>Nie znaleziono klucza rejestru "StellaPath". Czy na pewno Genshin Stella Mod jest zainstalowany?</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Ostrzeżenie</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Sukces</value>
+  </data>
+  <data name="ProcessService_StartGame_GameNotFound" xml:space="preserve">
+    <value>Nie znaleziono pliku wykonywalnego gry:
+{0}
+
+Skonfiguruj poprawną ścieżkę w Konfiguracji.</value>
+  </data>
+  <data name="ProcessService_StartGame_GameAlreadyRunning" xml:space="preserve">
+    <value>Instancja gry jest już uruchomiona. Proszę zamknąć ją najpierw.</value>
+  </data>
+  <data name="ProcessService_StartGame_FailedToEnableHDR" xml:space="preserve">
+    <value>Nie udało się włączyć HDR: {0}</value>
+  </data>
+  <data name="ProcessService_StartGame_CreateProcessFailed" xml:space="preserve">
+    <value>CreateProcess nie powiodło się ({0})
+{1}</value>
+  </data>
+  <data name="IpcService_Start_FailedToCreateSharedMemory" xml:space="preserve">
+    <value>Nie udało się utworzyć pamięci współdzielonej.</value>
+  </data>
+  <data name="IpcService_Start_FailedToLoadStubModule" xml:space="preserve">
+    <value>Nie udało się załadować modułu stub: {0}
+{1}</value>
+  </data>
+  <data name="IpcService_Start_FailedToSetWindowHook" xml:space="preserve">
+    <value>Nie udało się ustawić hooka okna: {0}
+{1}</value>
+  </data>
+  <data name="IpcService_Start_FailedToPostThreadMessage" xml:space="preserve">
+    <value>Nie udało się wysłać wiadomości wątku: {0}
+{1}</value>
+  </data>
+  <data name="IpcService_Start_FailedToStartUnlocker" xml:space="preserve">
+    <value>Nie udało się uruchomić unlockera.</value>
   </data>
 </root>
