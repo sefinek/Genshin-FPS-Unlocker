@@ -6,7 +6,7 @@ using unlockfps_nc.Utility;
 
 namespace unlockfps_nc.Service;
 
-public enum IpcStatus
+public enum IpcStatus : sbyte
 {
 	None = 0,
 	Error,

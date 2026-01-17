@@ -115,8 +115,8 @@ public class ProcessService
 		while (!_cts.IsCancellationRequested)
 		{
 			await Task.Delay(1000, _cts.Token);
-			using Process? process = Process.GetProcesses()
-				.FirstOrDefault(x => x is { ProcessName: "GenshinImpact" } or { ProcessName: "YuanShen" });
+			using Process? process = Process.GetProcessesByName("GenshinImpact").FirstOrDefault()
+				?? Process.GetProcessesByName("YuanShen").FirstOrDefault();
 			if (process == null)
 				continue;
 
