@@ -70,7 +70,7 @@ internal static class Program
 
 		if (File.Exists("GenshinImpact.exe") || File.Exists("YuanShen.exe"))
 		{
-			MessageBox.Show(Resources.Program_Main_DoNotPlaceThisToolInTheGameFolder, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			MessageBox.Show(Resources.Program_Main_DoNotPlaceThisToolInTheGameFolder, Resources.Warning, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			return;
 		}
 

@@ -19,7 +19,7 @@ namespace unlockfps_nc.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -80,6 +80,54 @@ namespace unlockfps_nc.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed to create shared memory..
+        /// </summary>
+        internal static string IpcService_Start_FailedToCreateSharedMemory {
+            get {
+                return ResourceManager.GetString("IpcService_Start_FailedToCreateSharedMemory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to load stub module: {0}
+        ///{1}.
+        /// </summary>
+        internal static string IpcService_Start_FailedToLoadStubModule {
+            get {
+                return ResourceManager.GetString("IpcService_Start_FailedToLoadStubModule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to post thread message: {0}
+        ///{1}.
+        /// </summary>
+        internal static string IpcService_Start_FailedToPostThreadMessage {
+            get {
+                return ResourceManager.GetString("IpcService_Start_FailedToPostThreadMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to set window hook: {0}
+        ///{1}.
+        /// </summary>
+        internal static string IpcService_Start_FailedToSetWindowHook {
+            get {
+                return ResourceManager.GetString("IpcService_Start_FailedToSetWindowHook", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to start the unlocker..
+        /// </summary>
+        internal static string IpcService_Start_FailedToStartUnlocker {
+            get {
+                return ResourceManager.GetString("IpcService_Start_FailedToStartUnlocker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Genshin FPS Unlocker (current limit: {0}).
         /// </summary>
         internal static string MainForm_NotifyAndHide_GenshinFPSUnlockerCurrentLimit_ {
@@ -113,6 +161,56 @@ namespace unlockfps_nc.Properties {
         internal static string MainForm_ViewCfg_TheUnlockerConfigJsonFileWasNotFound {
             get {
                 return ResourceManager.GetString("MainForm_ViewCfg_TheUnlockerConfigJsonFileWasNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CreateProcess failed ({0})
+        ///{1}.
+        /// </summary>
+        internal static string ProcessService_StartGame_CreateProcessFailed {
+            get {
+                return ResourceManager.GetString("ProcessService_StartGame_CreateProcessFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to enable HDR: {0}.
+        /// </summary>
+        internal static string ProcessService_StartGame_FailedToEnableHDR {
+            get {
+                return ResourceManager.GetString("ProcessService_StartGame_FailedToEnableHDR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An instance of the game is already running. Please close it first..
+        /// </summary>
+        internal static string ProcessService_StartGame_GameAlreadyRunning {
+            get {
+                return ResourceManager.GetString("ProcessService_StartGame_GameAlreadyRunning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game executable not found:
+        ///{0}
+        ///
+        ///Please configure the correct path in Setup..
+        /// </summary>
+        internal static string ProcessService_StartGame_GameNotFound {
+            get {
+                return ResourceManager.GetString("ProcessService_StartGame_GameNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EnumProcessModulesEx failed ({0})
+        ///{1}.
+        /// </summary>
+        internal static string ProcessUtils_GetModuleBase_EnumProcessModulesExFailed {
+            get {
+                return ResourceManager.GetString("ProcessUtils_GetModuleBase_EnumProcessModulesExFailed", resourceCulture);
             }
         }
         
@@ -197,6 +295,24 @@ namespace unlockfps_nc.Properties {
         internal static string SetupForm_UpdateGamePathUi_NoGameInstallationsFound {
             get {
                 return ResourceManager.GetString("SetupForm_UpdateGamePathUi_NoGameInstallationsFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success.
+        /// </summary>
+        internal static string Success {
+            get {
+                return ResourceManager.GetString("Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning.
+        /// </summary>
+        internal static string Warning {
+            get {
+                return ResourceManager.GetString("Warning", resourceCulture);
             }
         }
     }

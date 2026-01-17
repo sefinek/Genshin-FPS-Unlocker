@@ -46,7 +46,7 @@ public class IpcService(ConfigService configService) : IDisposable
 		if (_sharedMemoryAccessor == null)
 		{
 			Program.Logger.Error("Failed to create shared memory accessor");
-			MessageBox.Show(@"Failed to create shared memory.", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show(Resources.IpcService_Start_FailedToCreateSharedMemory, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return false;
 		}
 
@@ -69,9 +69,8 @@ public class IpcService(ConfigService configService) : IDisposable
 		if (_stubModule == IntPtr.Zero)
 		{
 			var error = Marshal.GetLastWin32Error();
-			var errorMessage = $@"Failed to load stub module: {error}{Environment.NewLine}{Marshal.GetLastPInvokeErrorMessage()}";
 			Program.Logger.Error($"LoadLibrary failed with error code {error}: {Marshal.GetLastPInvokeErrorMessage()}");
-			MessageBox.Show(errorMessage, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show(string.Format(Resources.IpcService_Start_FailedToLoadStubModule, error, Marshal.GetLastPInvokeErrorMessage()), Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return false;
 		}
 
@@ -83,18 +82,16 @@ public class IpcService(ConfigService configService) : IDisposable
 		if (_wndHook == IntPtr.Zero)
 		{
 			var error = Marshal.GetLastWin32Error();
-			var errorMessage = $@"Failed to set window hook: {error}{Environment.NewLine}{Marshal.GetLastPInvokeErrorMessage()}";
 			Program.Logger.Error($"SetWindowsHookEx failed with error code {error}: {Marshal.GetLastPInvokeErrorMessage()}");
-			MessageBox.Show(errorMessage, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show(string.Format(Resources.IpcService_Start_FailedToSetWindowHook, error, Marshal.GetLastPInvokeErrorMessage()), Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return false;
 		}
 
 		if (!Native.PostThreadMessage(threadId, 0, IntPtr.Zero, IntPtr.Zero))
 		{
 			var error = Marshal.GetLastWin32Error();
-			var errorMessage = $@"Failed to post thread message: {error}{Environment.NewLine}{Marshal.GetLastPInvokeErrorMessage()}";
 			Program.Logger.Error($"PostThreadMessage failed with error code {error}: {Marshal.GetLastPInvokeErrorMessage()}");
-			MessageBox.Show(errorMessage, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show(string.Format(Resources.IpcService_Start_FailedToPostThreadMessage, error, Marshal.GetLastPInvokeErrorMessage()), Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return false;
 		}
 
@@ -118,7 +115,7 @@ public class IpcService(ConfigService configService) : IDisposable
 			if (retryCount >= 20)
 			{
 				Program.Logger.Error($"IPC initialization timeout after {retryCount} retries");
-				MessageBox.Show(@"Failed to start the unlocker.", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(Resources.IpcService_Start_FailedToStartUnlocker, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;
 			}
 

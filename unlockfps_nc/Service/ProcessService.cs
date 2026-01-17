@@ -30,14 +30,14 @@ public class ProcessService
 		if (!File.Exists(_config.GamePath))
 		{
 			Program.Logger.Error($"Game executable not found at path: {_config.GamePath}");
-			MessageBox.Show("Game path is invalid.", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show(string.Format(Resources.ProcessService_StartGame_GameNotFound, _config.GamePath), Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return false;
 		}
 
 		if (IsGameRunning())
 		{
 			Program.Logger.Warn("Attempted to start game while another instance is already running");
-			MessageBox.Show("An instance of the game is already running.", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show(Resources.ProcessService_StartGame_GameAlreadyRunning, Resources.Warning, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			return false;
 		}
 
@@ -60,7 +60,7 @@ public class ProcessService
 			catch (Exception e)
 			{
 				Program.Logger.Error(e, "Failed to enable HDR registry setting");
-				MessageBox.Show($@"Failed to enable HDR: {e.Message}", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(string.Format(Resources.ProcessService_StartGame_FailedToEnableHDR, e.Message), Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 
@@ -75,7 +75,7 @@ public class ProcessService
 		{
 			var error = Marshal.GetLastWin32Error();
 			Program.Logger.Error($"CreateProcess failed with error code {error}: {Marshal.GetLastPInvokeErrorMessage()}");
-			MessageBox.Show($@"CreateProcess failed ({error}){Environment.NewLine} {Marshal.GetLastPInvokeErrorMessage()}", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show(string.Format(Resources.ProcessService_StartGame_CreateProcessFailed, error, Marshal.GetLastPInvokeErrorMessage()), Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return false;
 		}
 

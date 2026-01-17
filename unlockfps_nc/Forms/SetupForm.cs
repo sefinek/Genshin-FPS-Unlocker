@@ -97,7 +97,7 @@ public partial class SetupForm : Form
 				return;
 			}
 
-			MessageBox.Show(string.Format(Resources.SetupForm_PollProcess_GameFound_, processPath), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			MessageBox.Show(string.Format(Resources.SetupForm_PollProcess_GameFound_, processPath), Resources.Success, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 			_config.GamePath = processPath;
 			Invoke(Close);
@@ -161,14 +161,14 @@ public partial class SetupForm : Form
 		var directory = Path.GetDirectoryName(selectedFile);
 		if (fileName != "GenshinImpact" && fileName != "YuanShen")
 		{
-			MessageBox.Show(Resources.SetupForm_BtnBrowse_Click_PleaseSelectTheGameExe_GenshinImpactExeOrYuanShenExe, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show(Resources.SetupForm_BtnBrowse_Click_PleaseSelectTheGameExe_GenshinImpactExeOrYuanShenExe, Resources.Warning, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			return;
 		}
 
 		var dataDir = Path.Combine(directory!, $"{fileName}_Data");
 		if (!Directory.Exists(dataDir))
 		{
-			MessageBox.Show(Resources.SetupForm_BtnBrowse_Click_ThatSNotTheRightPlace, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show(Resources.SetupForm_BtnBrowse_Click_ThatSNotTheRightPlace, Resources.Warning, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			return;
 		}
 

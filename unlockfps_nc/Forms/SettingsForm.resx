@@ -333,9 +333,6 @@
   <data name="ComboFullscreenMode.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="ComboFullscreenMode.Text" xml:space="preserve">
-    <value>Borderless</value>
-  </data>
   <data name="&gt;&gt;ComboFullscreenMode.Name" xml:space="preserve">
     <value>ComboFullscreenMode</value>
   </data>
