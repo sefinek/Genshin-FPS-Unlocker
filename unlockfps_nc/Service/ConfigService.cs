@@ -13,18 +13,19 @@ public class ConfigService
 	public ConfigService()
 	{
 		var configPath = GetFullPath();
-		var isFirstRun = !File.Exists(configPath);
+		IsFirstRun = !File.Exists(configPath);
 
-		if (isFirstRun)
+		if (IsFirstRun)
 			Program.Logger.Info($"First run detected, creating new config at: {configPath}");
 		else
 			Program.Logger.Info($"Loading existing config from: {configPath}");
 
 		Load();
 		Sanitize();
-		if (isFirstRun) InitializePrimaryMonitor();
+		if (IsFirstRun) InitializePrimaryMonitor();
 	}
 
+	public bool IsFirstRun { get; }
 	public Config Config { get; private set; } = new();
 
 	private void Load()

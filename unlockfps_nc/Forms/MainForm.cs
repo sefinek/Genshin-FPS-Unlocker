@@ -114,16 +114,11 @@ public partial class MainForm : Form
 
 	private void NotifyAndHide()
 	{
-		var showNotify = Program.Settings.ReadInt("FPSUnlocker", "ShowNotify", 1);
-
 		NotifyIconMain.Icon = ImageResources.cat;
 		NotifyIconMain.Visible = true;
 		NotifyIconMain.Text = string.Format(Resources.MainForm_NotifyAndHide_GenshinFPSUnlockerCurrentLimit_, _config.FPSTarget);
-		if (showNotify == 1)
-		{
+		if (_configService.IsFirstRun)
 			NotifyIconMain.ShowBalloonTip(500);
-			Program.Settings.WriteInt("FPSUnlocker", "ShowNotify", 0);
-		}
 
 		ShowInTaskbar = false;
 		Hide();
