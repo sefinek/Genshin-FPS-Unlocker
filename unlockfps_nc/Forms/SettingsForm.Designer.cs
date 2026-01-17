@@ -127,6 +127,7 @@ namespace unlockfps_nc.Forms
 			// ComboFullscreenMode
 			// 
 			resources.ApplyResources(ComboFullscreenMode, "ComboFullscreenMode");
+			ComboFullscreenMode.DropDownStyle = ComboBoxStyle.DropDownList;
 			ComboFullscreenMode.FormattingEnabled = true;
 			ComboFullscreenMode.Items.AddRange(new object[] { resources.GetString("ComboFullscreenMode.Items"), resources.GetString("ComboFullscreenMode.Items1") });
 			ComboFullscreenMode.Name = "ComboFullscreenMode";
