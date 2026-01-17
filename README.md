@@ -12,7 +12,7 @@
 - You can download the compiled binary over at [Release](https://github.com/sefinek/Genshin-FPS-Unlocker/releases) if you don't want to compile it yourself.
 
 ## Usage
-- Make sure you have the [.NET Desktop Runtime 9.0](https://dotnet.microsoft.com/en-us/download/dotnet/9.0). Usually it should come installed.
+- Make sure you have the [.NET Desktop Runtime 10.0](https://dotnet.microsoft.com/en-us/download/dotnet/10.0). Usually it should come installed.
 - Run the exe and click `Start game`.
 - If it is your first time running, unlocker will attempt to find your game through the registry. If it fails, then it will ask you to either browse or run the game.
 - Place the compiled exe anywhere you want (except for the game folder).
@@ -27,7 +27,7 @@
 - Any artifacts from unlocking fps (e.g. stuttering) is NOT a bug of the unlocker.
 
 ## Compiling
-Use `Visual Studio 2022 Community Edition` to compile.
+Use `Visual Studio 2026 Community Edition` to compile.
 
 ## Credits
 <a href="https://www.flaticon.com/free-icons/cat" title="cat icons">Cat icons created by Freepik - Flaticon</a>
