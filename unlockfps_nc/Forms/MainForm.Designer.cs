@@ -59,8 +59,8 @@ namespace unlockfps_nc.Forms
 			ToolTipMain = new ToolTip(components);
 			NotifyIconMain = new NotifyIcon(components);
 			ContextNotify = new ContextMenuStrip(components);
-			ExitMenuItem = new ToolStripMenuItem();
 			StartGameMenuItem = new ToolStripMenuItem();
+			ExitMenuItem = new ToolStripMenuItem();
 			pictureBox1 = new PictureBox();
 			OptionsMenuStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)InputFPS).BeginInit();
@@ -237,21 +237,21 @@ namespace unlockfps_nc.Forms
 			resources.ApplyResources(NotifyIconMain, "NotifyIconMain");
 			NotifyIconMain.ContextMenuStrip = ContextNotify;
 			NotifyIconMain.DoubleClick += NotifyIconMain_DoubleClick;
-			//
+			// 
 			// ContextNotify
-			//
+			// 
 			ContextNotify.Items.AddRange(new ToolStripItem[] { StartGameMenuItem, ExitMenuItem });
 			ContextNotify.Name = "ContextNotify";
 			resources.ApplyResources(ContextNotify, "ContextNotify");
-			//
+			// 
 			// StartGameMenuItem
-			//
+			// 
 			StartGameMenuItem.Name = "StartGameMenuItem";
-			StartGameMenuItem.Text = "Start Game";
+			resources.ApplyResources(StartGameMenuItem, "StartGameMenuItem");
 			StartGameMenuItem.Click += StartGameMenuItem_Click;
-			//
+			// 
 			// ExitMenuItem
-			//
+			// 
 			ExitMenuItem.Name = "ExitMenuItem";
 			resources.ApplyResources(ExitMenuItem, "ExitMenuItem");
 			ExitMenuItem.Click += ExitMenuItem_Click;
@@ -275,6 +275,7 @@ namespace unlockfps_nc.Forms
 			Controls.Add(InputFPS);
 			Controls.Add(LabelFPS);
 			Controls.Add(OptionsMenuStrip);
+			DoubleBuffered = true;
 			FormBorderStyle = FormBorderStyle.FixedSingle;
 			MainMenuStrip = OptionsMenuStrip;
 			MaximizeBox = false;
