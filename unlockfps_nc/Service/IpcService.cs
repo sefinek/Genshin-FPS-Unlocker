@@ -19,6 +19,7 @@ public struct IpcData
 	public IpcStatus Status;
 	public int FrameRate;
 	public bool PowerSave;
+	public bool UseMobileUI;
 }
 
 public class IpcService(ConfigService configService) : IDisposable
@@ -114,7 +115,7 @@ public class IpcService(ConfigService configService) : IDisposable
 				return false;
 			}
 
-			if (retryCount >= 10)
+			if (retryCount >= 20)
 			{
 				Program.Logger.Error($"IPC initialization timeout after {retryCount} retries");
 				MessageBox.Show(@"Failed to start the unlocker.", Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -144,7 +145,8 @@ public class IpcService(ConfigService configService) : IDisposable
 		var ipcData = new IpcData
 		{
 			FrameRate = configService.Config.FPSTarget,
-			PowerSave = configService.Config.UsePowerSave
+			PowerSave = configService.Config.UsePowerSave,
+			UseMobileUI = configService.Config.UseMobileUI,
 		};
 
 		_sharedMemoryAccessor?.Write(0, ref ipcData);

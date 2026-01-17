@@ -57,6 +57,8 @@ public partial class MainForm : Form
 			Program.Logger.Info("Auto-start enabled, starting game automatically");
 			BtnStartGame_Click(null, null);
 		}
+		else if (_config.StartMinimized)
+			WindowState = FormWindowState.Minimized;
 
 		Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
 	}
@@ -155,6 +157,11 @@ public partial class MainForm : Form
 	{
 		AboutForm aboutForm = new();
 		aboutForm.ShowDialog();
+	}
+
+	private void StartGameMenuItem_Click(object? sender, EventArgs e)
+	{
+		BtnStartGame_Click(sender, e);
 	}
 
 	private void OpenStella_Click(object sender, EventArgs e)

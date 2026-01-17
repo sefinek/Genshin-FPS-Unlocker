@@ -164,9 +164,6 @@ public class ProcessService
 		if (_config.Fullscreen)
 			commandLine += $"-window-mode {(_config.IsExclusiveFullscreen ? "exclusive" : "borderless")} ";
 
-		if (_config.UseMobileUI)
-			commandLine += "use_mobile_platform -is_cloud 1 -platform_type CLOUD_THIRD_PARTY_MOBILE ";
-
 		commandLine += $"-monitor {_config.MonitorNum} ";
 		commandLine += $"{_config.AdditionalCommandLine} ";
 		return commandLine;

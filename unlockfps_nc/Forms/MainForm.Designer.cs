@@ -60,6 +60,7 @@ namespace unlockfps_nc.Forms
 			NotifyIconMain = new NotifyIcon(components);
 			ContextNotify = new ContextMenuStrip(components);
 			ExitMenuItem = new ToolStripMenuItem();
+			StartGameMenuItem = new ToolStripMenuItem();
 			pictureBox1 = new PictureBox();
 			OptionsMenuStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)InputFPS).BeginInit();
@@ -201,7 +202,7 @@ namespace unlockfps_nc.Forms
 			resources.ApplyResources(InputFPS, "InputFPS");
 			InputFPS.BackColor = Color.FromArgb(47, 49, 54);
 			InputFPS.ForeColor = Color.White;
-			InputFPS.Maximum = new decimal(new int[] { 420, 0, 0, 0 });
+			InputFPS.Maximum = new decimal(new int[] { 540, 0, 0, 0 });
 			InputFPS.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
 			InputFPS.Name = "InputFPS";
 			InputFPS.Value = new decimal(new int[] { 144, 0, 0, 0 });
@@ -209,7 +210,7 @@ namespace unlockfps_nc.Forms
 			// SliderFPS
 			// 
 			resources.ApplyResources(SliderFPS, "SliderFPS");
-			SliderFPS.Maximum = 420;
+			SliderFPS.Maximum = 540;
 			SliderFPS.Minimum = 1;
 			SliderFPS.Name = "SliderFPS";
 			SliderFPS.TickStyle = TickStyle.None;
@@ -236,15 +237,21 @@ namespace unlockfps_nc.Forms
 			resources.ApplyResources(NotifyIconMain, "NotifyIconMain");
 			NotifyIconMain.ContextMenuStrip = ContextNotify;
 			NotifyIconMain.DoubleClick += NotifyIconMain_DoubleClick;
-			// 
+			//
 			// ContextNotify
-			// 
-			ContextNotify.Items.AddRange(new ToolStripItem[] { ExitMenuItem });
+			//
+			ContextNotify.Items.AddRange(new ToolStripItem[] { StartGameMenuItem, ExitMenuItem });
 			ContextNotify.Name = "ContextNotify";
 			resources.ApplyResources(ContextNotify, "ContextNotify");
-			// 
+			//
+			// StartGameMenuItem
+			//
+			StartGameMenuItem.Name = "StartGameMenuItem";
+			StartGameMenuItem.Text = "Start Game";
+			StartGameMenuItem.Click += StartGameMenuItem_Click;
+			//
 			// ExitMenuItem
-			// 
+			//
 			ExitMenuItem.Name = "ExitMenuItem";
 			resources.ApplyResources(ExitMenuItem, "ExitMenuItem");
 			ExitMenuItem.Click += ExitMenuItem_Click;
@@ -300,6 +307,7 @@ namespace unlockfps_nc.Forms
         private NotifyIcon NotifyIconMain;
         private ContextMenuStrip ContextNotify;
         private ToolStripMenuItem ExitMenuItem;
+        private ToolStripMenuItem StartGameMenuItem;
         private ToolStripMenuItem openToolStripMenuItem;
         private ToolStripMenuItem linksToolStripMenuItem;
         private ToolStripMenuItem officialWebsiteToolStripMenuItem;

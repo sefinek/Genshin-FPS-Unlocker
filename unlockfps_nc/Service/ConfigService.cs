@@ -50,7 +50,7 @@ public class ConfigService
 
 	private void Sanitize()
 	{
-		Config.FPSTarget = Math.Clamp(Config.FPSTarget, 1, 420);
+		Config.FPSTarget = Math.Clamp(Config.FPSTarget, 1, 540);
 		Config.Priority = Math.Clamp(Config.Priority, 0, 5);
 		Config.CustomResX = Math.Clamp(Config.CustomResX, 200, 7680);
 		Config.CustomResY = Math.Clamp(Config.CustomResY, 200, 4320);
