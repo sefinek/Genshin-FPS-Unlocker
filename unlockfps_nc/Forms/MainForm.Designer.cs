@@ -57,11 +57,11 @@ namespace unlockfps_nc.Forms
 			CBAutoStart = new CheckBox();
 			BtnStartGame = new Button();
 			ToolTipMain = new ToolTip(components);
-			NotifyIconMain = new NotifyIcon(components);
 			ContextNotify = new ContextMenuStrip(components);
 			StartGameMenuItem = new ToolStripMenuItem();
 			ExitMenuItem = new ToolStripMenuItem();
 			pictureBox1 = new PictureBox();
+			NotifyIconMain = new NotifyIcon(components);
 			OptionsMenuStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)InputFPS).BeginInit();
 			((System.ComponentModel.ISupportInitialize)SliderFPS).BeginInit();
@@ -71,124 +71,125 @@ namespace unlockfps_nc.Forms
 			// 
 			// OptionsMenuStrip
 			// 
+			resources.ApplyResources(OptionsMenuStrip, "OptionsMenuStrip");
 			OptionsMenuStrip.BackColor = Color.FromArgb(32, 34, 37);
 			OptionsMenuStrip.Items.AddRange(new ToolStripItem[] { openToolStripMenuItem, linksToolStripMenuItem, optionsToolStripMenuItem, aboutToolStrip });
-			resources.ApplyResources(OptionsMenuStrip, "OptionsMenuStrip");
 			OptionsMenuStrip.Name = "OptionsMenuStrip";
+			ToolTipMain.SetToolTip(OptionsMenuStrip, resources.GetString("OptionsMenuStrip.ToolTip"));
 			// 
 			// openToolStripMenuItem
 			// 
+			resources.ApplyResources(openToolStripMenuItem, "openToolStripMenuItem");
 			openToolStripMenuItem.BackColor = Color.Transparent;
 			openToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { stellaLauncherToolStrip, checkHzToolStrip, configFileToolStrip });
 			openToolStripMenuItem.ForeColor = Color.DarkGray;
 			openToolStripMenuItem.Name = "openToolStripMenuItem";
-			resources.ApplyResources(openToolStripMenuItem, "openToolStripMenuItem");
 			// 
 			// stellaLauncherToolStrip
 			// 
-			stellaLauncherToolStrip.Name = "stellaLauncherToolStrip";
 			resources.ApplyResources(stellaLauncherToolStrip, "stellaLauncherToolStrip");
+			stellaLauncherToolStrip.Name = "stellaLauncherToolStrip";
 			stellaLauncherToolStrip.Click += OpenStella_Click;
 			// 
 			// checkHzToolStrip
 			// 
+			resources.ApplyResources(checkHzToolStrip, "checkHzToolStrip");
 			checkHzToolStrip.DropDownItems.AddRange(new ToolStripItem[] { systemInformationToolStripMenuItem, dxDiaxToolStripMenuItem });
 			checkHzToolStrip.Name = "checkHzToolStrip";
-			resources.ApplyResources(checkHzToolStrip, "checkHzToolStrip");
 			// 
 			// systemInformationToolStripMenuItem
 			// 
-			systemInformationToolStripMenuItem.Name = "systemInformationToolStripMenuItem";
 			resources.ApplyResources(systemInformationToolStripMenuItem, "systemInformationToolStripMenuItem");
+			systemInformationToolStripMenuItem.Name = "systemInformationToolStripMenuItem";
 			systemInformationToolStripMenuItem.Click += SysInf_Click;
 			// 
 			// dxDiaxToolStripMenuItem
 			// 
-			dxDiaxToolStripMenuItem.Name = "dxDiaxToolStripMenuItem";
 			resources.ApplyResources(dxDiaxToolStripMenuItem, "dxDiaxToolStripMenuItem");
+			dxDiaxToolStripMenuItem.Name = "dxDiaxToolStripMenuItem";
 			dxDiaxToolStripMenuItem.Click += DxDiag_Click;
 			// 
 			// configFileToolStrip
 			// 
-			configFileToolStrip.Name = "configFileToolStrip";
 			resources.ApplyResources(configFileToolStrip, "configFileToolStrip");
+			configFileToolStrip.Name = "configFileToolStrip";
 			configFileToolStrip.Click += ViewConfig_Click;
 			// 
 			// linksToolStripMenuItem
 			// 
+			resources.ApplyResources(linksToolStripMenuItem, "linksToolStripMenuItem");
 			linksToolStripMenuItem.BackColor = Color.Transparent;
 			linksToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { officialWebsiteToolStripMenuItem, youTubeToolStripMenuItem, gitHubToolStripMenuItem });
 			linksToolStripMenuItem.ForeColor = Color.DarkGray;
 			linksToolStripMenuItem.Name = "linksToolStripMenuItem";
-			resources.ApplyResources(linksToolStripMenuItem, "linksToolStripMenuItem");
 			// 
 			// officialWebsiteToolStripMenuItem
 			// 
-			officialWebsiteToolStripMenuItem.Name = "officialWebsiteToolStripMenuItem";
 			resources.ApplyResources(officialWebsiteToolStripMenuItem, "officialWebsiteToolStripMenuItem");
+			officialWebsiteToolStripMenuItem.Name = "officialWebsiteToolStripMenuItem";
 			officialWebsiteToolStripMenuItem.Click += OfficialWebsite_Click;
 			// 
 			// youTubeToolStripMenuItem
 			// 
-			youTubeToolStripMenuItem.Name = "youTubeToolStripMenuItem";
 			resources.ApplyResources(youTubeToolStripMenuItem, "youTubeToolStripMenuItem");
+			youTubeToolStripMenuItem.Name = "youTubeToolStripMenuItem";
 			youTubeToolStripMenuItem.Click += YouTube_Click;
 			// 
 			// gitHubToolStripMenuItem
 			// 
+			resources.ApplyResources(gitHubToolStripMenuItem, "gitHubToolStripMenuItem");
 			gitHubToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { repositoresToolStripMenuItem, sefineksProfileToolStripMenuItem });
 			gitHubToolStripMenuItem.Name = "gitHubToolStripMenuItem";
-			resources.ApplyResources(gitHubToolStripMenuItem, "gitHubToolStripMenuItem");
 			// 
 			// repositoresToolStripMenuItem
 			// 
+			resources.ApplyResources(repositoresToolStripMenuItem, "repositoresToolStripMenuItem");
 			repositoresToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { genshinImpactReShadeToolStripMenuItem, fPSUnlockerToolStripMenuItem });
 			repositoresToolStripMenuItem.Name = "repositoresToolStripMenuItem";
-			resources.ApplyResources(repositoresToolStripMenuItem, "repositoresToolStripMenuItem");
 			// 
 			// genshinImpactReShadeToolStripMenuItem
 			// 
-			genshinImpactReShadeToolStripMenuItem.Name = "genshinImpactReShadeToolStripMenuItem";
 			resources.ApplyResources(genshinImpactReShadeToolStripMenuItem, "genshinImpactReShadeToolStripMenuItem");
+			genshinImpactReShadeToolStripMenuItem.Name = "genshinImpactReShadeToolStripMenuItem";
 			genshinImpactReShadeToolStripMenuItem.Click += GIReShade_Click;
 			// 
 			// fPSUnlockerToolStripMenuItem
 			// 
-			fPSUnlockerToolStripMenuItem.Name = "fPSUnlockerToolStripMenuItem";
 			resources.ApplyResources(fPSUnlockerToolStripMenuItem, "fPSUnlockerToolStripMenuItem");
+			fPSUnlockerToolStripMenuItem.Name = "fPSUnlockerToolStripMenuItem";
 			fPSUnlockerToolStripMenuItem.Click += FpsUnlocker_Click;
 			// 
 			// sefineksProfileToolStripMenuItem
 			// 
-			sefineksProfileToolStripMenuItem.Name = "sefineksProfileToolStripMenuItem";
 			resources.ApplyResources(sefineksProfileToolStripMenuItem, "sefineksProfileToolStripMenuItem");
+			sefineksProfileToolStripMenuItem.Name = "sefineksProfileToolStripMenuItem";
 			sefineksProfileToolStripMenuItem.Click += SefinGitHub_Click;
 			// 
 			// optionsToolStripMenuItem
 			// 
+			resources.ApplyResources(optionsToolStripMenuItem, "optionsToolStripMenuItem");
 			optionsToolStripMenuItem.BackColor = Color.Transparent;
 			optionsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { SettingsMenuItem, SetupMenuItem });
 			optionsToolStripMenuItem.ForeColor = Color.DarkGray;
 			optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-			resources.ApplyResources(optionsToolStripMenuItem, "optionsToolStripMenuItem");
 			// 
 			// SettingsMenuItem
 			// 
-			SettingsMenuItem.Name = "SettingsMenuItem";
 			resources.ApplyResources(SettingsMenuItem, "SettingsMenuItem");
+			SettingsMenuItem.Name = "SettingsMenuItem";
 			SettingsMenuItem.Click += SettingsMenuItem_Click;
 			// 
 			// SetupMenuItem
 			// 
-			SetupMenuItem.Name = "SetupMenuItem";
 			resources.ApplyResources(SetupMenuItem, "SetupMenuItem");
+			SetupMenuItem.Name = "SetupMenuItem";
 			SetupMenuItem.Click += SetupMenuItem_Click;
 			// 
 			// aboutToolStrip
 			// 
+			resources.ApplyResources(aboutToolStrip, "aboutToolStrip");
 			aboutToolStrip.ForeColor = Color.DarkGray;
 			aboutToolStrip.Name = "aboutToolStrip";
-			resources.ApplyResources(aboutToolStrip, "aboutToolStrip");
 			aboutToolStrip.Click += AboutMenuItem_Click;
 			// 
 			// LabelFPS
@@ -196,6 +197,7 @@ namespace unlockfps_nc.Forms
 			resources.ApplyResources(LabelFPS, "LabelFPS");
 			LabelFPS.ForeColor = Color.White;
 			LabelFPS.Name = "LabelFPS";
+			ToolTipMain.SetToolTip(LabelFPS, resources.GetString("LabelFPS.ToolTip"));
 			// 
 			// InputFPS
 			// 
@@ -205,6 +207,7 @@ namespace unlockfps_nc.Forms
 			InputFPS.Maximum = new decimal(new int[] { 540, 0, 0, 0 });
 			InputFPS.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
 			InputFPS.Name = "InputFPS";
+			ToolTipMain.SetToolTip(InputFPS, resources.GetString("InputFPS.ToolTip"));
 			InputFPS.Value = new decimal(new int[] { 144, 0, 0, 0 });
 			// 
 			// SliderFPS
@@ -214,6 +217,7 @@ namespace unlockfps_nc.Forms
 			SliderFPS.Minimum = 1;
 			SliderFPS.Name = "SliderFPS";
 			SliderFPS.TickStyle = TickStyle.None;
+			ToolTipMain.SetToolTip(SliderFPS, resources.GetString("SliderFPS.ToolTip"));
 			SliderFPS.Value = 120;
 			// 
 			// CBAutoStart
@@ -228,32 +232,27 @@ namespace unlockfps_nc.Forms
 			// 
 			resources.ApplyResources(BtnStartGame, "BtnStartGame");
 			BtnStartGame.Name = "BtnStartGame";
+			ToolTipMain.SetToolTip(BtnStartGame, resources.GetString("BtnStartGame.ToolTip"));
 			BtnStartGame.UseVisualStyleBackColor = true;
 			BtnStartGame.Click += BtnStartGame_Click;
 			// 
-			// NotifyIconMain
-			// 
-			NotifyIconMain.BalloonTipIcon = ToolTipIcon.Info;
-			resources.ApplyResources(NotifyIconMain, "NotifyIconMain");
-			NotifyIconMain.ContextMenuStrip = ContextNotify;
-			NotifyIconMain.DoubleClick += NotifyIconMain_DoubleClick;
-			// 
 			// ContextNotify
 			// 
+			resources.ApplyResources(ContextNotify, "ContextNotify");
 			ContextNotify.Items.AddRange(new ToolStripItem[] { StartGameMenuItem, ExitMenuItem });
 			ContextNotify.Name = "ContextNotify";
-			resources.ApplyResources(ContextNotify, "ContextNotify");
+			ToolTipMain.SetToolTip(ContextNotify, resources.GetString("ContextNotify.ToolTip"));
 			// 
 			// StartGameMenuItem
 			// 
-			StartGameMenuItem.Name = "StartGameMenuItem";
 			resources.ApplyResources(StartGameMenuItem, "StartGameMenuItem");
+			StartGameMenuItem.Name = "StartGameMenuItem";
 			StartGameMenuItem.Click += StartGameMenuItem_Click;
 			// 
 			// ExitMenuItem
 			// 
-			ExitMenuItem.Name = "ExitMenuItem";
 			resources.ApplyResources(ExitMenuItem, "ExitMenuItem");
+			ExitMenuItem.Name = "ExitMenuItem";
 			ExitMenuItem.Click += ExitMenuItem_Click;
 			// 
 			// pictureBox1
@@ -262,6 +261,14 @@ namespace unlockfps_nc.Forms
 			pictureBox1.Image = ImageResources.fps_unlocker;
 			pictureBox1.Name = "pictureBox1";
 			pictureBox1.TabStop = false;
+			ToolTipMain.SetToolTip(pictureBox1, resources.GetString("pictureBox1.ToolTip"));
+			// 
+			// NotifyIconMain
+			// 
+			NotifyIconMain.BalloonTipIcon = ToolTipIcon.Info;
+			resources.ApplyResources(NotifyIconMain, "NotifyIconMain");
+			NotifyIconMain.ContextMenuStrip = ContextNotify;
+			NotifyIconMain.DoubleClick += NotifyIconMain_DoubleClick;
 			// 
 			// MainForm
 			// 
@@ -280,6 +287,7 @@ namespace unlockfps_nc.Forms
 			MainMenuStrip = OptionsMenuStrip;
 			MaximizeBox = false;
 			Name = "MainForm";
+			ToolTipMain.SetToolTip(this, resources.GetString("$this.ToolTip"));
 			FormClosing += MainForm_FormClosing;
 			Load += MainForm_Load;
 			Resize += MainForm_Resize;

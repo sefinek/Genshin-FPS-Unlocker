@@ -93,10 +93,12 @@ namespace unlockfps_nc.Forms
 			resources.ApplyResources(CBUseMobileUI, "CBUseMobileUI");
 			CBUseMobileUI.ForeColor = Color.White;
 			CBUseMobileUI.Name = "CBUseMobileUI";
+			ToolTipSettings.SetToolTip(CBUseMobileUI, resources.GetString("CBUseMobileUI.ToolTip"));
 			CBUseMobileUI.UseVisualStyleBackColor = true;
 			// 
 			// TabLaunchOptions
 			// 
+			resources.ApplyResources(TabLaunchOptions, "TabLaunchOptions");
 			TabLaunchOptions.BackColor = Color.FromArgb(46, 48, 51);
 			TabLaunchOptions.Controls.Add(CBUseMobileUI);
 			TabLaunchOptions.Controls.Add(ComboMonitor);
@@ -108,8 +110,8 @@ namespace unlockfps_nc.Forms
 			TabLaunchOptions.Controls.Add(CBCustomRes);
 			TabLaunchOptions.Controls.Add(CBFullscreen);
 			TabLaunchOptions.Controls.Add(CBPopup);
-			resources.ApplyResources(TabLaunchOptions, "TabLaunchOptions");
 			TabLaunchOptions.Name = "TabLaunchOptions";
+			ToolTipSettings.SetToolTip(TabLaunchOptions, resources.GetString("TabLaunchOptions.ToolTip"));
 			// 
 			// ComboMonitor
 			// 
@@ -117,12 +119,14 @@ namespace unlockfps_nc.Forms
 			ComboMonitor.DropDownStyle = ComboBoxStyle.DropDownList;
 			ComboMonitor.FormattingEnabled = true;
 			ComboMonitor.Name = "ComboMonitor";
+			ToolTipSettings.SetToolTip(ComboMonitor, resources.GetString("ComboMonitor.ToolTip"));
 			// 
 			// LabelMonitor
 			// 
 			resources.ApplyResources(LabelMonitor, "LabelMonitor");
 			LabelMonitor.ForeColor = Color.White;
 			LabelMonitor.Name = "LabelMonitor";
+			ToolTipSettings.SetToolTip(LabelMonitor, resources.GetString("LabelMonitor.ToolTip"));
 			// 
 			// ComboFullscreenMode
 			// 
@@ -131,6 +135,7 @@ namespace unlockfps_nc.Forms
 			ComboFullscreenMode.FormattingEnabled = true;
 			ComboFullscreenMode.Items.AddRange(new object[] { resources.GetString("ComboFullscreenMode.Items"), resources.GetString("ComboFullscreenMode.Items1") });
 			ComboFullscreenMode.Name = "ComboFullscreenMode";
+			ToolTipSettings.SetToolTip(ComboFullscreenMode, resources.GetString("ComboFullscreenMode.ToolTip"));
 			// 
 			// InputResY
 			// 
@@ -138,6 +143,7 @@ namespace unlockfps_nc.Forms
 			InputResY.Maximum = new decimal(new int[] { 4320, 0, 0, 0 });
 			InputResY.Minimum = new decimal(new int[] { 200, 0, 0, 0 });
 			InputResY.Name = "InputResY";
+			ToolTipSettings.SetToolTip(InputResY, resources.GetString("InputResY.ToolTip"));
 			InputResY.Value = new decimal(new int[] { 1080, 0, 0, 0 });
 			// 
 			// LabelX
@@ -145,6 +151,7 @@ namespace unlockfps_nc.Forms
 			resources.ApplyResources(LabelX, "LabelX");
 			LabelX.ForeColor = Color.White;
 			LabelX.Name = "LabelX";
+			ToolTipSettings.SetToolTip(LabelX, resources.GetString("LabelX.ToolTip"));
 			// 
 			// InputResX
 			// 
@@ -152,6 +159,7 @@ namespace unlockfps_nc.Forms
 			InputResX.Maximum = new decimal(new int[] { 7680, 0, 0, 0 });
 			InputResX.Minimum = new decimal(new int[] { 200, 0, 0, 0 });
 			InputResX.Name = "InputResX";
+			ToolTipSettings.SetToolTip(InputResX, resources.GetString("InputResX.ToolTip"));
 			InputResX.Value = new decimal(new int[] { 1920, 0, 0, 0 });
 			// 
 			// CBCustomRes
@@ -159,6 +167,7 @@ namespace unlockfps_nc.Forms
 			resources.ApplyResources(CBCustomRes, "CBCustomRes");
 			CBCustomRes.ForeColor = Color.White;
 			CBCustomRes.Name = "CBCustomRes";
+			ToolTipSettings.SetToolTip(CBCustomRes, resources.GetString("CBCustomRes.ToolTip"));
 			CBCustomRes.UseVisualStyleBackColor = true;
 			CBCustomRes.CheckedChanged += CBCustomRes_CheckedChanged;
 			// 
@@ -167,6 +176,7 @@ namespace unlockfps_nc.Forms
 			resources.ApplyResources(CBFullscreen, "CBFullscreen");
 			CBFullscreen.ForeColor = Color.White;
 			CBFullscreen.Name = "CBFullscreen";
+			ToolTipSettings.SetToolTip(CBFullscreen, resources.GetString("CBFullscreen.ToolTip"));
 			CBFullscreen.UseVisualStyleBackColor = true;
 			CBFullscreen.CheckedChanged += CBFullscreen_CheckedChanged;
 			// 
@@ -175,11 +185,13 @@ namespace unlockfps_nc.Forms
 			resources.ApplyResources(CBPopup, "CBPopup");
 			CBPopup.ForeColor = Color.White;
 			CBPopup.Name = "CBPopup";
+			ToolTipSettings.SetToolTip(CBPopup, resources.GetString("CBPopup.ToolTip"));
 			CBPopup.UseVisualStyleBackColor = true;
 			CBPopup.CheckedChanged += CBPopup_CheckedChanged;
 			// 
 			// TabGeneral
 			// 
+			resources.ApplyResources(TabGeneral, "TabGeneral");
 			TabGeneral.BackColor = Color.FromArgb(46, 48, 51);
 			TabGeneral.Controls.Add(CBHdr);
 			TabGeneral.Controls.Add(ComboPriority);
@@ -187,14 +199,15 @@ namespace unlockfps_nc.Forms
 			TabGeneral.Controls.Add(CBPowerSave);
 			TabGeneral.Controls.Add(CBAutoClose);
 			TabGeneral.Controls.Add(CBStartMinimized);
-			resources.ApplyResources(TabGeneral, "TabGeneral");
 			TabGeneral.Name = "TabGeneral";
+			ToolTipSettings.SetToolTip(TabGeneral, resources.GetString("TabGeneral.ToolTip"));
 			// 
 			// CBHdr
 			// 
 			resources.ApplyResources(CBHdr, "CBHdr");
 			CBHdr.ForeColor = Color.White;
 			CBHdr.Name = "CBHdr";
+			ToolTipSettings.SetToolTip(CBHdr, resources.GetString("CBHdr.ToolTip"));
 			CBHdr.UseVisualStyleBackColor = true;
 			// 
 			// ComboPriority
@@ -205,12 +218,14 @@ namespace unlockfps_nc.Forms
 			ComboPriority.FormattingEnabled = true;
 			ComboPriority.Items.AddRange(new object[] { resources.GetString("ComboPriority.Items"), resources.GetString("ComboPriority.Items1"), resources.GetString("ComboPriority.Items2"), resources.GetString("ComboPriority.Items3"), resources.GetString("ComboPriority.Items4"), resources.GetString("ComboPriority.Items5") });
 			ComboPriority.Name = "ComboPriority";
+			ToolTipSettings.SetToolTip(ComboPriority, resources.GetString("ComboPriority.ToolTip"));
 			// 
 			// LabelPriority
 			// 
 			resources.ApplyResources(LabelPriority, "LabelPriority");
 			LabelPriority.ForeColor = Color.White;
 			LabelPriority.Name = "LabelPriority";
+			ToolTipSettings.SetToolTip(LabelPriority, resources.GetString("LabelPriority.ToolTip"));
 			// 
 			// TabCtrlSettings
 			// 
@@ -219,12 +234,14 @@ namespace unlockfps_nc.Forms
 			TabCtrlSettings.Controls.Add(TabLaunchOptions);
 			TabCtrlSettings.Name = "TabCtrlSettings";
 			TabCtrlSettings.SelectedIndex = 0;
+			ToolTipSettings.SetToolTip(TabCtrlSettings, resources.GetString("TabCtrlSettings.ToolTip"));
 			// 
 			// LabelAutoSave
 			// 
 			resources.ApplyResources(LabelAutoSave, "LabelAutoSave");
 			LabelAutoSave.ForeColor = Color.MediumTurquoise;
 			LabelAutoSave.Name = "LabelAutoSave";
+			ToolTipSettings.SetToolTip(LabelAutoSave, resources.GetString("LabelAutoSave.ToolTip"));
 			// 
 			// SettingsForm
 			// 
@@ -238,6 +255,7 @@ namespace unlockfps_nc.Forms
 			MaximizeBox = false;
 			MinimizeBox = false;
 			Name = "SettingsForm";
+			ToolTipSettings.SetToolTip(this, resources.GetString("$this.ToolTip"));
 			FormClosing += SettingsForm_FormClosing;
 			Load += SettingsForm_Load;
 			TabLaunchOptions.ResumeLayout(false);
