@@ -19,7 +19,7 @@ internal static class Program
 	private static readonly string AppFullVersion = Application.ProductVersion;
 	private static readonly string AppPath = AppDomain.CurrentDomain.BaseDirectory;
 	private static readonly string AppData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Genshin Stella Mod");
-	private static readonly string[] SupportedLangs = ["en", "pl-PL", "fr-FR", "tr-TR", "ru-RU", "sv-SE", "es-ES", "pt-BR", "it-IT"];
+	private static readonly string[] SupportedLangs = ["en", "pl", "fr", "tr", "ru", "sv", "es", "pt-BR", "it"];
 	private static readonly string MutexName = "286B345F-A2EB-4FF3-83E9-2DD83B87694A";
 	private static readonly string EventName = "B2ABB8F2-E6B2-4E31-8A11-15F969ADF755";
 	private static readonly IniFile Settings = new(Path.Combine(AppData, "settings.ini"));
