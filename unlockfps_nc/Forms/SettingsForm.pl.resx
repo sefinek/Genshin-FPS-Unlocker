@@ -536,7 +536,7 @@
     <value>Top, Right</value>
   </data>
   <data name="TabLaunchOptions.Text" xml:space="preserve">
-    <value>Uruchamianie</value>
+    <value>Opcje uruchamiania</value>
   </data>
   <data name="InputResY.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 23</value>

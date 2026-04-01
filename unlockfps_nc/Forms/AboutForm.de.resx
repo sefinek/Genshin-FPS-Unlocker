@@ -141,7 +141,7 @@
     <value>AboutForm</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>If you need help or have any suggestions, please visit the official website:</value>
+    <value>Wenn du Hilfe benötigst oder Anregungen hast, besuche bitte die offizielle Webseite:</value>
   </data>
   <data name="LabelDescription.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>BottomCenter</value>
@@ -172,8 +172,7 @@
     <value>CenterParent</value>
   </data>
   <data name="LabelTitle.Text" xml:space="preserve">
-    <value>Genshin FPS Unlocker
-v{0}</value>
+    <value>Genshin FBS Freischalter v{0}</value>
   </data>
   <data name="linkLabel1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left, Right</value>
@@ -185,13 +184,13 @@ v{0}</value>
     <value>537, 213</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>About</value>
+    <value>Über</value>
   </data>
   <data name="&gt;&gt;linkLabel2.Type" xml:space="preserve">
     <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LabelDescription.Text" xml:space="preserve">
-    <value>This program is a fork of 3473684/genshin-fps-unlock, modified for compatibility with Stella Mod. It is distributed under the same license as the original project.</value>
+    <value>Dieses Programm ist ein Fork von 3473684/genshin-fps-unlock, modifiziert auf Kompatibilität mit Stella Mod. Es wird unter derselben Lizenz wie das original verteilt.</value>
   </data>
   <data name="LabelDescription.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>

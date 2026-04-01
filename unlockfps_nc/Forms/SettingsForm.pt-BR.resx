@@ -494,7 +494,7 @@
     <value>CBFullscreen</value>
   </data>
   <data name="CBAutoClose.Text" xml:space="preserve">
-    <value>Auto Close</value>
+    <value>Fechar Automaticamente</value>
   </data>
   <data name="&gt;&gt;TabGeneral.Parent" xml:space="preserve">
     <value>TabCtrlSettings</value>

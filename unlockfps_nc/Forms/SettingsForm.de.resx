@@ -130,7 +130,7 @@
     <value>133, 23</value>
   </data>
   <data name="ComboFullscreenMode.Items" xml:space="preserve">
-    <value>Borderless</value>
+    <value>Rahmenlos</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
   <data name="InputResY.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -143,7 +143,7 @@
     <value>127, 19</value>
   </data>
   <data name="ComboPriority.Items5" xml:space="preserve">
-    <value>Low</value>
+    <value>Niedrig</value>
   </data>
   <data name="CBPopup.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -158,7 +158,7 @@
     <value>Top, Left, Right</value>
   </data>
   <data name="TabGeneral.Text" xml:space="preserve">
-    <value>General</value>
+    <value>Allgemein</value>
   </data>
   <data name="LabelAutoSave.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 255</value>
@@ -176,7 +176,7 @@
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ComboFullscreenMode.Items1" xml:space="preserve">
-    <value>Exclusive</value>
+    <value>Exklusiv</value>
   </data>
   <data name="&gt;&gt;InputResX.Name" xml:space="preserve">
     <value>InputResX</value>
@@ -185,7 +185,7 @@
     <value>55, 23</value>
   </data>
   <data name="ComboPriority.Items3" xml:space="preserve">
-    <value>Normal</value>
+    <value>Normale</value>
   </data>
   <data name="&gt;&gt;InputResY.Name" xml:space="preserve">
     <value>InputResY</value>
@@ -212,13 +212,13 @@
     <value>Center</value>
   </data>
   <data name="CBStartMinimized.ToolTip" xml:space="preserve">
-    <value>Unlocker will minimize to the tray on startup</value>
+    <value>Der Entsperrer minimiert beim Start auf das Tray</value>
   </data>
   <data name="&gt;&gt;LabelMonitor.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="CBStartMinimized.Text" xml:space="preserve">
-    <value>Start the Tool Minimized</value>
+    <value>Starte das Tool minimiert</value>
   </data>
   <data name="CBAutoClose.Size" type="System.Drawing.Size, System.Drawing">
     <value>84, 19</value>
@@ -242,7 +242,7 @@
     <value>1</value>
   </data>
   <data name="CBPowerSave.ToolTip" xml:space="preserve">
-    <value>Limits FPS to 10 and lowers process priority when the game window loses focus (e.g. when minimized or in the background)</value>
+    <value>Begrenzt FPS auf 10 und senkt die Prozesspriorität, wenn das Spielfenster den Fokus verliert (z.B. wenn minimiert oder im Hintergrund)</value>
   </data>
   <data name="ComboMonitor.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 128</value>
@@ -284,7 +284,7 @@
     <value>3</value>
   </data>
   <data name="CBPopup.Text" xml:space="preserve">
-    <value>Borderless Window</value>
+    <value>Randloses Fenster</value>
   </data>
   <data name="CBUseMobileUI.ToolTip" xml:space="preserve">
     <value></value>
@@ -326,10 +326,10 @@
     <value>2</value>
   </data>
   <data name="CBPowerSave.Text" xml:space="preserve">
-    <value>Power Saving</value>
+    <value>Energiesparen</value>
   </data>
   <data name="LabelPriority.Text" xml:space="preserve">
-    <value>Game Process Priority:</value>
+    <value>Priorität des Spielprozesses:</value>
   </data>
   <data name="InputResX.ToolTip" xml:space="preserve">
     <value></value>
@@ -362,7 +362,7 @@
     <value>Top, Left, Right</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Settings</value>
+    <value>Einstellungen</value>
   </data>
   <data name="&gt;&gt;CBStartMinimized.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -380,7 +380,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="ComboPriority.Items2" xml:space="preserve">
-    <value>Above Normal</value>
+    <value>Überdurchschnittlich</value>
   </data>
   <data name="&gt;&gt;ComboMonitor.Name" xml:space="preserve">
     <value>ComboMonitor</value>
@@ -494,7 +494,7 @@
     <value>CBFullscreen</value>
   </data>
   <data name="CBAutoClose.Text" xml:space="preserve">
-    <value>Auto Close</value>
+    <value>Automatisch schließen</value>
   </data>
   <data name="&gt;&gt;TabGeneral.Parent" xml:space="preserve">
     <value>TabCtrlSettings</value>
@@ -515,7 +515,7 @@
     <value>Top, Left, Right</value>
   </data>
   <data name="ComboPriority.Items" xml:space="preserve">
-    <value>Realtime</value>
+    <value>Echtzeit</value>
   </data>
   <data name="ComboMonitor.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -536,7 +536,7 @@
     <value>Top, Right</value>
   </data>
   <data name="TabLaunchOptions.Text" xml:space="preserve">
-    <value>Launch options</value>
+    <value>Startoptionen</value>
   </data>
   <data name="InputResY.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 23</value>
@@ -566,7 +566,7 @@
     <value>0</value>
   </data>
   <data name="ComboPriority.Items4" xml:space="preserve">
-    <value>Below Normal</value>
+    <value>Unterdurchschnittlich</value>
   </data>
   <data name="CBPowerSave.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -575,16 +575,16 @@
     <value></value>
   </data>
   <data name="LabelAutoSave.Text" xml:space="preserve">
-    <value>All settings will be saved automatically.</value>
+    <value>Die Einstellungen werden automatisch gespeichert.</value>
   </data>
   <data name="CBHdr.Text" xml:space="preserve">
-    <value>Enable HDR</value>
+    <value>HDR aktivieren</value>
   </data>
   <data name="CBHdr.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="CBUseMobileUI.Text" xml:space="preserve">
-    <value>Use Mobile UI</value>
+    <value>Mobile UI verwenden</value>
   </data>
   <data name="CBUseMobileUI.Size" type="System.Drawing.Size, System.Drawing">
     <value>99, 19</value>
@@ -599,7 +599,7 @@
     <value>NoControl</value>
   </data>
   <data name="CBAutoClose.ToolTip" xml:space="preserve">
-    <value>Unlocker will automatically close when the game exits</value>
+    <value>Der Entsperrer wird automatisch geschlossen, wenn das Spiel beendet wird</value>
   </data>
   <data name="LabelPriority.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -701,7 +701,7 @@
     <value>TabCtrlSettings</value>
   </data>
   <data name="ComboPriority.Items1" xml:space="preserve">
-    <value>High</value>
+    <value>Hoch</value>
   </data>
   <data name="CBPopup.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -818,7 +818,7 @@
     <value>CBAutoClose</value>
   </data>
   <data name="CBCustomRes.Text" xml:space="preserve">
-    <value>Custom Resolution:</value>
+    <value>Benutzerdefinierte Auflösung:</value>
   </data>
   <data name="&gt;&gt;InputResY.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -836,7 +836,7 @@
     <value>TabGeneral</value>
   </data>
   <data name="CBFullscreen.Text" xml:space="preserve">
-    <value>Fullscreen:</value>
+    <value>Vollbild:</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
