@@ -19,7 +19,6 @@
 - Make sure your game is closed—the unlocker will automatically start the game for you.
 - Run the exe as administrator, and leave the exe running.
 > It requires administrator because the game needs to be started by the unlocker and the game requires such permission.
-- To load other third-party plugins, go to `Options>Settings>DLLs` and click add.
 
 ## Notes
 - HoYoverse (miHoYo) is well aware of this tool, and you will not get banned for using FPS unlock.
