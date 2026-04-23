@@ -172,7 +172,8 @@
     <value>CenterParent</value>
   </data>
   <data name="LabelTitle.Text" xml:space="preserve">
-    <value>Genshin FBS Freischalter v{0}</value>
+    <value>Genshin FBS Freischalter
+v{0}</value>
   </data>
   <data name="linkLabel1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left, Right</value>
