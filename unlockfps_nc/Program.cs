@@ -115,9 +115,9 @@ internal static class Program
 				};
 				Process.Start(processInfo);
 			}
-			catch
+			catch (Exception ex)
 			{
-				// . . .
+				Logger.Warn(ex, "UAC elevation cancelled or failed");
 			}
 
 			return;

@@ -1,5 +1,6 @@
 using System.Text;
 using System.Text.Json;
+using Microsoft.Win32;
 using unlockfps_nc.Model;
 using unlockfps_nc.Utility;
 
@@ -7,41 +8,43 @@ namespace unlockfps_nc.Service;
 
 public class ConfigService
 {
-	private const string ConfigName = "unlocker.config.json";
+	internal static readonly string ConfigPath = Path.Combine(AppContext.BaseDirectory, "unlocker.config.json");
+	private static readonly JsonSerializerOptions WriteOptions = new() { WriteIndented = true };
 	private readonly Lock _lock = new();
 
 	public ConfigService()
 	{
-		var configPath = GetFullPath();
-		IsFirstRun = !File.Exists(configPath);
+		IsFirstRun = !File.Exists(ConfigPath);
 
-		Program.Logger.Info(IsFirstRun ? $"First run detected, creating new config at: {configPath}" : $"Loading existing config from: {configPath}");
+		Program.Logger.Info(IsFirstRun ? $"First run detected, creating new config at: {ConfigPath}" : $"Loading existing config from: {ConfigPath}");
 
-		Load();
+		var loaded = Load();
 		Sanitize();
-		if (IsFirstRun) InitializePrimaryMonitor();
+		LoadGamePathFromRegistry();
+		if (!loaded) InitializePrimaryMonitor();
 	}
 
 	internal bool IsFirstRun { get; }
 	internal Config Config { get; private set; } = new();
 
-	private void Load()
+	private bool Load()
 	{
-		var configPath = GetFullPath();
-		if (!File.Exists(configPath)) return;
+		if (!File.Exists(ConfigPath)) return false;
 
 		try
 		{
-			var json = File.ReadAllText(configPath);
+			var json = File.ReadAllText(ConfigPath);
 			var config = JsonSerializer.Deserialize<Config>(json);
-			if (config == null) return;
+			if (config == null) return false;
 
 			Config = config;
 			Program.Logger.Info("Configuration loaded successfully");
+			return true;
 		}
 		catch (Exception e)
 		{
-			Program.Logger.Error(e, "Failed to load configuration file, using defaults");
+			Program.Logger.Error(e, "Failed to load configuration file, reinitializing from monitor data");
+			return false;
 		}
 	}
 
@@ -52,6 +55,18 @@ public class ConfigService
 		Config.CustomResX = Math.Clamp(Config.CustomResX, 200, 7680);
 		Config.CustomResY = Math.Clamp(Config.CustomResY, 200, 4320);
 		Config.MonitorNum = Math.Clamp(Config.MonitorNum, 1, 100);
+	}
+
+	private void LoadGamePathFromRegistry()
+	{
+		if (!string.IsNullOrEmpty(Config.GamePath)) return;
+
+		using var key = Registry.CurrentUser.OpenSubKey(Program.REGISTRY_PATH);
+		var gamePath = key?.GetValue("GamePath") as string;
+		if (string.IsNullOrEmpty(gamePath) || !File.Exists(gamePath)) return;
+
+		Config.GamePath = gamePath;
+		Program.Logger.Info($"Game path loaded from registry: {gamePath}");
 	}
 
 	private void InitializePrimaryMonitor()
@@ -94,44 +109,37 @@ public class ConfigService
 		Config.CustomResY = height > 0 ? height : 1080;
 	}
 
-	private static string GetFullPath()
-	{
-		var currentPath = AppContext.BaseDirectory;
-		return Path.Combine(currentPath, ConfigName);
-	}
-
 	internal void Save()
 	{
 		lock (_lock)
 		{
 			try
 			{
-				var configPath = GetFullPath();
-				var json = JsonSerializer.Serialize(Config, new JsonSerializerOptions { WriteIndented = true });
+				var json = JsonSerializer.Serialize(Config, WriteOptions);
 
 				var wasHidden = false;
-				if (File.Exists(configPath))
+				if (File.Exists(ConfigPath))
 				{
-					FileAttributes attributes = File.GetAttributes(configPath);
+					FileAttributes attributes = File.GetAttributes(ConfigPath);
 					if ((attributes & FileAttributes.Hidden) != 0)
 					{
 						wasHidden = true;
-						File.SetAttributes(configPath, attributes & ~FileAttributes.Hidden);
+						File.SetAttributes(ConfigPath, attributes & ~FileAttributes.Hidden);
 					}
 				}
 
 				try
 				{
-					using var fs = new FileStream(configPath, FileMode.Create, FileAccess.Write, FileShare.None, 4096, FileOptions.WriteThrough);
+					using var fs = new FileStream(ConfigPath, FileMode.Create, FileAccess.Write, FileShare.None, 4096, FileOptions.WriteThrough);
 					using var sw = new StreamWriter(fs, Encoding.UTF8);
 					sw.Write(json);
 				}
 				finally
 				{
-					if (wasHidden && File.Exists(configPath))
+					if (wasHidden && File.Exists(ConfigPath))
 					{
-						FileAttributes attributes = File.GetAttributes(configPath);
-						File.SetAttributes(configPath, attributes | FileAttributes.Hidden);
+						FileAttributes attributes = File.GetAttributes(ConfigPath);
+						File.SetAttributes(ConfigPath, attributes | FileAttributes.Hidden);
 					}
 				}
 

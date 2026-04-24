@@ -38,17 +38,25 @@ public partial class SettingsForm : Form
 		CBUseMobileUI.DataBindings.Add("Checked", _config, nameof(_config.UseMobileUI), true, DataSourceUpdateMode.OnPropertyChanged);
 
 		ComboPriority.DataBindings.Add("SelectedIndex", _config, nameof(_config.Priority), true, DataSourceUpdateMode.OnPropertyChanged);
-		ComboFullscreenMode.DataBindings.Add("SelectedIndex", _config, nameof(_config.IsExclusiveFullscreen), true, DataSourceUpdateMode.OnPropertyChanged);
-
-		InputResX.DataBindings.Add("Value", _config, nameof(_config.CustomResX), true, DataSourceUpdateMode.OnPropertyChanged);
-		InputResY.DataBindings.Add("Value", _config, nameof(_config.CustomResY), true, DataSourceUpdateMode.OnPropertyChanged);
 	}
 
 	private void SetupManualBindings()
 	{
+		CBPopup.CheckedChanged -= CBPopup_CheckedChanged;
+		CBFullscreen.CheckedChanged -= CBFullscreen_CheckedChanged;
+		CBCustomRes.CheckedChanged -= CBCustomRes_CheckedChanged;
+
 		CBPopup.Checked = _config.PopupWindow;
 		CBFullscreen.Checked = _config.Fullscreen;
 		CBCustomRes.Checked = _config.UseCustomRes;
+		ComboFullscreenMode.SelectedIndex = _config.IsExclusiveFullscreen ? 1 : 0;
+		InputResX.Value = _config.CustomResX;
+		InputResY.Value = _config.CustomResY;
+		TextBoxAdditionalCmdLine.Text = _config.AdditionalCommandLine;
+
+		CBPopup.CheckedChanged += CBPopup_CheckedChanged;
+		CBFullscreen.CheckedChanged += CBFullscreen_CheckedChanged;
+		CBCustomRes.CheckedChanged += CBCustomRes_CheckedChanged;
 	}
 
 	private void UpdateControlState()
@@ -64,12 +72,34 @@ public partial class SettingsForm : Form
 	private void SettingsForm_Load(object sender, EventArgs e)
 	{
 		UpdateControlState();
+		RefreshCommandPreview();
+		ComboFullscreenMode.SelectedIndexChanged += (_, _) =>
+		{
+			_config.IsExclusiveFullscreen = ComboFullscreenMode.SelectedIndex == 1;
+			RefreshCommandPreview();
+		};
+		InputResX.ValueChanged += (_, _) =>
+		{
+			_config.CustomResX = (int)InputResX.Value;
+			RefreshCommandPreview();
+		};
+		InputResY.ValueChanged += (_, _) =>
+		{
+			_config.CustomResY = (int)InputResY.Value;
+			RefreshCommandPreview();
+		};
+		TextBoxAdditionalCmdLine.TextChanged += (_, _) =>
+		{
+			_config.AdditionalCommandLine = TextBoxAdditionalCmdLine.Text;
+			RefreshCommandPreview();
+		};
 	}
 
 	private void CBCustomRes_CheckedChanged(object? sender, EventArgs e)
 	{
 		_config.UseCustomRes = CBCustomRes.Checked;
 		UpdateControlState();
+		RefreshCommandPreview();
 	}
 
 	private void CBPopup_CheckedChanged(object? sender, EventArgs e)
@@ -82,6 +112,7 @@ public partial class SettingsForm : Form
 		}
 
 		UpdateControlState();
+		RefreshCommandPreview();
 	}
 
 	private void CBFullscreen_CheckedChanged(object? sender, EventArgs e)
@@ -94,6 +125,7 @@ public partial class SettingsForm : Form
 		}
 
 		UpdateControlState();
+		RefreshCommandPreview();
 	}
 
 	private void SetupMonitorCombo()
@@ -120,6 +152,11 @@ public partial class SettingsForm : Form
 
 		InputResX.Value = _config.CustomResX;
 		InputResY.Value = _config.CustomResY;
+	}
+
+	private void RefreshCommandPreview()
+	{
+		TextBoxCommandLine.Text = ProcessService.BuildCommandLine(_config);
 	}
 
 	private void SettingsForm_FormClosing(object sender, FormClosingEventArgs e)

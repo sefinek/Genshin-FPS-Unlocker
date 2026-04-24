@@ -147,6 +147,18 @@ namespace unlockfps_nc.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Stella Mod Launcher not found:
+        ///{0}
+        ///
+        ///Please reinstall Genshin Stella Mod (stella.sefinek.net)..
+        /// </summary>
+        internal static string MainForm_OpenStella_ExecutableNotFound {
+            get {
+                return ResourceManager.GetString("MainForm_OpenStella_ExecutableNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to File not found.
         /// </summary>
         internal static string MainForm_ViewCfg_FileNotFound {
@@ -201,16 +213,6 @@ namespace unlockfps_nc.Properties {
         internal static string ProcessService_StartGame_GameNotFound {
             get {
                 return ResourceManager.GetString("ProcessService_StartGame_GameNotFound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to EnumProcessModulesEx failed ({0})
-        ///{1}.
-        /// </summary>
-        internal static string ProcessUtils_GetModuleBase_EnumProcessModulesExFailed {
-            get {
-                return ResourceManager.GetString("ProcessUtils_GetModuleBase_EnumProcessModulesExFailed", resourceCulture);
             }
         }
         

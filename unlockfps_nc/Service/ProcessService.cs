@@ -9,6 +9,16 @@ namespace unlockfps_nc.Service;
 
 public class ProcessService
 {
+	private static readonly uint[] PriorityClassMap =
+	[
+		0x100,  // Realtime
+		0x80,   // High
+		0x8000, // Above Normal
+		0x20,   // Normal
+		0x4000, // Below Normal
+		0x40,   // Idle (Low)
+	];
+
 	private readonly Config _config;
 	private readonly CancellationTokenSource _cts = new();
 
@@ -88,6 +98,12 @@ public class ProcessService
 		_gameHandle = pi.hProcess;
 		Program.Logger.Info($"Game process started successfully with PID: {pi.dwProcessId}");
 
+		var priorityClass = PriorityClassMap[_config.Priority];
+		if (!Native.SetPriorityClass(_gameHandle, priorityClass))
+			Program.Logger.Warn($"SetPriorityClass failed with error: {Marshal.GetLastWin32Error()}");
+		else
+			Program.Logger.Info($"Process priority set to index {_config.Priority} (class 0x{priorityClass:X})");
+
 		Native.CloseHandle(pi.hThread);
 		return true;
 	}
@@ -115,8 +131,7 @@ public class ProcessService
 		while (!_cts.IsCancellationRequested)
 		{
 			await Task.Delay(1000, _cts.Token);
-			using Process? process = Process.GetProcessesByName("GenshinImpact").FirstOrDefault()
-			                         ?? Process.GetProcessesByName("YuanShen").FirstOrDefault();
+			using Process? process = FindGameProcess();
 			if (process == null)
 				continue;
 
@@ -125,7 +140,7 @@ public class ProcessService
 			while (!ProcessUtils.IsWindowDrawing(process.MainWindowHandle) && !_cts.IsCancellationRequested)
 				await Task.Delay(1000, _cts.Token);
 
-			if (!_ipcService.Start(process.Id))
+			if (!await _ipcService.StartAsync(process.Id))
 			{
 				Program.Logger.Error("Failed to start IPC service, terminating unlocker poll");
 				return;
@@ -142,7 +157,7 @@ public class ProcessService
 			if (_gameHandle != IntPtr.Zero && _config.AutoClose)
 			{
 				Program.Logger.Info("Game exited, auto-closing application");
-				Application.Exit();
+				Application.OpenForms[0]?.Invoke(Application.Exit);
 			}
 
 			_ipcService.OnGameExit();
@@ -151,21 +166,34 @@ public class ProcessService
 		}
 	}
 
-	private string BuildCommandLine()
+	private static Process? FindGameProcess()
 	{
-		var commandLine = $"{_config.GamePath} ";
-		if (_config.PopupWindow)
+		var processes = Process.GetProcessesByName("GenshinImpact");
+		if (processes.Length == 0)
+			processes = Process.GetProcessesByName("YuanShen");
+		for (var i = 1; i < processes.Length; i++)
+			processes[i].Dispose();
+		return processes.FirstOrDefault();
+	}
+
+	private string BuildCommandLine() => BuildCommandLine(_config);
+
+	internal static string BuildCommandLine(Config config)
+	{
+		var commandLine = $"\"{config.GamePath}\" ";
+		if (config.PopupWindow)
 			commandLine += "-popupwindow ";
 
-		if (_config.UseCustomRes)
-			commandLine += $"-screen-width {_config.CustomResX} -screen-height {_config.CustomResY} ";
+		if (config.UseCustomRes)
+			commandLine += $"-screen-width {config.CustomResX} -screen-height {config.CustomResY} ";
 
-		commandLine += $"-screen-fullscreen {(_config.Fullscreen ? 1 : 0)} ";
-		if (_config.Fullscreen)
-			commandLine += $"-window-mode {(_config.IsExclusiveFullscreen ? "exclusive" : "borderless")} ";
+		commandLine += $"-screen-fullscreen {(config.Fullscreen ? 1 : 0)} ";
+		if (config.Fullscreen)
+			commandLine += $"-window-mode {(config.IsExclusiveFullscreen ? "exclusive" : "borderless")} ";
 
-		commandLine += $"-monitor {_config.MonitorNum} ";
-		commandLine += $"{_config.AdditionalCommandLine} ";
-		return commandLine;
+		commandLine += $"-monitor {config.MonitorNum} ";
+		if (!string.IsNullOrWhiteSpace(config.AdditionalCommandLine))
+			commandLine += $"{config.AdditionalCommandLine.Trim()} ";
+		return commandLine.TrimEnd();
 	}
 }

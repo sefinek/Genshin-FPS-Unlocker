@@ -37,7 +37,7 @@ public class IpcService(ConfigService configService) : IDisposable
 		_stubModule.Dispose();
 	}
 
-	internal bool Start(int processId)
+	internal async Task<bool> StartAsync(int processId)
 	{
 		Program.Logger.Info($"Starting IPC service for process ID: {processId}");
 
@@ -76,6 +76,13 @@ public class IpcService(ConfigService configService) : IDisposable
 
 		var stubWndProc = Native.GetProcAddress(_stubModule, "WndProc");
 		var targetWindow = ProcessUtils.GetWindowFromProcessId(processId);
+		if (targetWindow == IntPtr.Zero)
+		{
+			Program.Logger.Error($"Failed to find game window for process ID: {processId}");
+			MessageBox.Show(string.Format(Resources.IpcService_Start_FailedToSetWindowHook, Marshal.GetLastWin32Error(), Marshal.GetLastPInvokeErrorMessage()), Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			return false;
+		}
+
 		var threadId = Native.GetWindowThreadProcessId(targetWindow, out _);
 
 		_wndHook = Native.SetWindowsHookEx(3, stubWndProc, _stubModule, threadId);
@@ -120,7 +127,7 @@ public class IpcService(ConfigService configService) : IDisposable
 			}
 
 			retryCount++;
-			Task.Delay(1000).Wait();
+			await Task.Delay(1000);
 		}
 
 		return true;

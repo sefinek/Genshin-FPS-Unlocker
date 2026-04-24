@@ -67,9 +67,9 @@ public partial class MainForm : Form
 
 	private void SetupBindings()
 	{
-		InputFPS.DataBindings.Add("Value", _config, "FPSTarget", true, DataSourceUpdateMode.OnPropertyChanged);
-		SliderFPS.DataBindings.Add("Value", _config, "FPSTarget", true, DataSourceUpdateMode.OnPropertyChanged);
-		CBAutoStart.DataBindings.Add("Checked", _config, "AutoStart", true, DataSourceUpdateMode.OnPropertyChanged);
+		InputFPS.DataBindings.Add("Value", _config, nameof(_config.FPSTarget), true, DataSourceUpdateMode.OnPropertyChanged);
+		SliderFPS.DataBindings.Add("Value", _config, nameof(_config.FPSTarget), true, DataSourceUpdateMode.OnPropertyChanged);
+		CBAutoStart.DataBindings.Add("Checked", _config, nameof(_config.AutoStart), true, DataSourceUpdateMode.OnPropertyChanged);
 	}
 
 	private void SetupMenuItem_Click(object sender, EventArgs e)
@@ -86,6 +86,7 @@ public partial class MainForm : Form
 		{
 			Program.Logger.Info("Game path not configured, opening setup dialog");
 			ShowSetupForm();
+			if (!File.Exists(_config.GamePath)) return;
 		}
 
 		if (_processService.StartGame())
@@ -164,30 +165,22 @@ public partial class MainForm : Form
 	private void OpenStella_Click(object sender, EventArgs e)
 	{
 		using RegistryKey? key = Registry.CurrentUser.OpenSubKey(Program.REGISTRY_PATH);
-		if (key != null)
-		{
-			var o = key.GetValue("StellaPath");
-			if (o != null)
-			{
-				var stellaPath = o.ToString();
-				var exePath = Path.Combine(stellaPath!, "Stella Mod Launcher.exe");
+		var stellaPath = key?.GetValue("StellaPath")?.ToString();
 
-				ProcessStartInfo startInfo = new()
-				{
-					FileName = exePath,
-					WorkingDirectory = stellaPath
-				};
-				Process.Start(startInfo);
-			}
-			else
-			{
-				MessageBox.Show(Resources.MainForm_OpenStella_Click_TheRegistryKeyStellaPathWasNotFoundAreYouSureGenshinStellaModIsInstalled, Resources.Warning, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-			}
-		}
-		else
+		if (string.IsNullOrEmpty(stellaPath))
 		{
 			MessageBox.Show(Resources.MainForm_OpenStella_Click_TheRegistryKeyStellaPathWasNotFoundAreYouSureGenshinStellaModIsInstalled, Resources.Warning, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			return;
 		}
+
+		var exePath = Path.Combine(stellaPath, "Stella Mod Launcher.exe");
+		if (!File.Exists(exePath))
+		{
+			MessageBox.Show(string.Format(Resources.MainForm_OpenStella_ExecutableNotFound, exePath), Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			return;
+		}
+
+		Process.Start(new ProcessStartInfo { FileName = exePath, WorkingDirectory = stellaPath });
 	}
 
 	private void SysInf_Click(object sender, EventArgs e)
@@ -202,7 +195,7 @@ public partial class MainForm : Form
 
 	private void ViewConfig_Click(object sender, EventArgs e)
 	{
-		var cfgPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "unlocker.config.json");
+		var cfgPath = ConfigService.ConfigPath;
 		if (!File.Exists(cfgPath))
 		{
 			MessageBox.Show(Resources.MainForm_ViewCfg_TheUnlockerConfigJsonFileWasNotFound, Resources.MainForm_ViewCfg_FileNotFound, MessageBoxButtons.OK, MessageBoxIcon.Warning);

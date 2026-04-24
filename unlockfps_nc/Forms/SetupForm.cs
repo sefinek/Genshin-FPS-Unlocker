@@ -58,12 +58,11 @@ public partial class SetupForm : Form
 			var processHandle = IntPtr.Zero;
 			var processPath = string.Empty;
 
+			var sb = new StringBuilder(256);
 			Native.EnumWindows((hWnd, _) =>
 			{
-				const int maxCount = 256;
-				var sb = new StringBuilder(maxCount);
-
-				Native.GetClassName(hWnd, sb, maxCount);
+				sb.Clear();
+				Native.GetClassName(hWnd, sb, 256);
 				if (sb.ToString() != "UnityWndClass") return true;
 
 				Native.GetWindowThreadProcessId(hWnd, out var pid);
