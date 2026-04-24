@@ -178,6 +178,12 @@ GenshinImpact.exe lub YuanShen.exe</value>
 
 Skonfiguruj poprawną ścieżkę w Konfiguracji.</value>
   </data>
+  <data name="MainForm_OpenStella_ExecutableNotFound" xml:space="preserve">
+    <value>Nie znaleziono Stella Mod Launcher:
+{0}
+
+Proszę ponownie zainstalować Genshin Stella AMod (stella.sefinek.net).</value>
+  </data>
   <data name="ProcessService_StartGame_GameAlreadyRunning" xml:space="preserve">
     <value>Instancja gry jest już uruchomiona. Proszę zamknąć ją najpierw.</value>
   </data>
