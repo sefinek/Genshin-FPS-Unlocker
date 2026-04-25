@@ -11,12 +11,12 @@ public class ProcessService
 {
 	private static readonly uint[] PriorityClassMap =
 	[
-		0x100,  // Realtime
-		0x80,   // High
+		0x100, // Realtime
+		0x80, // High
 		0x8000, // Above Normal
-		0x20,   // Normal
+		0x20, // Normal
 		0x4000, // Below Normal
-		0x40,   // Idle (Low)
+		0x40 // Idle (Low)
 	];
 
 	private readonly Config _config;
@@ -168,7 +168,7 @@ public class ProcessService
 
 	private static Process? FindGameProcess()
 	{
-		var processes = Process.GetProcessesByName("GenshinImpact");
+		Process[] processes = Process.GetProcessesByName("GenshinImpact");
 		if (processes.Length == 0)
 			processes = Process.GetProcessesByName("YuanShen");
 		for (var i = 1; i < processes.Length; i++)
@@ -176,7 +176,10 @@ public class ProcessService
 		return processes.FirstOrDefault();
 	}
 
-	private string BuildCommandLine() => BuildCommandLine(_config);
+	private string BuildCommandLine()
+	{
+		return BuildCommandLine(_config);
+	}
 
 	internal static string BuildCommandLine(Config config)
 	{

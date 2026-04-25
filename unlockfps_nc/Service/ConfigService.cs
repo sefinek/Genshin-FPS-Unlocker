@@ -61,7 +61,7 @@ public class ConfigService
 	{
 		if (!string.IsNullOrEmpty(Config.GamePath)) return;
 
-		using var key = Registry.CurrentUser.OpenSubKey(Program.REGISTRY_PATH);
+		using RegistryKey? key = Registry.CurrentUser.OpenSubKey(Program.REGISTRY_PATH);
 		var gamePath = key?.GetValue("GamePath") as string;
 		if (string.IsNullOrEmpty(gamePath) || !File.Exists(gamePath)) return;
 
